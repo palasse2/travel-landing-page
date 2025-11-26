@@ -1,0 +1,276 @@
+
+    /* --- GLOBAL STYLES --- */
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    .lp-wrapper {
+        font-family: 'Poppins', sans-serif;
+        color: #222;
+        background-color: #fff;
+        line-height: 1.5;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .lp-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    /* --- HERO SECTION --- */
+    .hero {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #004466 0%, #006699 100%);
+        color: #fff;
+        border-radius: 12px;
+    }
+    
+    .hero-text {
+        flex: 1;
+        min-width: 280px;
+        text-align: left;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-text p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero .cta-button {
+        background-color: #ffcc00;
+        color: #004466 !important;
+        padding: 12px 28px;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+    
+    .hero .cta-button:hover {
+        background-color: #e6b800;
+    }
+    
+    .hero-img {
+        flex: 1;
+        min-width: 250px;
+        text-align: center;
+    }
+    
+    .hero-img img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .payment-methods img {
+        width: 180px;   /* adjust size */
+        max-width: 100%;
+        display: block;
+        margin-top: 15px;
+    }
+    
+    /* --- PREVIEW IMAGES --- */
+    .preview-images {
+        padding: 50px 20px;
+        text-align: center;
+    }
+    
+    .preview-images h2 {
+        font-size: 1.6rem;
+        color: #004466;
+        margin-bottom: 25px;
+    }
+    
+    .image-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .image-grid img {
+        width: calc(33.33% - 13.33px);
+        max-width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        transition: transform 0.3s;
+    }
+    
+    .image-grid img:hover {
+        transform: scale(1.05);
+    }
+    
+    /* --- DESCRIPTION SECTION --- */
+    .description {
+        padding: 40px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 30px;
+        text-align: left;
+    
+    }
+    .benefits2 {
+        text-align: left;   /* Lines start from left */
+    }
+    
+    .benefits2 p {
+        margin: 5px 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+    
+    .desc-text {
+        flex: 1;
+        min-width: 280px;
+    }
+    
+    .desc-text h2 {
+        font-size: 1.6rem;
+        color: #004466;
+        margin-bottom: 15px;
+    }
+    
+    .desc-text p {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+    }
+    
+    .desc-image {
+        flex: 1;
+        min-width: 250px;
+        text-align: center;
+    }
+    
+    .desc-image img {
+        max-width: 350px;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+    .desc-image img {
+        width: 100%;
+        border-radius: 12px;
+    }
+    
+    .desc-bottom-img {
+        margin-top: 20px;
+    }
+    .toc {
+        text-align: left;   /* Make the alignment start from the left */
+    }
+    
+    .toc p {
+        margin: 5px 0;      /* Equal spacing */
+        padding: 0;         /* No indentation */
+        line-height: 1.6;   /* Clean spacing */
+    }
+    
+    /* --- BENEFITS SECTION --- */
+    .benefits {
+        padding: 50px 20px;
+    }
+    
+    .benefits h2 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+        color: #004466;
+    }
+    
+    .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        justify-items: center;
+    }
+    
+    .benefit-card {
+        background: #f5f5f5;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .benefit-card:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 12px 25px rgba(0, 68, 102, 0.15);
+    }
+    
+    .benefit-card .icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .benefit-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #004466;
+    }
+    
+    .benefit-card p {
+        font-size: 0.95rem;
+        color: #333;
+    }
+    
+    /* --- FINAL CTA --- */
+    .final-cta {
+        padding: 50px 20px;
+        background-color: #004466;
+        color: #fff;
+        border-radius: 12px;
+        text-align: center;
+    }
+    
+    .final-cta h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    .final-cta .cta-button {
+        background-color: #ffcc00;
+        color: #004466 !important;
+        padding: 12px 28px;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 8px;
+    }
+    
+    .final-cta .cta-button:hover {
+        background-color: #e6b800;
+    }
+    
+    /* --- RESPONSIVE --- */
+    @media (max-width:1024px) {
+        .benefit-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width:768px) {
+        .hero { flex-direction: column; text-align: center; }
+        .hero-text { text-align: center; }
+        .image-grid img { width: 100%; max-width: 300px; }
+        .description { flex-direction: column; text-align: center; }
+        .desc-image { margin-top: 20px; }
+        
+        /* THE FIX IS HERE: Ensures cards stack on small screens */
+        .benefit-grid { 
+            grid-template-columns: 1fr; 
+            gap: 15px; /* Added for better spacing */
+        }
+    }
+ 
