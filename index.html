@@ -12,9 +12,30 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Favicon placeholder -->
+  <!-- Favicon -->
   <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '933661255903730');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=933661255903730&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
 </head>
+  
 <body>
     <div class="lp-wrapper">
     
@@ -22,7 +43,12 @@
             <div class="hero-text">
                 <h1>Unlocking Morocco: The Ultimate Travel Guide for 2025</h1>
                 <p>🌍 Discover Morocco like a local with this practical guide — hidden gems, cultural tips, itineraries, and more.</p>
-                <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="cta-button">Download Your Copy - $9.99</a>
+                <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" 
+                   class="cta-button" 
+                   onclick="fbq('track', 'InitiateCheckout'); fbq('track', 'Lead');">
+                   Download Your Copy - $9.99
+                </a>
+
                 <div class="payment-methods">
                     <img src="https://i.ibb.co/x8HbqXPp/payment-Capture-removebg-preview.png" alt="Payment Methods">
                 </div>
@@ -75,7 +101,7 @@
                     
     
                 <h2>🎁 Bonus</h2>
-                <p>Free WhatsApp Arrival Support: local tips, neighborhood advice, safety guidance, and help navigating Morocco. Numbers auto-delete after 30 days <b>(GDPR-friendly)</b>  .</p>
+                <p>Free WhatsApp Arrival Support: local tips, neighborhood advice, safety guidance, and help navigating Morocco. Numbers auto-delete after 30 days <b>(GDPR-friendly)</b>.</p>
     
                 <h2>Who This Guide Is For</h2>
                 <p>First-time visitors, backpackers, digital nomads, adventurers, or anyone seeking a local perspective. Travel smarter, safer, and deeper with this guide.</p>
@@ -102,9 +128,13 @@
     
         <div class="lp-inner final-cta">
             <h2>Start Your Moroccan Adventure Today!</h2>
-            <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="cta-button">Get Instant Access - $9.99</a>
+            <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" 
+               class="cta-button" 
+               onclick="fbq('track', 'InitiateCheckout'); fbq('track', 'Lead');">
+               Get Instant Access - $9.99
+            </a>
         </div>
     
     </div>
 </body>
-    
+</html>
