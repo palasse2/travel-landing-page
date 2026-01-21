@@ -1,279 +1,179 @@
+/* --- GLOBAL STYLES --- */
+body, html {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    overflow-x: hidden; /* prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+}
 
-    /* --- GLOBAL STYLES --- */
-    body {
-        font-family: 'Inter', sans-serif;
-    }
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
 
-    .lp-wrapper {
-        font-family: 'Poppins', sans-serif;
-        color: #222;
-        background-color: #fff;
-        line-height: 1.5;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .lp-inner {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 20px;
-        text-align: center;
-    }
-    
-    /* --- HERO SECTION --- */
-    .hero {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        padding: 60px 20px;
-        background: linear-gradient(135deg, #004466 0%, #006699 100%);
-        color: #fff;
-        border-radius: 12px;
-    }
-    
-    .hero-text {
-        flex: 1;
-        min-width: 280px;
-        text-align: left;
-    }
-    
-    .hero-text h1 {
-        font-size: 2rem;
-        margin-bottom: 15px;
-    }
-    
-    .hero-text p {
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-    }
-    
-    .hero .cta-button {
-        background-color: #ffcc00;
-        color: #004466 !important;
-        padding: 12px 28px;
-        font-weight: 600;
-        text-decoration: none;
-        border-radius: 8px;
-        transition: 0.3s;
-    }
-    
-    .hero .cta-button:hover {
-        background-color: #e6b800;
-    }
-    
-    .hero-img {
-        flex: 1;
-        min-width: 250px;
-        text-align: center;
-    }
-    
-    .hero-img img {
-        max-width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    .payment-methods img {
-        width: 180px;   /* adjust size */
-        max-width: 100%;
-        display: block;
-        margin-top: 15px;
-    }
-    
-    /* --- PREVIEW IMAGES --- */
-    .preview-images {
-        padding: 50px 20px;
-        text-align: center;
-    }
-    
-    .preview-images h2 {
-        font-size: 1.6rem;
-        color: #004466;
-        margin-bottom: 25px;
-    }
-    
-    .image-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-    
-    .image-grid img {
-        width: calc(33.33% - 13.33px);
-        max-width: 300px;
-        border-radius: 10px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        transition: transform 0.3s;
-    }
-    
-    .image-grid img:hover {
-        transform: scale(1.05);
-    }
-    
-    /* --- DESCRIPTION SECTION --- */
-    .description {
-        padding: 40px 20px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 30px;
-        text-align: left;
-    
-    }
-    .benefits2 {
-        text-align: left;   /* Lines start from left */
-    }
-    
-    .benefits2 p {
-        margin: 5px 0;
-        padding: 0;
-        line-height: 1.6;
-    }
-    
-    .desc-text {
-        flex: 1;
-        min-width: 280px;
-    }
-    
-    .desc-text h2 {
-        font-size: 1.6rem;
-        color: #004466;
-        margin-bottom: 15px;
-    }
-    
-    .desc-text p {
-        margin-bottom: 10px;
-        font-size: 0.95rem;
-    }
-    
-    .desc-image {
-        flex: 1;
-        min-width: 250px;
-        text-align: center;
-    }
-    
-    .desc-image img {
-        max-width: 350px;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-    }
-    .desc-image img {
-        width: 100%;
-        border-radius: 12px;
-    }
-    
-    .desc-bottom-img {
-        margin-top: 20px;
-    }
-    .toc {
-        text-align: left;   /* Make the alignment start from the left */
-    }
-    
-    .toc p {
-        margin: 5px 0;      /* Equal spacing */
-        padding: 0;         /* No indentation */
-        line-height: 1.6;   /* Clean spacing */
-    }
-    
-    /* --- BENEFITS SECTION --- */
-    .benefits {
-        padding: 50px 20px;
-    }
-    
-    .benefits h2 {
-        font-size: 1.6rem;
-        margin-bottom: 25px;
-        color: #004466;
-    }
-    
-    .benefit-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        justify-items: center;
-    }
-    
-    .benefit-card {
-        background: #f5f5f5;
-        padding: 25px;
-        border-radius: 15px;
-        text-align: center;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .benefit-card:hover {
-        transform: translateY(-5px) scale(1.03);
-        box-shadow: 0 12px 25px rgba(0, 68, 102, 0.15);
-    }
-    
-    .benefit-card .icon {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-    }
-    
-    .benefit-card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-        color: #004466;
-    }
-    
-    .benefit-card p {
-        font-size: 0.95rem;
-        color: #333;
-    }
-    
-    /* --- FINAL CTA --- */
-    .final-cta {
-        padding: 50px 20px;
-        background-color: #004466;
-        color: #fff;
-        border-radius: 12px;
-        text-align: center;
-    }
-    
-    .final-cta h2 {
-        font-size: 1.6rem;
-        margin-bottom: 20px;
-    }
-    
-    .final-cta .cta-button {
-        background-color: #ffcc00;
-        color: #004466 !important;
-        padding: 12px 28px;
-        font-weight: 600;
-        text-decoration: none;
-        border-radius: 8px;
-    }
-    
-    .final-cta .cta-button:hover {
-        background-color: #e6b800;
-    }
-    
-    /* --- RESPONSIVE --- */
-    @media (max-width:1024px) {
-        .benefit-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    
-    @media (max-width:768px) {
-        .hero { flex-direction: column; text-align: center; }
-        .hero-text { text-align: center; }
-        .image-grid img { width: 100%; max-width: 300px; }
-        .description { flex-direction: column; text-align: center; }
-        .desc-image { margin-top: 20px; }
-        
-        /* THE FIX IS HERE: Ensures cards stack on small screens */
-        .benefit-grid { 
-            grid-template-columns: 1fr; 
-            gap: 15px; /* Added for better spacing */
-        }
-    }
+h1 { font-weight: 700; }
+h2 { font-weight: 600; }
+h3 { font-weight: 600; }
 
- 
+/* --- NAVIGATION --- */
+.main-nav {
+    width: 100%;
+    position: relative;
+    background: none;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 999;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #004466;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover { color: #ffcc00; }
 
 
+/* --- LAYOUT SECTIONS --- */
+.lp-wrapper { font-family: 'Poppins', sans-serif; color: #222; background-color: #fff; line-height: 1.5; margin:0; padding:0; }
+.lp-inner { max-width: 900px; margin:0 auto; padding:20px; text-align:center; }
+
+/* --- HERO SECTION --- */
+.hero { display: flex; flex-wrap: wrap; justify-content:center; align-items:center; gap:30px; padding:60px 20px; background: linear-gradient(135deg,#004466 0%,#006699 100%); color:#fff; border-radius:12px; }
+.hero-text { flex:1; min-width:280px; text-align:left; }
+.hero-text h1 { font-size:2rem; margin-bottom:15px; }
+.hero-text p { font-size:0.95rem; margin-bottom:20px; }
+.hero .cta-button { background-color:#ffcc00; color:#004466 !important; padding:12px 28px; font-weight:600; text-decoration:none; border-radius:8px; transition:0.3s; }
+.hero .cta-button:hover { background-color:#e6b800; }
+.hero-img { flex:1; min-width:250px; text-align:center; }
+.hero-img img { max-width:100%; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.2); }
+.payment-methods img { width:180px; max-width:100%; display:block; margin-top:15px; }
+
+/* --- PREVIEW IMAGES --- */
+.preview-images { padding:50px 20px; text-align:center; }
+.preview-images h2 { font-size:1.6rem; color:#004466; margin-bottom:25px; }
+.image-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+.image-grid img { width:calc(33.33% - 13.33px); max-width:300px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.15); transition: transform 0.3s; }
+.image-grid img:hover { transform: scale(1.05); }
+
+/* --- BONUS SECTION --- */
+.bonus-section { padding:50px 20px; }
+.bonus-section h2 { font-size:1.6rem; color:#004466; margin-bottom:25px; }
+.bonus-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; justify-items:center; }
+.bonus-item img { width:100%; max-width:220px; border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.15); }
+.bonus-btn { display:inline-block; margin-top:12px; padding:10px 20px; background-color:#004466; color:#fff; border-radius:8px; text-decoration:none; font-weight:600; transition:0.3s; }
+.bonus-btn:hover { background-color:#006699; }
+
+/* --- DESCRIPTION SECTION --- */
+.description { padding:40px 20px; display:grid; grid-template-columns:1fr 360px; gap:30px; align-items:start; text-align:left; background:transparent; }
+.desc-text { background: linear-gradient(180deg,#ffffff,#fbfdff); border-radius:12px; padding:26px; box-shadow:0 8px 24px rgba(2,6,23,0.06); border-left:6px solid #004466; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.desc-text h2 { font-family:'Montserrat',sans-serif; color:#004466; font-size:1.4rem; margin-bottom:12px; position:relative; }
+.desc-text h2::after { content:""; display:block; width:64px; height:4px; background:#ffcc00; border-radius:3px; margin-top:10px; }
+.benefits2 p { margin:8px 0; text-align: left;  padding-left:36px; position:relative; line-height:1.6; font-size:0.96rem; color:#222; }
+.benefits2 p::before { content:"✓"; position:absolute; left:0; top:0; color:#006699; font-weight:700; font-size:0.9rem; background:#eaf7fb; width:26px; height:26px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; box-shadow:0 2px 6px rgba(2,6,23,0.04); }
+.toc {
+    background: #f7fbfd;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.toc p {
+    margin: 12px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #333;
+}
+
+.toc p::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #006699;
+    font-weight: 700;
+}
+.desc-image { text-align:center; position:relative; }
+.desc-image img { width:100%; max-width:320px; transition: transform 0.35s ease, box-shadow 0.35s ease; display:block; margin:0 auto; }
+.desc-bottom-img { margin-top:18px; max-width:280px; display:block; margin-left:auto; margin-right:auto; }
+.desc-text:hover { transform:translateY(-6px); box-shadow:0 18px 40px rgba(2,6,23,0.10); }
+
+/* --- SHOP SECTION --- */
+.shop { padding:60px 20px; text-align:center; background:#f5f8fa; border-radius:16px; margin-top:50px; box-shadow:0 8px 20px rgba(0,0,0,0.08); }
+.shop h2 { font-size:2rem; color:#004466; margin-bottom:40px; position:relative; }
+.shop h2::after { content:""; display:block; width:80px; height:3px; background:linear-gradient(90deg,#004466,#ffcc00); margin:12px auto 0 auto; border-radius:2px; }
+.shop-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; }
+.shop-card { background:#fff; border-radius:16px; padding:10px; text-align:center; transition:transform 0.4s, box-shadow 0.4s; width:200px; height:220px; overflow:hidden; border:1px solid #e0e0e0; }
+.shop-card:hover { transform:translateY(-8px) scale(1.03); box-shadow:0 16px 30px rgba(0,68,102,0.15); }
+.shop-card img { width:100%; height:100%; object-fit:cover; border-radius:12px; transition:transform 0.3s, opacity 0.3s; }
+.shop-button { display: inline-block; background: linear-gradient(135deg, #004466, #006699); color: #fff; padding: 16px 40px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.1rem;margin-top: 30px;transition: 0.3s;box-shadow: 0 8px 20px rgba(0,68,102,0.2);}  
+.shop-button:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,68,102,0.3); }
+
+/* --- SHOW ONLY 3 PRODUCTS ON MOBILE --- */
+@media (max-width:768px){
+    .shop-card:nth-child(n+4) { display:none; }
+    .payment-methods img { width:180px; max-width:100%; display:block; margin-top:15px;place-items: center; }
+}
+
+
+/* --- FINAL CTA --- */
+.final-cta { padding:50px 20px; background-color:#004466; color:#fff; border-radius:12px; text-align:center; }
+.final-cta h2 { font-size:1.6rem; margin-bottom:20px; }
+.final-cta .cta-button { background-color:#ffcc00; color:#004466 !important; padding:12px 28px; font-weight:600; text-decoration:none; border-radius:8px; }
+.final-cta .cta-button:hover { background-color:#e6b800; }
+
+/* --- FOOTER --- */
+.site-footer { background-color:#004466; color:#fff; text-align:center; padding:25px 20px; margin-top:50px; border-radius:12px 12px 0 0; font-size:0.95rem; }
+.site-footer .footer-links { margin-bottom:12px; }
+.site-footer .footer-links a { color:#ffcc00; margin:0 12px; text-decoration:none; transition:0.3s; }
+.site-footer .footer-links a:hover { text-decoration:underline; color:#e6b800; }
+.site-footer p { margin:0; color:#fff; }
+
+/* --- RESPONSIVE FIXES --- */
+@media (max-width:1024px){
+    .benefit-grid { grid-template-columns:repeat(2,1fr); }
+    .description { grid-template-columns:1fr 280px; }
+    .desc-image img { max-width:280px; }
+    .shop-card { width:calc(50% - 15px); height:200px; }
+    .bonus-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media (max-width:768px){
+    .hero { flex-direction:column; text-align:center; }
+    .hero-text { text-align:center; }
+    .image-grid img { width:100%; max-width:300px; }
+    .description { display:flex; flex-direction:column; text-align:center; gap:18px; }
+    .desc-text { border-left:none; padding:18px; box-shadow:0 6px 18px rgba(2,6,23,0.04); }
+    .toc { text-align:left; margin:8px auto; max-width:680px; }
+    .desc-bottom-img { margin-top:12px; }
+    .benefits2 p::before { left:8px; }
+    .desc-text h2::after { margin-left:auto; margin-right:auto; }
+    .desc-image { display:none; }
+    .shop-card { width:calc(50% - 15px); height:180px; } 
+}
+
+@media (max-width:480px){
+    .shop-card { width:100%; height:180px; }
+}
+@media (max-width: 768px) {
+    .shop-card {
+        height: auto; /* let card grow */
+    }
+
+    .shop-card img {
+        height: auto;          /* show full image */
+        object-fit: contain;   /* no cropping */
+    }
+}
