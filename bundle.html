@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morocco Travel Bundle - Save 40% | Travel Readz</title>
+    <meta name="description" content="Complete Morocco travel collection. Get the ebook plus 4 premium guides. Limited time bundle offer - Save 40%">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0f172a;
+        }
+
+        /* Announcement Banner */
+        .announcement {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .announcement span {
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .bundle-badge {
+            display: inline-block;
+            background: #dc2626;
+            color: #ffffff;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .price-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+        }
+
+        .original-price {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .bundle-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .savings {
+            display: inline-block;
+            background: #d312dd;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #11bc33;
+            color: #ffffff;
+            padding: 1.25rem 3rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 105, 9, 0.3);
+        }
+
+        .hero-cta:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(220,38,38,0.4);
+        }
+
+        .payment-icons {
+            margin-top: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .payment-icons img {
+            max-width: 200px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        /* Bundle Contents */
+        .bundle-contents {
+            background: #f8fafc;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: #0f172a;
+            margin-bottom: 3rem;
+        }
+
+        .main-product {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.375rem 0.875rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .main-product h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        .main-product p {
+            color: #475569;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list li {
+            color: #475569;
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .product-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .main-product-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+        }
+
+        /* Bonus Items */
+        .bonus-section-title {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .bonus-section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #dc2626;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .bonus-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+        }
+
+        .bonus-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .bonus-content {
+            padding: 1.5rem;
+        }
+
+        .bonus-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .bonus-value {
+            color: #16a34a;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Total Value Section */
+        .value-breakdown {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 600px;
+            margin: 3rem auto 0;
+        }
+
+        .value-breakdown h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .value-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1.125rem;
+        }
+
+        .value-row:last-child {
+            border-bottom: none;
+            padding-top: 1.5rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #0f172a;
+        }
+
+        .value-label {
+            color: #475569;
+        }
+
+        .value-amount {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .total-savings {
+            background: #dcfce7;
+            color: #166534;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #ffffff;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .testimonial-text {
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1rem;
+        }
+
+        .reviewer-name {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 5rem 2rem;
+            border-radius: 16px;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #fecaca;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #dc2626;
+            padding: 1.25rem 3rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: #16a34a;
+            color: #ffff;
+            box-shadow: 0 12px 28px rgba(255, 255, 255, 0.3);
+        }
+
+        .guarantee {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #fecaca;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .bundle-price {
+                font-size: 2.5rem;
+            }
+
+            .main-product {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .final-cta h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Announcement Banner -->
+    <div class="announcement">
+        <span>🎁 Limited Time Offer - Save 50% on Complete Bundle</span>
+    </div>
+
+   
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <span class="bundle-badge">Bundle Offer</span>
+            <h1>Complete Morocco Travel Collection</h1>
+            <p class="hero-subtitle">Get everything you need for an incredible Morocco journey. Premium ebook + 4 exclusive travel guides.</p>
+            
+            <div class="price-container">
+                <div class="original-price">Regular Price: $59.95</div>
+                <div class="bundle-price">$29.99</div>
+                <span class="savings">Save 50%</span>
+            </div>
+
+            <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="hero-cta">Get Complete Bundle Now</a>
+            
+            <div class="payment-icons">
+                <img src="https://i.ibb.co/x8HbqXPp/payment-Capture-removebg-preview.png" alt="Payment Methods">
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundle Contents -->
+    <section class="section bundle-contents">
+        <div class="container">
+            <h2 class="section-title">What's Included in Your Bundle</h2>
+
+            <!-- Main Product -->
+            <div class="main-product">
+                <div>
+                    <span class="product-badge">Main Product</span>
+                    <h3>Travel Readz Morocco Ebook</h3>
+                    <p>Your comprehensive guide to exploring Morocco like a local. Over 30 pages of insider tips, detailed itineraries, and essential travel information.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Complete city guides for Marrakech, Fes, Atlas montain & more</li>
+                        <li>Detailed 7, 10, and 14-day itineraries</li>
+                        <li>Nature & Landscapes</li>
+                        <li>Sample Itineraries & Trip Planning</li>
+                        <li>Cultural insights and local customs</li>
+                    </ul>
+                    
+                    <div class="product-value">Value: $29.99</div>
+                </div>
+                <div class="main-product-image">
+                    <img src="https://i.ibb.co/1Sdpsbt/Minimalist-Aesthetic-Elegant-Simple-White-World-Book-Day-Instagram-Post.png" alt="Travel Readz Ebook">
+                </div>
+            </div>
+
+            <!-- Bonus Items -->
+            <h3 class="bonus-section-title">Plus 4 Premium Bonus Guides (FREE)</h3>
+
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <img src="https://i.ibb.co/CpXBtqzq/Morocco-Travel-Etiquette-2000x1414.png" alt="Morocco Etiquette" class="bonus-image">
+                    <div class="bonus-content">
+                        <h4 class="bonus-title">Morocco Travel Etiquette Guide</h4>
+                        <p class="bonus-value">Value: $4.99</p>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <img src="https://i.ibb.co/3Y4YCxCB/MARRAKECH-1.png" alt="Marrakech Maps" class="bonus-image">
+                    <div class="bonus-content">
+                        <h4 class="bonus-title">Marrakech Interactive Maps</h4>
+                        <p class="bonus-value">Value: $4.99</p>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <img src="https://i.ibb.co/gMqzBBB9/Chat-GPT-Image-Dec-23-2025-06-02-24-PM.png" alt="Food Guide" class="bonus-image">
+                    <div class="bonus-content">
+                        <h4 class="bonus-title">Free whatsapp-support</h4>
+                        <p class="bonus-value">Value: $14.99</p>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <img src="https://i.ibb.co/fd6JqTJt/Picsart-25-12-23-23-52-31-282.jpg" alt="Budget Guide" class="bonus-image">
+                    <div class="bonus-content">
+                        <h4 class="bonus-title">Budget Travel Planner</h4>
+                        <p class="bonus-value">Value: $4.99</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Breakdown -->
+            <div class="value-breakdown">
+                <h4>Total Bundle Value</h4>
+                <div class="value-row">
+                    <span class="value-label">Travel Readz Ebook</span>
+                    <span class="value-amount">$29.99</span>
+                </div>
+                <div class="value-row">
+                    <span class="value-label">Etiquette Guide</span>
+                    <span class="value-amount">$4.99</span>
+                </div>
+                <div class="value-row">
+                    <span class="value-label">Interactive Maps</span>
+                    <span class="value-amount">$4.99</span>
+                </div>
+                <div class="value-row">
+                    <span class="value-label">Free whatsapp-support</span>
+                    <span class="value-amount">$14.99</span>
+                </div>
+                <div class="value-row">
+                    <span class="value-label">Budget Planner</span>
+                    <span class="value-amount">$4.99</span>
+                </div>
+                <div class="value-row">
+                    <span class="value-label">Total Value:</span>
+                    <span class="value-amount">$59.95</span>
+                </div>
+                <div class="total-savings">
+                    You Pay Only $29.99 - Save $29.99 (50%)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">What Travelers Are Saying</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The complete bundle was worth every penny. The ebook alone is comprehensive, but the bonus guides made our trip so much smoother."</p>
+                    <div class="testimonial-footer">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviewer-name">Sarah K.</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Best travel investment I made. The etiquette guide saved me from several cultural mishaps, and the maps were incredibly helpful."</p>
+                    <div class="testimonial-footer">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviewer-name">Michael R.</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I bought the bundle last minute before my trip and it was a lifesaver. Everything you need in one place. Highly recommend!"</p>
+                    <div class="testimonial-footer">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviewer-name">Jennifer L.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="final-cta">
+                <h2>Don't Miss This Limited-Time Offer</h2>
+                <p>Get the complete Morocco travel collection at 40% off</p>
+                <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="cta-button">Claim Your Bundle Now - $29.99</a>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About</a>
+            </div>
+            <p>&copy; 2025 Travel Readz. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

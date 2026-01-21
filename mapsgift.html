@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Gift – Marrakech Maps Guide - Travel Readz</title>
+    <meta name="description" content="This premium travel gift is included free when you purchase the Travel Readz ebook. Discover what's inside and why travelers love it.">
+    
+    <!-- Google Fonts: Inter + Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+
+    <style>
+        /* --- GLOBAL STYLES --- */
+        body, html {
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        h1 { font-weight: 700; }
+        h2 { font-weight: 600; }
+        h3 { font-weight: 600; }
+
+        /* --- NAVIGATION --- */
+        .main-nav {
+            width: 100%;
+            background: #fff;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #004466;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover { color: #ffcc00; }
+
+        /* --- HERO SECTION --- */
+        .gift-hero {
+            background: linear-gradient(135deg, #004466 0%, #006699 100%);
+            color: #fff;
+            padding: 60px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,68,102,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gift-hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,204,0,0.1);
+            border-radius: 50%;
+        }
+
+        .gift-hero-text {
+            flex: 1;
+            min-width: 320px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gift-hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .gift-hero-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .gift-cta {
+            display: inline-block;
+            background: #ffcc00;
+            color: #004466;
+            padding: 16px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(255,204,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .gift-cta:hover {
+            background: #e6b800;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255,204,0,0.4);
+        }
+
+        .gift-cta-subtext {
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .gift-payment-methods {
+            margin-top: 20px;
+        }
+
+        .gift-payment-methods img {
+            max-width: 200px;
+        }
+
+        .gift-hero-img {
+            flex: 1;
+            min-width: 320px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gift-hero-img img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .gift-hero-img img:hover {
+            transform: scale(1.03);
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- PREVIEW SECTION --- */
+        .preview-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .preview-section h2 {
+            color: #004466;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .preview-section > p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .preview-grid img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .preview-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,68,102,0.2);
+        }
+
+        /* --- FEATURES SECTION --- */
+        .features-section {
+            margin-bottom: 80px;
+        }
+
+        .features-section h2 {
+            color: #004466;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .features-section > p {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #004466, #ffcc00);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,68,102,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* --- REVIEWS SECTION --- */
+        .reviews-section {
+            background: linear-gradient(135deg, #f7fbfd 0%, #ffffff 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-bottom: 80px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        }
+
+        .reviews-section h2 {
+            color: #004466;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .reviews-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #004466, #ffcc00);
+            border-radius: 2px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,68,102,0.12);
+        }
+
+        .review-card p {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 2px solid #f0f4f7;
+        }
+
+        .stars {
+            color: #ffcc00;
+            font-size: 1.1rem;
+        }
+
+        .reviewer {
+            color: #004466;
+            font-weight: 600;
+        }
+
+        /* --- OTHER GIFTS SECTION --- */
+        .other-gifts-section {
+            margin-bottom: 80px;
+        }
+
+        .other-gifts-section h2 {
+            color: #004466;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .other-gifts-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #004466, #ffcc00);
+            border-radius: 2px;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .bonus-item {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .bonus-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,68,102,0.15);
+        }
+
+        .bonus-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .bonus-btn {
+            display: block;
+            background: linear-gradient(135deg, #004466, #006699);
+            color: #fff;
+            padding: 14px 28px;
+            margin: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .bonus-btn:hover {
+            background: linear-gradient(135deg, #00334d, #004d7a);
+            transform: translateY(-2px);
+        }
+
+        /* --- FINAL CTA --- */
+        .final-cta {
+            background: linear-gradient(135deg, #004466 0%, #006699 100%);
+            color: #fff;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,68,102,0.2);
+        }
+
+        .final-cta::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,204,0,0.1);
+            border-radius: 50%;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffcc00;
+            color: #004466;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(255,204,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            background: #e6b800;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255,204,0,0.4);
+        }
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background-color: #004466;
+            color: #fff;
+            text-align: center;
+            padding: 25px 20px;
+            border-radius: 12px 12px 0 0;
+            font-size: 0.95rem;
+            margin-top: 80px;
+        }
+
+        .site-footer .footer-links {
+            margin-bottom: 12px;
+        }
+
+        .site-footer .footer-links a {
+            color: #ffcc00;
+            margin: 0 12px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .site-footer .footer-links a:hover {
+            text-decoration: underline;
+            color: #e6b800;
+        }
+
+        .site-footer p {
+            margin: 0;
+            color: #fff;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .gift-hero {
+                flex-direction: column;
+                padding: 40px 25px;
+            }
+
+            .gift-hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .gift-hero-text p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .nav-links li a {
+                font-size: 0.9rem;
+            }
+
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-section,
+            .final-cta {
+                padding: 40px 25px;
+            }
+
+            .final-cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="main-nav">
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+    </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="gift-hero">
+    <div class="gift-hero-text">
+        <h1>The Ultimate Marrakech Google Maps Travel Guide</h1>
+        <p>Hand-picked attractions, hidden gems, riads, restaurants, and local tips — all saved directly to Google Maps for your Marrakech adventure.</p>
+        <a href="https://travelreadz.gumroad.com/l/Marrakech-Map-Guide?wanted=true" class="gift-cta">$4.99 - Buy Individually</a>
+        <span class="gift-cta-subtext">✨ Included FREE with the Travel Readz ebook</span>
+        <div class="gift-payment-methods">
+            <img src="https://i.ibb.co/x8HbqXPp/payment-Capture-removebg-preview.png" alt="Payment Methods">
+        </div>
+    </div>
+    <div class="gift-hero-img">
+        <img src="https://i.ibb.co/wN2yGFbN/MARRAKECH.png" alt="Marrakech Google Maps Guide">
+    </div>
+</section>
+
+<!-- MAIN CONTAINER -->
+<div class="main-container">
+
+    <!-- FEATURES -->
+    <section class="features-section">
+        <h2>What You'll Get</h2>
+        <p>This gift includes everything you need to navigate Marrakech like a local: detailed maps, hidden gems, practical tips, and curated recommendations. Perfect for first-time visitors or returning travelers.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <p>Curated travel insights designed to save you time and enhance your experience.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💎</div>
+                <p>Local recommendations and hidden gems you won't easily find online.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <p>Easy-to-use Google Maps guide with every attraction perfectly pinned.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏨</div>
+                <p>Expert tips for accommodations, authentic dining, and secret local spots.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews-section">
+        <h2>What Travelers Say</h2>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <p>"This guide alone is worth the price of the ebook. The maps were incredibly detailed and helped us discover places we would have never found on our own. Extremely helpful!"</p>
+                <div class="review-meta">
+                    <span class="stars">★★★★★</span>
+                    <span class="reviewer">Sarah M.</span>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <p>"Clear, practical, and beautifully organized. The Google Maps integration made navigation so easy. We visited every spot they recommended and loved them all. Highly recommended."</p>
+                <div class="review-meta">
+                    <span class="stars">★★★★★</span>
+                    <span class="reviewer">David K.</span>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <p>"Saved me hours of planning and helped me avoid tourist traps. The local recommendations were spot-on. Best travel resource I've ever used for Morocco!"</p>
+                <div class="review-meta">
+                    <span class="stars">★★★★★</span>
+                    <span class="reviewer">Lina R.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OTHER GIFTS -->
+    <section class="other-gifts-section">
+        <h2>Other Free Gifts Included</h2>
+
+        <div class="bonus-grid">
+            <div class="bonus-item">
+                <img src="https://i.ibb.co/fd6JqTJt/Picsart-25-12-23-23-52-31-282.jpg" alt="calculator">
+                <a href="budget.html" class="bonus-btn">Learn More</a>
+            </div>
+
+            <div class="bonus-item">
+                <img src="https://i.ibb.co/Y7npqqqQ/Chat-GPT-Image-Dec-23-2025-06-02-24-PM.png" alt="whatsapp">
+                <a href="whatsapp.html" class="bonus-btn">Learn More</a>
+            </div>
+
+            <div class="bonus-item">
+                <img src="https://i.ibb.co/VWpb5pYh/MARRAKECH-2.png" alt="miniebook">
+                <a href="miniebook.html" class="bonus-btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <h2>Ready to Unlock All These Gifts?</h2>
+        <a href="index.html" class="cta-button">Get the Travel Readz Ebook</a>
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">About Us</a>
+    </div>
+    <p>&copy; 2025 Travel Readz. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

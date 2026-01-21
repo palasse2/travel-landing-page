@@ -1,0 +1,1439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Services - Travel Readz</title>
+  <meta name="description" content="Browse our collection of Morocco travel guides, gear, and creative templates for your perfect journey.">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+
+  <style>
+    /* --- GLOBAL STYLES --- */
+    body, html {
+        font-family: 'Inter', sans-serif;
+        width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: #f9fafb;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+    h1 { font-weight: 700; }
+    h2 { font-weight: 600; }
+    h3 { font-weight: 600; }
+
+    /* --- NAVIGATION --- */
+    .main-nav {
+        width: 100%;
+        background: #fff;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        z-index: 999;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 50px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: #004466;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+    .nav-links li a:hover { color: #ffcc00; }
+
+    /* --- HERO SECTION --- */
+    .shop-hero {
+        background: linear-gradient(135deg, #004466 0%, #006699 100%);
+        color: #fff;
+        text-align: center;
+        padding: 80px 20px 60px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .shop-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+        opacity: 0.3;
+    }
+
+    .shop-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .shop-hero p {
+        font-size: 1.2rem;
+        opacity: 0.95;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* --- FILTER BAR --- */
+    .filter-bar {
+        max-width: 1400px;
+        margin: -30px auto 40px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .filter-container {
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .filter-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        padding: 10px 20px;
+        background: #f0f4f7;
+        border: 2px solid transparent;
+        border-radius: 25px;
+        color: #004466;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 0.95rem;
+    }
+
+    .filter-btn:hover {
+        background: #e0e8f0;
+        transform: translateY(-2px);
+    }
+
+    .filter-btn.active {
+        background: linear-gradient(135deg, #004466, #006699);
+        color: #fff;
+        border-color: #004466;
+    }
+
+    .search-box {
+        position: relative;
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 12px 45px 12px 20px;
+        border: 2px solid #e0e8f0;
+        border-radius: 25px;
+        font-size: 0.95rem;
+        transition: 0.3s;
+    }
+
+    .search-box input:focus {
+        outline: none;
+        border-color: #004466;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+    }
+
+    /* --- SHOP SECTIONS --- */
+    .shop-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 20px 80px;
+    }
+
+    .shop-section {
+        margin-bottom: 70px;
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 35px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+        color: #004466;
+        margin: 0;
+        position: relative;
+        padding-bottom: 12px;
+    }
+
+    .section-header h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #004466, #ffcc00);
+        border-radius: 2px;
+    }
+
+    .view-all-btn {
+        color: #004466;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 20px;
+        border: 2px solid #004466;
+        border-radius: 25px;
+        transition: 0.3s;
+        font-size: 0.9rem;
+    }
+
+    .view-all-btn:hover {
+        background: #004466;
+        color: #fff;
+    }
+
+    /* --- PRODUCT GRID --- */
+    .shop-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .product-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: 0.3s;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px rgba(0,68,102,0.15);
+    }
+
+    .product-image {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        background: #f0f4f7;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s;
+    }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.08);
+    }
+
+    .product-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #ffcc00;
+        color: #004466;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        z-index: 2;
+    }
+
+    .product-badge.new {
+        background: #00cc88;
+        color: #fff;
+    }
+
+    .product-badge.sale {
+        background: #ff4444;
+        color: #fff;
+    }
+
+    .product-badge.recommended {
+        background: #9b59b6;
+        color: #fff;
+    }
+
+    .product-badge.partner {
+        background: #3498db;
+        color: #fff;
+    }
+
+    .quick-view {
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        right: 0;
+        background: rgba(0,68,102,0.95);
+        color: #fff;
+        padding: 12px;
+        text-align: center;
+        font-weight: 600;
+        transition: 0.3s;
+        cursor: pointer;
+        z-index: 3;
+        text-decoration: none;
+        display: block;
+    }
+
+    .product-card:hover .quick-view {
+        bottom: 0;
+    }
+
+    .product-info {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-category {
+        font-size: 0.8rem;
+        color: #006699;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+    }
+
+    .product-title {
+        font-size: 1.1rem;
+        color: #004466;
+        margin-bottom: 10px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .product-description {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.6;
+        flex: 1;
+    }
+
+    .product-rating {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .stars {
+        color: #ffcc00;
+        font-size: 0.9rem;
+    }
+
+    .rating-count {
+        font-size: 0.85rem;
+        color: #999;
+    }
+
+    .product-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 12px;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+        color: #004466;
+        font-weight: 700;
+    }
+
+    .product-price .old-price {
+        font-size: 1rem;
+        color: #999;
+        text-decoration: line-through;
+        margin-right: 8px;
+    }
+
+    .add-to-cart {
+        background: linear-gradient(135deg, #004466, #006699);
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 0.9rem;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .add-to-cart:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,68,102,0.3);
+    }
+
+    /* --- AFFILIATE CARD STYLES --- */
+    .affiliate-footer {
+        padding-top: 15px;
+        border-top: 1px solid #f0f0f0;
+        width: 100%;
+    }
+
+    .affiliate-cta {
+        display: block;
+        width: 100%;
+        background: linear-gradient(135deg, #004466, #006699);
+        color: #fff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 0.95rem;
+        text-decoration: none;
+        margin-bottom: 8px;
+    }
+
+    .affiliate-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,68,102,0.3);
+    }
+
+    .affiliate-note {
+        font-size: 0.8rem;
+        color: #666;
+        text-align: center;
+        margin: 0;
+        font-style: italic;
+    }
+
+    /* --- FEATURED BANNER --- */
+    .featured-banner {
+        background: linear-gradient(135deg, #004466 0%, #006699 100%);
+        color: #fff;
+        padding: 60px 40px;
+        border-radius: 20px;
+        text-align: center;
+        margin: 60px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .featured-banner::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: rgba(255,204,0,0.1);
+        border-radius: 50%;
+    }
+
+    .featured-banner h2 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .featured-banner p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        opacity: 0.95;
+        position: relative;
+        z-index: 1;
+    }
+
+    .featured-btn {
+        background: #ffcc00;
+        color: #004466;
+        padding: 14px 35px;
+        border: none;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .featured-btn:hover {
+        background: #e6b800;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255,204,0,0.4);
+    }
+
+    /* --- FOOTER --- */
+    .site-footer {
+        background-color: #004466;
+        color: #fff;
+        text-align: center;
+        padding: 25px 20px;
+        border-radius: 12px 12px 0 0;
+        font-size: 0.95rem;
+        margin-top: 60px;
+    }
+
+    .site-footer .footer-links {
+        margin-bottom: 12px;
+    }
+
+    .site-footer .footer-links a {
+        color: #ffcc00;
+        margin: 0 12px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .site-footer .footer-links a:hover {
+        text-decoration: underline;
+        color: #e6b800;
+    }
+
+    .site-footer p {
+        margin: 0;
+        color: #fff;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+        .shop-hero h1 {
+            font-size: 2rem;
+        }
+
+        .shop-hero p {
+            font-size: 1rem;
+        }
+
+        .filter-container {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .filter-group {
+            justify-content: center;
+        }
+
+        .search-box {
+            width: 100%;
+        }
+
+        .section-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .shop-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .nav-links {
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            font-size: 0.9rem;
+        }
+
+        .featured-banner {
+            padding: 40px 25px;
+        }
+
+        .featured-banner h2 {
+            font-size: 1.6rem;
+        }
+
+        .featured-banner p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .shop-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .product-image {
+            height: 250px;
+        }
+    }
+    /* ===============================
+   OFFERS GRID (GETYOURGUIDE)
+================================ */
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* ===============================
+   OFFER CARD
+================================ */
+
+.offer-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 40px rgba(0,68,102,0.18);
+}
+
+/* ===============================
+   IMAGE AREA
+================================ */
+
+.offer-image-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: #f0f4f7;
+}
+
+.offer-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.offer-card:hover img {
+    transform: scale(1.08);
+}
+
+/* ===============================
+   IMAGE BADGES
+================================ */
+
+.image-badges {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+}
+
+.badge-bestseller {
+    background: #ffcc00;
+    color: #004466;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+/* Wishlist Button */
+.wishlist-btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.wishlist-btn:hover {
+    background: #ffcc00;
+    color: #004466;
+}
+
+/* ===============================
+   CONTENT
+================================ */
+
+.offer-content {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.offer-location {
+    font-size: 0.85rem;
+    color: #006699;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.offer-title {
+    font-size: 1.1rem;
+    color: #004466;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.offer-description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* ===============================
+   FEATURES
+================================ */
+
+.offer-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.feature-tag {
+    background: #f0f4f7;
+    color: #004466;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* ===============================
+   FOOTER / RATING
+================================ */
+
+.offer-footer {
+    margin-bottom: 15px;
+}
+
+.offer-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rating-stars {
+    color: #ffcc00;
+    font-weight: 700;
+}
+
+.rating-count {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* ===============================
+   CTA BUTTON
+================================ */
+
+.cta-button {
+    margin-top: auto;
+    background: linear-gradient(135deg, #004466, #006699);
+    color: #fff;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,68,102,0.35);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+    .offer-image-wrapper {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .offers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+    /* Hide class for filtering */
+    .hidden {
+        display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="main-nav">
+      <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+      </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="shop-hero">
+      <h1>Explore Our Collection</h1>
+      <p>Everything you need for an unforgettable Moroccan adventure</p>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+      <div class="filter-container">
+          <div class="filter-group">
+              <button class="filter-btn active" data-category="all">All Products</button>
+              <button class="filter-btn" data-category="guides">Travel Guides</button>
+              <button class="filter-btn" data-category="services">Travel Services</button>
+              <button class="filter-btn" data-category="templates">Templates</button>
+          </div>
+          <div class="search-box">
+              <input type="text" placeholder="Search products..." id="searchInput">
+              <span class="search-icon">🔍</span>
+          </div>
+      </div>
+  </div>
+
+  <!-- SHOP CONTAINER -->
+  <div class="shop-container">
+
+      <!-- TRAVEL GUIDES SECTION -->
+      <section class="shop-section">
+          <div class="section-header">
+              <h2>Travel Guides</h2>
+              <!-- <a href="shop-guides.html" class="view-all-btn">View All</a> -->
+          </div>
+          <div class="shop-grid">
+              
+              <div class="product-card" data-category="guides">
+                  <div class="product-image">
+                      <span class="product-badge">Bestseller</span>
+                      <img src="https://i.ibb.co/1Sdpsbt/Minimalist-Aesthetic-Elegant-Simple-White-World-Book-Day-Instagram-Post.png" alt="Morocco Travel Guide">
+                      <a href="index.html" class="quick-view">Quick View</a>
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">Travel Guide</div>
+                      <h3 class="product-title">Unlocking Morocco: Ultimate 2026 Guide</h3>
+                      <p class="product-description">Complete guide with 8 chapters, insider tips, itineraries, and bonus content.</p>
+                      <div class="product-rating">
+                          <span class="stars">★★★★★</span>
+                          <span class="rating-count">(127)</span>
+                      </div>
+                      <div class="product-footer">
+                          <div class="product-price">$29.99</div>
+                          <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="add-to-cart">Buy Now</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-category="guides">
+                  <div class="product-image">
+                      <span class="product-badge new">New</span>
+                      <img src="https://i.ibb.co/VWpb5pYh/MARRAKECH-2.png" alt="Marrakech Guide">
+                      <a href="miniebook.html" class="quick-view">Quick View</a>
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">Travel etiquette</div>
+                      <h3 class="product-title">Morocco Travel etiquette Dos and Don'ts every traveler should know</h3>
+                      <p class="product-description">Essential dos and don'ts, cultural etiquette, clothing rules, and local customs — all explained clearly to help you travel Morocco respectfully.</p>
+                      <div class="product-rating">
+                          <span class="stars">★★★★★</span>
+                          <span class="rating-count">(89)</span>
+                      </div>
+                      <div class="product-footer">
+                          <div class="product-price">$4.99</div>
+                          <a href="https://travelreadz.gumroad.com/l/sqipv?wanted=true" class="add-to-cart">Buy Now</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-category="guides">
+                  <div class="product-image">
+                      <img src="https://i.ibb.co/fd6JqTJt/Picsart-25-12-23-23-52-31-282.jpg" alt="budget calculator">
+                      <a href="budget.html" class="quick-view">Quick View</a>
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">budget calculator</div>
+                      <h3 class="product-title">Travel budget calculator</h3>
+                      <p class="product-description">Set your budget, record spending over time, and see how it compares — a universal tool for travelers in any country.</p>
+                      <div class="product-rating">
+                          <span class="stars">★★★★☆</span>
+                          <span class="rating-count">(64)</span>
+                      </div>
+                      <div class="product-footer">
+                          <div class="product-price">$4.99</div>
+                          <a href="https://travelreadz.gumroad.com/l/travel-budget-calculatr?wanted=true" class="add-to-cart">Buy Now</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-category="guides">
+                  <div class="product-image">
+                      <span class="product-badge sale">20% Off</span>
+                      <img src="https://i.ibb.co/3Y4YCxCB/MARRAKECH-1.png" alt="marrakech-maps">
+                      <a href="mapsgift.html" class="quick-view">Quick View</a>
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">Google Map Guide</div>
+                      <h3 class="product-title">Marrakech Google Maps Travel Guide</h3>
+                      <p class="product-description">Hand-picked attractions, hidden gems, riads, restaurants, and local tips — all saved directly to Google Maps for your Marrakech adventure.</p>
+                      <div class="product-rating">
+                          <span class="stars">★★★★★</span>
+                          <span class="rating-count">(112)</span>
+                      </div>
+                      <div class="product-footer">
+                          <div class="product-price">
+                              <span class="old-price">$6.24</span>
+                              $4.99
+                          </div>
+                          <a href="https://travelreadz.gumroad.com/l/Marrakech-Map-Guide?wanted=true" class="add-to-cart">Buy Now</a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </section>
+
+      <!-- FEATURED BANNER -->
+      <div class="featured-banner">
+          <h2>🎁 Limited Time Bundle Offer</h2>
+          <p>Get the complete Morocco travel collection - Save 40% when you bundle!</p>
+          <a href="bundle.html" class="featured-btn">View Bundle Deal</a>
+      </div>
+
+      <!-- TRAVEL SERVICES SECTION (AFFILIATE) -->
+      <section class="shop-section">
+        <div class="section-header">
+            <h2>Essential Travel Services</h2>
+            <!-- <a href="shop-services.html" class="view-all-btn">View All</a> -->
+        </div>
+        <div class="offers-grid">
+            
+          <article class="offer-card" data-category="services">
+                <div class="offer-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1484910292437-025e5d13ce87?q=80&w=914&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="SafetyWing Travel Insurance">
+                    <div class="image-badges">
+                        <div class="badge-bestseller" style="background: #9b59b6;">Recommended</div>
+                        <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
+                    </div>
+                </div>
+                <div class="offer-content">
+                    <div class="offer-location">🛡️ Travel Insurance</div>
+                    <h3 class="offer-title">SafetyWing Travel Insurance</h3>
+                    <p class="offer-description">Affordable travel medical insurance for nomads and travelers. Coverage in 180+ countries with flexible monthly plans starting at $45.08/month.</p>
+                    <div class="offer-features">
+                        <span class="feature-tag">🌍 180+ countries</span>
+                        <span class="feature-tag">💰 From $45/mo</span>
+                        <span class="feature-tag">📱 Instant coverage</span>
+                    </div>
+                    <div class="offer-footer">
+                        <p style="font-size: 0.85rem; color: #666; margin: 0;">Trusted by thousands of travelers worldwide</p>
+                    </div>
+                    <a href="https://safetywing.com/?referenceID=26454161&utm_source=26454161&utm_medium=Ambassador" class="cta-button" target="_blank" rel="noopener noreferrer">
+                        Get Protected →
+                    </a>
+                </div>
+            </article>
+
+          </div>
+               
+              <div class="offers-grid">
+                <!-- Offer 1: Desert Adventure -->
+                <article class="offer-card" data-category="adventure">
+                    <div class="offer-image-wrapper">
+                        <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/649ed5e0f1de5.jpeg" alt="">
+                        <div class="image-badges">
+                            <div class="badge-bestseller">Bestseller</div>
+                            <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div class="offer-location">📍 Marrakech → Merzouga</div>
+                        <h3 class="offer-title">3-Day Desert Adventure: Marrakech to Merzouga</h3>
+                        <p class="offer-description">Experience the magic of the Sahara with camel rides, desert camping under the stars, and traditional Berber hospitality. Journey through stunning landscapes and create unforgettable memories.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag">⏱️ 3 days</span>
+                            <span class="feature-tag">🚗 Pickup included</span>
+                            <span class="feature-tag">🍽️ Meals included</span>
+                        </div>
+                        <div class="offer-footer">
+                            <div class="offer-rating">
+                                <span class="rating-stars">★ 4.8</span>
+                                <span class="rating-count">(2,543 reviews)</span>
+                            </div>
+                        </div>
+                        <a href="https://gyg.me/jDyemv8R" class="cta-button" target="_blank" rel="noopener noreferrer">
+                            Check availability →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Offer 2: Imperial Cities -->
+                <article class="offer-card" data-category="cultural">
+                    <div class="offer-image-wrapper">
+                     
+                        <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/31d46c59d572cda50eb598ce1907068a4a117090df61c3d58a71fd4e368fde91.jpg"  alt="Chefchaouen blue city Morocco tour">
+
+                        <div class="image-badges">
+                            <div class="badge-bestseller">Popular</div>
+                            <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div class="offer-location">📍 Multiple Cities</div>
+                        <h3 class="offer-title">Imperial Cities & Chefchaouen: 3-Day Cultural Tour</h3>
+                        <p class="offer-description">Explore Morocco's historical treasures and the stunning Blue Pearl city. Discover ancient medinas, magnificent architecture, and rich cultural heritage in this comprehensive journey.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag">⏱️ 3 days</span>
+                            <span class="feature-tag">🏛️ UNESCO sites</span>
+                            <span class="feature-tag">👥 Small groups</span>
+                        </div>
+                        <div class="offer-footer">
+                            <div class="offer-rating">
+                                <span class="rating-stars">★ 4.7</span>
+                                <span class="rating-count">(1,829 reviews)</span>
+                            </div>
+                        </div>
+                        <a href="https://gyg.me/y6ct3Rru" class="cta-button" target="_blank" rel="noopener noreferrer">
+                            Check availability →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Offer 3: Hassan II Mosque -->
+                <article class="offer-card" data-category="cultural">
+                    <div class="offer-image-wrapper">
+                        <div >
+                            <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/83be7bfa43165edc8243fe228935c939d63c3d756112ea397695a772c64fede8.jpeg" alt="">
+                        </div>
+                        <div class="image-badges">
+                            <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div class="offer-location">📍 Casablanca</div>
+                        <h3 class="offer-title">Hassan II Mosque: Premium Guided Tour</h3>
+                        <p class="offer-description">Discover one of the world's largest mosques with premium guided access. Marvel at exquisite Moroccan craftsmanship, intricate mosaics, and the stunning oceanfront location.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag">⏱️ 2 hours</span>
+                            <span class="feature-tag">🎫 Skip-the-line</span>
+                            <span class="feature-tag">🎧 Audio guide</span>
+                        </div>
+                        <div class="offer-footer">
+                            <div class="offer-rating">
+                                <span class="rating-stars">★ 4.9</span>
+                                <span class="rating-count">(3,214 reviews)</span>
+                            </div>
+                        </div>
+                        <a href="https://gyg.me/6dknH0FM" class="cta-button" target="_blank" rel="noopener noreferrer">
+                            Check availability →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Offer 4: Hot Air Balloon -->
+                <article class="offer-card" data-category="adventure">
+                    <div class="offer-image-wrapper">
+                        <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/b8b5c31a6862efdead793235109d9e24c7947371ef47912b10d79ab37d2bf00b.jpeg" alt="">
+                        <div class="image-badges">
+                            <div class="badge-bestseller">Top Rated</div>
+                            <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div class="offer-location">📍 Marrakech</div>
+                        <h3 class="offer-title">Hot Air Balloon Flight & Berber Breakfast</h3>
+                        <p class="offer-description">Soar above the Atlas Mountains at sunrise and enjoy an authentic Berber breakfast. An unforgettable morning adventure with breathtaking views and traditional hospitality.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag">⏱️ 4 hours</span>
+                            <span class="feature-tag">🌅 Sunrise flight</span>
+                            <span class="feature-tag">☕ Breakfast</span>
+                        </div>
+                        <div class="offer-footer">
+                            <div class="offer-rating">
+                                <span class="rating-stars">★ 4.9</span>
+                                <span class="rating-count">(4,187 reviews)</span>
+                            </div>
+                        </div>
+                        <a href="https://gyg.me/J0ArWBQ1" class="cta-button" target="_blank" rel="noopener noreferrer">
+                            Check availability →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Offer 5: Ourika Valley -->
+                <article class="offer-card" data-category="nature">
+                    <div class="offer-image-wrapper">
+                        <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/a3dd66602214123ee08ff4804b0286a2bb90e459338bb276a645aef56a59b6c4.png" alt="">
+                        <div class="image-badges">
+                            <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div class="offer-location">📍 Atlas Mountains</div>
+                        <h3 class="offer-title">Ourika Waterfalls & Atlas Mountains Day Trip</h3>
+                        <p class="offer-description">Escape to the refreshing Ourika Valley with scenic mountain views, waterfall hikes, and included lunch. Experience authentic mountain life in stunning natural beauty.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag">⏱️ Full day</span>
+                            <span class="feature-tag">🥾 Hiking</span>
+                            <span class="feature-tag">🍽️ Lunch included</span>
+                        </div>
+                        <div class="offer-footer">
+                            <div class="offer-rating">
+                                <span class="rating-stars">★ 4.6</span>
+                                <span class="rating-count">(1,956 reviews)</span>
+                            </div>
+                        </div>
+                        <a href="https://gyg.me/M01DZEYX" class="cta-button" target="_blank" rel="noopener noreferrer">
+                            Check availability →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Offer 6: Agafay Desert -->
+                <article class="offer-card" data-category="adventure food">
+                    <div class="offer-image-wrapper">
+                        <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/8efe44cedceeeba6574f666b38eaf211e91a6d17c94071b2a7f62d49f8ec0584.jpg" alt="">
+                        <div class="image-badges">
+                            <div class="badge-bestseller">Bestseller</div>
+                            <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div class="offer-location">📍 Agafay Desert</div>
+                        <h3 class="offer-title">Agafay Desert: Quad, Camel Ride & Dinner Show</h3>
+                        <p class="offer-description">Combine adventure with culture through quad biking, camel rides, and a spectacular dinner show under the stars. A perfect evening of excitement and entertainment.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag">⏱️ Evening</span>
+                            <span class="feature-tag">🏍️ Quad biking</span>
+                            <span class="feature-tag">🎭 Live show</span>
+                        </div>
+                        <div class="offer-footer">
+                            <div class="offer-rating">
+                                <span class="rating-stars">★ 4.8</span>
+                                <span class="rating-count">(3,456 reviews)</span>
+                            </div>
+                        </div>
+                        <a href="https://gyg.me/XfRTjDai" class="cta-button" target="_blank" rel="noopener noreferrer">
+                            Check availability →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Offer 7: Majorelle Garden -->
+                <article class="offer-card" data-category="cultural">
+                    <div class="offer-image-wrapper">
+                        <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/50a3f1f1c41a84b89c3b2a63553ae705d4764f7b89f3fd03394ba7ce503ddff2.jpg" alt="">
+                        <div class="image-badges">
+                            <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div class="offer-location">📍 Marrakech</div>
+                        <h3 class="offer-title">Majorelle Garden & YSL Museum Entry Ticket</h3>
+                        <p class="offer-description">Visit the iconic cobalt blue garden and explore the legacy of Yves Saint Laurent. Discover exotic plants, vibrant colors, and fashion history in Marrakech's most beautiful garden.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag">⏱️ 2-3 hours</span>
+                            <span class="feature-tag">🎫 Entry tickets</span>
+                            <span class="feature-tag">📸 Photo spots</span>
+                        </div>
+                        <div class="offer-footer">
+                            <div class="offer-rating">
+                                <span class="rating-stars">★ 4.7</span>
+                                <span class="rating-count">(5,632 reviews)</span>
+                            </div>
+                        </div>
+                        <a href="https://gyg.me/eibRCLEQ" class="cta-button" target="_blank" rel="noopener noreferrer">
+                            Check availability →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+          </div>
+      </section>
+
+      <!-- CREATIVE TEMPLATES SECTION -->
+      <section class="shop-section">
+          <div class="section-header">
+              <h2>Creative Templates</h2>
+           
+          </div>
+          <div class="shop-grid">
+              
+              <div class="product-card" data-category="templates">
+                  <div class="product-image">
+                      <span class="product-badge">Trending</span>
+                      <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1767366538/ChatGPT_Image_Jan_1_2026_03_58_38_PM_goge5z.png" alt="Lightroom Presets">
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">Photo Editing</div>
+                      <h3 class="product-title">Moody Travel Lightroom Presets</h3>
+                      <p class="product-description">Transform your photos with a cinematic, warm, and professional travel look in just one click.
+                        These Moody Travel Lightroom Presets are designed to enhance colors, add depth, and create a consistent aesthetic perfect for travel, lifestyle, and Instagram photography.</p>
+                      <div class="product-rating">
+                          <span class="stars">★★★★★</span>
+                          <span class="rating-count">(145)</span>
+                      </div>
+                      <div class="product-footer">
+                          <div class="product-price">$4.99</div>
+                          <a href="https://travelreadz.gumroad.com/l/lightroom-preset?wanted=true" class="add-to-cart">Buy Now</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-category="templates">
+                  <div class="product-image">
+                    <span class="product-badge sale">100% Off</span>
+                      <img src="https://i.ibb.co/39MT8pCC/Gemini-Generated-Image-u3mntlu3mntlu3mn.png" alt="Canva Templates">
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">Social Media</div>
+                      <h3 class="product-title">Instagram Story Templates for Travel Brands & Creators</h3>
+                      <p class="product-description">High-end Travel Instagram Stories designed for creators and brands who want a premium, elegant, and professional Instagram presence.</p>
+                      <div class="product-rating">
+                          <span class="stars">★★★★★</span>
+                          <span class="rating-count">(189)</span>
+                      </div>
+                      <div class="product-footer">
+                          
+                          <div class="product-price">
+                            <span class="old-price">$9.99</span>
+                            $0.00
+                        </div>
+                          <a href="https://travelreadz.gumroad.com/l/Instagram-Story?wanted=true" class="add-to-cart">Buy Now</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-category="templates">
+                  <div class="product-image">
+                    <span class="product-badge new">Bestseller</span>
+                      <img src="https://i.ibb.co/fG189p02/Gemini-Generated-Image-cpp8v7cpp8v7cpp8.png" alt="Video Templates">
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">Video Editing</div>
+                      <h3 class="product-title">730+ Viral Instagram Reels – Ready to Post & Grow Fast</h3>
+                      <p class="product-description">Boost your Instagram presence with 730+ high-quality, viral-style Instagram Reels designed to help you grow faster, increase engagement, and save hours of content creation.</p>
+                      <div class="product-rating">
+                          <span class="stars">★★★★☆</span>
+                          <span class="rating-count">(67)</span>
+                      </div>
+                      <div class="product-footer">
+                        <div class="product-price">$5.99</div>
+                          <a href="https://travelreadz.gumroad.com/l/instagram-Reels?wanted=true" class="add-to-cart">Buy Now</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-category="templates">
+                  <div class="product-image">
+                      <img src="https://i.ibb.co/tP39NFsc/ideogram-v3-0-Luxury-premium-promotional-cover-image-for-a-digital-product-titled-3000-plus-0.png" alt="Blog Templates">
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">Canva Templates</div>
+                      <h3 class="product-title">🎨 3000+ Instagram Design Templates – Create Stunning Content Fast</h3>
+                      <p class="product-description">3000+ professionally designed Instagram templates to help you create eye-catching posts, stories, and reels in minutes. Fully customizable, easy to use, and perfect for consistent, high-quality content without design skills. Grow faster and save time with ready-to-use designs.</p>
+                      <div class="product-rating">
+                          <span class="stars">★★★★☆</span>
+                          <span class="rating-count">(54)</span>
+                      </div>
+                      <div class="product-footer">
+                          <div class="product-price">$3.99</div>
+                          <a href="https://travelreadz.gumroad.com/l/Instagram-Design-Templates?wanted=true" class="add-to-cart">Buy Now</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-category="templates">
+                <div class="product-image">
+                    <span class="product-badge sale">Hot 🔥</span>
+                    <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1767371167/Gemini_Generated_Image_flu9fkflu9fkflu9_qjpafn.png" alt="Blog Templates">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Watercolor</div>
+                    <h3 class="product-title">Watercolor Travel the World Clipart</h3>
+                    <p class="product-description">Bring your travel designs to life with beautiful watercolor clipart! This pack includes high-quality illustrations of landmarks, maps, and travel icons—perfect for invitations, planners, social media, and creative projects.</p>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">(214)</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">$9.99</div>
+                        <a href="https://travelreadz.gumroad.com/l/Watercolor?wanted=true" class="add-to-cart">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="templates">
+                <div class="product-image">
+                   
+                    <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1767717175/Gemini_Generated_Image_e1g6wke1g6wke1g6_mtcxkz.png" alt="Blog Templates">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Hand-Drawn Illustrations</div>
+                    <h3 class="product-title">Travel Clipart – Hand-Drawn Illustrations for Creative Projects</h3>
+                    <p class="product-description">Bring your travel designs to life with hand-drawn, charming illustrations! Perfect for bloggers, designers, and content creators who want unique, artistic, and ready-to-use graphics for print or digital projects.</p>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">(144)</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">$9.99</div>
+                        <a href="https://travelreadz.gumroad.com/l/Hand-Drawn-Illustrations?wanted=true" class="add-to-cart">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+      </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+      <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="about.html">About Us</a>
+      </div>
+      <p>&copy; 2025 Travel Readz. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+      // Wait for DOM to fully load
+      document.addEventListener('DOMContentLoaded', function() {
+          // Filter functionality
+          const filterButtons = document.querySelectorAll('.filter-btn');
+          const productCards = document.querySelectorAll('.product-card');
+          const searchInput = document.getElementById('searchInput');
+
+          // Add click event to each filter button
+          filterButtons.forEach(button => {
+              button.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  
+                  // Remove active class from all buttons
+                  filterButtons.forEach(btn => btn.classList.remove('active'));
+                  
+                  // Add active class to clicked button
+                  this.classList.add('active');
+
+                  // Get the category to filter
+                  const category = this.getAttribute('data-category');
+                  console.log('Filtering by:', category);
+
+                  // Show/hide products based on category
+                  productCards.forEach(card => {
+                      const cardCategory = card.getAttribute('data-category');
+                      
+                      if (category === 'all') {
+                          card.classList.remove('hidden');
+                          card.style.display = '';
+                      } else if (cardCategory === category) {
+                          card.classList.remove('hidden');
+                          card.style.display = '';
+                      } else {
+                          card.classList.add('hidden');
+                          card.style.display = 'none';
+                      }
+                  });
+              });
+          });
+
+          // Search functionality
+          searchInput.addEventListener('input', function(e) {
+              const searchTerm = e.target.value.toLowerCase();
+
+              productCards.forEach(card => {
+                  const title = card.querySelector('.product-title').textContent.toLowerCase();
+                  const description = card.querySelector('.product-description').textContent.toLowerCase();
+                  const category = card.querySelector('.product-category').textContent.toLowerCase();
+
+                  if (searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+                      card.classList.remove('hidden');
+                      card.style.display = '';
+                  } else {
+                      card.classList.add('hidden');
+                      card.style.display = 'none';
+                  }
+              });
+          });
+
+          // Clear search when clicking a filter button
+          filterButtons.forEach(button => {
+              button.addEventListener('click', function() {
+                  searchInput.value = '';
+              });
+          });
+      });
+  </script>
+
+</body>
+</html>
