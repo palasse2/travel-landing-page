@@ -1153,4 +1153,9 @@ a {
         flex-direction: column;
         gap: 15px;
     }
+   .pricing-box {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
+
