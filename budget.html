@@ -439,114 +439,111 @@
             font-weight: 700;
         }
 
-        /* --- OTHER GIFTS SECTION --- */
-        .other-gifts-section {
-            margin-bottom: 80px;
+        /* --- BONUS SECTION (MATCHING MAIN PAGE STYLE) --- */
+        .bonus-section {
+            padding: 80px 0;
+            background: white;
         }
 
-        .other-gifts-section h2 {
-            color: #004466;
-            font-size: 2.5rem;
+        .section-header {
             text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 20px;
+            margin-bottom: 60px;
         }
 
-        .other-gifts-section h2::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #004466, #ffcc00);
-            border-radius: 2px;
+        .section-badge {
+            display: inline-block;
+            background: rgba(0, 102, 153, 0.1);
+            color: #006699;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #004466;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: #666;
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .bonus-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        .bonus-item {
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+        .bonus-card {
+            background: #f8fafb;
+            padding: 30px;
+            border-radius: 12px;
             text-align: center;
-            position: relative;
-        }
-
-        .bonus-item::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0,68,102,0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .bonus-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,68,102,0.15);
-        }
-
-        .bonus-item:hover::before {
-            opacity: 1;
-        }
-
-        .bonus-item img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .bonus-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .bonus-btn {
-            display: block;
-            background: linear-gradient(135deg, #004466, #006699);
-            color: #fff;
-            padding: 14px 28px;
-            margin: 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
             transition: all 0.3s;
             position: relative;
-            overflow: hidden;
+            border: 2px solid transparent;
         }
 
-        .bonus-btn::before {
-            content: "";
+        .bonus-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 68, 102, 0.15);
+            border-color: #ffcc00;
+        }
+
+        .bonus-value {
             position: absolute;
-            top: 0;
-            left: -100%;
+            top: 15px;
+            right: 15px;
+            background: #ffcc00;
+            color: #004466;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .bonus-card img {
+            border-radius: 8px;
+            margin: 0 auto 20px;
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
         }
 
-        .bonus-btn:hover::before {
-            left: 100%;
+        .bonus-card h3 {
+            font-size: 1.2rem;
+            color: #004466;
+            margin-bottom: 10px;
         }
 
-        .bonus-btn:hover {
-            background: linear-gradient(135deg, #00334d, #004d7a);
-            transform: translateY(-2px);
+        .bonus-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .bonus-link {
+            color: #006699;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .bonus-link:hover {
+            color: #004466;
         }
 
         /* --- FINAL CTA --- */
@@ -687,7 +684,7 @@
 
             .features-section h2,
             .reviews-section h2,
-            .other-gifts-section h2 {
+            .section-title {
                 font-size: 2rem;
             }
 
@@ -795,24 +792,37 @@
         </div>
     </section>
 
-    <!-- OTHER GIFTS -->
-    <section class="other-gifts-section">
-        <h2>Other Free Gifts Included</h2>
+    <!-- BONUS SECTION (MATCHING MAIN PAGE) -->
+    <section class="bonus-section">
+        <div class="section-header">
+            <span class="section-badge">Free Bonuses</span>
+            <h2 class="section-title">Other Free Gifts Included</h2>
+            <p class="section-subtitle">Worth $14.99 — Yours free when you get the guide today</p>
+        </div>
 
         <div class="bonus-grid">
-            <div class="bonus-item">
-                <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770470352/ChatGPT_Image_Feb_7_2026_02_17_09_PM_ixenf2.png" alt="marrakech">
-                <a href="mapsgift.html" class="bonus-btn">Learn More</a>
+            <div class="bonus-card">
+                <div class="bonus-value">Value: $5</div>
+                <img src="https://i.ibb.co/3Y4YCxCB/MARRAKECH-1.png" alt="Marrakech Maps">
+                <h3>Custom Google Maps</h3>
+                <p>Pre-loaded maps with all recommended spots for easy navigation</p>
+                <a href="mapsgift.html" class="bonus-link">Learn More →</a>
             </div>
 
-            <div class="bonus-item">
-                <img src="https://i.ibb.co/Y7npqqqQ/Chat-GPT-Image-Dec-23-2025-06-02-24-PM.png" alt="whatsapp">
-                <a href="whatsapp.html" class="bonus-btn">Learn More</a>
+            <div class="bonus-card">
+                <div class="bonus-value">Value: $15</div>
+                <img src="https://i.ibb.co/Y7npqqqQ/Chat-GPT-Image-Dec-23-2025-06-02-24-PM.png" alt="WhatsApp Support">
+                <h3>Direct WhatsApp Support</h3>
+                <p>Get real-time answers from a local during your trip</p>
+                <a href="whatsapp.html" class="bonus-link">Learn More →</a>
             </div>
 
-            <div class="bonus-item">
-                <img src="https://i.ibb.co/CpXBtqzq/Morocco-Travel-Etiquette-2000x1414.png" alt="miniebook">
-                <a href="miniebook.html" class="bonus-btn">Learn More</a>
+            <div class="bonus-card">
+                <div class="bonus-value">Value: $4.99</div>
+                <img src="https://i.ibb.co/CpXBtqzq/Morocco-Travel-Etiquette-2000x1414.png" alt="Etiquette Guide">
+                <h3>Cultural Etiquette Mini Guide</h3>
+                <p>Quick-reference guide to Moroccan customs and social norms</p>
+                <a href="miniebook.html" class="bonus-link">Learn More →</a>
             </div>
         </div>
     </section>
@@ -839,4 +849,3 @@
 </body>
 
 </html>
-
