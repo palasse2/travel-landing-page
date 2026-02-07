@@ -1057,9 +1057,7 @@ a {
         font-size: 2.5rem;
     }
 
-    .floating-badge {
-        display: none;
-    }
+   
 }
 
 @media (max-width: 768px) {
@@ -1164,6 +1162,7 @@ a {
   display: block;
   margin: 0 auto;
 }
+
 
 
 
