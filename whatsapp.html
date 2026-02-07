@@ -859,6 +859,73 @@
         padding: 4px 8px;
     }
 }
+            .whatsapp-mockup {
+    position: relative;
+    display: inline-block;
+    max-width: 300px; /* adjust for mobile */
+    margin: 0 auto;
+}
+
+.whatsapp-mockup img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+}
+
+/* Floating badges */
+.floating-badge {
+    position: absolute;
+    background: #fff;
+    color: #128C7E;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    animation: pulse 3s ease-in-out infinite;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* Keep badges closer to the image */
+.badge-1 {
+    top: 10%;  /* distance from top of image */
+    right: 10%; /* distance from right of image */
+    background: linear-gradient(135deg, #25D366 0%, #1DA855 100%);
+    color: #fff;
+}
+
+.badge-2 {
+    bottom: 15%; /* distance from bottom of image */
+    left: 12%;   /* distance from left of image */
+}
+
+.badge-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* center above image */
+    background: linear-gradient(135deg, #25D366 0%, #1DA855 100%);
+    color: #fff;
+}
+
+/* Pulse animation for floating effect */
+@keyframes pulse {
+    0%, 100% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.05) translateY(-5px); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .whatsapp-mockup {
+        max-width: 220px; /* smaller on mobile */
+    }
+    .floating-badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+}
+
 
     </style>
 </head>
@@ -1079,6 +1146,7 @@
 </body>
 
 </html>
+
 
 
 
