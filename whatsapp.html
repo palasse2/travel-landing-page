@@ -897,23 +897,22 @@
 }
 
 .badge-2 {
-    top: 50%;            /* distance from top of image */
-    right: 80%;           /* distance from right of image */
-    
-    background: #ffffff;  /* white background */
-    color: #25D366;       /* green text */
-    
-    border: 2px solid #25D366; /* green border, 2px thick */
-    
-    padding: 8px 12px;    /* spacing inside badge */
-    border-radius: 10px;  /* rounded corners */
-    font-size: 0.85rem;   /* text size */
-    font-weight: 600;     /* bold text */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2); /* optional shadow */
     position: absolute;
-    white-space: nowrap;
+    top: 50%;
+    right: 80%;
+    background: #ffffff;   /* white background */
+    color: #25D366;        /* green text */
+    border-radius: 10px;
+    padding: 6px 12px;    /* add horizontal padding for text */
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block; /* makes the badge expand to text */
+    white-space: nowrap;   /* prevent text from breaking lines */
     z-index: 2;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transform: translateY(-50%); /* center vertically */
 }
+
 
 .badge-3 {
      top: 80%;  /* distance from top of image */
@@ -1159,6 +1158,7 @@
 </body>
 
 </html>
+
 
 
 
