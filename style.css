@@ -320,6 +320,7 @@ a {
     bottom: 30%;
     left: -5%;
     animation-delay: 1s;
+    background-color:  #ffcc00;
 }
 
 .badge-3 {
@@ -1162,6 +1163,7 @@ a {
   display: block;
   margin: 0 auto;
 }
+
 
 
 
