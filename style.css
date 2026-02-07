@@ -297,7 +297,7 @@ a {
     position: absolute;
     background: white;
     color: #004466;
-    padding: 10px 16px 10px 24px;
+    padding: 10px  16px;
     border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -318,7 +318,7 @@ a {
 
 .badge-2 {
     bottom: 30%;
-    left: -15%;
+    left: -5%;
     animation-delay: 1s;
 }
 
@@ -1162,6 +1162,7 @@ a {
   display: block;
   margin: 0 auto;
 }
+
 
 
 
