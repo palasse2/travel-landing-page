@@ -897,10 +897,22 @@
 }
 
 .badge-2 {
-    top: 50%;  /* distance from top of image */
-    right: 80%; /* distance from right of image */
-    background: linear-gradient(200deg, #1DA855 0%, #25D366 100%);
-    color: #fff;
+    top: 50%;            /* distance from top of image */
+    right: 80%;           /* distance from right of image */
+    
+    background: #ffffff;  /* white background */
+    color: #25D366;       /* green text */
+    
+    border: 2px solid #25D366; /* green border, 2px thick */
+    
+    padding: 8px 12px;    /* spacing inside badge */
+    border-radius: 10px;  /* rounded corners */
+    font-size: 0.85rem;   /* text size */
+    font-weight: 600;     /* bold text */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2); /* optional shadow */
+    position: absolute;
+    white-space: nowrap;
+    z-index: 2;
 }
 
 .badge-3 {
@@ -1147,6 +1159,7 @@
 </body>
 
 </html>
+
 
 
 
