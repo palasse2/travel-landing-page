@@ -44,6 +44,16 @@ a {
     padding: 0 20px;
 }
 
+/* Fade transition for language switching */
+.fade-transition {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fade-transition.active {
+    opacity: 1;
+}
+
 /* === NAVIGATION === */
 .main-nav {
     position: sticky;
@@ -62,6 +72,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .nav-links {
@@ -97,6 +108,40 @@ a {
     width: 100%;
 }
 
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    gap: 8px;
+    background: #f8fafb;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #666;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+
+.lang-btn:hover {
+    background: rgba(0, 68, 102, 0.1);
+    color: #004466;
+}
+
+.lang-btn.active {
+    background: linear-gradient(135deg, #004466 0%, #006699 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 68, 102, 0.3);
+}
+
 .nav-cta {
     background: linear-gradient(135deg, #004466 0%, #006699 100%);
     color: white !important;
@@ -105,6 +150,7 @@ a {
     font-weight: 600;
     font-size: 0.9rem;
     transition: transform 0.3s, box-shadow 0.3s;
+    white-space: nowrap;
 }
 
 .nav-cta:hover {
@@ -291,6 +337,7 @@ a {
 
 .book-mockup img {
     border-radius: 12px;
+    transition: opacity 0.4s ease;
 }
 
 .floating-badge {
@@ -329,10 +376,77 @@ a {
     animation-delay: 2s;
 }
 
+/* === BOOK SELECTOR SECTION === */
+.book-selector-section {
+    padding: 50px 0;
+    background: linear-gradient(180deg, #f8fafb 0%, #ffffff 100%);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.selector-label {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #004466;
+    margin-bottom: 25px;
+}
+
+.book-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.book-thumb {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    border: 3px solid transparent;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.book-thumb:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 68, 102, 0.15);
+}
+
+.book-thumb.active {
+    border-color: #ffcc00;
+    box-shadow: 0 8px 30px rgba(255, 204, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+.book-thumb img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: transform 0.3s;
+}
+
+.book-thumb:hover img {
+    transform: scale(1.05);
+}
+
+.thumb-label {
+    display: block;
+    font-weight: 600;
+    color: #004466;
+    font-size: 0.95rem;
+}
+
+.book-thumb.active .thumb-label {
+    color: #006699;
+}
+
 /* === PROBLEM SECTION === */
 .problem-section {
     padding: 80px 0;
-    background: linear-gradient(180deg, #f8fafb 0%, #ffffff 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafb 100%);
 }
 
 .section-title {
@@ -1057,18 +1171,32 @@ a {
     .hero-title {
         font-size: 2.5rem;
     }
-
-   
+    
+    .pricing-box {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
 
 @media (max-width: 768px) {
     .nav-container {
-        flex-direction: column;
-        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nav-links {
-        gap: 25px;
+        gap: 20px;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .language-switcher {
+        order: 1;
+    }
+    
+    .nav-cta {
+        order: 2;
     }
 
     .hero-section {
@@ -1087,6 +1215,14 @@ a {
         flex-direction: column;
         gap: 20px;
         align-items: center;
+    }
+    
+    .book-thumbnails {
+        gap: 20px;
+    }
+    
+    .book-thumb img {
+        width: 120px;
     }
 
     .section-title {
@@ -1152,23 +1288,20 @@ a {
         flex-direction: column;
         gap: 15px;
     }
-   .pricing-box {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    
+    .book-thumb img {
+        width: 100px;
+    }
+    
+    .language-switcher {
+        width: 100%;
+        justify-content: center;
     }
 }
+
 .phone-mockup {
-  width: 180px;      /* choose ONE width */
-  height: auto;      /* keeps proportions */
+  width: 180px;
+  height: auto;
   display: block;
   margin: 0 auto;
 }
-
-
-
-
-
-
-
-
-
