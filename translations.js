@@ -290,6 +290,9 @@ const translations = {
 "maps.bonus.subtitle": "Worth $24.99 — Yours free when you get the guide today",
 "maps.cta.title": "Ready to Unlock All These Gifts?",
 "maps.cta.button": "Get the Travel Readz Ebook",
+
+
+
   },
 
   fr: {
@@ -579,6 +582,48 @@ const translations = {
 "maps.bonus.subtitle": "Valeur 24,99 $ — À vous gratuitement en obtenant le guide aujourd'hui",
 "maps.cta.title": "Prêt à Débloquer Tous Ces Cadeaux ?",
 "maps.cta.button": "Obtenir l'Ebook Travel Readz",
+
+// shop page 
+shop: {
+  hero: {
+    title: "Explorez Notre Collection",
+    subtitle: "Tout ce dont vous avez besoin pour une aventure marocaine inoubliable"
+  },
+  filter: {
+    all: "Tous les Produits",
+    guides: "Guides de Voyage",
+    services: "Services de Voyage",
+    templates: "Modèles"
+  },
+  search: {
+    placeholder: "Rechercher des produits..."
+  },
+  section: {
+    guides: "Guides de Voyage",
+    services: "Services Essentiels",
+    templates: "Modèles Créatifs"
+  },
+  badge: {
+    bestseller: "Meilleure Vente",
+    new: "Nouveau",
+    sale: "Promotion",
+    recommended: "Recommandé",
+    popular: "Populaire",
+    topRated: "Très Bien Noté",
+    trending: "Tendance",
+    free: "Gratuit",
+    hot: "Hot 🔥"
+  },
+  quickView: "Voir",
+  buyNow: "Acheter",
+  banner: {
+    title: "🎁 Offre Pack à Durée Limitée",
+    desc: "Obtenez la collection complète Maroc - Économisez 40%",
+    button: "Voir l'Offre"
+  },
+  reviews: "avis",
+  checkAvailability: "Vérifier la disponibilité →"
+}
   },
 
   es: {
@@ -868,6 +913,50 @@ const translations = {
 "maps.bonus.subtitle": "Valor de $24.99 — Tuyo gratis cuando obtienes la guía hoy",
 "maps.cta.title": "¿Listo para Desbloquear Todos Estos Regalos?",
 "maps.cta.button": "Obtener el Ebook Travel Readz",
+
+// shop page
+
+shop: {
+  hero: {
+    title: "Explora Nuestra Colección",
+    subtitle: "Todo lo que necesitas para una aventura inolvidable en Marruecos"
+  },
+  filter: {
+    all: "Todos los Productos",
+    guides: "Guías de Viaje",
+    services: "Servicios de Viaje",
+    templates: "Plantillas"
+  },
+  search: {
+    placeholder: "Buscar productos..."
+  },
+  section: {
+    guides: "Guías de Viaje",
+    services: "Servicios Esenciales",
+    templates: "Plantillas Creativas"
+  },
+  badge: {
+    bestseller: "Más Vendido",
+    new: "Nuevo",
+    sale: "Oferta",
+    recommended: "Recomendado",
+    popular: "Popular",
+    topRated: "Mejor Valorados",
+    trending: "Tendencia",
+    free: "Gratis",
+    hot: "Hot 🔥"
+  },
+  quickView: "Ver",
+  buyNow: "Comprar",
+  banner: {
+    title: "🎁 Oferta de Paquete por Tiempo Limitado",
+    desc: "Obtén la colección completa de Marruecos - Ahorra 40%",
+    button: "Ver Oferta"
+  },
+  reviews: "reseñas",
+  checkAvailability: "Ver disponibilidad →"
+}
+
   }
 };
 
