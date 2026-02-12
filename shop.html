@@ -44,6 +44,7 @@
         box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         position: sticky;
         top: 0;
+        flex-wrap: wrap;
     }
 
     .nav-links {
@@ -63,6 +64,40 @@
     }
 
     .nav-links li a:hover { color: #ffcc00; }
+
+    /* Language Switcher */
+    .language-switcher {
+        display: flex;
+        gap: 8px;
+        background: #f8fafb;
+        padding: 6px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .lang-btn {
+        background: transparent;
+        border: none;
+        color: #666;
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 6px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .lang-btn:hover {
+        background: rgba(0, 68, 102, 0.1);
+        color: #004466;
+    }
+
+    .lang-btn.active {
+        background: linear-gradient(135deg, #004466 0%, #006699 100%);
+        color: white;
+        box-shadow: 0 2px 8px rgba(0, 68, 102, 0.3);
+    }
 
     /* --- HERO SECTION --- */
     .shop-hero {
@@ -838,29 +873,36 @@
   <!-- NAVIGATION -->
   <nav class="main-nav">
       <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html" data-translate="nav.home">Home</a></li>
+          <li><a href="shop.html" data-translate="nav.services">Services</a></li>
+          <li><a href="about.html" data-translate="nav.about">About Us</a></li>
       </ul>
+      
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+      </div>
   </nav>
 
   <!-- HERO SECTION -->
   <section class="shop-hero">
-      <h1>Explore Our Collection</h1>
-      <p>Everything you need for an unforgettable Moroccan adventure</p>
+      <h1 data-translate="shop.hero.title">Explore Our Collection</h1>
+      <p data-translate="shop.hero.subtitle">Everything you need for an unforgettable Moroccan adventure</p>
   </section>
 
   <!-- FILTER BAR -->
   <div class="filter-bar">
       <div class="filter-container">
           <div class="filter-group">
-              <button class="filter-btn active" data-category="all">All Products</button>
-              <button class="filter-btn" data-category="guides">Travel Guides</button>
-              <button class="filter-btn" data-category="services">Travel Services</button>
-              <button class="filter-btn" data-category="templates">Templates</button>
+              <button class="filter-btn active" data-category="all" data-translate="shop.filter.all">All Products</button>
+              <button class="filter-btn" data-category="guides" data-translate="shop.filter.guides">Travel Guides</button>
+              <button class="filter-btn" data-category="services" data-translate="shop.filter.services">Travel Services</button>
+              <button class="filter-btn" data-category="templates" data-translate="shop.filter.templates">Templates</button>
           </div>
           <div class="search-box">
-              <input type="text" placeholder="Search products..." id="searchInput">
+              <input type="text" placeholder="Search products..." id="searchInput" data-translate-placeholder="shop.search.placeholder">
               <span class="search-icon">🔍</span>
           </div>
       </div>
@@ -872,49 +914,48 @@
       <!-- TRAVEL GUIDES SECTION -->
       <section class="shop-section">
           <div class="section-header">
-              <h2>Travel Guides</h2>
-              <!-- <a href="shop-guides.html" class="view-all-btn">View All</a> -->
+              <h2 data-translate="shop.section.guides">Travel Guides</h2>
           </div>
           <div class="shop-grid">
               
               <div class="product-card" data-category="guides">
                   <div class="product-image">
-                      <span class="product-badge">Bestseller</span>
+                      <span class="product-badge" data-translate="shop.badge.bestseller">Bestseller</span>
                       <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770511694/Untitled_design_6_fnzi7c.png" alt="Morocco Travel Guide">
-                      <a href="index.html" class="quick-view">Quick View</a>
+                      <a href="index.html" class="quick-view" data-translate="shop.quickView">Quick View</a>
                   </div>
                   <div class="product-info">
-                      <div class="product-category">Travel Guide</div>
-                      <h3 class="product-title">Unlocking Morocco: Ultimate 2026 Guide</h3>
-                      <p class="product-description">Complete guide with 8 chapters, insider tips, itineraries, and bonus content.</p>
+                      <div class="product-category" data-translate="shop.product1.category">Travel Guide</div>
+                      <h3 class="product-title" data-translate="shop.product1.title">Unlocking Morocco: Ultimate 2026 Guide</h3>
+                      <p class="product-description" data-translate="shop.product1.desc">Complete guide with 8 chapters, insider tips, itineraries, and bonus content.</p>
                       <div class="product-rating">
                           <span class="stars">★★★★★</span>
                           <span class="rating-count">(107)</span>
                       </div>
                       <div class="product-footer">
                           <div class="product-price">$9.99</div>
-                          <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="add-to-cart">Buy Now</a>
+                          <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                       </div>
                   </div>
               </div>
 
               <div class="product-card" data-category="guides">
                   <div class="product-image">
-                      <span class="product-badge new">New</span>
+                      <span class="product-badge new" data-translate="shop.badge.new">New</span>
                       <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770509045/Untitled_design_2_b4rwdn.png" alt="mini E-book ">
-                      <a href="miniebook.html" class="quick-view">Quick View</a>
+                      <a href="miniebook.html" class="quick-view" data-translate="shop.quickView">Quick View</a>
                   </div>
                   <div class="product-info">
-                      <div class="product-category">Travel etiquette</div>
-                      <h3 class="product-title">Morocco Travel etiquette Dos and Don'ts every traveler should know</h3>
-                      <p class="product-description">Essential dos and don'ts, cultural etiquette, clothing rules, and local customs — all explained clearly to help you travel Morocco respectfully.</p>
+                      <div class="product-category" data-translate="shop.product2.category">Travel etiquette</div>
+                      <h3 class="product-title" data-translate="shop.product2.title">Morocco Travel etiquette Dos and Don'ts every traveler should know</h3>
+                      <p class="product-description" data-translate="shop.product2.desc">Essential dos and don'ts, cultural etiquette, clothing rules, and local customs — all explained clearly to help you travel Morocco respectfully.</p>
                       <div class="product-rating">
                           <span class="stars">★★★★★</span>
                           <span class="rating-count">(29)</span>
                       </div>
                       <div class="product-footer">
                           <div class="product-price">$4.99</div>
-                          <a href="https://travelreadz.gumroad.com/l/sqipv?wanted=true" class="add-to-cart">Buy Now</a>
+                          <a href="https://travelreadz.gumroad.com/l/sqipv?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                       </div>
                   </div>
               </div>
@@ -922,33 +963,33 @@
               <div class="product-card" data-category="guides">
                   <div class="product-image">
                       <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770511472/Untitled_design_4_dtu2xp.png" alt="budget calculator">
-                      <a href="budget.html" class="quick-view">Quick View</a>
+                      <a href="budget.html" class="quick-view" data-translate="shop.quickView">Quick View</a>
                   </div>
                   <div class="product-info">
-                      <div class="product-category">budget calculator</div>
-                      <h3 class="product-title">Travel budget calculator</h3>
-                      <p class="product-description">Set your budget, record spending over time, and see how it compares — a universal tool for travelers in any country.</p>
+                      <div class="product-category" data-translate="shop.product3.category">budget calculator</div>
+                      <h3 class="product-title" data-translate="shop.product3.title">Travel budget calculator</h3>
+                      <p class="product-description" data-translate="shop.product3.desc">Set your budget, record spending over time, and see how it compares — a universal tool for travelers in any country.</p>
                       <div class="product-rating">
                           <span class="stars">★★★★☆</span>
                           <span class="rating-count">(34)</span>
                       </div>
                       <div class="product-footer">
                           <div class="product-price">$5</div>
-                          <a href="https://travelreadz.gumroad.com/l/travel-budget-calculatr?wanted=true" class="add-to-cart">Buy Now</a>
+                          <a href="https://travelreadz.gumroad.com/l/travel-budget-calculatr?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                       </div>
                   </div>
               </div>
 
               <div class="product-card" data-category="guides">
                   <div class="product-image">
-                      <span class="product-badge sale">20% Off</span>
+                      <span class="product-badge sale" data-translate="shop.badge.sale">20% Off</span>
                       <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770511479/Untitled_design_5_iupnpk.png" alt="marrakech-maps">
-                      <a href="mapsgift.html" class="quick-view">Quick View</a>
+                      <a href="mapsgift.html" class="quick-view" data-translate="shop.quickView">Quick View</a>
                   </div>
                   <div class="product-info">
-                      <div class="product-category">Google Map Guide</div>
-                      <h3 class="product-title">Marrakech Google Maps Travel Guide</h3>
-                      <p class="product-description">Hand-picked attractions, hidden gems, riads, restaurants, and local tips — all saved directly to Google Maps for your Marrakech adventure.</p>
+                      <div class="product-category" data-translate="shop.product4.category">Google Map Guide</div>
+                      <h3 class="product-title" data-translate="shop.product4.title">Marrakech Google Maps Travel Guide</h3>
+                      <p class="product-description" data-translate="shop.product4.desc">Hand-picked attractions, hidden gems, riads, restaurants, and local tips — all saved directly to Google Maps for your Marrakech adventure.</p>
                       <div class="product-rating">
                           <span class="stars">★★★★★</span>
                           <span class="rating-count">(65)</span>
@@ -958,7 +999,7 @@
                               <span class="old-price">$6.25</span>
                               $5
                           </div>
-                          <a href="https://travelreadz.gumroad.com/l/Marrakech-Map-Guide?wanted=true" class="add-to-cart">Buy Now</a>
+                          <a href="https://travelreadz.gumroad.com/l/Marrakech-Map-Guide?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                       </div>
                   </div>
               </div>
@@ -968,16 +1009,15 @@
 
       <!-- FEATURED BANNER -->
       <div class="featured-banner">
-          <h2>🎁 Limited Time Bundle Offer</h2>
-          <p>Get the complete Morocco travel collection - Save 40% when you bundle!</p>
-          <a href="bundle.html" class="featured-btn">View Bundle Deal</a>
+          <h2 data-translate="shop.banner.title">🎁 Limited Time Bundle Offer</h2>
+          <p data-translate="shop.banner.desc">Get the complete Morocco travel collection - Save 40% when you bundle!</p>
+          <a href="bundle.html" class="featured-btn" data-translate="shop.banner.button">View Bundle Deal</a>
       </div>
 
       <!-- TRAVEL SERVICES SECTION (AFFILIATE) -->
       <section class="shop-section">
         <div class="section-header">
-            <h2>Essential Travel Services</h2>
-            <!-- <a href="shop-services.html" class="view-all-btn">View All</a> -->
+            <h2 data-translate="shop.section.services">Essential Travel Services</h2>
         </div>
         <div class="offers-grid">
             
@@ -985,24 +1025,24 @@
                 <div class="offer-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1484910292437-025e5d13ce87?q=80&w=914&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="SafetyWing Travel Insurance">
                     <div class="image-badges">
-                        <div class="badge-bestseller" style="background: #9b59b6;">Recommended</div>
+                        <div class="badge-bestseller" style="background: #9b59b6;" data-translate="shop.badge.recommended">Recommended</div>
                         <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
                     </div>
                 </div>
                 <div class="offer-content">
-                    <div class="offer-location">🛡️ Travel Insurance</div>
-                    <h3 class="offer-title">SafetyWing Travel Insurance</h3>
-                    <p class="offer-description">Affordable travel medical insurance for nomads and travelers. Coverage in 180+ countries with flexible monthly plans starting at $45.08/month.</p>
+                    <div class="offer-location">🛡️ <span data-translate="shop.insurance.category">Travel Insurance</span></div>
+                    <h3 class="offer-title" data-translate="shop.insurance.title">SafetyWing Travel Insurance</h3>
+                    <p class="offer-description" data-translate="shop.insurance.desc">Affordable travel medical insurance for nomads and travelers. Coverage in 180+ countries with flexible monthly plans starting at $45.08/month.</p>
                     <div class="offer-features">
-                        <span class="feature-tag">🌍 180+ countries</span>
-                        <span class="feature-tag">💰 From $45/mo</span>
-                        <span class="feature-tag">📱 Instant coverage</span>
+                        <span class="feature-tag" data-translate="shop.insurance.feature1">🌍 180+ countries</span>
+                        <span class="feature-tag" data-translate="shop.insurance.feature2">💰 From $45/mo</span>
+                        <span class="feature-tag" data-translate="shop.insurance.feature3">📱 Instant coverage</span>
                     </div>
                     <div class="offer-footer">
-                        <p style="font-size: 0.85rem; color: #666; margin: 0;">Trusted by thousands of travelers worldwide</p>
+                        <p style="font-size: 0.85rem; color: #666; margin: 0;" data-translate="shop.insurance.trust">Trusted by thousands of travelers worldwide</p>
                     </div>
                     <a href="https://safetywing.com/?referenceID=26454161&utm_source=26454161&utm_medium=Ambassador" class="cta-button" target="_blank" rel="noopener noreferrer">
-                        Get Protected →
+                        <span data-translate="shop.insurance.cta">Get Protected →</span>
                     </a>
                 </div>
             </article>
@@ -1015,27 +1055,27 @@
                     <div class="offer-image-wrapper">
                         <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/649ed5e0f1de5.jpeg" alt="">
                         <div class="image-badges">
-                            <div class="badge-bestseller">Bestseller</div>
+                            <div class="badge-bestseller" data-translate="shop.badge.bestseller">Bestseller</div>
                             <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
                         </div>
                     </div>
                     <div class="offer-content">
-                        <div class="offer-location">📍 Marrakech → Merzouga</div>
-                        <h3 class="offer-title">3-Day Desert Adventure: Marrakech to Merzouga</h3>
-                        <p class="offer-description">Experience the magic of the Sahara with camel rides, desert camping under the stars, and traditional Berber hospitality. Journey through stunning landscapes and create unforgettable memories.</p>
+                        <div class="offer-location" data-translate="shop.tour1.location">📍 Marrakech → Merzouga</div>
+                        <h3 class="offer-title" data-translate="shop.tour1.title">3-Day Desert Adventure: Marrakech to Merzouga</h3>
+                        <p class="offer-description" data-translate="shop.tour1.desc">Experience the magic of the Sahara with camel rides, desert camping under the stars, and traditional Berber hospitality. Journey through stunning landscapes and create unforgettable memories.</p>
                         <div class="offer-features">
-                            <span class="feature-tag">⏱️ 3 days</span>
-                            <span class="feature-tag">🚗 Pickup included</span>
-                            <span class="feature-tag">🍽️ Meals included</span>
+                            <span class="feature-tag" data-translate="shop.tour1.feature1">⏱️ 3 days</span>
+                            <span class="feature-tag" data-translate="shop.tour1.feature2">🚗 Pickup included</span>
+                            <span class="feature-tag" data-translate="shop.tour1.feature3">🍽️ Meals included</span>
                         </div>
                         <div class="offer-footer">
                             <div class="offer-rating">
                                 <span class="rating-stars">★ 4.8</span>
-                                <span class="rating-count">(2,543 reviews)</span>
+                                <span class="rating-count">(2,543 <span data-translate="shop.reviews">reviews</span>)</span>
                             </div>
                         </div>
                         <a href="https://gyg.me/jDyemv8R" class="cta-button" target="_blank" rel="noopener noreferrer">
-                            Check availability →
+                            <span data-translate="shop.checkAvailability">Check availability →</span>
                         </a>
                     </div>
                 </article>
@@ -1047,27 +1087,27 @@
                         <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/31d46c59d572cda50eb598ce1907068a4a117090df61c3d58a71fd4e368fde91.jpg"  alt="Chefchaouen blue city Morocco tour">
 
                         <div class="image-badges">
-                            <div class="badge-bestseller">Popular</div>
+                            <div class="badge-bestseller" data-translate="shop.badge.popular">Popular</div>
                             <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
                         </div>
                     </div>
                     <div class="offer-content">
-                        <div class="offer-location">📍 Multiple Cities</div>
-                        <h3 class="offer-title">Imperial Cities & Chefchaouen: 3-Day Cultural Tour</h3>
-                        <p class="offer-description">Explore Morocco's historical treasures and the stunning Blue Pearl city. Discover ancient medinas, magnificent architecture, and rich cultural heritage in this comprehensive journey.</p>
+                        <div class="offer-location" data-translate="shop.tour2.location">📍 Multiple Cities</div>
+                        <h3 class="offer-title" data-translate="shop.tour2.title">Imperial Cities & Chefchaouen: 3-Day Cultural Tour</h3>
+                        <p class="offer-description" data-translate="shop.tour2.desc">Explore Morocco's historical treasures and the stunning Blue Pearl city. Discover ancient medinas, magnificent architecture, and rich cultural heritage in this comprehensive journey.</p>
                         <div class="offer-features">
-                            <span class="feature-tag">⏱️ 3 days</span>
-                            <span class="feature-tag">🏛️ UNESCO sites</span>
-                            <span class="feature-tag">👥 Small groups</span>
+                            <span class="feature-tag" data-translate="shop.tour2.feature1">⏱️ 3 days</span>
+                            <span class="feature-tag" data-translate="shop.tour2.feature2">🏛️ UNESCO sites</span>
+                            <span class="feature-tag" data-translate="shop.tour2.feature3">👥 Small groups</span>
                         </div>
                         <div class="offer-footer">
                             <div class="offer-rating">
                                 <span class="rating-stars">★ 4.7</span>
-                                <span class="rating-count">(1,829 reviews)</span>
+                                <span class="rating-count">(1,829 <span data-translate="shop.reviews">reviews</span>)</span>
                             </div>
                         </div>
                         <a href="https://gyg.me/y6ct3Rru" class="cta-button" target="_blank" rel="noopener noreferrer">
-                            Check availability →
+                            <span data-translate="shop.checkAvailability">Check availability →</span>
                         </a>
                     </div>
                 </article>
@@ -1083,22 +1123,22 @@
                         </div>
                     </div>
                     <div class="offer-content">
-                        <div class="offer-location">📍 Casablanca</div>
-                        <h3 class="offer-title">Hassan II Mosque: Premium Guided Tour</h3>
-                        <p class="offer-description">Discover one of the world's largest mosques with premium guided access. Marvel at exquisite Moroccan craftsmanship, intricate mosaics, and the stunning oceanfront location.</p>
+                        <div class="offer-location" data-translate="shop.tour3.location">📍 Casablanca</div>
+                        <h3 class="offer-title" data-translate="shop.tour3.title">Hassan II Mosque: Premium Guided Tour</h3>
+                        <p class="offer-description" data-translate="shop.tour3.desc">Discover one of the world's largest mosques with premium guided access. Marvel at exquisite Moroccan craftsmanship, intricate mosaics, and the stunning oceanfront location.</p>
                         <div class="offer-features">
-                            <span class="feature-tag">⏱️ 2 hours</span>
-                            <span class="feature-tag">🎫 Skip-the-line</span>
-                            <span class="feature-tag">🎧 Audio guide</span>
+                            <span class="feature-tag" data-translate="shop.tour3.feature1">⏱️ 2 hours</span>
+                            <span class="feature-tag" data-translate="shop.tour3.feature2">🎫 Skip-the-line</span>
+                            <span class="feature-tag" data-translate="shop.tour3.feature3">🎧 Audio guide</span>
                         </div>
                         <div class="offer-footer">
                             <div class="offer-rating">
                                 <span class="rating-stars">★ 4.9</span>
-                                <span class="rating-count">(3,214 reviews)</span>
+                                <span class="rating-count">(3,214 <span data-translate="shop.reviews">reviews</span>)</span>
                             </div>
                         </div>
                         <a href="https://gyg.me/6dknH0FM" class="cta-button" target="_blank" rel="noopener noreferrer">
-                            Check availability →
+                            <span data-translate="shop.checkAvailability">Check availability →</span>
                         </a>
                     </div>
                 </article>
@@ -1108,27 +1148,27 @@
                     <div class="offer-image-wrapper">
                         <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/b8b5c31a6862efdead793235109d9e24c7947371ef47912b10d79ab37d2bf00b.jpeg" alt="">
                         <div class="image-badges">
-                            <div class="badge-bestseller">Top Rated</div>
+                            <div class="badge-bestseller" data-translate="shop.badge.topRated">Top Rated</div>
                             <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
                         </div>
                     </div>
                     <div class="offer-content">
-                        <div class="offer-location">📍 Marrakech</div>
-                        <h3 class="offer-title">Hot Air Balloon Flight & Berber Breakfast</h3>
-                        <p class="offer-description">Soar above the Atlas Mountains at sunrise and enjoy an authentic Berber breakfast. An unforgettable morning adventure with breathtaking views and traditional hospitality.</p>
+                        <div class="offer-location" data-translate="shop.tour4.location">📍 Marrakech</div>
+                        <h3 class="offer-title" data-translate="shop.tour4.title">Hot Air Balloon Flight & Berber Breakfast</h3>
+                        <p class="offer-description" data-translate="shop.tour4.desc">Soar above the Atlas Mountains at sunrise and enjoy an authentic Berber breakfast. An unforgettable morning adventure with breathtaking views and traditional hospitality.</p>
                         <div class="offer-features">
-                            <span class="feature-tag">⏱️ 4 hours</span>
-                            <span class="feature-tag">🌅 Sunrise flight</span>
-                            <span class="feature-tag">☕ Breakfast</span>
+                            <span class="feature-tag" data-translate="shop.tour4.feature1">⏱️ 4 hours</span>
+                            <span class="feature-tag" data-translate="shop.tour4.feature2">🌅 Sunrise flight</span>
+                            <span class="feature-tag" data-translate="shop.tour4.feature3">☕ Breakfast</span>
                         </div>
                         <div class="offer-footer">
                             <div class="offer-rating">
                                 <span class="rating-stars">★ 4.9</span>
-                                <span class="rating-count">(4,187 reviews)</span>
+                                <span class="rating-count">(4,187 <span data-translate="shop.reviews">reviews</span>)</span>
                             </div>
                         </div>
                         <a href="https://gyg.me/J0ArWBQ1" class="cta-button" target="_blank" rel="noopener noreferrer">
-                            Check availability →
+                            <span data-translate="shop.checkAvailability">Check availability →</span>
                         </a>
                     </div>
                 </article>
@@ -1142,22 +1182,22 @@
                         </div>
                     </div>
                     <div class="offer-content">
-                        <div class="offer-location">📍 Atlas Mountains</div>
-                        <h3 class="offer-title">Ourika Waterfalls & Atlas Mountains Day Trip</h3>
-                        <p class="offer-description">Escape to the refreshing Ourika Valley with scenic mountain views, waterfall hikes, and included lunch. Experience authentic mountain life in stunning natural beauty.</p>
+                        <div class="offer-location" data-translate="shop.tour5.location">📍 Atlas Mountains</div>
+                        <h3 class="offer-title" data-translate="shop.tour5.title">Ourika Waterfalls & Atlas Mountains Day Trip</h3>
+                        <p class="offer-description" data-translate="shop.tour5.desc">Escape to the refreshing Ourika Valley with scenic mountain views, waterfall hikes, and included lunch. Experience authentic mountain life in stunning natural beauty.</p>
                         <div class="offer-features">
-                            <span class="feature-tag">⏱️ Full day</span>
-                            <span class="feature-tag">🥾 Hiking</span>
-                            <span class="feature-tag">🍽️ Lunch included</span>
+                            <span class="feature-tag" data-translate="shop.tour5.feature1">⏱️ Full day</span>
+                            <span class="feature-tag" data-translate="shop.tour5.feature2">🥾 Hiking</span>
+                            <span class="feature-tag" data-translate="shop.tour5.feature3">🍽️ Lunch included</span>
                         </div>
                         <div class="offer-footer">
                             <div class="offer-rating">
                                 <span class="rating-stars">★ 4.6</span>
-                                <span class="rating-count">(1,956 reviews)</span>
+                                <span class="rating-count">(1,956 <span data-translate="shop.reviews">reviews</span>)</span>
                             </div>
                         </div>
                         <a href="https://gyg.me/M01DZEYX" class="cta-button" target="_blank" rel="noopener noreferrer">
-                            Check availability →
+                            <span data-translate="shop.checkAvailability">Check availability →</span>
                         </a>
                     </div>
                 </article>
@@ -1167,27 +1207,27 @@
                     <div class="offer-image-wrapper">
                         <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/8efe44cedceeeba6574f666b38eaf211e91a6d17c94071b2a7f62d49f8ec0584.jpg" alt="">
                         <div class="image-badges">
-                            <div class="badge-bestseller">Bestseller</div>
+                            <div class="badge-bestseller" data-translate="shop.badge.bestseller">Bestseller</div>
                             <div class="wishlist-btn" onclick="toggleWishlist(this)">♡</div>
                         </div>
                     </div>
                     <div class="offer-content">
-                        <div class="offer-location">📍 Agafay Desert</div>
-                        <h3 class="offer-title">Agafay Desert: Quad, Camel Ride & Dinner Show</h3>
-                        <p class="offer-description">Combine adventure with culture through quad biking, camel rides, and a spectacular dinner show under the stars. A perfect evening of excitement and entertainment.</p>
+                        <div class="offer-location" data-translate="shop.tour6.location">📍 Agafay Desert</div>
+                        <h3 class="offer-title" data-translate="shop.tour6.title">Agafay Desert: Quad, Camel Ride & Dinner Show</h3>
+                        <p class="offer-description" data-translate="shop.tour6.desc">Combine adventure with culture through quad biking, camel rides, and a spectacular dinner show under the stars. A perfect evening of excitement and entertainment.</p>
                         <div class="offer-features">
-                            <span class="feature-tag">⏱️ Evening</span>
-                            <span class="feature-tag">🏍️ Quad biking</span>
-                            <span class="feature-tag">🎭 Live show</span>
+                            <span class="feature-tag" data-translate="shop.tour6.feature1">⏱️ Evening</span>
+                            <span class="feature-tag" data-translate="shop.tour6.feature2">🏍️ Quad biking</span>
+                            <span class="feature-tag" data-translate="shop.tour6.feature3">🎭 Live show</span>
                         </div>
                         <div class="offer-footer">
                             <div class="offer-rating">
                                 <span class="rating-stars">★ 4.8</span>
-                                <span class="rating-count">(3,456 reviews)</span>
+                                <span class="rating-count">(3,456 <span data-translate="shop.reviews">reviews</span>)</span>
                             </div>
                         </div>
                         <a href="https://gyg.me/XfRTjDai" class="cta-button" target="_blank" rel="noopener noreferrer">
-                            Check availability →
+                            <span data-translate="shop.checkAvailability">Check availability →</span>
                         </a>
                     </div>
                 </article>
@@ -1201,22 +1241,22 @@
                         </div>
                     </div>
                     <div class="offer-content">
-                        <div class="offer-location">📍 Marrakech</div>
-                        <h3 class="offer-title">Majorelle Garden & YSL Museum Entry Ticket</h3>
-                        <p class="offer-description">Visit the iconic cobalt blue garden and explore the legacy of Yves Saint Laurent. Discover exotic plants, vibrant colors, and fashion history in Marrakech's most beautiful garden.</p>
+                        <div class="offer-location" data-translate="shop.tour7.location">📍 Marrakech</div>
+                        <h3 class="offer-title" data-translate="shop.tour7.title">Majorelle Garden & YSL Museum Entry Ticket</h3>
+                        <p class="offer-description" data-translate="shop.tour7.desc">Visit the iconic cobalt blue garden and explore the legacy of Yves Saint Laurent. Discover exotic plants, vibrant colors, and fashion history in Marrakech's most beautiful garden.</p>
                         <div class="offer-features">
-                            <span class="feature-tag">⏱️ 2-3 hours</span>
-                            <span class="feature-tag">🎫 Entry tickets</span>
-                            <span class="feature-tag">📸 Photo spots</span>
+                            <span class="feature-tag" data-translate="shop.tour7.feature1">⏱️ 2-3 hours</span>
+                            <span class="feature-tag" data-translate="shop.tour7.feature2">🎫 Entry tickets</span>
+                            <span class="feature-tag" data-translate="shop.tour7.feature3">📸 Photo spots</span>
                         </div>
                         <div class="offer-footer">
                             <div class="offer-rating">
                                 <span class="rating-stars">★ 4.7</span>
-                                <span class="rating-count">(5,632 reviews)</span>
+                                <span class="rating-count">(5,632 <span data-translate="shop.reviews">reviews</span>)</span>
                             </div>
                         </div>
                         <a href="https://gyg.me/eibRCLEQ" class="cta-button" target="_blank" rel="noopener noreferrer">
-                            Check availability →
+                            <span data-translate="shop.checkAvailability">Check availability →</span>
                         </a>
                     </div>
                 </article>
@@ -1229,41 +1269,40 @@
       <!-- CREATIVE TEMPLATES SECTION -->
       <section class="shop-section">
           <div class="section-header">
-              <h2>Creative Templates</h2>
+              <h2 data-translate="shop.section.templates">Creative Templates</h2>
            
           </div>
           <div class="shop-grid">
               
               <div class="product-card" data-category="templates">
                   <div class="product-image">
-                      <span class="product-badge">Trending</span>
+                      <span class="product-badge" data-translate="shop.badge.trending">Trending</span>
                       <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1767366538/ChatGPT_Image_Jan_1_2026_03_58_38_PM_goge5z.png" alt="Lightroom Presets">
                   </div>
                   <div class="product-info">
-                      <div class="product-category">Photo Editing</div>
-                      <h3 class="product-title">Moody Travel Lightroom Presets</h3>
-                      <p class="product-description">Transform your photos with a cinematic, warm, and professional travel look in just one click.
-                        These Moody Travel Lightroom Presets are designed to enhance colors, add depth, and create a consistent aesthetic perfect for travel, lifestyle, and Instagram photography.</p>
+                      <div class="product-category" data-translate="shop.template1.category">Photo Editing</div>
+                      <h3 class="product-title" data-translate="shop.template1.title">Moody Travel Lightroom Presets</h3>
+                      <p class="product-description" data-translate="shop.template1.desc">Transform your photos with a cinematic, warm, and professional travel look in just one click. These Moody Travel Lightroom Presets are designed to enhance colors, add depth, and create a consistent aesthetic perfect for travel, lifestyle, and Instagram photography.</p>
                       <div class="product-rating">
                           <span class="stars">★★★★★</span>
                           <span class="rating-count">(145)</span>
                       </div>
                       <div class="product-footer">
                           <div class="product-price">$4.99</div>
-                          <a href="https://travelreadz.gumroad.com/l/lightroom-preset?wanted=true" class="add-to-cart">Buy Now</a>
+                          <a href="https://travelreadz.gumroad.com/l/lightroom-preset?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                       </div>
                   </div>
               </div>
 
               <div class="product-card" data-category="templates">
                   <div class="product-image">
-                    <span class="product-badge sale">100% Off</span>
+                    <span class="product-badge sale" data-translate="shop.badge.free">100% Off</span>
                       <img src="https://i.ibb.co/39MT8pCC/Gemini-Generated-Image-u3mntlu3mntlu3mn.png" alt="Canva Templates">
                   </div>
                   <div class="product-info">
-                      <div class="product-category">Social Media</div>
-                      <h3 class="product-title">Instagram Story Templates for Travel Brands & Creators</h3>
-                      <p class="product-description">High-end Travel Instagram Stories designed for creators and brands who want a premium, elegant, and professional Instagram presence.</p>
+                      <div class="product-category" data-translate="shop.template2.category">Social Media</div>
+                      <h3 class="product-title" data-translate="shop.template2.title">Instagram Story Templates for Travel Brands & Creators</h3>
+                      <p class="product-description" data-translate="shop.template2.desc">High-end Travel Instagram Stories designed for creators and brands who want a premium, elegant, and professional Instagram presence.</p>
                       <div class="product-rating">
                           <span class="stars">★★★★★</span>
                           <span class="rating-count">(189)</span>
@@ -1274,27 +1313,27 @@
                             <span class="old-price">$9.99</span>
                             $0.00
                         </div>
-                          <a href="https://travelreadz.gumroad.com/l/Instagram-Story?wanted=true" class="add-to-cart">Buy Now</a>
+                          <a href="https://travelreadz.gumroad.com/l/Instagram-Story?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                       </div>
                   </div>
               </div>
 
               <div class="product-card" data-category="templates">
                   <div class="product-image">
-                    <span class="product-badge new">Bestseller</span>
+                    <span class="product-badge new" data-translate="shop.badge.bestseller">Bestseller</span>
                       <img src="https://i.ibb.co/fG189p02/Gemini-Generated-Image-cpp8v7cpp8v7cpp8.png" alt="Video Templates">
                   </div>
                   <div class="product-info">
-                      <div class="product-category">Video Editing</div>
-                      <h3 class="product-title">730+ Viral Instagram Reels – Ready to Post & Grow Fast</h3>
-                      <p class="product-description">Boost your Instagram presence with 730+ high-quality, viral-style Instagram Reels designed to help you grow faster, increase engagement, and save hours of content creation.</p>
+                      <div class="product-category" data-translate="shop.template3.category">Video Editing</div>
+                      <h3 class="product-title" data-translate="shop.template3.title">730+ Viral Instagram Reels – Ready to Post & Grow Fast</h3>
+                      <p class="product-description" data-translate="shop.template3.desc">Boost your Instagram presence with 730+ high-quality, viral-style Instagram Reels designed to help you grow faster, increase engagement, and save hours of content creation.</p>
                       <div class="product-rating">
                           <span class="stars">★★★★☆</span>
                           <span class="rating-count">(67)</span>
                       </div>
                       <div class="product-footer">
                         <div class="product-price">$5.99</div>
-                          <a href="https://travelreadz.gumroad.com/l/instagram-Reels?wanted=true" class="add-to-cart">Buy Now</a>
+                          <a href="https://travelreadz.gumroad.com/l/instagram-Reels?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                       </div>
                   </div>
               </div>
@@ -1304,36 +1343,36 @@
                       <img src="https://i.ibb.co/tP39NFsc/ideogram-v3-0-Luxury-premium-promotional-cover-image-for-a-digital-product-titled-3000-plus-0.png" alt="Blog Templates">
                   </div>
                   <div class="product-info">
-                      <div class="product-category">Canva Templates</div>
-                      <h3 class="product-title">🎨 3000+ Instagram Design Templates – Create Stunning Content Fast</h3>
-                      <p class="product-description">3000+ professionally designed Instagram templates to help you create eye-catching posts, stories, and reels in minutes. Fully customizable, easy to use, and perfect for consistent, high-quality content without design skills. Grow faster and save time with ready-to-use designs.</p>
+                      <div class="product-category" data-translate="shop.template4.category">Canva Templates</div>
+                      <h3 class="product-title" data-translate="shop.template4.title">🎨 3000+ Instagram Design Templates – Create Stunning Content Fast</h3>
+                      <p class="product-description" data-translate="shop.template4.desc">3000+ professionally designed Instagram templates to help you create eye-catching posts, stories, and reels in minutes. Fully customizable, easy to use, and perfect for consistent, high-quality content without design skills. Grow faster and save time with ready-to-use designs.</p>
                       <div class="product-rating">
                           <span class="stars">★★★★☆</span>
                           <span class="rating-count">(54)</span>
                       </div>
                       <div class="product-footer">
                           <div class="product-price">$3.99</div>
-                          <a href="https://travelreadz.gumroad.com/l/Instagram-Design-Templates?wanted=true" class="add-to-cart">Buy Now</a>
+                          <a href="https://travelreadz.gumroad.com/l/Instagram-Design-Templates?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                       </div>
                   </div>
               </div>
 
               <div class="product-card" data-category="templates">
                 <div class="product-image">
-                    <span class="product-badge sale">Hot 🔥</span>
+                    <span class="product-badge sale" data-translate="shop.badge.hot">Hot 🔥</span>
                     <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1767371167/Gemini_Generated_Image_flu9fkflu9fkflu9_qjpafn.png" alt="Blog Templates">
                 </div>
                 <div class="product-info">
-                    <div class="product-category">Watercolor</div>
-                    <h3 class="product-title">Watercolor Travel the World Clipart</h3>
-                    <p class="product-description">Bring your travel designs to life with beautiful watercolor clipart! This pack includes high-quality illustrations of landmarks, maps, and travel icons—perfect for invitations, planners, social media, and creative projects.</p>
+                    <div class="product-category" data-translate="shop.template5.category">Watercolor</div>
+                    <h3 class="product-title" data-translate="shop.template5.title">Watercolor Travel the World Clipart</h3>
+                    <p class="product-description" data-translate="shop.template5.desc">Bring your travel designs to life with beautiful watercolor clipart! This pack includes high-quality illustrations of landmarks, maps, and travel icons—perfect for invitations, planners, social media, and creative projects.</p>
                     <div class="product-rating">
                         <span class="stars">★★★★☆</span>
                         <span class="rating-count">(214)</span>
                     </div>
                     <div class="product-footer">
                         <div class="product-price">$9.99</div>
-                        <a href="https://travelreadz.gumroad.com/l/Watercolor?wanted=true" class="add-to-cart">Buy Now</a>
+                        <a href="https://travelreadz.gumroad.com/l/Watercolor?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                     </div>
                 </div>
             </div>
@@ -1344,16 +1383,16 @@
                     <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1767717175/Gemini_Generated_Image_e1g6wke1g6wke1g6_mtcxkz.png" alt="Blog Templates">
                 </div>
                 <div class="product-info">
-                    <div class="product-category">Hand-Drawn Illustrations</div>
-                    <h3 class="product-title">Travel Clipart – Hand-Drawn Illustrations for Creative Projects</h3>
-                    <p class="product-description">Bring your travel designs to life with hand-drawn, charming illustrations! Perfect for bloggers, designers, and content creators who want unique, artistic, and ready-to-use graphics for print or digital projects.</p>
+                    <div class="product-category" data-translate="shop.template6.category">Hand-Drawn Illustrations</div>
+                    <h3 class="product-title" data-translate="shop.template6.title">Travel Clipart – Hand-Drawn Illustrations for Creative Projects</h3>
+                    <p class="product-description" data-translate="shop.template6.desc">Bring your travel designs to life with hand-drawn, charming illustrations! Perfect for bloggers, designers, and content creators who want unique, artistic, and ready-to-use graphics for print or digital projects.</p>
                     <div class="product-rating">
                         <span class="stars">★★★★☆</span>
                         <span class="rating-count">(144)</span>
                     </div>
                     <div class="product-footer">
                         <div class="product-price">$9.99</div>
-                        <a href="https://travelreadz.gumroad.com/l/Hand-Drawn-Illustrations?wanted=true" class="add-to-cart">Buy Now</a>
+                        <a href="https://travelreadz.gumroad.com/l/Hand-Drawn-Illustrations?wanted=true" class="add-to-cart" data-translate="shop.buyNow">Buy Now</a>
                     </div>
                 </div>
             </div>
@@ -1366,13 +1405,16 @@
   <!-- FOOTER -->
   <footer class="site-footer">
       <div class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms & Conditions</a>
-          <a href="contact.html">Contact Us</a>
-          <a href="about.html">About Us</a>
+          <a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a>
+          <a href="terms.html" data-translate="footer.terms">Terms & Conditions</a>
+          <a href="contact.html" data-translate="footer.contact">Contact Us</a>
+          <a href="about.html" data-translate="footer.about">About Us</a>
       </div>
-      <p>&copy; 2025 Travel Readz. All Rights Reserved.</p>
+      <p data-translate="footer.copyright">&copy; 2025 Travel Readz. All Rights Reserved.</p>
   </footer>
+
+  <!-- Translation Script -->
+  <script src="translations.js"></script>
 
   <script>
       // Wait for DOM to fully load
@@ -1440,25 +1482,26 @@
                   searchInput.value = '';
               });
           });
+          
+          // Update search placeholder when language changes
+          updateSearchPlaceholder();
       });
+      
+      // Function to update search input placeholder based on current language
+      function updateSearchPlaceholder() {
+          const currentLang = localStorage.getItem('travelReadzLang') || 'en';
+          const searchInput = document.getElementById('searchInput');
+          const placeholders = {
+              en: 'Search products...',
+              fr: 'Rechercher des produits...',
+              es: 'Buscar productos...'
+          };
+          if (searchInput) {
+              searchInput.placeholder = placeholders[currentLang];
+          }
+      }
   </script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
