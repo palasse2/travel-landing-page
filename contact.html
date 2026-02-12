@@ -6,7 +6,6 @@
     <title>Contact Us - Travel Readz</title>
     <meta name="description" content="Get in touch with Travel Readz. We're here to help with your Morocco travel questions, guide support, and any inquiries.">
     
-    <!-- Google Fonts: Inter + Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
     <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
@@ -22,26 +21,28 @@
             background-color: #f9fafb;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
         h1 { font-weight: 700; }
         h2 { font-weight: 600; }
         h3 { font-weight: 600; }
 
+        .fade-transition { opacity: 0; transition: opacity 0.3s ease; }
+        .fade-transition.active { opacity: 1; }
+
         /* --- NAVIGATION --- */
         .main-nav {
             width: 100%;
-            background: #fff;
-            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 18px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 20px;
             z-index: 999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 20px rgba(0,68,102,0.08);
             position: sticky;
             top: 0;
         }
@@ -49,7 +50,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 50px;
+            gap: 40px;
             margin: 0;
             padding: 0;
         }
@@ -58,11 +59,72 @@
             text-decoration: none;
             color: #004466;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: 0.3s;
+            position: relative;
         }
 
-        .nav-links li a:hover { color: #ffcc00; }
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: #ffcc00;
+            transition: width 0.3s;
+        }
+
+        .nav-links li a:hover { color: #006699; }
+        .nav-links li a:hover::after { width: 100%; }
+
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            background: #f8fafb;
+            padding: 6px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: #666;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-btn:hover {
+            background: rgba(0, 68, 102, 0.1);
+            color: #004466;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #004466 0%, #006699 100%);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 68, 102, 0.3);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #004466 0%, #006699 100%);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 68, 102, 0.25);
+        }
 
         /* --- HERO SECTION --- */
         .contact-hero {
@@ -77,10 +139,8 @@
         .contact-hero::before {
             content: "";
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
+            top: -50%; right: -10%;
+            width: 600px; height: 600px;
             background: rgba(255,204,0,0.1);
             border-radius: 50%;
         }
@@ -88,10 +148,8 @@
         .contact-hero::after {
             content: "";
             position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
+            bottom: -30%; left: -10%;
+            width: 500px; height: 500px;
             background: rgba(255,204,0,0.08);
             border-radius: 50%;
         }
@@ -122,7 +180,6 @@
             z-index: 10;
         }
 
-        /* --- CONTACT CARDS --- */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -144,9 +201,7 @@
         .contact-card::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 5px;
             background: linear-gradient(90deg, #004466, #ffcc00);
         }
@@ -156,10 +211,7 @@
             box-shadow: 0 15px 50px rgba(0,68,102,0.15);
         }
 
-        .contact-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
+        .contact-icon { font-size: 3.5rem; margin-bottom: 20px; }
 
         .contact-card h2 {
             color: #004466;
@@ -181,9 +233,7 @@
             transition: 0.3s;
         }
 
-        .email-link:hover {
-            color: #ffcc00;
-        }
+        .email-link:hover { color: #ffcc00; }
 
         .btn-message {
             display: inline-block;
@@ -202,7 +252,6 @@
             box-shadow: 0 8px 25px rgba(0,68,102,0.3);
         }
 
-        /* --- SOCIAL ICONS --- */
         .social-icons {
             display: flex;
             gap: 20px;
@@ -211,8 +260,7 @@
         }
 
         .social-icons a {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -227,13 +275,9 @@
             box-shadow: 0 5px 20px rgba(0,68,102,0.2);
         }
 
-        .social-icons img {
-            width: 35px;
-            height: 35px;
-            object-fit: contain;
-        }
+        .social-icons img { width: 35px; height: 35px; object-fit: contain; }
 
-        /* --- CONTACT FORM SECTION --- */
+        /* --- CONTACT FORM --- */
         .contact-form-section {
             background: #fff;
             max-width: 800px;
@@ -256,9 +300,7 @@
             margin-bottom: 35px;
         }
 
-        .form-group {
-            margin-bottom: 25px;
-        }
+        .form-group { margin-bottom: 25px; }
 
         .form-group label {
             display: block;
@@ -287,10 +329,7 @@
             box-shadow: 0 0 0 3px rgba(0,68,102,0.1);
         }
 
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
+        .form-group textarea { min-height: 150px; resize: vertical; }
 
         .form-row {
             display: grid;
@@ -317,7 +356,7 @@
             box-shadow: 0 12px 30px rgba(0,68,102,0.3);
         }
 
-        /* --- FAQ SECTION --- */
+        /* --- FAQ --- */
         .faq-section {
             max-width: 900px;
             margin: 0 auto 80px;
@@ -336,11 +375,9 @@
         .faq-section h2::after {
             content: "";
             position: absolute;
-            bottom: 0;
-            left: 50%;
+            bottom: 0; left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
+            width: 80px; height: 4px;
             background: linear-gradient(90deg, #004466, #ffcc00);
             border-radius: 2px;
         }
@@ -354,9 +391,7 @@
             transition: 0.3s;
         }
 
-        .faq-item:hover {
-            box-shadow: 0 8px 30px rgba(0,68,102,0.1);
-        }
+        .faq-item:hover { box-shadow: 0 8px 30px rgba(0,68,102,0.1); }
 
         .faq-question {
             color: #004466;
@@ -386,81 +421,50 @@
             background-color: #004466;
             color: #fff;
             text-align: center;
-            padding: 25px 20px;
-            border-radius: 12px 12px 0 0;
+            padding: 40px 20px 25px;
             font-size: 0.95rem;
         }
 
         .site-footer .footer-links {
-            margin-bottom: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
         .site-footer .footer-links a {
             color: #ffcc00;
-            margin: 0 12px;
             text-decoration: none;
             transition: 0.3s;
+            font-weight: 500;
         }
 
-        .site-footer .footer-links a:hover {
-            text-decoration: underline;
-            color: #e6b800;
-        }
+        .site-footer .footer-links a:hover { color: white; }
 
-        .site-footer p {
-            margin: 0;
-            color: #fff;
-        }
+        .site-footer p { margin: 0; color: rgba(255,255,255,0.7); }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .contact-hero h1 {
-                font-size: 2rem;
-            }
+            .contact-hero h1 { font-size: 2rem; }
+            .contact-hero p { font-size: 1rem; }
 
-            .contact-hero p {
-                font-size: 1rem;
-            }
+            .main-nav { flex-wrap: wrap; justify-content: center; }
+            .nav-links { gap: 20px; order: 3; width: 100%; justify-content: center; }
+            .language-switcher { order: 1; }
+            .nav-cta { order: 2; }
 
-            .nav-links {
-                gap: 20px;
-            }
-
-            .nav-links li a {
-                font-size: 0.9rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form-section {
-                padding: 35px 25px;
-            }
-
-            .faq-section h2 {
-                font-size: 1.8rem;
-            }
+            .contact-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form-section { padding: 35px 25px; }
+            .faq-section h2 { font-size: 1.8rem; }
         }
 
         @media (max-width: 480px) {
-            .contact-card {
-                padding: 30px 20px;
-            }
-
-            .social-icons a {
-                width: 50px;
-                height: 50px;
-            }
-
-            .social-icons img {
-                width: 28px;
-                height: 28px;
-            }
+            .contact-card { padding: 30px 20px; }
+            .social-icons a { width: 50px; height: 50px; }
+            .social-icons img { width: 28px; height: 28px; }
+            .language-switcher { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -470,33 +474,41 @@
     <!-- NAVIGATION -->
     <nav class="main-nav">
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Services</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html" data-translate="nav.home">Home</a></li>
+            <li><a href="shop.html" data-translate="nav.services">Services</a></li>
+            <li><a href="about.html" data-translate="nav.about">About Us</a></li>
         </ul>
+
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
     </nav>
 
     <!-- HERO SECTION -->
     <section class="contact-hero">
-        <h1>Get in Touch</h1>
-        <p>We're always here to help! Whether you have a question about our guides, need support with an order, or just want to reach out — feel free to contact us through any of the platforms below.</p>
+        <h1 data-translate="contact.hero.title">Get in Touch</h1>
+        <p data-translate="contact.hero.subtitle">We're always here to help! Whether you have a question about our guides, need support with an order, or just want to reach out — feel free to contact us through any of the platforms below.</p>
     </section>
 
     <!-- CONTACT CARDS -->
     <div class="contact-container">
         <div class="contact-grid">
-            
+
             <div class="contact-card">
                 <div class="contact-icon">📧</div>
-                <h2>Email Support</h2>
-                <p>Have questions or need help with any product? We typically respond within 24 hours.</p>
+                <h2 data-translate="contact.card1.title">Email Support</h2>
+                <p data-translate="contact.card1.desc">Have questions or need help with any product? We typically respond within 24 hours.</p>
                 <a href="mailto:support@travelreadz.com" class="email-link">support@travelreadz.com</a>
             </div>
 
             <div class="contact-card">
                 <div class="contact-icon">🌍</div>
-                <h2>Follow Us</h2>
-                <p>Stay updated with travel tips, Morocco guides, and exclusive offers on social media.</p>
+                <h2 data-translate="contact.card2.title">Follow Us</h2>
+                <p data-translate="contact.card2.desc">Stay updated with travel tips, Morocco guides, and exclusive offers on social media.</p>
                 <div class="social-icons">
                     <a href="https://www.instagram.com/travel_readz/" target="_blank" title="Instagram">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/640px-Instagram_logo_2022.svg.png" alt="Instagram" />
@@ -509,75 +521,74 @@
 
             <div class="contact-card">
                 <div class="contact-icon">💬</div>
-                <h2>Message Us</h2>
-                <p>Have a custom request, business inquiry, or partnership opportunity?</p>
-                <a href="mailto:support@travelreadz.com?subject=Custom Inquiry" class="btn-message">Send a Message</a>
+                <h2 data-translate="contact.card3.title">Message Us</h2>
+                <p data-translate="contact.card3.desc">Have a custom request, business inquiry, or partnership opportunity?</p>
+                <a href="mailto:support@travelreadz.com?subject=Custom Inquiry" class="btn-message" data-translate="contact.card3.button">Send a Message</a>
             </div>
 
         </div>
 
         <!-- CONTACT FORM -->
         <div class="contact-form-section">
-            <h2>Send Us a Direct Message</h2>
-            <p class="subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
-            
-            <form action="https://formspree.io/f/xqezdpdy"method="POST">
+            <h2 data-translate="contact.form.title">Send Us a Direct Message</h2>
+            <p class="subtitle" data-translate="contact.form.subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+            <form action="https://formspree.io/f/xqezdpdy" method="POST">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="name">Your Name *</label>
+                        <label for="name" data-translate="contact.form.name">Your Name *</label>
                         <input type="text" id="name" name="name" required placeholder="John Doe">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address *</label>
+                        <label for="email" data-translate="contact.form.email">Email Address *</label>
                         <input type="email" id="email" name="email" required placeholder="john@example.com">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="subject">Subject *</label>
+                    <label for="subject" data-translate="contact.form.subjectLabel">Subject *</label>
                     <select id="subject" name="subject" required>
-                        <option value="">Select a topic...</option>
-                        <option value="product-inquiry">Product Inquiry</option>
-                        <option value="order-support">Order Support</option>
-                        <option value="technical-issue">Technical Issue</option>
-                        <option value="partnership">Partnership/Business</option>
-                        <option value="feedback">Feedback</option>
-                        <option value="other">Other</option>
+                        <option value="" data-translate="contact.form.selectTopic">Select a topic...</option>
+                        <option value="product-inquiry" data-translate="contact.form.optProduct">Product Inquiry</option>
+                        <option value="order-support" data-translate="contact.form.optOrder">Order Support</option>
+                        <option value="technical-issue" data-translate="contact.form.optTech">Technical Issue</option>
+                        <option value="partnership" data-translate="contact.form.optPartner">Partnership/Business</option>
+                        <option value="feedback" data-translate="contact.form.optFeedback">Feedback</option>
+                        <option value="other" data-translate="contact.form.optOther">Other</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Your Message *</label>
+                    <label for="message" data-translate="contact.form.messageLabel">Your Message *</label>
                     <textarea id="message" name="message" required placeholder="Tell us how we can help you..."></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn" data-translate="contact.form.submit">Send Message</button>
             </form>
         </div>
 
         <!-- FAQ SECTION -->
         <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            
+            <h2 data-translate="contact.faq.title">Frequently Asked Questions</h2>
+
             <div class="faq-item">
-                <div class="faq-question">How quickly will I receive my digital products?</div>
-                <div class="faq-answer">All digital products are delivered instantly after purchase via email. Check your inbox (and spam folder) for the download link.</div>
+                <div class="faq-question" data-translate="contact.faq.q1.question">How quickly will I receive my digital products?</div>
+                <div class="faq-answer" data-translate="contact.faq.q1.answer">All digital products are delivered instantly after purchase via email. Check your inbox (and spam folder) for the download link.</div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">What if I have issues accessing my purchase?</div>
-                <div class="faq-answer">Contact us at support@travelreadz.com with your order number, and we'll resolve it within 24 hours.</div>
-            </div>
-
-
-            <div class="faq-item">
-                <div class="faq-question">Can I get travel advice for my specific Morocco trip?</div>
-                <div class="faq-answer">Absolutely! Our Premium WhatsApp Support package provides personalized travel advice from local experts. You can also email us with specific questions.</div>
+                <div class="faq-question" data-translate="contact.faq.q2.question">What if I have issues accessing my purchase?</div>
+                <div class="faq-answer" data-translate="contact.faq.q2.answer">Contact us at support@travelreadz.com with your order number, and we'll resolve it within 24 hours.</div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Do you offer wholesale or affiliate partnerships?</div>
-                <div class="faq-answer">Yes! We're open to partnerships with travel bloggers, agencies, and influencers. Email us with "Partnership" in the subject line.</div>
+                <div class="faq-question" data-translate="contact.faq.q3.question">Can I get travel advice for my specific Morocco trip?</div>
+                <div class="faq-answer" data-translate="contact.faq.q3.answer">Absolutely! Our Premium WhatsApp Support package provides personalized travel advice from local experts. You can also email us with specific questions.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="contact.faq.q4.question">Do you offer wholesale or affiliate partnerships?</div>
+                <div class="faq-answer" data-translate="contact.faq.q4.answer">Yes! We're open to partnerships with travel bloggers, agencies, and influencers. Email us with "Partnership" in the subject line.</div>
             </div>
         </div>
     </div>
@@ -585,13 +596,15 @@
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms & Conditions</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="about.html">About Us</a>
+            <a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a>
+            <a href="terms.html" data-translate="footer.terms">Terms & Conditions</a>
+            <a href="contact.html" data-translate="footer.contact">Contact Us</a>
+            <a href="about.html" data-translate="footer.about">About Us</a>
         </div>
-        <p>&copy; 2025 Travel Readz. All Rights Reserved.</p>
+        <p data-translate="footer.copyright">&copy; 2025 Travel Readz. All Rights Reserved.</p>
     </footer>
+
+    <script src="translations.js"></script>
 
 </body>
 </html>
