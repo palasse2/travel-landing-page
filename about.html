@@ -31,6 +31,16 @@
     h2 { font-weight: 600; }
     h3 { font-weight: 600; }
 
+    /* Fade transition for language switching */
+    .fade-transition {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .fade-transition.active {
+        opacity: 1;
+    }
+
     /* --- NAVIGATION --- */
     .main-nav {
         width: 100%;
@@ -63,6 +73,40 @@
     }
 
     .nav-links li a:hover { color: #ffcc00; }
+
+    /* Language Switcher */
+    .language-switcher {
+        display: flex;
+        gap: 8px;
+        background: #f8fafb;
+        padding: 6px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .lang-btn {
+        background: transparent;
+        border: none;
+        color: #666;
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 6px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .lang-btn:hover {
+        background: rgba(0, 68, 102, 0.1);
+        color: #004466;
+    }
+
+    .lang-btn.active {
+        background: linear-gradient(135deg, #004466 0%, #006699 100%);
+        color: white;
+        box-shadow: 0 2px 8px rgba(0, 68, 102, 0.3);
+    }
 
     /* --- HERO SECTION --- */
     .about-hero {
@@ -245,6 +289,92 @@
         margin-bottom: 80px;
     }
 
+    .team-section h2 {
+        color: #004466;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .team-section h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #004466, #ffcc00);
+        border-radius: 2px;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+    }
+
+    .team-member {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        transition: 0.3s;
+        text-align: center;
+    }
+
+    .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 50px rgba(0,68,102,0.15);
+    }
+
+    .team-member-image {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, #e0e8f0, #f0f4f7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        color: #004466;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .team-member-image::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,204,0,0.1) 0%, transparent 70%);
+    }
+
+    .team-member img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .team-member-info {
+        padding: 25px;
+    }
+
+    .team-member h3 {
+        color: #004466;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+
+    .team-member p {
+        color: #006699;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
     /* --- MOROCCO SPECIAL SECTION --- */
     .morocco-special {
         margin-bottom: 80px;
@@ -337,92 +467,6 @@
         margin: 0 auto;
         line-height: 1.8;
         font-style: italic;
-    }
-
-    .team-section h2 {
-        color: #004466;
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 50px;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    .team-section h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(90deg, #004466, #ffcc00);
-        border-radius: 2px;
-    }
-
-    .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 40px;
-    }
-
-    .team-member {
-        background: #fff;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        transition: 0.3s;
-        text-align: center;
-    }
-
-    .team-member:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 50px rgba(0,68,102,0.15);
-    }
-
-    .team-member-image {
-        width: 100%;
-        height: 300px;
-        background: linear-gradient(135deg, #e0e8f0, #f0f4f7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 5rem;
-        color: #004466;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .team-member-image::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,204,0,0.1) 0%, transparent 70%);
-    }
-
-    .team-member img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .team-member-info {
-        padding: 25px;
-    }
-
-    .team-member h3 {
-        color: #004466;
-        font-size: 1.4rem;
-        margin-bottom: 8px;
-    }
-
-    .team-member p {
-        color: #006699;
-        font-weight: 600;
-        font-size: 0.95rem;
     }
 
     /* --- CTA SECTION --- */
@@ -518,6 +562,11 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
+        .main-nav {
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
         .about-hero h1 {
             font-size: 2.2rem;
         }
@@ -552,6 +601,16 @@
         .final-cta h2 {
             font-size: 1.8rem;
         }
+
+        .language-switcher {
+            order: 1;
+        }
+
+        .nav-links {
+            order: 3;
+            width: 100%;
+            justify-content: center;
+        }
     }
 
     @media (max-width: 480px) {
@@ -570,16 +629,23 @@
   <!-- NAVIGATION -->
   <nav class="main-nav">
       <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html" data-translate="nav.home">Home</a></li>
+          <li><a href="shop.html" data-translate="nav.services">Services</a></li>
+          <li><a href="about.html" data-translate="nav.about">About us</a></li>
       </ul>
+      
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+      </div>
   </nav>
 
   <!-- HERO SECTION -->
   <section class="about-hero">
-      <h1>About Travel Readz</h1>
-      <p>Your trusted partner for unforgettable Moroccan travel experiences</p>
+      <h1 data-translate="about.hero.title">About Travel Readz</h1>
+      <p data-translate="about.hero.subtitle">Your trusted partner for unforgettable Moroccan travel experiences</p>
   </section>
 
   <!-- MAIN CONTAINER -->
@@ -587,45 +653,45 @@
 
       <!-- OUR STORY -->
       <section class="about-story">
-          <h2>Our Story</h2>
-          <p>
+          <h2 data-translate="about.story.title">Our Story</h2>
+          <p data-translate="about.story.p1">
               Founded with a passion for travel and a deep love for Morocco, Travel Readz was created to bridge the gap between travelers and authentic experiences. We understand that planning a trip to Morocco can feel overwhelming — from navigating bustling medinas to understanding local customs and finding hidden gems that guidebooks often miss.
           </p>
-          <p>
+          <p data-translate="about.story.p2">
               That's why we're here. Our mission is to provide high-quality digital travel guides, practical resources, and expert insights that make every journey seamless and memorable. Whether you're a first-time visitor or a seasoned explorer, we aim to inspire adventurers while offering the tools and knowledge needed to travel with confidence.
           </p>
-          <p>
+          <p data-translate="about.story.p3">
               What started as a personal project to help fellow travelers has grown into a trusted resource for thousands seeking authentic Moroccan experiences. Every guide, template, and resource we create is crafted with care, local knowledge, and a commitment to helping you discover Morocco the way it's meant to be experienced.
           </p>
       </section>
 
       <!-- WHY CHOOSE US -->
       <section class="values-section">
-          <h2>Why Choose Travel Readz</h2>
+          <h2 data-translate="about.values.title">Why Choose Travel Readz</h2>
           <div class="values-grid">
               
               <div class="value-card">
                   <div class="value-icon">📚</div>
-                  <h3>Expert Knowledge</h3>
-                  <p>Curated travel guides and resources created by local experts and experienced travelers who know Morocco inside out.</p>
+                  <h3 data-translate="about.values.card1.title">Expert Knowledge</h3>
+                  <p data-translate="about.values.card1.desc">Curated travel guides and resources created by local experts and experienced travelers who know Morocco inside out.</p>
               </div>
 
               <div class="value-card">
                   <div class="value-icon">✨</div>
-                  <h3>Quality First</h3>
-                  <p>Every product we offer is carefully crafted and tested to ensure it delivers real value to your travel experience.</p>
+                  <h3 data-translate="about.values.card2.title">Quality First</h3>
+                  <p data-translate="about.values.card2.desc">Every product we offer is carefully crafted and tested to ensure it delivers real value to your travel experience.</p>
               </div>
 
               <div class="value-card">
                   <div class="value-icon">🎨</div>
-                  <h3>Creative Tools</h3>
-                  <p>Exclusive digital templates, presets, and tools designed to help you document and share your Morocco journey beautifully.</p>
+                  <h3 data-translate="about.values.card3.title">Creative Tools</h3>
+                  <p data-translate="about.values.card3.desc">Exclusive digital templates, presets, and tools designed to help you document and share your Morocco journey beautifully.</p>
               </div>
 
               <div class="value-card">
                   <div class="value-icon">💬</div>
-                  <h3>Dedicated Support</h3>
-                  <p>Our team is always ready to help with your questions, from pre-trip planning to on-the-ground support via WhatsApp.</p>
+                  <h3 data-translate="about.values.card4.title">Dedicated Support</h3>
+                  <p data-translate="about.values.card4.desc">Our team is always ready to help with your questions, from pre-trip planning to on-the-ground support via WhatsApp.</p>
               </div>
 
           </div>
@@ -633,39 +699,36 @@
 
       <!-- TEAM SECTION -->
       <section class="team-section">
-          <h2>Meet Our Team</h2>
+          <h2 data-translate="about.team.title">Meet Our Team</h2>
           <div class="team-grid">
               
               <div class="team-member">
                   <div class="team-member-image">
                       <span>👤</span>
-                      <!-- Replace with: <img src="team1.jpg" alt="Soufiane Saad"> -->
                   </div>
                   <div class="team-member-info">
-                      <h3>SOUFIANE</h3>
-                      <p>Founder & Travel Expert</p>
+                      <h3 data-translate="about.team.member1.name">SOUFIANE</h3>
+                      <p data-translate="about.team.member1.role">Founder & Travel Expert</p>
                   </div>
               </div>
 
               <div class="team-member">
                   <div class="team-member-image">
                       <span>👤</span>
-                      <!-- Replace with: <img src="team2.jpg" alt="Team Member"> -->
                   </div>
                   <div class="team-member-info">
-                      <h3>LAHCEN</h3>
-                      <p>Marketing & Content Strategy</p>
+                      <h3 data-translate="about.team.member2.name">LAHCEN</h3>
+                      <p data-translate="about.team.member2.role">Marketing & Content Strategy</p>
                   </div>
               </div>
 
               <div class="team-member">
                   <div class="team-member-image">
                       <span>👤</span>
-                      <!-- Replace with: <img src="team3.jpg" alt="Team Member"> -->
                   </div>
                   <div class="team-member-info">
-                      <h3>HAMZA</h3>
-                      <p>Design & Digital Products</p>
+                      <h3 data-translate="about.team.member3.name">HAMZA</h3>
+                      <p data-translate="about.team.member3.role">Design & Digital Products</p>
                   </div>
               </div>
 
@@ -674,8 +737,8 @@
 
       <!-- WHAT MAKES MOROCCO SPECIAL -->
       <section class="morocco-special">
-          <h2>What Makes Morocco Special</h2>
-          <p class="intro-text">
+          <h2 data-translate="about.morocco.title">What Makes Morocco Special</h2>
+          <p class="intro-text" data-translate="about.morocco.intro">
               Morocco is more than just a destination — it's an experience that awakens all your senses. From the moment you arrive, you'll discover a land where ancient traditions meet modern vitality, creating memories that last a lifetime.
           </p>
           
@@ -683,52 +746,52 @@
               
               <div class="special-card">
                   <div class="special-icon">🏛️</div>
-                  <h3>Rich History & Culture</h3>
-                  <p>Walk through centuries-old medinas, explore imperial cities, and discover architectural wonders that tell stories of Berber, Arab, and European influences woven together over millennia.</p>
+                  <h3 data-translate="about.morocco.card1.title">Rich History & Culture</h3>
+                  <p data-translate="about.morocco.card1.desc">Walk through centuries-old medinas, explore imperial cities, and discover architectural wonders that tell stories of Berber, Arab, and European influences woven together over millennia.</p>
               </div>
 
               <div class="special-card">
                   <div class="special-icon">🏜️</div>
-                  <h3>Diverse Landscapes</h3>
-                  <p>From the golden dunes of the Sahara Desert to the snow-capped Atlas Mountains, pristine Atlantic beaches to lush valleys — Morocco offers breathtaking natural diversity unlike anywhere else.</p>
+                  <h3 data-translate="about.morocco.card2.title">Diverse Landscapes</h3>
+                  <p data-translate="about.morocco.card2.desc">From the golden dunes of the Sahara Desert to the snow-capped Atlas Mountains, pristine Atlantic beaches to lush valleys — Morocco offers breathtaking natural diversity unlike anywhere else.</p>
               </div>
 
               <div class="special-card">
                   <div class="special-icon">🍽️</div>
-                  <h3>Incredible Cuisine</h3>
-                  <p>Savor the aromatic flavors of tagines, couscous, and mint tea. Moroccan cuisine is a feast for the senses, blending spices, fresh ingredients, and cooking techniques passed down through generations.</p>
+                  <h3 data-translate="about.morocco.card3.title">Incredible Cuisine</h3>
+                  <p data-translate="about.morocco.card3.desc">Savor the aromatic flavors of tagines, couscous, and mint tea. Moroccan cuisine is a feast for the senses, blending spices, fresh ingredients, and cooking techniques passed down through generations.</p>
               </div>
 
               <div class="special-card">
                   <div class="special-icon">🤝</div>
-                  <h3>Warm Hospitality</h3>
-                  <p>Experience the genuine warmth of Moroccan hospitality. The local people welcome visitors with open hearts, offering tea, sharing stories, and making you feel like part of the family.</p>
+                  <h3 data-translate="about.morocco.card4.title">Warm Hospitality</h3>
+                  <p data-translate="about.morocco.card4.desc">Experience the genuine warmth of Moroccan hospitality. The local people welcome visitors with open hearts, offering tea, sharing stories, and making you feel like part of the family.</p>
               </div>
 
               <div class="special-card">
                   <div class="special-icon">🎨</div>
-                  <h3>Vibrant Arts & Crafts</h3>
-                  <p>Discover world-renowned craftsmanship in colorful souks — from intricate tilework and hand-woven carpets to leather goods and traditional pottery, each piece tells a unique story.</p>
+                  <h3 data-translate="about.morocco.card5.title">Vibrant Arts & Crafts</h3>
+                  <p data-translate="about.morocco.card5.desc">Discover world-renowned craftsmanship in colorful souks — from intricate tilework and hand-woven carpets to leather goods and traditional pottery, each piece tells a unique story.</p>
               </div>
 
               <div class="special-card">
                   <div class="special-icon">✨</div>
-                  <h3>Magical Atmosphere</h3>
-                  <p>Feel the enchantment of sunset calls to prayer, lantern-lit alleyways, bustling markets, and starlit desert nights. Morocco has a timeless magic that captivates every traveler.</p>
+                  <h3 data-translate="about.morocco.card6.title">Magical Atmosphere</h3>
+                  <p data-translate="about.morocco.card6.desc">Feel the enchantment of sunset calls to prayer, lantern-lit alleyways, bustling markets, and starlit desert nights. Morocco has a timeless magic that captivates every traveler.</p>
               </div>
 
           </div>
 
-          <p class="closing-text">
+          <p class="closing-text" data-translate="about.morocco.closing">
               Whether you're seeking adventure, relaxation, cultural immersion, or spiritual reflection — Morocco offers something extraordinary for every type of traveler. Let us help you discover it all.
           </p>
       </section>
 
       <!-- CTA SECTION -->
       <section class="final-cta">
-          <h2>Ready to Explore Morocco?</h2>
-          <p>Start your journey with our comprehensive travel guides and resources</p>
-          <a href="shop.html" class="cta-button">Browse Our Shop</a>
+          <h2 data-translate="about.cta.title">Ready to Explore Morocco?</h2>
+          <p data-translate="about.cta.subtitle">Start your journey with our comprehensive travel guides and resources</p>
+          <a href="shop.html" class="cta-button" data-translate="about.cta.button">Browse Our Shop</a>
       </section>
 
   </div>
@@ -736,13 +799,16 @@
   <!-- FOOTER -->
   <footer class="site-footer">
       <div class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms & Conditions</a>
-          <a href="contact.html">Contact Us</a>
-          <a href="about.html">About Us</a>
+          <a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a>
+          <a href="terms.html" data-translate="footer.terms">Terms & Conditions</a>
+          <a href="contact.html" data-translate="footer.contact">Contact Us</a>
+          <a href="about.html" data-translate="footer.about">About Us</a>
       </div>
-      <p>&copy; 2025 Travel Readz. All Rights Reserved.</p>
+      <p data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
   </footer>
+
+  <!-- Multi-Language Script -->
+  <script src="translations.js"></script>
 
 </body>
 </html>
