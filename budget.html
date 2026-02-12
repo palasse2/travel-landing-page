@@ -6,7 +6,6 @@
     <title>Free Gift – Travel Budget Calculator - Travel Readz</title>
     <meta name="description" content="This premium travel gift is included free when you purchase the Travel Readz ebook. Discover what's inside and why travelers love it.">
     
-    <!-- Google Fonts: Inter + Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
@@ -22,14 +21,21 @@
             background-color: #f9fafb;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
         h1 { font-weight: 700; }
         h2 { font-weight: 600; }
         h3 { font-weight: 600; }
+
+        /* Fade transition for language switching */
+        .fade-transition {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .fade-transition.active {
+            opacity: 1;
+        }
 
         /* --- NAVIGATION --- */
         .main-nav {
@@ -50,7 +56,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 50px;
+            gap: 40px;
             margin: 0;
             padding: 0;
         }
@@ -59,7 +65,7 @@
             text-decoration: none;
             color: #004466;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: 0.3s;
             position: relative;
         }
@@ -77,6 +83,57 @@
 
         .nav-links li a:hover { color: #006699; }
         .nav-links li a:hover::after { width: 100%; }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            background: #f8fafb;
+            padding: 6px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: #666;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-btn:hover {
+            background: rgba(0, 68, 102, 0.1);
+            color: #004466;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #004466 0%, #006699 100%);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 68, 102, 0.3);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #004466 0%, #006699 100%);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 68, 102, 0.25);
+        }
 
         /* --- HERO SECTION --- */
         .gift-hero {
@@ -98,10 +155,7 @@
         .gift-hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
             opacity: 0.5;
         }
@@ -115,14 +169,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-badge {
@@ -218,7 +266,6 @@
             border-radius: 16px;
         }
 
-        /* Floating Badges */
         .floating-badge {
             position: absolute;
             background: white;
@@ -234,33 +281,24 @@
         }
 
         @keyframes pulse {
-            0%, 100% { 
-                transform: scale(1) translateY(0); 
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            }
-            50% { 
-                transform: scale(1.05) translateY(-5px); 
-                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-            }
+            0%, 100% { transform: scale(1) translateY(0); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); }
+            50% { transform: scale(1.05) translateY(-5px); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25); }
         }
 
         .badge-1 {
-            top: 8%;
-            right: -8%;
+            top: 8%; right: -8%;
             animation-delay: 0s;
             background: linear-gradient(135deg, #ffcc00 0%, #ffd700 100%);
             color: #004466;
         }
 
         .badge-2 {
-            top: 45%;
-            left: -10%;
+            top: 45%; left: -10%;
             animation-delay: 1s;
         }
 
         .badge-3 {
-            bottom: 12%;
-            right: -5%;
+            bottom: 12%; right: -5%;
             animation-delay: 2s;
             background: linear-gradient(135deg, #ffcc00 0%, #ffd700 100%);
             color: #004466;
@@ -274,9 +312,7 @@
         }
 
         /* --- FEATURES SECTION --- */
-        .features-section {
-            margin-bottom: 80px;
-        }
+        .features-section { margin-bottom: 80px; }
 
         .features-section h2 {
             color: #004466;
@@ -316,9 +352,7 @@
         .feature-card::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 4px;
             background: linear-gradient(90deg, #004466, #ffcc00);
             opacity: 0;
@@ -331,9 +365,7 @@
             border-left-color: #006699;
         }
 
-        .feature-card:hover::before {
-            opacity: 1;
-        }
+        .feature-card:hover::before { opacity: 1; }
 
         .feature-icon {
             font-size: 4rem;
@@ -385,11 +417,9 @@
         .reviews-section h2::after {
             content: "";
             position: absolute;
-            bottom: 0;
-            left: 50%;
+            bottom: 0; left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: 100px; height: 4px;
             background: linear-gradient(90deg, #004466, #ffcc00);
             border-radius: 2px;
         }
@@ -430,123 +460,108 @@
             border-top: 2px solid #f0f4f7;
         }
 
-        .stars {
-            color: #ffcc00;
-            font-size: 1.2rem;
+        .stars { color: #ffcc00; font-size: 1.2rem; }
+        .reviewer { color: #004466; font-weight: 700; }
+
+        /* --- BONUS SECTION --- */
+        .bonus-section { padding: 80px 0; background: white; }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(0, 102, 153, 0.1);
+            color: #006699;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
 
-        .reviewer {
+        .section-title {
+            font-size: 2.5rem;
             color: #004466;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: #666;
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .bonus-card {
+            background: #f8fafb;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 68, 102, 0.15);
+            border-color: #ffcc00;
+        }
+
+        .bonus-value {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: #ffcc00;
+            color: #004466;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 700;
         }
 
-      /* --- BONUS SECTION (MATCHING MAIN PAGE STYLE) --- */
-.bonus-section {
-    padding: 80px 0;
-    background: white;
-}
+        .bonus-card img {
+            border-radius: 8px;
+            margin: 0 auto 20px;
+            width: 100%;
+            max-width: 190px;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
+        .bonus-card h3 {
+            font-size: 1.2rem;
+            color: #004466;
+            margin-bottom: 10px;
+        }
 
-.section-badge {
-    display: inline-block;
-    background: rgba(0, 102, 153, 0.1);
-    color: #006699;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
+        .bonus-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
 
-.section-title {
-    font-size: 2.5rem;
-    color: #004466;
-    text-align: center;
-    margin-bottom: 15px;
-}
+        .bonus-link {
+            color: #006699;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
 
-.section-subtitle {
-    font-size: 1.15rem;
-    color: #666;
-    margin-top: 15px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .bonus-link:hover { color: #004466; }
 
-.bonus-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.bonus-card {
-    background: #f8fafb;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    transition: all 0.3s;
-    position: relative;
-    border: 2px solid transparent;
-}
-
-.bonus-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 35px rgba(0, 68, 102, 0.15);
-    border-color: #ffcc00;
-}
-
-.bonus-value {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #ffcc00;
-    color: #004466;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-.bonus-card img {
-    border-radius: 8px;
-    margin: 0 auto 20px;
-    width: 100%; /* Full width of container */
-    max-width: 190px; /* Maximum width - ADJUST THIS VALUE */
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
-
-.bonus-card h3 {
-    font-size: 1.2rem;
-    color: #004466;
-    margin-bottom: 10px;
-}
-
-.bonus-card p {
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.bonus-link {
-    color: #006699;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-    text-decoration: none;
-}
-
-.bonus-link:hover {
-    color: #004466;
-}
         /* --- FINAL CTA --- */
         .final-cta {
             background: linear-gradient(135deg, #004466 0%, #006699 100%);
@@ -562,10 +577,8 @@
         .final-cta::before {
             content: "";
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
+            top: -50%; right: -10%;
+            width: 500px; height: 500px;
             background: rgba(255,204,0,0.1);
             border-radius: 50%;
             animation: rotate 20s linear infinite;
@@ -629,10 +642,7 @@
             font-weight: 500;
         }
 
-        .site-footer .footer-links a:hover {
-            color: white;
-            transform: translateY(-2px);
-        }
+        .site-footer .footer-links a:hover { color: white; }
 
         .site-footer p {
             margin: 0;
@@ -645,54 +655,24 @@
                 flex-direction: column;
                 padding: 60px 25px 80px;
             }
+            .gift-hero-text h1 { font-size: 2rem; }
+            .gift-hero-text p { font-size: 1.1rem; }
 
-            .gift-hero-text h1 {
-                font-size: 2rem;
-            }
+            .main-nav { flex-wrap: wrap; justify-content: center; }
+            .nav-links { gap: 20px; order: 3; width: 100%; justify-content: center; }
+            .language-switcher { order: 1; }
+            .nav-cta { order: 2; }
 
-            .gift-hero-text p {
-                font-size: 1.1rem;
-            }
+            .features-grid, .reviews-grid, .bonus-grid { grid-template-columns: 1fr; }
 
-            .nav-links {
-                gap: 25px;
-            }
+            .reviews-section, .final-cta { padding: 60px 25px; }
+            .final-cta h2 { font-size: 2rem; }
 
-            .nav-links li a {
-                font-size: 0.9rem;
-            }
+            .features-section h2, .reviews-section h2, .section-title { font-size: 2rem; }
+        }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .bonus-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews-section,
-            .final-cta {
-                padding: 60px 25px;
-            }
-
-            .final-cta h2 {
-                font-size: 2rem;
-            }
-
-            .features-section h2,
-            .reviews-section h2,
-            .section-title {
-                font-size: 2rem;
-            }
-
-            /* Hide floating badges on mobile */
-            /* .floating-badge {
-                display: none;
-            } */
+        @media (max-width: 480px) {
+            .language-switcher { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -702,159 +682,21 @@
 <!-- NAVIGATION -->
 <nav class="main-nav">
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Services</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html" data-translate="nav.home">Home</a></li>
+        <li><a href="shop.html" data-translate="nav.services">Services</a></li>
+        <li><a href="about.html" data-translate="nav.about">About Us</a></li>
     </ul>
+
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+
+    <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
 </nav>
 
 <!-- HERO SECTION -->
 <section class="gift-hero">
     <div class="gift-hero-text">
-        <div class="hero-badge">🧮 Universal Budget Tool</div>
-        <h1>Travel Budget Calculator</h1>
-        <p>Set your budget, record spending over time, and see how it compares — a universal tool for travelers in any country.</p>
-        <a href="https://travelreadz.gumroad.com/l/travel-budget-calculatr?wanted=true" class="gift-cta">$5- Buy Individually</a>
-        <span class="gift-cta-subtext">✨ Included FREE with the Travel Readz ebook</span>
-        <div class="gift-payment-methods">
-            <img src="https://i.ibb.co/x8HbqXPp/payment-Capture-removebg-preview.png" alt="Payment Methods">
-        </div>
-    </div>
-    <div class="gift-hero-img">
-        <div class="calculator-mockup">
-            <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770567733/Untitled_design_7_eqjs9c.png" alt="Travel Budget Calculator">
-            <div class="floating-badge badge-1">💰 Track Expenses</div>
-            <div class="floating-badge badge-2">📊 Compare Results</div>
-            <div class="floating-badge badge-3">🌍 Any Currency</div>
-        </div>
-    </div>
-</section>
-
-<!-- MAIN CONTAINER -->
-<div class="main-container">
-
-    <!-- FEATURES -->
-    <section class="features-section">
-        <h2>What You'll Get</h2>
-        <p>The Travel Budget Calculator helps you plan your trip budget in advance, track your spending throughout your journey, and compare your planned budget with what you actually spent at the end. It's designed to give travelers a clear overview of where their money goes, helping them stay in control and avoid overspending. Simple to use and flexible, the tool works for all travel styles, currencies, and countries — making it useful for any trip, anywhere.</p>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🧮</div>
-                <h3>Plan Your Budget</h3>
-                <p>Plan your trip budget in advance with detailed categories and estimates</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📝</div>
-                <h3>Track Expenses</h3>
-                <p>Track all expenses throughout your trip in real-time</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Compare & Analyze</h3>
-                <p>Compare planned vs actual spending with visual breakdowns</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌍</div>
-                <h3>Universal Tool</h3>
-                <p>Works for all countries and currencies worldwide</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="reviews-section">
-        <h2>What Travelers Say</h2>
-    
-        <div class="reviews-grid">
-            <div class="review-card">
-                <p>"This tool helped me plan my budget before the trip and actually stick to it. Seeing planned vs spent made a huge difference."</p>
-                <div class="review-meta">
-                    <span class="stars">★★★★★</span>
-                    <span class="reviewer">Alex R.</span>
-                </div>
-            </div>
-    
-            <div class="review-card">
-                <p>"Simple, clear, and surprisingly powerful. I finally understood where my money was going during my trip."</p>
-                <div class="review-meta">
-                    <span class="stars">★★★★★</span>
-                    <span class="reviewer">Maya K.</span>
-                </div>
-            </div>
-    
-            <div class="review-card">
-                <p>"Perfect for any country. I planned my budget ahead of time and loved comparing it with my actual spending at the end."</p>
-                <div class="review-meta">
-                    <span class="stars">★★★★★</span>
-                    <span class="reviewer">Daniel T.</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BONUS SECTION (MATCHING MAIN PAGE) -->
-    <section class="bonus-section">
-        <div class="section-header">
-            <span class="section-badge">Free Bonuses</span>
-            <h2 class="section-title">Other Free Gifts Included</h2>
-            <p class="section-subtitle">Worth $24.99 — Yours free when you get the guide today</p>
-        </div>
-
-        <div class="bonus-grid">
-            <div class="bonus-card">
-                <div class="bonus-value">Value: $5</div>
-                <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770470352/ChatGPT_Image_Feb_7_2026_02_17_09_PM_ixenf2.png" alt="Marrakech Maps">
-                <h3>Custom Google Maps</h3>
-                <p>Pre-loaded maps with all recommended spots for easy navigation</p>
-                <a href="mapsgift.html" class="bonus-link">Learn More →</a>
-            </div>
-
-            <div class="bonus-card">
-                <div class="bonus-value">Value: $15</div>
-                <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770491808/1_uzd0y0.png" alt="WhatsApp Support">
-                <h3>Direct WhatsApp Support</h3>
-                <p>Get real-time answers from a local during your trip</p>
-                <a href="whatsapp.html" class="bonus-link">Learn More →</a>
-            </div>
-
-            <div class="bonus-card">
-                <div class="bonus-value">Value: $4.99</div>
-                <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770485941/ChatGPT_Image_Feb_7_2026_06_38_50_PM_zo8laq.png" alt="Etiquette Guide">
-                <h3>Cultural Etiquette Mini Guide</h3>
-                <p>Quick-reference guide to Moroccan customs and social norms</p>
-                <a href="miniebook.html" class="bonus-link">Learn More →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="final-cta">
-        <h2>Ready to Unlock All These Gifts?</h2>
-        <a href="index.html" class="cta-button">Get the Travel Readz Ebook</a>
-    </section>
-
-</div>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-    <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="about.html">About Us</a>
-    </div>
-    <p>&copy; 2025 Travel Readz. All Rights Reserved.</p>
-</footer>
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
+        <div class="hero-badge" data-translate="budget.hero.badge">🧮
