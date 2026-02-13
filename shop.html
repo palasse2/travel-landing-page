@@ -294,6 +294,7 @@
         height: 300px;
         overflow: hidden;
         background: #f0f4f7;
+        
     }
 
     .product-image img {
@@ -301,7 +302,30 @@
         height: 100%;
         object-fit: cover;
         transition: 0.4s;
+        
     }
+    .product-imag img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s;
+        margin-top: 30px;
+        
+    }
+    .product-imag {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        background: #f0f4f7;
+        
+    }
+    
+    .product-card:hover .product-imag img {
+        transform: scale(1.08);
+    }
+
+    
 
     .product-card:hover .product-image img {
         transform: scale(1.08);
@@ -919,7 +943,7 @@
           <div class="shop-grid">
               
               <div class="product-card" data-category="guides">
-                  <div class="product-image">
+                  <div class="product-imag">
                       <span class="product-badge" data-translate="shop.badge.bestseller">Bestseller</span>
                       <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770922222/ChatGPT_Image_Feb_12_2026_07_47_36_PM_wnnlfk.png" alt="Morocco Travel Guide">
                       <a href="index.html" class="quick-view" data-translate="shop.quickView">Quick View</a>
