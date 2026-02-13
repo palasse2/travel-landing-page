@@ -1297,6 +1297,11 @@ a {
         width: 100%;
         justify-content: center;
     }
+    .floating-badge { 
+        margin: -20px;
+        margin-right: 5px;
+        margin-left: 3px;
+    }
 }
 
 .phone-mockup {
@@ -1305,3 +1310,4 @@ a {
   display: block;
   margin: 0 auto;
 }
+
