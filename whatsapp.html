@@ -45,6 +45,7 @@
             box-shadow: 0 2px 20px rgba(0,68,102,0.08);
             position: sticky;
             top: 0;
+            flex-wrap: wrap;
         }
 
         .nav-links {
@@ -77,6 +78,40 @@
 
         .nav-links li a:hover { color: #006699; }
         .nav-links li a:hover::after { width: 100%; }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            background: #f8fafb;
+            padding: 6px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: #666;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-btn:hover {
+            background: rgba(0, 68, 102, 0.1);
+            color: #004466;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #004466 0%, #006699 100%);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 68, 102, 0.3);
+        }
 
         /* --- HERO SECTION --- */
         .gift-hero {
@@ -872,20 +907,27 @@
 <!-- NAVIGATION -->
 <nav class="main-nav">
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Services</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html" data-translate="nav.home">Home</a></li>
+        <li><a href="shop.html" data-translate="nav.services">Services</a></li>
+        <li><a href="about.html" data-translate="nav.about">About Us</a></li>
     </ul>
+    
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+    </div>
 </nav>
 
 <!-- HERO SECTION -->
 <section class="gift-hero">
     <div class="gift-hero-text">
-        <div class="hero-badge">🔵 Live Support</div>
-        <h1>Free WhatsApp Support & Arrival Assistance</h1>
-        <p>Get direct support during your first days in Morocco. Quick answers to arrival logistics, transport options, accommodation issues, and navigation tips — all included free with your ebook purchase.</p>
-        <a href="index.html" class="gift-cta">Get Started Now</a>
-        <span class="gift-cta-subtext">✨ Included FREE with the Travel Readz ebook</span>
+        <div class="hero-badge" data-translate="whatsapp.hero.badge">🔵 Live Support</div>
+        <h1 data-translate="whatsapp.hero.title">Free WhatsApp Support & Arrival Assistance</h1>
+        <p data-translate="whatsapp.hero.desc">Get direct support during your first days in Morocco. Quick answers to arrival logistics, transport options, accommodation issues, and navigation tips — all included free with your ebook purchase.</p>
+        <a href="index.html" class="gift-cta" data-translate="whatsapp.hero.cta">Get Started Now</a>
+        <span class="gift-cta-subtext" data-translate="whatsapp.hero.subtext">✨ Included FREE with the Travel Readz ebook</span>
         <div class="gift-payment-methods">
             <img src="https://i.ibb.co/x8HbqXPp/payment-Capture-removebg-preview.png" alt="Payment Methods">
         </div>
@@ -893,9 +935,9 @@
     <div class="gift-hero-img">
         <div class="whatsapp-mockup">
             <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png" alt="WhatsApp Support">
-            <div class="floating-badge badge-1">🌍 Local Expert </div>
-            <div class="floating-badge badge-2">💬 Quick Replies</div>
-            <div class="floating-badge badge-3">✈️ Arrival Help</div>
+            <div class="floating-badge badge-1" data-translate="whatsapp.badge1">🌍 Local Expert</div>
+            <div class="floating-badge badge-2" data-translate="whatsapp.badge2">💬 Quick Replies</div>
+            <div class="floating-badge badge-3" data-translate="whatsapp.badge3">✈️ Arrival Help</div>
         </div>
     </div>
 </section>
@@ -905,91 +947,91 @@
 
     <!-- FEATURES -->
     <section class="features-section">
-        <h2>Your Personal Morocco Support Line</h2>
-        <p>Traveling to a new country can be overwhelming, especially during your first days. That's why every Travel Readz ebook comes with complimentary WhatsApp support to help you navigate arrival challenges and settle in smoothly.</p>
+        <h2 data-translate="whatsapp.features.title">Your Personal Morocco Support Line</h2>
+        <p data-translate="whatsapp.features.desc">Traveling to a new country can be overwhelming, especially during your first days. That's why every Travel Readz ebook comes with complimentary WhatsApp support to help you navigate arrival challenges and settle in smoothly.</p>
 
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">💬</div>
-                <h3>Direct WhatsApp Access</h3>
-                <p>Message us directly for quick, practical answers to your Morocco travel questions</p>
+                <h3 data-translate="whatsapp.feature1.title">Direct WhatsApp Access</h3>
+                <p data-translate="whatsapp.feature1.desc">Message us directly for quick, practical answers to your Morocco travel questions</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">✈️</div>
-                <h3>Arrival Assistance</h3>
-                <p>Get help with airport-to-city transport, taxi rates, and first-night logistics</p>
+                <h3 data-translate="whatsapp.feature2.title">Arrival Assistance</h3>
+                <p data-translate="whatsapp.feature2.desc">Get help with airport-to-city transport, taxi rates, and first-night logistics</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🗺️</div>
-                <h3>Navigation Tips</h3>
-                <p>Receive guidance on getting around, finding your accommodation, and exploring safely</p>
+                <h3 data-translate="whatsapp.feature3.title">Navigation Tips</h3>
+                <p data-translate="whatsapp.feature3.desc">Receive guidance on getting around, finding your accommodation, and exploring safely</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🏨</div>
-                <h3>Accommodation Help</h3>
-                <p>Resolve check-in issues, understand local customs, and get local recommendations</p>
+                <h3 data-translate="whatsapp.feature4.title">Accommodation Help</h3>
+                <p data-translate="whatsapp.feature4.desc">Resolve check-in issues, understand local customs, and get local recommendations</p>
             </div>
         </div>
     </section>
 
     <!-- HOW IT WORKS -->
     <section class="how-it-works">
-        <h2>How It Works</h2>
+        <h2 data-translate="whatsapp.howItWorks.title">How It Works</h2>
         
         <div class="steps-grid">
             <div class="step-card">
                 <div class="step-number">1</div>
-                <h3>Purchase the Ebook</h3>
-                <p>Buy the Travel Readz ebook and receive your WhatsApp support details in your confirmation email</p>
+                <h3 data-translate="whatsapp.step1.title">Purchase the Ebook</h3>
+                <p data-translate="whatsapp.step1.desc">Buy the Travel Readz ebook and receive your WhatsApp support details in your confirmation email</p>
             </div>
 
             <div class="step-card">
                 <div class="step-number">2</div>
-                <h3>Save the Contact</h3>
-                <p>Add our WhatsApp number to your contacts before you travel to Morocco</p>
+                <h3 data-translate="whatsapp.step2.title">Save the Contact</h3>
+                <p data-translate="whatsapp.step2.desc">Add our WhatsApp number to your contacts before you travel to Morocco</p>
             </div>
 
             <div class="step-card">
                 <div class="step-number">3</div>
-                <h3>Get Help Anytime</h3>
-                <p>Message us when you arrive or need assistance during your first days in Morocco</p>
+                <h3 data-translate="whatsapp.step3.title">Get Help Anytime</h3>
+                <p data-translate="whatsapp.step3.desc">Message us when you arrive or need assistance during your first days in Morocco</p>
             </div>
         </div>
     </section>
 
     <!-- SUPPORT COVERAGE -->
     <section class="support-coverage">
-        <h2>What We Can Help You With</h2>
-        <p>Our WhatsApp support covers practical, time-sensitive questions that help you navigate your arrival and first days in Morocco. Here's what you can ask us about:</p>
+        <h2 data-translate="whatsapp.coverage.title">What We Can Help You With</h2>
+        <p data-translate="whatsapp.coverage.desc">Our WhatsApp support covers practical, time-sensitive questions that help you navigate your arrival and first days in Morocco. Here's what you can ask us about:</p>
 
         <div class="coverage-grid">
             <div class="coverage-card">
-                <h3><span class="coverage-icon">🚖</span> Transport & Logistics</h3>
+                <h3><span class="coverage-icon">🚖</span> <span data-translate="whatsapp.coverage1.title">Transport & Logistics</span></h3>
                 <ul>
-                    <li>Airport to city transport options</li>
-                    <li>Fair taxi rates and avoiding scams</li>
-                    <li>Using local buses and trains</li>
-                    <li>App-based ride services</li>
+                    <li data-translate="whatsapp.coverage1.item1">Airport to city transport options</li>
+                    <li data-translate="whatsapp.coverage1.item2">Fair taxi rates and avoiding scams</li>
+                    <li data-translate="whatsapp.coverage1.item3">Using local buses and trains</li>
+                    <li data-translate="whatsapp.coverage1.item4">App-based ride services</li>
                 </ul>
             </div>
 
             <div class="coverage-card">
-                <h3><span class="coverage-icon">🏠</span> Accommodation Issues</h3>
+                <h3><span class="coverage-icon">🏠</span> <span data-translate="whatsapp.coverage2.title">Accommodation Issues</span></h3>
                 <ul>
-                    <li>Check-in difficulties</li>
-                    <li>Finding your riad or hotel</li>
-                    <li>Communication with hosts</li>
-                    <li>Understanding local customs</li>
+                    <li data-translate="whatsapp.coverage2.item1">Check-in difficulties</li>
+                    <li data-translate="whatsapp.coverage2.item2">Finding your riad or hotel</li>
+                    <li data-translate="whatsapp.coverage2.item3">Communication with hosts</li>
+                    <li data-translate="whatsapp.coverage2.item4">Understanding local customs</li>
                 </ul>
             </div>
 
             <div class="coverage-card">
-                <h3><span class="coverage-icon">🧭</span> Navigation & Safety</h3>
+                <h3><span class="coverage-icon">🧭</span> <span data-translate="whatsapp.coverage3.title">Navigation & Safety</span></h3>
                 <ul>
-                    <li>Getting to major landmarks</li>
-                    <li>Safe areas to explore</li>
-                    <li>Local etiquette tips</li>
-                    <li>Emergency contacts</li>
+                    <li data-translate="whatsapp.coverage3.item1">Getting to major landmarks</li>
+                    <li data-translate="whatsapp.coverage3.item2">Safe areas to explore</li>
+                    <li data-translate="whatsapp.coverage3.item3">Local etiquette tips</li>
+                    <li data-translate="whatsapp.coverage3.item4">Emergency contacts</li>
                 </ul>
             </div>
         </div>
@@ -997,11 +1039,11 @@
 
     <!-- REVIEWS -->
     <section class="reviews-section">
-        <h2>What Travelers Say</h2>
+        <h2 data-translate="whatsapp.reviews.title">What Travelers Say</h2>
 
         <div class="reviews-grid">
             <div class="review-card">
-                <p>"The WhatsApp support was a lifesaver when I couldn't find my riad in the medina. Got a response in minutes and clear directions to my location."</p>
+                <p data-translate="whatsapp.review1.text">"The WhatsApp support was a lifesaver when I couldn't find my riad in the medina. Got a response in minutes and clear directions to my location."</p>
                 <div class="review-meta">
                     <span class="stars">★★★★★</span>
                     <span class="reviewer">Sarah M.</span>
@@ -1009,7 +1051,7 @@
             </div>
 
             <div class="review-card">
-                <p>"Having someone to message about taxi rates from the airport gave me so much confidence. No stress, no overcharging — just smooth arrival."</p>
+                <p data-translate="whatsapp.review2.text">"Having someone to message about taxi rates from the airport gave me so much confidence. No stress, no overcharging — just smooth arrival."</p>
                 <div class="review-meta">
                     <span class="stars">★★★★★</span>
                     <span class="reviewer">James L.</span>
@@ -1017,7 +1059,7 @@
             </div>
 
             <div class="review-card">
-                <p>"Quick responses, practical advice, and genuinely helpful. This service alone is worth getting the ebook for."</p>
+                <p data-translate="whatsapp.review3.text">"Quick responses, practical advice, and genuinely helpful. This service alone is worth getting the ebook for."</p>
                 <div class="review-meta">
                     <span class="stars">★★★★★</span>
                     <span class="reviewer">Emma R.</span>
@@ -1029,42 +1071,42 @@
     <!-- BONUS SECTION (MATCHING BUDGET CALCULATOR STYLE) -->
     <section class="bonus-section">
         <div class="section-header">
-            <span class="section-badge">Free Bonuses</span>
-            <h2 class="section-title">Other Free Gifts Included</h2>
-            <p class="section-subtitle">Worth $24.99 — Yours free when you get the guide today</p>
+            <span class="section-badge" data-translate="whatsapp.bonus.badge">Free Bonuses</span>
+            <h2 class="section-title" data-translate="whatsapp.bonus.title">Other Free Gifts Included</h2>
+            <p class="section-subtitle" data-translate="whatsapp.bonus.subtitle">Worth $24.99 — Yours free when you get the guide today</p>
         </div>
 
         <div class="bonus-grid">
             <div class="bonus-card">
-                <div class="bonus-value">Value: $5</div>
+                <div class="bonus-value" data-translate="bonus.item2.value">Value: $5</div>
                 <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770470352/ChatGPT_Image_Feb_7_2026_02_17_09_PM_ixenf2.png" alt="Marrakech Maps">
-                <h3>Custom Google Maps</h3>
-                <p>Pre-loaded maps with all recommended spots for easy navigation</p>
-                <a href="mapsgift.html" class="bonus-link">Learn More →</a>
+                <h3 data-translate="bonus.item2.title">Custom Google Maps</h3>
+                <p data-translate="bonus.item2.desc">Pre-loaded maps with all recommended spots for easy navigation</p>
+                <a href="mapsgift.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
             </div>
 
             <div class="bonus-card">
-                <div class="bonus-value">Value: $5</div>
+                <div class="bonus-value" data-translate="miniebook.bonus.calculator.value">Value: $5</div>
                 <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770491809/2_b2xm7i.png" alt="Budget Calculator">
-                <h3>Travel Budget Calculator</h3>
-                <p>Plan your budget, track expenses, and compare spending in real-time</p>
-                <a href="budget.html" class="bonus-link">Learn More →</a>
+                <h3 data-translate="miniebook.bonus.calculator.title">Travel Budget Calculator</h3>
+                <p data-translate="whatsapp.bonus.calculator.desc">Plan your budget, track expenses, and compare spending in real-time</p>
+                <a href="budget.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
             </div>
 
             <div class="bonus-card">
-                <div class="bonus-value">Value: $4.99</div>
+                <div class="bonus-value" data-translate="bonus.item1.value">Value: $4.99</div>
                 <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770485941/ChatGPT_Image_Feb_7_2026_06_38_50_PM_zo8laq.png" alt="Etiquette Guide">
-                <h3>Cultural Etiquette Mini Guide</h3>
-                <p>Quick-reference guide to Moroccan customs and social norms</p>
-                <a href="miniebook.html" class="bonus-link">Learn More →</a>
+                <h3 data-translate="bonus.item1.title">Cultural Etiquette Mini Guide</h3>
+                <p data-translate="bonus.item1.desc">Quick-reference guide to Moroccan customs and social norms</p>
+                <a href="miniebook.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
             </div>
         </div>
     </section>
 
     <!-- FINAL CTA -->
     <section class="final-cta">
-        <h2>Ready to Travel with Confidence?</h2>
-        <a href="index.html" class="cta-button">Get the Travel Readz Ebook</a>
+        <h2 data-translate="whatsapp.finalCta.title">Ready to Travel with Confidence?</h2>
+        <a href="index.html" class="cta-button" data-translate="whatsapp.finalCta.button">Get the Travel Readz Ebook</a>
     </section>
 
 </div>
@@ -1072,38 +1114,17 @@
 <!-- FOOTER -->
 <footer class="site-footer">
     <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="about.html">About Us</a>
+        <a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a>
+        <a href="terms.html" data-translate="footer.terms">Terms & Conditions</a>
+        <a href="contact.html" data-translate="footer.contact">Contact Us</a>
+        <a href="about.html" data-translate="footer.about">About Us</a>
     </div>
-    <p>&copy; 2025 Travel Readz. All Rights Reserved.</p>
+    <p data-translate="footer.copyright">&copy; 2025 Travel Readz. All Rights Reserved.</p>
 </footer>
+
+<!-- Translation Script -->
+<script src="translations.js"></script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
