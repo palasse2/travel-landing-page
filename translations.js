@@ -1651,6 +1651,36 @@ const bookCovers = {
   es: "https://res.cloudinary.com/dzidoxclo/image/upload/v1770821056/Untitled_design_15_irckzm.png"
 };
 
+// Preview images (Sneak Peek Inside) for each language
+const previewImages = {
+  en: [
+    "https://i.ibb.co/jv8jyMbr/Untitled-design.jpg1",
+    "https://i.ibb.co/8Dkk0w5B/Untitled-design-3.png",
+    "https://i.ibb.co/G3p3f2rt/Untitled-design-1.png",
+    "https://i.ibb.co/1JbF4fbM/Untitled-design-2.png",
+    "https://i.ibb.co/XrZc6ScG/Untitled-design-4.png",
+    "https://i.ibb.co/Q76r5qrB/Untitled-design-7.png"
+  ],
+  fr: [
+    // French preview images - replace these URLs with your French guide preview images
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034226/Screenshot_2026-02-14_023015_xgi44w.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034227/Screenshot_2026-02-14_022844_glzrca.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034232/Screenshot_2026-02-14_022909_voeea1.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034232/Screenshot_2026-02-14_022728_d0acb9.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034246/Screenshot_2026-02-14_022805_jaomir.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034247/Screenshot_2026-02-14_022621_pcpngm.png"
+  ],
+  es: [
+    // Spanish preview images - replace these URLs with your Spanish guide preview images
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034458/Screenshot_2026-02-14_023858_rnfcdm.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034458/Screenshot_2026-02-14_023844_plma67.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034458/Screenshot_2026-02-14_023930_hhwcjs.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034459/Screenshot_2026-02-14_023950_rfpfqt.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034468/Screenshot_2026-02-14_024038_hdmkbd.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034475/Screenshot_2026-02-14_024101_a8qkrb.png"
+  ]
+};
+
 // Buy button URL (same for all languages for now)
 const buyUrls = {
   en: "https://travelreadz.gumroad.com/l/ubqlaj?wanted=true",
@@ -1713,6 +1743,7 @@ function setLanguage(lang) {
   setTimeout(() => {
     updateContent(lang);
     updateBookCover(lang);
+    updatePreviewImages(lang);
     updateBuyLinks(lang);
     
     // Remove fade class and add active
@@ -1753,6 +1784,27 @@ function updateBookCover(lang) {
       bookCover.style.opacity = '1';
     }, 200);
   }
+}
+
+// Update preview images (Sneak Peek Inside section)
+function updatePreviewImages(lang) {
+  const previewGrid = document.querySelector('.preview-grid');
+  if (!previewGrid || !previewImages[lang]) return;
+  
+  const images = previewGrid.querySelectorAll('img');
+  const newImages = previewImages[lang];
+  
+  images.forEach((img, index) => {
+    if (newImages[index]) {
+      img.style.opacity = '0';
+      
+      setTimeout(() => {
+        img.src = newImages[index];
+        img.alt = `Guide Preview ${index + 1}`;
+        img.style.opacity = '1';
+      }, 200 + (index * 50)); // Stagger the image updates for a nice effect
+    }
+  });
 }
 
 // Update buy button links
