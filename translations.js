@@ -1654,8 +1654,8 @@ const bookCovers = {
 // Buy button URL (same for all languages for now)
 const buyUrls = {
   en: "https://travelreadz.gumroad.com/l/ubqlaj?wanted=true",
-  fr: "https://travelreadz.gumroad.com/l/ubqlaj?wanted=true",
-  es: "https://travelreadz.gumroad.com/l/ubqlaj?wanted=true"
+  fr: "https://travelreadz.gumroad.com/l/phyccz?wanted=true",
+  es: "https://travelreadz.gumroad.com/l/lnltrl?wanted=true"
 };
 
 // Current language
