@@ -12,7 +12,7 @@ const translations = {
 
     // Hero Section
     "hero.badge": "🌍 Written by a Morocco Local",
-    "hero.title": "Stop Wasting Time on Tourist Traps",
+    "hero.title": "Visit Morocco Like a Local — Not Like a Lost Tourist.",
     "hero.subtitle": "Get the <strong>only Morocco travel guide</strong> written by someone who actually lives there. Skip the generic advice and experience Morocco like a local.",
     "hero.stats.pages": "Pages",
     "hero.stats.chapters": "Chapters",
