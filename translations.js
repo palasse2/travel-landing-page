@@ -13,7 +13,7 @@ const translations = {
     // Hero Section
     "hero.badge": "🌍 Written by a Morocco Local",
     "hero.title": "Visit Morocco Like a Local — Not Like a Lost Tourist.",
-    "hero.subtitle": "Written by<strong>a Moroccan who actually lives it every day,</strong>this guide helps you avoid scams, save money, and experience the real Morocco — not the overpriced tourist version.",
+    "hero.subtitle": "Written by <strong>a Moroccan who actually lives it every day,</strong>this guide helps you avoid scams, save money, and experience the real Morocco — not the overpriced tourist version.",
     "hero.stats.pages": "Pages",
     "hero.stats.chapters": "Chapters",
     "hero.stats.support": "WhatsApp Support",
@@ -561,7 +561,7 @@ const translations = {
     // Hero Section
     "hero.badge": "🌍 Écrit par un Local du Maroc",
     "hero.title": "Visitez le Maroc comme un local — pas comme un touriste perdu.",
-    "hero.subtitle": "Écrit par<strong>un Marocain qui y vit au quotidien,</strong>ce guide vous aide à éviter les arnaques, économiser de l’argent et découvrir le vrai Maroc — pas la version touristique hors de prix.",
+    "hero.subtitle": "Écrit par <strong>un Marocain qui y vit au quotidien,</strong>ce guide vous aide à éviter les arnaques, économiser de l’argent et découvrir le vrai Maroc — pas la version touristique hors de prix.",
     "hero.stats.pages": "Pages",
     "hero.stats.chapters": "Chapitres",
     "hero.stats.support": "Support WhatsApp",
@@ -1107,7 +1107,7 @@ const translations = {
     // Hero Section
     "hero.badge": "🌍 Escrito por un Local de Marruecos",
     "hero.title": "Visita Marruecos como un local — no como un turista perdido.",
-    "hero.subtitle": "Escrito por<strong>un marroquí que vive allí cada día,</strong>esta guía te ayuda a evitar estafas, ahorrar dinero y descubrir el verdadero Marruecos — no la versión turística sobrevalorada y cara.",
+    "hero.subtitle": "Escrito por <strong>un marroquí que vive allí cada día,</strong>esta guía te ayuda a evitar estafas, ahorrar dinero y descubrir el verdadero Marruecos — no la versión turística sobrevalorada y cara.",
     "hero.stats.pages": "Páginas",
     "hero.stats.chapters": "Capítulos",
     "hero.stats.support": "Soporte WhatsApp",
