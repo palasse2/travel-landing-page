@@ -17,7 +17,7 @@ const translations = {
     "hero.stats.pages": "Pages",
     "hero.stats.chapters": "Chapters",
     "hero.stats.support": "WhatsApp Support",
-    "hero.cta.button": "Download Now - $9.99",
+    "hero.cta.button": "One Small Price. One Big Mistake Avoided - $9.99",
     "hero.cta.instant": "✓ Instant Download",
     "hero.cta.secure": "✓ Secure Payment",
     "hero.badges.hidden": "Hidden Gems Revealed",
