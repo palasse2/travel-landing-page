@@ -1654,7 +1654,7 @@ const bookCovers = {
 // Preview images (optimized)
 const previewImages = {
   en: [
-    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708633/Screenshot_2026-02-21_205927_caru4e.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771709360/Screenshot_2026-02-21_205927_kvduwo.png",
     "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708650/Screenshot_2026-02-21_210746_biqh36.png",
     "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708665/Screenshot_2026-02-21_210837_uxmsp3.png",
     "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708683/Screenshot_2026-02-21_210925_iz1bzc.png",
