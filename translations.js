@@ -1654,12 +1654,12 @@ const bookCovers = {
 // Preview images (Sneak Peek Inside) for each language
 const previewImages = {
   en: [
-    "https://i.ibb.co/jv8jyMbr/Untitled-design.jpg1",
-    "https://i.ibb.co/8Dkk0w5B/Untitled-design-3.png",
-    "https://i.ibb.co/G3p3f2rt/Untitled-design-1.png",
-    "https://i.ibb.co/1JbF4fbM/Untitled-design-2.png",
-    "https://i.ibb.co/XrZc6ScG/Untitled-design-4.png",
-    "https://i.ibb.co/Q76r5qrB/Untitled-design-7.png"
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708633/Screenshot_2026-02-21_205927_caru4e.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708650/Screenshot_2026-02-21_210746_biqh36.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708665/Screenshot_2026-02-21_210837_uxmsp3.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708683/Screenshot_2026-02-21_210925_iz1bzc.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708688/Screenshot_2026-02-21_211001_pjnhea.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708691/Screenshot_2026-02-21_211031_icguqt.png"
   ],
   fr: [
     // French preview images - replace these URLs with your French guide preview images
