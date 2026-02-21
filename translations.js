@@ -1644,40 +1644,38 @@ const translations = {
 }
 };
 
-// Book cover URLs for each language
+// Book cover URLs for each language (optimized)
 const bookCovers = {
-  en: "https://res.cloudinary.com/dzidoxclo/image/upload/v1770821065/Untitled_design_16_tf00rx.png",
-  fr: "https://res.cloudinary.com/dzidoxclo/image/upload/v1770821062/Untitled_design_14_j5lrij.png",
-  es: "https://res.cloudinary.com/dzidoxclo/image/upload/v1770821056/Untitled_design_15_irckzm.png"
+  en: "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_800/v1770821065/Untitled_design_16_tf00rx.png",
+  fr: "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_800/v1770821062/Untitled_design_14_j5lrij.png",
+  es: "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_800/v1770821056/Untitled_design_15_irckzm.png"
 };
 
-// Preview images (Sneak Peek Inside) for each language
+// Preview images (optimized)
 const previewImages = {
   en: [
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708633/Screenshot_2026-02-21_205927_caru4e.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708650/Screenshot_2026-02-21_210746_biqh36.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708665/Screenshot_2026-02-21_210837_uxmsp3.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708683/Screenshot_2026-02-21_210925_iz1bzc.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708688/Screenshot_2026-02-21_211001_pjnhea.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771708691/Screenshot_2026-02-21_211031_icguqt.png"
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708633/Screenshot_2026-02-21_205927_caru4e.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708650/Screenshot_2026-02-21_210746_biqh36.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708665/Screenshot_2026-02-21_210837_uxmsp3.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708683/Screenshot_2026-02-21_210925_iz1bzc.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708688/Screenshot_2026-02-21_211001_pjnhea.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771708691/Screenshot_2026-02-21_211031_icguqt.png"
   ],
   fr: [
-    // French preview images - replace these URLs with your French guide preview images
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034226/Screenshot_2026-02-14_023015_xgi44w.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034227/Screenshot_2026-02-14_022844_glzrca.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034232/Screenshot_2026-02-14_022909_voeea1.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034232/Screenshot_2026-02-14_022728_d0acb9.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034246/Screenshot_2026-02-14_022805_jaomir.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034247/Screenshot_2026-02-14_022621_pcpngm.png"
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034226/Screenshot_2026-02-14_023015_xgi44w.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034227/Screenshot_2026-02-14_022844_glzrca.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034232/Screenshot_2026-02-14_022909_voeea1.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034232/Screenshot_2026-02-14_022728_d0acb9.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034246/Screenshot_2026-02-14_022805_jaomir.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034247/Screenshot_2026-02-14_022621_pcpngm.png"
   ],
   es: [
-    // Spanish preview images - replace these URLs with your Spanish guide preview images
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034458/Screenshot_2026-02-14_023858_rnfcdm.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034458/Screenshot_2026-02-14_023844_plma67.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034458/Screenshot_2026-02-14_023930_hhwcjs.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034459/Screenshot_2026-02-14_023950_rfpfqt.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034468/Screenshot_2026-02-14_024038_hdmkbd.png",
-    "https://res.cloudinary.com/dzidoxclo/image/upload/v1771034475/Screenshot_2026-02-14_024101_a8qkrb.png"
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034458/Screenshot_2026-02-14_023858_rnfcdm.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034458/Screenshot_2026-02-14_023844_plma67.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034458/Screenshot_2026-02-14_023930_hhwcjs.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034459/Screenshot_2026-02-14_023950_rfpfqt.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034468/Screenshot_2026-02-14_024038_hdmkbd.png",
+    "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034475/Screenshot_2026-02-14_024101_a8qkrb.png"
   ]
 };
 
