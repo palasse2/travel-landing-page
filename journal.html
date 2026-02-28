@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Default title — overwritten dynamically for single posts -->
+  <title>Journal | Travel Readz</title>
+  <meta name="description" content="Stories, tips, and local knowledge from Morocco. The Travel Readz Journal.">
+
+  <!-- Open Graph defaults — overwritten dynamically for single posts -->
+  <meta property="og:title" content="Journal | Travel Readz">
+  <meta property="og:description" content="Stories, tips, and local knowledge from Morocco.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/journal.html">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="journal.css">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+        <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+      </svg>
+      <span class="nav-logo-wordmark">Travel <span>Readz</span></span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="journal.html" class="nav-active">Journal</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+
+    <div class="language-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+
+    <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta">Get Your Guide</a>
+
+<!-- Mobile hamburger button (injected inside nav-container) -->
+<button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+  <span></span><span></span><span></span>
+</button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MOBILE NAV DRAWER
+============================================================ -->
+<div class="nav-mobile-drawer" id="nav-mobile-drawer">
+  <ul class="nav-mobile-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="experiences.html">Experiences</a></li>
+    <li><a href="journal.html" class="nav-active">Journal</a></li>
+    <li><a href="about.html">About Us</a></li>
+  </ul>
+  <div class="nav-mobile-footer">
+    <div class="nav-mobile-lang">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-mobile-cta">Get Your Guide →</a>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     PAGE HERO
+============================================================ -->
+<section class="page-hero" id="journal-hero">
+  <div class="page-hero-zellige"></div>
+  <div class="page-hero-vignette"></div>
+  <div class="page-hero-content reveal">
+    <div class="section-eyebrow centered">Written by a Local</div>
+    <h1 class="page-hero-title" id="journal-page-title">The <em>Journal</em></h1>
+    <p class="page-hero-subtitle" id="journal-page-subtitle">
+      Stories, hidden corners, honest advice — Morocco through the eyes of someone who lives it.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MARQUEE
+============================================================ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Stories <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Culture <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Hidden Corners <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Local Tips <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Medina Life <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Food & Flavours <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Travel Advice <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Stories <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Culture <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Hidden Corners <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Local Tips <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Medina Life <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Food & Flavours <span class="marquee-dot">◆</span></span>
+    <span class="marquee-item">Travel Advice <span class="marquee-dot">◆</span></span>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     JOURNAL CONTAINER — posts grid OR single post rendered here
+============================================================ -->
+<main class="journal-main">
+  <div class="container">
+    <div id="journal-container">
+      <!-- JavaScript renders content here -->
+    </div>
+  </div>
+</main>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-wordmark">Travel <span>Readz</span></div>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+    <p class="footer-copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<script src="journal.js"></script>
+<script>
+  /* Nav scroll */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── If viewing a single post, update the hero to match ── */
+  const slug = new URLSearchParams(window.location.search).get('slug');
+  if (slug) {
+    document.getElementById('journal-page-title').textContent = '';
+    document.getElementById('journal-page-subtitle').textContent = 'Loading article…';
+    document.getElementById('journal-hero').classList.add('page-hero--compact');
+  }
+
+  /* Boot the journal */
+  initJournalPage();
+</script>
+
+
+  /* ── Hamburger / Mobile nav ── */
+  (function() {
+    var btn    = document.getElementById('nav-hamburger');
+    var drawer = document.getElementById('nav-mobile-drawer');
+    var body   = document.body;
+    if (!btn || !drawer) return;
+    btn.addEventListener('click', function() {
+      var isOpen = drawer.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    // Close on link click
+    drawer.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        body.style.overflow = '';
+      });
+    });
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!btn.contains(e.target) && !drawer.contains(e.target)) {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        body.style.overflow = '';
+      }
+    });
+  })();
+</body>
+</html>
