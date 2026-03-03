@@ -500,6 +500,19 @@ body::after {
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--tile);
 }
 .book-thumb.active .thumb-label { color: var(--ochre); }
+/* Default (Desktop) */
+.book-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .book-thumbnails {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 /* ============================================================
    PROBLEM SECTION
@@ -1986,6 +1999,7 @@ body::after {
   .tab-btn-icon { display: none; }
   .tab-btn { padding: 16px 14px; font-size: 0.65rem; }
 }
+
 
 
 
