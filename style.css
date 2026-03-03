@@ -407,7 +407,7 @@ body::after {
   width: 100%; height: 100%;
 }
 .hero-book-mockup {
-  width: 340px;
+  width: 440px;
   filter: drop-shadow(0 32px 60px rgba(0,0,0,0.55)) drop-shadow(0 8px 20px rgba(200,134,58,0.18));
   animation: bookFloat 6s ease-in-out infinite;
 }
@@ -436,14 +436,14 @@ body::after {
   0%,100% { transform: translateY(0); }
   50%      { transform: translateY(-7px); }
 }
-.badge-1 { top: 18%; right: 10%; animation-delay: 0s; }
+.badge-1 { top: 28%; right: 14%; animation-delay: 0s; }
 .badge-2 {
   top: 50%; left: 5%; transform: translateY(-50%);
   animation-delay: 1.4s;
   background: var(--ochre); color: var(--cream);
   border-left: none; border-right: 3px solid rgba(255,255,255,0.25);
 }
-.badge-3 { bottom: 18%; right: 10%; animation-delay: 0.7s; }
+.badge-3 { bottom: 28%; right: 1%; animation-delay: 0.7s; }
 
 /* ============================================================
    MARQUEE
@@ -1984,4 +1984,5 @@ body::after {
   .tab-btn-icon { display: none; }
   .tab-btn { padding: 16px 14px; font-size: 0.65rem; }
 }
+
 
