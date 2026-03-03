@@ -407,7 +407,7 @@ body::after {
   width: 100%; height: 100%;
 }
 .hero-book-mockup {
-  width: 240px;
+  width: 340px;
   filter: drop-shadow(0 32px 60px rgba(0,0,0,0.55)) drop-shadow(0 8px 20px rgba(200,134,58,0.18));
   animation: bookFloat 6s ease-in-out infinite;
 }
@@ -1984,3 +1984,4 @@ body::after {
   .tab-btn-icon { display: none; }
   .tab-btn { padding: 16px 14px; font-size: 0.65rem; }
 }
+
