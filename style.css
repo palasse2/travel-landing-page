@@ -781,6 +781,8 @@ body::after {
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
   color: var(--ochre); display: inline-flex; align-items: center; gap: 6px;
   transition: gap 0.3s, color 0.3s;
+   position: relative;
+    z-index: 999;
 }
 .bonus-link:hover { gap: 12px; color: var(--ochre-deep); }
 .phone-mockup { width: 180px; height: auto; display: block; margin: 0 auto; }
@@ -1984,5 +1986,6 @@ body::after {
   .tab-btn-icon { display: none; }
   .tab-btn { padding: 16px 14px; font-size: 0.65rem; }
 }
+
 
 
