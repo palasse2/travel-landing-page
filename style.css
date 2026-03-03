@@ -180,7 +180,34 @@ body::after {
 }
 .mobile-drawer ul li a:hover { color: var(--ochre); background: var(--ochre-pale); }
 .mobile-drawer ul li:last-child a { border-bottom: none; }
+/* Mobile layout for nav-right */
+@media (max-width: 768px) {
+  .nav-right {
+    display: flex;
+    justify-content: space-between; /* left column vs right column */
+    align-items: flex-start;        /* align top */
+    gap: 10px;
+    width: 100%;
+  }
 
+  /* Left column: language + CTA stacked */
+  .nav-right > .language-switcher,
+  .nav-right > .nav-cta {
+    display: block; /* ensure they are block so they stack */
+    width: auto;    /* or 100% if you want full width */
+    margin-bottom: 8px; /* spacing between language and CTA */
+  }
+
+  .language-switcher {
+    display: flex;        /* keep buttons in a row */
+    gap: 8px;             /* spacing between language buttons */
+  }
+
+  /* Hamburger stays on the right */
+  .hamburger {
+    align-self: flex-start; /* align hamburger to the top */
+  }
+}
 /* ============================================================
    SHARED SECTION UTILITIES
 ============================================================ */
@@ -1999,6 +2026,7 @@ body::after {
   .tab-btn-icon { display: none; }
   .tab-btn { padding: 16px 14px; font-size: 0.65rem; }
 }
+
 
 
 
