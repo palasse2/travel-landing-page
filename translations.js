@@ -6,8 +6,8 @@ const translations = {
   en: {
     // Navigation
     "nav.home": "Home",
-    "nav.services": "Services",
-    "nav.about": "About us",
+    "nav.services": "Experiences",
+    "nav.about": "Journal",
     "nav.cta": "Get Your Guide",
 
     // Hero Section
@@ -554,8 +554,8 @@ const translations = {
   fr: {
     // Navigation
     "nav.home": "Accueil",
-    "nav.services": "Services",
-    "nav.about": "À propos",
+    "nav.services": "Expériences",
+    "nav.about": "Journal",
     "nav.cta": "Obtenez Votre Guide",
 
     // Hero Section
@@ -1100,8 +1100,8 @@ const translations = {
   es: {
     // Navigation
     "nav.home": "Inicio",
-    "nav.services": "Servicios",
-    "nav.about": "Acerca de",
+    "nav.services": "Experiencias",
+    "nav.about": "Blog",
     "nav.cta": "Obtén Tu Guía",
 
     // Hero Section
