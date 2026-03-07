@@ -3,152 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Readz | WhatsApp Support</title>
-    <meta name="description" content="Get free WhatsApp support for your Morocco arrival. Complimentary assistance included with your Travel Readz ebook purchase.">
+    <title>Travel Readz | Private Travel Assistance</title>
+    <meta name="description" content="Structured private travel assistance for verified Travel Readz guide buyers. Expert Morocco guidance \u2014 available exclusively to guide purchasers.">
     
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
     <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
-    
-    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css">
     
     <style>
-    /* WhatsApp-specific green gradient for hero */
-    .whatsapp-hero {
-      background: linear-gradient(135deg, #25D366 0%, #1DA855 50%, #128C7E 100%);
+    /* \u2500\u2500 Hero: deep teal \u2500\u2500 */
+    .pta-hero {
+      background: linear-gradient(135deg, #0e2b2b 0%, #133a38 50%, #0a1f1e 100%);
     }
-    
-    .whatsapp-hero .page-hero-zellige {
-      background-color: #128C7E;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.g%7Bstroke:%23ffffff;stroke-width:0.6;fill:none;opacity:0.1%7D.d%7Bstroke:rgba(255,255,255,0.08);stroke-width:0.4;fill:none%7D.f%7Bfill:rgba(255,255,255,0.05)%7D%3C/style%3E%3C/defs%3E%3Cpolygon class='f' points='60,34 69,43 80,40 77,51 86,60 77,69 80,80 69,77 60,86 51,77 40,80 43,69 34,60 43,51 40,40 51,43'/%3E%3Cpolygon class='g' points='60,34 69,43 80,40 77,51 86,60 77,69 80,80 69,77 60,86 51,77 40,80 43,69 34,60 43,51 40,40 51,43'/%3E%3Cline class='d' x1='60' y1='0' x2='60' y2='34'/%3E%3Cline class='d' x1='60' y1='86' x2='60' y2='120'/%3E%3Cline class='d' x1='0' y1='60' x2='34' y2='60'/%3E%3Cline class='d' x1='86' y1='60' x2='120' y2='60'/%3E%3C/svg%3E");
+    .pta-hero .page-hero-zellige {
+      background-color: #0e2b2b;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.g%7Bstroke:%23c8a96e;stroke-width:0.5;fill:none;opacity:0.08%7D.f%7Bfill:rgba(200,169,110,0.04)%7D%3C/style%3E%3C/defs%3E%3Cpolygon class='f' points='60,34 69,43 80,40 77,51 86,60 77,69 80,80 69,77 60,86 51,77 40,80 43,69 34,60 43,51 40,40 51,43'/%3E%3Cpolygon class='g' points='60,34 69,43 80,40 77,51 86,60 77,69 80,80 69,77 60,86 51,77 40,80 43,69 34,60 43,51 40,40 51,43'/%3E%3C/svg%3E");
     }
-    
-    .whatsapp-hero .section-eyebrow { color: #fff; }
-    .whatsapp-hero .section-eyebrow::before,
-    .whatsapp-hero .section-eyebrow::after { background: #fff; }
-    
-    /* Step cards with green accent */
+    .pta-hero .section-eyebrow { color: #c8a96e; }
+    .pta-hero .section-eyebrow::before,
+    .pta-hero .section-eyebrow::after { background: #c8a96e; }
+
+    /* \u2500\u2500 Lock badge \u2500\u2500 */
+    .access-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,169,110,0.1);
+      border: 1px solid rgba(200,169,110,0.25);
+      color: #c8a96e;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      margin-bottom: 24px;
+    }
+
+    /* \u2500\u2500 PRIVATE ASSISTANCE BLOCK \u2500\u2500 */
+    .pta-block {
+      position: relative;
+      background: #0d1f1e;
+      border: 1px solid rgba(200,169,110,0.18);
+      border-left: 4px solid #c8863a;
+      padding: 56px 52px;
+      overflow: hidden;
+      margin: 80px 0;
+    }
+    .pta-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .pta-block::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle at top right, rgba(200,134,58,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .pta-block-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .pta-block-left {}
+    .pta-block-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8863a;
+      margin-bottom: 20px;
+    }
+    .pta-block-eyebrow svg {
+      width: 14px; height: 14px;
+      fill: #c8863a;
+    }
+    .pta-block-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: #e8dcc8;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .pta-block-title em {
+      font-style: italic;
+      color: #c8a96e;
+    }
+    .pta-block-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(232,220,200,0.55);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    /* exclusivity pill */
+    .pta-exclusivity {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,134,58,0.08);
+      border: 1px solid rgba(200,134,58,0.2);
+      padding: 9px 18px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #c8863a;
+      letter-spacing: 0.04em;
+    }
+    .pta-exclusivity::before {
+      content: '\u25c6';
+      font-size: 0.5rem;
+    }
+
+    /* right: features */
+    .pta-block-right {}
+    .pta-features-label {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(200,169,110,0.5);
+      margin-bottom: 20px;
+    }
+    .pta-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+    }
+    .pta-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(200,169,110,0.07);
+      font-size: 0.88rem;
+      color: rgba(232,220,200,0.75);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .pta-features-list li:last-child { border-bottom: none; }
+    .pta-check {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: rgba(200,134,58,0.12);
+      border: 1px solid rgba(200,134,58,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #c8863a;
+      margin-top: 2px;
+    }
+
+    /* constraints block */
+    .pta-constraints {
+      background: rgba(200,169,110,0.04);
+      border: 1px solid rgba(200,169,110,0.1);
+      border-left: 3px solid rgba(200,169,110,0.3);
+      padding: 20px 22px;
+      margin-bottom: 24px;
+    }
+    .pta-constraints p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(232,220,200,0.45);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .pta-constraints strong {
+      color: rgba(232,220,200,0.65);
+      font-weight: 500;
+    }
+
+    /* upgrade note */
+    .pta-upgrade-note {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(200,169,110,0.35);
+      font-style: italic;
+      letter-spacing: 0.02em;
+      padding-top: 20px;
+      border-top: 1px solid rgba(200,169,110,0.08);
+    }
+
+    /* \u2500\u2500 HOW IT WORKS \u2500\u2500 */
     .step-card {
       background: var(--cream);
       border: 1px solid var(--border);
-      border-left: 4px solid #25D366;
-      padding: 40px 32px;
+      border-left: 4px solid #c8863a;
+      padding: 44px 36px;
       position: relative;
       transition: all 0.35s var(--ease);
     }
-    
     .step-card:hover {
-      transform: translateY(-8px);
-      border-left-color: #128C7E;
-      box-shadow: 0 16px 44px rgba(37,211,102,0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+      border-left-color: #c8a96e;
     }
-    
     .step-number {
       position: absolute;
-      top: -18px;
-      left: 24px;
-      background: linear-gradient(135deg, #25D366, #128C7E);
+      top: -18px; left: 24px;
+      background: linear-gradient(135deg, #c8863a, #c8a96e);
       color: #fff;
-      width: 50px;
-      height: 50px;
+      width: 48px; height: 48px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--serif);
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 300;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+      box-shadow: 0 4px 16px rgba(200,134,58,0.25);
     }
-    
     .step-card h3 {
       font-family: var(--serif);
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 400;
       color: var(--tile);
       margin: 20px 0 12px;
     }
-    
     .step-card p {
       color: var(--smoke);
       font-weight: 300;
       line-height: 1.78;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
-    
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 26px;
     }
-    
-    /* Coverage cards */
+
+    /* \u2500\u2500 COVERAGE \u2500\u2500 */
     .coverage-card {
       background: var(--cream);
       border: 1px solid var(--border);
-      border-left: 5px solid #25D366;
+      border-left: 5px solid rgba(200,134,58,0.4);
       padding: 40px 32px;
       transition: all 0.35s var(--ease);
     }
-    
     .coverage-card:hover {
-      transform: translateX(5px);
-      box-shadow: 0 16px 44px rgba(37,211,102,0.12);
-      border-left-color: #128C7E;
+      transform: translateX(4px);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.07);
+      border-left-color: #c8863a;
     }
-    
     .coverage-card h3 {
       font-family: var(--serif);
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 400;
-      color: #128C7E;
+      color: var(--tile);
       margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    
-    .coverage-icon {
-      font-size: 1.8rem;
-    }
-    
+    .coverage-icon { font-size: 1.6rem; }
     .coverage-card ul {
       list-style: none;
-      padding: 0;
-      margin: 0;
+      padding: 0; margin: 0;
     }
-    
     .coverage-card li {
       color: var(--smoke);
-      padding: 10px 0;
-      padding-left: 30px;
+      padding: 9px 0 9px 28px;
       position: relative;
       line-height: 1.6;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
     }
-    
+    .coverage-card li:last-child { border-bottom: none; }
     .coverage-card li::before {
-      content: "✓";
+      content: "\u2713";
       position: absolute;
       left: 0;
-      color: #25D366;
+      color: #c8863a;
       font-weight: 700;
-      font-size: 1.2rem;
     }
-    
     .coverage-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 26px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
-    
+
+    /* \u2500\u2500 FEATURE ROW reuse \u2500\u2500 */
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
     @media (max-width: 1080px) {
-      .steps-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .pta-block-inner { grid-template-columns: 1fr; gap: 40px; }
+      .pta-block { padding: 44px 32px; }
     }
-    
     @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr; }
       .coverage-grid { grid-template-columns: 1fr; }
+      .feature-row { grid-template-columns: 1fr; }
+      .pta-block { padding: 36px 24px; }
+      .pta-block-title { font-size: 1.6rem; }
     }
     </style>
 </head>
@@ -166,28 +333,25 @@
       </svg>
       <span class="nav-logo-text">Travel <span>Readz</span></span>
     </a>
-
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html" data-translate="nav.home">Home</a></li>
       <li><a href="Experiences.html" data-translate="nav.services">Experiences</a></li>
       <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
     </ul>
-
     <div class="nav-right">
-      <div class="language-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="es">ES</button>
+      <div class="nav-center-stack">
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
       </div>
-
-      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
-
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
-
   <div class="mobile-drawer" id="mobile-drawer">
     <ul>
       <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
@@ -197,20 +361,18 @@
   </div>
 </nav>
 
-<!-- PAGE HERO with WhatsApp green -->
-<section class="page-hero whatsapp-hero">
+<!-- PAGE HERO -->
+<section class="page-hero pta-hero">
   <div class="page-hero-zellige"></div>
   <div class="page-hero-vignette"></div>
   <div class="container">
     <div class="page-hero-content">
-      <div class="section-eyebrow centered">
-        <span data-translate="whatsapp.hero.badge">💬 Live Support</span>
-      </div>
+      <div class="section-eyebrow centered" data-translate="whatsapp.hero.badge">\ud83d\udd12 Guide Buyers Only</div>
       <h1 class="page-hero-title" data-translate="whatsapp.hero.title">
-        Free WhatsApp Support & <em>Arrival Assistance</em>
+        Private Travel <em>Assistance</em>
       </h1>
-      <p class="page-hero-subtitle" data-translate="whatsapp.hero.desc" style="color: rgba(255,255,255,0.95);">
-        Get direct support during your first days in Morocco. Quick answers to arrival logistics, transport options, accommodation issues, and navigation tips.
+      <p class="page-hero-subtitle" data-translate="whatsapp.hero.desc" style="color: rgba(232,220,200,0.75);">
+        Structured, expert guidance for verified guide buyers \u2014 helping you avoid costly mistakes and navigate Morocco with confidence.
       </p>
     </div>
   </div>
@@ -222,298 +384,26 @@
   <!-- CTA BOX -->
   <div class="bonus-cta-box reveal" style="margin-bottom: 80px;">
     <div class="bonus-cta-content">
-      <div class="bonus-cta-badge" data-translate="whatsapp.cta.badge">💎 Premium Support</div>
-      <h2 class="bonus-cta-title" data-translate="whatsapp.cta.boxTitle">Included FREE with Your Ebook</h2>
-      <p class="bonus-cta-desc" data-translate="whatsapp.cta.boxDesc">Get instant access to our WhatsApp support line when you purchase the Travel Readz ebook. No extra fees, no signup required — just message us when you arrive.</p>
-      
+      <div class="bonus-cta-badge">\ud83d\udd12 Exclusive Access</div>
+      <h2 class="bonus-cta-title">Included with Your Guide Purchase</h2>
+      <p class="bonus-cta-desc">Private travel assistance is reserved exclusively for verified Travel Readz guide buyers. Once you purchase, you receive direct access \u2014 no public link, no open inbox. Structured, professional, and limited.</p>
       <div class="bonus-cta-buttons">
-        <a href="index.html" class="btn-primary" data-translate="whatsapp.cta.getEbook">
-          Get the Complete Ebook
-          <span class="btn-arrow">→</span>
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary" id="hero-cta-btn">
+          Get the Complete Guide
+          <span class="btn-arrow">\u2192</span>
         </a>
       </div>
-      
-      <div class="bonus-cta-note" data-translate="whatsapp.cta.freeNote">
-        ✨ WhatsApp support is included FREE with every ebook purchase
-      </div>
+      <div class="bonus-cta-note">\u2726 Access details are delivered in your purchase confirmation</div>
     </div>
-    
     <div class="bonus-cta-image">
-      <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png" alt="WhatsApp Support" style="border-radius: 12px; box-shadow: 0 15px 40px rgba(37,211,102,0.2);">
+      <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png" alt="Private Travel Assistance" style="border-radius: 12px; box-shadow: 0 15px 40px rgba(200,134,58,0.15);">
     </div>
   </div>
 
-  <!-- WHAT YOU GET -->
-  <section class="reveal" style="margin-bottom: 80px;">
-    <div style="text-align: center; margin-bottom: 50px;">
-      <div class="section-eyebrow centered">What's Included</div>
-      <h2 class="section-title" data-translate="whatsapp.features.title">Your Personal Morocco <em>Support Line</em></h2>
-      <p class="section-subtitle" data-translate="whatsapp.features.desc">
-        Traveling to a new country can be overwhelming. That's why every ebook comes with WhatsApp support to help you navigate arrival challenges.
-      </p>
-    </div>
+  <!-- \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+       PRIVATE TRAVEL ASSISTANCE BLOCK \u2014 Premium Section
+  \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 -->
+  <div class="pta-block reveal">
+    <div class="pta-block-inner">
 
-    <div class="feature-row">
-      <div class="feature-small">
-        <div class="feature-icon-small">💬</div>
-        <h4 data-translate="whatsapp.feature1.title">Direct WhatsApp Access</h4>
-        <p data-translate="whatsapp.feature1.desc">Message us directly for quick, practical answers to your Morocco travel questions</p>
-      </div>
-      <div class="feature-small">
-        <div class="feature-icon-small">✈️</div>
-        <h4 data-translate="whatsapp.feature2.title">Arrival Assistance</h4>
-        <p data-translate="whatsapp.feature2.desc">Get help with airport-to-city transport, taxi rates, and first-night logistics</p>
-      </div>
-      <div class="feature-small">
-        <div class="feature-icon-small">🗺️</div>
-        <h4 data-translate="whatsapp.feature3.title">Navigation Tips</h4>
-        <p data-translate="whatsapp.feature3.desc">Receive guidance on getting around, finding your accommodation, and exploring safely</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="whats-inside-section reveal">
-    <div class="container">
-      <div class="inside-header">
-        <div class="ornament" style="margin-bottom:32px;"><span class="ornament-sym">✦ ✦ ✦</span></div>
-        <div class="section-eyebrow centered">Simple Process</div>
-        <h2 class="section-title" data-translate="whatsapp.howItWorks.title">How It <em>Works</em></h2>
-      </div>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3 data-translate="whatsapp.step1.title">Purchase the Ebook</h3>
-          <p data-translate="whatsapp.step1.desc">Buy the Travel Readz ebook and receive your WhatsApp support details in your confirmation email</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3 data-translate="whatsapp.step2.title">Save the Contact</h3>
-          <p data-translate="whatsapp.step2.desc">Add our WhatsApp number to your contacts before you travel to Morocco</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3 data-translate="whatsapp.step3.title">Get Help Anytime</h3>
-          <p data-translate="whatsapp.step3.desc">Message us when you arrive or need assistance during your first days in Morocco</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SUPPORT COVERAGE -->
-  <section class="reveal" style="margin: 80px 0;">
-    <div style="text-align: center; margin-bottom: 50px;">
-      <div class="section-eyebrow centered">Support Topics</div>
-      <h2 class="section-title" data-translate="whatsapp.coverage.title">What We Can <em>Help You With</em></h2>
-      <p class="section-subtitle" data-translate="whatsapp.coverage.desc">
-        Our support covers practical, time-sensitive questions that help you navigate your arrival and first days in Morocco.
-      </p>
-    </div>
-
-    <div class="coverage-grid">
-      <div class="coverage-card">
-        <h3><span class="coverage-icon">🚖</span> <span data-translate="whatsapp.coverage1.title">Transport & Logistics</span></h3>
-        <ul>
-          <li data-translate="whatsapp.coverage1.item1">Airport to city transport options</li>
-          <li data-translate="whatsapp.coverage1.item2">Fair taxi rates and avoiding scams</li>
-          <li data-translate="whatsapp.coverage1.item3">Using local buses and trains</li>
-          <li data-translate="whatsapp.coverage1.item4">App-based ride services</li>
-        </ul>
-      </div>
-
-      <div class="coverage-card">
-        <h3><span class="coverage-icon">🏠</span> <span data-translate="whatsapp.coverage2.title">Accommodation Issues</span></h3>
-        <ul>
-          <li data-translate="whatsapp.coverage2.item1">Check-in difficulties</li>
-          <li data-translate="whatsapp.coverage2.item2">Finding your riad or hotel</li>
-          <li data-translate="whatsapp.coverage2.item3">Communication with hosts</li>
-          <li data-translate="whatsapp.coverage2.item4">Understanding local customs</li>
-        </ul>
-      </div>
-
-      <div class="coverage-card">
-        <h3><span class="coverage-icon">🧭</span> <span data-translate="whatsapp.coverage3.title">Navigation & Safety</span></h3>
-        <ul>
-          <li data-translate="whatsapp.coverage3.item1">Getting to major landmarks</li>
-          <li data-translate="whatsapp.coverage3.item2">Safe areas to explore</li>
-          <li data-translate="whatsapp.coverage3.item3">Local etiquette tips</li>
-          <li data-translate="whatsapp.coverage3.item4">Emergency contacts</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section class="testimonials-section reveal">
-    <div class="container">
-      <div class="testi-header">
-        <div class="ornament" style="margin-bottom:32px;"><span class="ornament-sym">✦ ✦ ✦</span></div>
-        <div class="section-eyebrow centered">Traveler Reviews</div>
-        <h2 class="section-title" data-translate="whatsapp.reviews.title">What Travelers Say</h2>
-      </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="quote-mark" style="font-size:4rem;">"</div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text" data-translate="whatsapp.review1.text">
-            "The WhatsApp support was a lifesaver when I couldn't find my riad in the medina. Got a response in minutes and clear directions."
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">SM</div>
-            <div>
-              <div class="author-name">Sarah M.</div>
-              <div class="author-title">Solo Traveler</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="quote-mark" style="font-size:4rem;">"</div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text" data-translate="whatsapp.review2.text">
-            "Having someone to message about taxi rates from the airport gave me so much confidence. No stress, no overcharging."
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">JL</div>
-            <div>
-              <div class="author-name">James L.</div>
-              <div class="author-title">First-time Visitor</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="quote-mark" style="font-size:4rem;">"</div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text" data-translate="whatsapp.review3.text">
-            "Quick responses, practical advice, and genuinely helpful. This service alone is worth getting the ebook for."
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">ER</div>
-            <div>
-              <div class="author-name">Emma R.</div>
-              <div class="author-title">Backpacker</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OTHER BONUSES -->
-  <section class="bonus-section reveal">
-    <div class="bonus-header">
-      <div class="section-eyebrow centered" data-translate="whatsapp.bonus.badge">Free Bonuses</div>
-      <h2 class="section-title" data-translate="whatsapp.bonus.title">Other Free Gifts <em>Included</em></h2>
-      <p class="section-subtitle" data-translate="whatsapp.bonus.subtitle">Worth $24.99 — Yours free when you get the guide today</p>
-    </div>
-
-    <div class="bonus-grid">
-      <div class="bonus-card">
-        <div class="bonus-value" data-translate="bonus.item2.value">Value: $5</div>
-        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568882/Untitled_design_9_hljh1y.png" alt="Marrakech Maps">
-        <h3 data-translate="bonus.item2.title">Custom Google Maps</h3>
-        <p data-translate="bonus.item2.desc">Pre-loaded maps with all recommended spots for easy navigation</p>
-        <a href="marrakech-travel-map.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-value" data-translate="bonus.item4.value">Value: $5</div>
-        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770567733/Untitled_design_7_eqjs9c.png" alt="Budget Calculator">
-        <h3 data-translate="bonus.item4.title">Budget Calculator Tool</h3>
-        <p data-translate="bonus.item4.desc">Plan your expenses accurately with our interactive calculator</p>
-        <a href="travel-budget-calculator.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-value" data-translate="bonus.item1.value">Value: $4.99</div>
-        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770509045/Untitled_design_2_b4rwdn.png" alt="Etiquette Mini Guide">
-        <h3 data-translate="bonus.item1.title">Cultural Etiquette Mini Guide</h3>
-        <p data-translate="bonus.item1.desc">Quick-reference guide to Moroccan customs and social norms</p>
-        <a href="morocco-travel-etiquette.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="final-cta-section reveal">
-    <div class="container">
-      <div class="final-cta-content">
-        <div class="final-eyebrow" data-translate="whatsapp.finalCta.badge">Ready to Start?</div>
-        <h2 class="section-title light" data-translate="whatsapp.finalCta.title">
-          Ready to Travel with <em>Confidence?</em>
-        </h2>
-        <p class="section-subtitle" style="color:rgba(232,220,200,0.55);margin:16px auto 52px;">
-          Get the complete Travel Readz ebook plus WhatsApp support and 3 other premium bonuses worth $29.99
-        </p>
-        <a href="index.html" class="btn-primary large" data-translate="whatsapp.finalCta.button">
-          Get the Travel Readz Ebook
-          <span class="btn-arrow">→</span>
-        </a>
-        <div class="final-trust">
-          <span>✓ Instant Download</span>
-          <span>✓ WhatsApp Support Included</span>
-          <span>✓ All 4 Bonuses Free</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-top">
-      <div class="footer-wordmark">Travel <span>Readz</span></div>
-      <ul class="footer-links">
-        <li><a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a></li>
-        <li><a href="terms.html" data-translate="footer.terms">Terms & Conditions</a></li>
-        <li><a href="contact.html" data-translate="footer.contact">Contact Us</a></li>
-        <li><a href="about.html" data-translate="footer.about">About Us</a></li>
-      </ul>
-    </div>
-    <p class="footer-copyright" data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
-  </div>
-</footer>
-
-<script src="translations.js" onerror="void(0)"></script>
-<script>
-  /* Nav scroll */
-  const nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-
-  /* Hamburger */
-  const hamburger = document.getElementById('hamburger');
-  const drawer = document.getElementById('mobile-drawer');
-  hamburger.addEventListener('click', () => {
-    const open = drawer.classList.toggle('open');
-    hamburger.classList.toggle('open', open);
-    hamburger.setAttribute('aria-expanded', open);
-  });
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', false);
-  }
-  document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target)) closeDrawer();
-  });
-
-  /* Scroll reveal */
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+      <!-- LEFT:
