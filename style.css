@@ -82,7 +82,6 @@ body::after {
   position: static;      /* ← ADD THIS */
   transform: none;       /* ← ADD THIS */
 }
-
 .nav-container {
   max-width: 1240px; margin: 0 auto; padding: 0 48px;
   height: 72px;
@@ -190,34 +189,7 @@ body::after {
 }
 .mobile-drawer ul li a:hover { color: var(--ochre); background: var(--ochre-pale); }
 .mobile-drawer ul li:last-child a { border-bottom: none; }
-/* Mobile layout for nav-right */
-@media (max-width: 768px) {
-  .nav-right {
-    display: flex;
-    justify-content: space-between; /* left column vs right column */
-    align-items: flex-start;        /* align top */
-    gap: 10px;
-    width: 100%;
-  }
 
-  /* Left column: language + CTA stacked */
-  .nav-right > .language-switcher,
-  .nav-right > .nav-cta {
-    display: block; /* ensure they are block so they stack */
-    width: auto;    /* or 100% if you want full width */
-    margin-bottom: 8px; /* spacing between language and CTA */
-  }
-
-  .language-switcher {
-    display: flex;        /* keep buttons in a row */
-    gap: 8px;             /* spacing between language buttons */
-  }
-
-  /* Hamburger stays on the right */
-  .hamburger {
-    align-self: flex-start; /* align hamburger to the top */
-  }
-}
 /* ============================================================
    SHARED SECTION UTILITIES
 ============================================================ */
@@ -444,7 +416,7 @@ body::after {
   width: 100%; height: 100%;
 }
 .hero-book-mockup {
-  width: 240px;
+  width: 440px;
   filter: drop-shadow(0 32px 60px rgba(0,0,0,0.55)) drop-shadow(0 8px 20px rgba(200,134,58,0.18));
   animation: bookFloat 6s ease-in-out infinite;
 }
@@ -537,19 +509,7 @@ body::after {
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--tile);
 }
 .book-thumb.active .thumb-label { color: var(--ochre); }
-/* Default (Desktop) */
-.book-thumbnails {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
 
-/* Mobile */
-@media (max-width: 768px) {
-  .book-thumbnails {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 /* ============================================================
    PROBLEM SECTION
@@ -831,8 +791,9 @@ body::after {
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
   color: var(--ochre); display: inline-flex; align-items: center; gap: 6px;
   transition: gap 0.3s, color 0.3s;
-   position: relative;
+  position: relative;
     z-index: 999;
+  
 }
 .bonus-link:hover { gap: 12px; color: var(--ochre-deep); }
 .phone-mockup { width: 180px; height: auto; display: block; margin: 0 auto; }
@@ -2030,7 +1991,8 @@ body::after {
   .offer-grid-dark { grid-template-columns: 1fr; }
   .product-grid    { grid-template-columns: 1fr; }
   .digital-bundle-banner { padding: 44px 24px; }
-  .nav-container {
+
+ .nav-container {
     position: relative; }  /* add this */
     .nav-center-stack {
     position: absolute;
@@ -2042,17 +2004,11 @@ body::after {
     gap: 4px;
     
   }
+  
 }
+
 
 @media (max-width: 480px) {
   .tab-btn-icon { display: none; }
   .tab-btn { padding: 16px 14px; font-size: 0.65rem; }
 }
-
-
-
-
-
-
-
-
