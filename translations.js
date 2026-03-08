@@ -537,9 +537,9 @@ const translations = {
 
 // Book cover URLs for each language
 const bookCovers = {
-  en: "https://res.cloudinary.com/dzidoxclo/image/upload/v1772575684/Gemini_Generated_Image_ouxluxouxluxouxl-removebg-preview_wqvcf2.png",
-  fr: "https://res.cloudinary.com/dzidoxclo/image/upload/v1772577783/ChatGPT_Image_Mar_3__2026__10_36_00_PM-removebg-preview_emby2g.png",
-  es: "https://res.cloudinary.com/dzidoxclo/image/upload/v1772577783/ChatGPT_Image_Mar_3__2026__10_36_58_PM-removebg-preview_yibma6.png"
+  en: "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_800/v1770821065/Untitled_design_16_tf00rx.png",
+  fr: "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_800/v1770821062/Untitled_design_14_j5lrij.png",
+  es: "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_800/v1770821056/Untitled_design_15_irckzm.png"
 };
 
 // Preview images
