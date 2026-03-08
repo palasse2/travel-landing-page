@@ -1,816 +1,736 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Travel Readz | About us </title>
-  <meta name="description" content="Learn about Travel Readz - your trusted partner for Morocco travel guides, expert advice, and unforgettable journey experiences.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Readz | About Us</title>
+  <meta name="description" content="Travel Readz is built by Moroccans, for travelers who want to experience Morocco the right way — with local knowledge, cultural respect, and no wasted days.">
 
-  <!-- Google Fonts: Inter + Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    /* --- GLOBAL STYLES --- */
-    body, html {
-        font-family: 'Inter', sans-serif;
-        width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-        background-color: #f9fafb;
+    /* ════════════════════════════════════════════
+       ABOUT PAGE — CUSTOM STYLES
+    ════════════════════════════════════════════ */
+
+    /* ── HERO ── */
+    .abt-hero {
+      position: relative;
+      background: #071918;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .abt-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .abt-hero-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 80%, rgba(200,134,58,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .abt-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 760px; padding: 100px 32px;
+    }
+    .abt-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 32px;
+    }
+    .abt-hero-eyebrow::before, .abt-hero-eyebrow::after {
+      content: ''; display: block; width: 28px; height: 1px; background: #c8863a;
+    }
+    .abt-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 300; color: #e8dcc8;
+      line-height: 1.15; margin-bottom: 24px;
+    }
+    .abt-hero-title em { font-style: italic; color: #c8a96e; }
+    .abt-hero-sub {
+      font-size: 0.95rem; font-weight: 300;
+      color: rgba(232,220,200,0.45); line-height: 1.9;
+      max-width: 560px; margin: 0 auto;
+    }
+
+    /* ── SHARED SECTION PATTERNS ── */
+    .abt-section { padding: 100px 0; }
+
+    .abt-section-dark {
+      background: #0d1a19;
+      position: relative; overflow: hidden;
+    }
+    .abt-section-dark::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .abt-section-dark .container { position: relative; z-index: 1; }
+
+    .abt-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 18px;
+    }
+    .abt-eyebrow::before, .abt-eyebrow::after {
+      content: ''; display: block; width: 24px; height: 1px; background: #c8863a;
+    }
+    .abt-section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      font-weight: 300; line-height: 1.2; margin-bottom: 14px;
+    }
+    .abt-section-title.light { color: #e8dcc8; }
+    .abt-section-title.light em { color: #c8a96e; font-style: italic; }
+    .abt-section-title.dark  { color: var(--tile); }
+    .abt-section-title.dark  em { color: var(--ochre); font-style: italic; }
+    .abt-section-subtitle {
+      font-size: 0.92rem; font-weight: 300; line-height: 1.85;
+      max-width: 560px; margin: 0 auto;
+    }
+    .abt-section-subtitle.light { color: rgba(232,220,200,0.45); }
+    .abt-section-subtitle.ink   { color: var(--smoke); }
+
+    /* ── STORY BLOCK ── */
+    .abt-story-block {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .abt-story-left { padding-top: 8px; }
+    .abt-story-counter {
+      font-family: var(--serif); font-size: 7rem; font-weight: 300;
+      color: rgba(200,169,110,0.07); line-height: 1;
+      margin-bottom: 24px; letter-spacing: -4px;
+    }
+    .abt-story-label {
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,110,0.4); margin-bottom: 14px;
+    }
+    .abt-story-stat-num {
+      font-family: var(--serif); font-size: 2.6rem; font-weight: 300;
+      color: #c8a96e; line-height: 1; margin-bottom: 6px;
+    }
+    .abt-story-stat-desc {
+      font-size: 0.8rem; font-weight: 300;
+      color: rgba(232,220,200,0.35); line-height: 1.6;
+    }
+    .abt-story-divider {
+      width: 1px; height: 60px;
+      background: linear-gradient(to bottom, transparent, rgba(200,169,110,0.2), transparent);
+      margin: 28px 0;
+    }
+
+    .abt-story-right {}
+    .abt-story-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 300; color: #e8dcc8;
+      line-height: 1.2; margin-bottom: 32px;
+    }
+    .abt-story-title em { font-style: italic; color: #c8a96e; }
+    .abt-story-text {
+      font-size: 0.92rem; font-weight: 300;
+      color: rgba(232,220,200,0.5); line-height: 1.95;
+      margin-bottom: 22px;
+    }
+    .abt-story-text:last-child { margin-bottom: 0; }
+    .abt-story-pull {
+      border-left: 3px solid #c8863a;
+      padding: 20px 28px;
+      margin: 36px 0;
+      background: rgba(200,134,58,0.04);
+    }
+    .abt-story-pull p {
+      font-family: var(--serif); font-size: 1.2rem; font-weight: 300;
+      font-style: italic; color: rgba(232,220,200,0.65); line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── VALUES GRID ── */
+    .abt-values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+    .abt-value-card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(200,169,110,0.08);
+      padding: 52px 44px;
+      position: relative; overflow: hidden;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .abt-value-card:hover {
+      background: rgba(200,134,58,0.04);
+      border-color: rgba(200,169,110,0.18);
+    }
+    .abt-value-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c8863a, transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .abt-value-card:hover::before { opacity: 1; }
+    .abt-value-num {
+      font-family: var(--serif); font-size: 3.5rem; font-weight: 300;
+      color: rgba(200,169,110,0.06); line-height: 1; margin-bottom: 22px;
+    }
+    .abt-value-icon { font-size: 1.8rem; margin-bottom: 18px; display: block; }
+    .abt-value-card h3 {
+      font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+      color: #e8dcc8; margin-bottom: 14px;
+    }
+    .abt-value-card p {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(232,220,200,0.4); line-height: 1.85;
+    }
+
+    /* ── TEAM ── */
+    .abt-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .abt-team-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .abt-team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(30,48,64,0.12);
+    }
+    .abt-team-photo {
+      width: 100%; aspect-ratio: 1/1;
+      background: var(--tile);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .abt-team-photo-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #0d1a19 0%, #132e2c 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .abt-team-initials {
+      font-family: var(--serif); font-size: 3.5rem; font-weight: 300;
+      color: rgba(200,169,110,0.25); letter-spacing: 4px;
+    }
+    .abt-team-zellige {
+      position: absolute; inset: 0; opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c8a96e' stroke-width='0.5'%3E%3Cpolygon points='20,2 36,11 36,29 20,38 4,29 4,11'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .abt-team-role-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #c8863a, transparent);
+    }
+    .abt-team-info {
+      padding: 28px 30px 32px;
+      border-top: 1px solid var(--border);
+    }
+    .abt-team-name {
+      font-family: var(--serif); font-size: 1.4rem; font-weight: 400;
+      color: var(--tile); letter-spacing: 0.05em; margin-bottom: 6px;
+    }
+    .abt-team-role {
+      font-family: var(--sans); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 14px;
+    }
+    .abt-team-bio {
+      font-size: 0.84rem; font-weight: 300;
+      color: var(--smoke); line-height: 1.75;
+    }
+
+    /* ── MOROCCO SECTION ── */
+    .abt-morocco-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .abt-morocco-card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(200,169,110,0.08);
+      padding: 44px 36px;
+      transition: background 0.3s, border-color 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .abt-morocco-card:hover {
+      background: rgba(200,134,58,0.04);
+      border-color: rgba(200,169,110,0.18);
+    }
+    .abt-morocco-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(200,169,110,0.15), transparent);
+    }
+    .abt-morocco-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+    .abt-morocco-card h3 {
+      font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
+      color: #e8dcc8; margin-bottom: 12px;
+    }
+    .abt-morocco-card p {
+      font-size: 0.85rem; font-weight: 300;
+      color: rgba(232,220,200,0.4); line-height: 1.85;
+    }
+    .abt-morocco-closing {
+      margin-top: 80px;
+      text-align: center;
+      max-width: 680px; margin-left: auto; margin-right: auto;
+    }
+    .abt-morocco-closing-quote {
+      font-family: var(--serif); font-size: 1.5rem; font-weight: 300;
+      font-style: italic; color: rgba(232,220,200,0.5);
+      line-height: 1.7; margin-bottom: 20px;
+    }
+    .abt-morocco-closing-source {
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,110,0.3);
+    }
+
+    /* ── FINAL CTA ── */
+    .abt-final-cta {
+      background: #071918; padding: 120px 0;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .abt-final-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 50% 100%, rgba(200,134,58,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .abt-final-cta::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .abt-final-inner {
+      position: relative; z-index: 1;
+      max-width: 660px; margin: 0 auto; padding: 0 24px;
+    }
+    .abt-final-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8a96e; margin-bottom: 28px;
+    }
+    .abt-final-eyebrow::before, .abt-final-eyebrow::after {
+      content: ''; display: block; width: 28px; height: 1px; background: #c8863a;
+    }
+    .abt-final-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: #e8dcc8; line-height: 1.2; margin-bottom: 18px;
+    }
+    .abt-final-title em { font-style: italic; color: #c8a96e; }
+    .abt-final-sub {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(232,220,200,0.4); line-height: 1.85; margin-bottom: 48px;
+    }
+    .abt-final-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #c8863a; color: #fff;
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none; padding: 16px 36px;
+      transition: all 0.35s;
+    }
+    .abt-final-btn:hover { background: #c8a96e; gap: 18px; color: #fff; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 960px) {
+      .abt-story-block { grid-template-columns: 1fr; gap: 40px; }
+      .abt-story-left { display: flex; gap: 32px; align-items: flex-start; }
+      .abt-story-counter { font-size: 4rem; margin-bottom: 0; }
+      .abt-story-divider { width: 60px; height: 1px; margin: 0 8px; align-self: center; background: linear-gradient(to right, transparent, rgba(200,169,110,0.2), transparent); }
+      .abt-values-grid { grid-template-columns: 1fr; }
+      .abt-team-grid { grid-template-columns: 1fr; }
+      .abt-morocco-grid { grid-template-columns: 1fr; }
     }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
-    h1 { font-weight: 700; }
-    h2 { font-weight: 600; }
-    h3 { font-weight: 600; }
-
-    /* Fade transition for language switching */
-    .fade-transition {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .fade-transition.active {
-        opacity: 1;
-    }
-
-    /* --- NAVIGATION --- */
-    .main-nav {
-        width: 100%;
-        background: #fff;
-        padding: 12px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        z-index: 999;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        position: sticky;
-        top: 0;
-    }
-
-    .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 50px;
-        margin: 0;
-        padding: 0;
-    }
-
-    .nav-links li a {
-        text-decoration: none;
-        color: #004466;
-        font-weight: 600;
-        font-size: 1rem;
-        transition: 0.3s;
-    }
-
-    .nav-links li a:hover { color: #ffcc00; }
-
-    /* Language Switcher */
-    .language-switcher {
-        display: flex;
-        gap: 8px;
-        background: #f8fafb;
-        padding: 6px;
-        border-radius: 8px;
-        border: 1px solid #e0e0e0;
-    }
-
-    .lang-btn {
-        background: transparent;
-        border: none;
-        color: #666;
-        font-weight: 600;
-        font-size: 0.85rem;
-        padding: 6px 14px;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: all 0.3s;
-        font-family: 'Inter', sans-serif;
-    }
-
-    .lang-btn:hover {
-        background: rgba(0, 68, 102, 0.1);
-        color: #004466;
-    }
-
-    .lang-btn.active {
-        background: linear-gradient(135deg, #004466 0%, #006699 100%);
-        color: white;
-        box-shadow: 0 2px 8px rgba(0, 68, 102, 0.3);
-    }
-
-    /* --- HERO SECTION --- */
-    .about-hero {
-        background: linear-gradient(135deg, #004466 0%, #006699 100%);
-        color: #fff;
-        text-align: center;
-        padding: 100px 20px 80px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .about-hero::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 600px;
-        height: 600px;
-        background: rgba(255,204,0,0.1);
-        border-radius: 50%;
-    }
-
-    .about-hero::after {
-        content: "";
-        position: absolute;
-        bottom: -30%;
-        left: -10%;
-        width: 500px;
-        height: 500px;
-        background: rgba(255,204,0,0.08);
-        border-radius: 50%;
-    }
-
-    .about-hero h1 {
-        font-size: 3.5rem;
-        margin-bottom: 20px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .about-hero p {
-        font-size: 1.3rem;
-        max-width: 700px;
-        margin: 0 auto;
-        opacity: 0.95;
-        position: relative;
-        z-index: 1;
-    }
-
-    /* --- MAIN CONTAINER --- */
-    .about-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 80px 20px;
-    }
-
-    /* --- STORY SECTION --- */
-    .about-story {
-        background: #fff;
-        padding: 60px 50px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        margin-bottom: 80px;
-        position: relative;
-    }
-
-    .about-story::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 6px;
-        height: 100%;
-        background: linear-gradient(180deg, #004466, #ffcc00);
-        border-radius: 20px 0 0 20px;
-    }
-
-    .about-story h2 {
-        color: #004466;
-        font-size: 2.5rem;
-        margin-bottom: 25px;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    .about-story h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 80px;
-        height: 4px;
-        background: #ffcc00;
-        border-radius: 2px;
-    }
-
-    .about-story p {
-        color: #555;
-        font-size: 1.1rem;
-        line-height: 1.9;
-        margin-bottom: 20px;
-    }
-
-    /* --- VALUES SECTION --- */
-    .values-section {
-        margin-bottom: 80px;
-    }
-
-    .values-section h2 {
-        color: #004466;
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 50px;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    .values-section h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(90deg, #004466, #ffcc00);
-        border-radius: 2px;
-    }
-
-    .values-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-    }
-
-    .value-card {
-        background: #fff;
-        padding: 35px 30px;
-        border-radius: 16px;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        transition: 0.3s;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .value-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #004466, #ffcc00);
-    }
-
-    .value-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 40px rgba(0,68,102,0.15);
-    }
-
-    .value-icon {
-        font-size: 3rem;
-        margin-bottom: 20px;
-    }
-
-    .value-card h3 {
-        color: #004466;
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-    }
-
-    .value-card p {
-        color: #666;
-        line-height: 1.7;
-    }
-
-    /* --- TEAM SECTION --- */
-    .team-section {
-        margin-bottom: 80px;
-    }
-
-    .team-section h2 {
-        color: #004466;
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 50px;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    .team-section h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(90deg, #004466, #ffcc00);
-        border-radius: 2px;
-    }
-
-    .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 40px;
-    }
-
-    .team-member {
-        background: #fff;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        transition: 0.3s;
-        text-align: center;
-    }
-
-    .team-member:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 50px rgba(0,68,102,0.15);
-    }
-
-    .team-member-image {
-        width: 100%;
-        height: 300px;
-        background: linear-gradient(135deg, #e0e8f0, #f0f4f7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 5rem;
-        color: #004466;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .team-member-image::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,204,0,0.1) 0%, transparent 70%);
-    }
-
-    .team-member img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .team-member-info {
-        padding: 25px;
-    }
-
-    .team-member h3 {
-        color: #004466;
-        font-size: 1.4rem;
-        margin-bottom: 8px;
-    }
-
-    .team-member p {
-        color: #006699;
-        font-weight: 600;
-        font-size: 0.95rem;
-    }
-
-    /* --- MOROCCO SPECIAL SECTION --- */
-    .morocco-special {
-        margin-bottom: 80px;
-    }
-
-    .morocco-special h2 {
-        color: #004466;
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 30px;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    .morocco-special h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(90deg, #004466, #ffcc00);
-        border-radius: 2px;
-    }
-
-    .morocco-special .intro-text {
-        text-align: center;
-        font-size: 1.15rem;
-        color: #555;
-        max-width: 900px;
-        margin: 0 auto 50px;
-        line-height: 1.8;
-    }
-
-    .special-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-bottom: 40px;
-    }
-
-    .special-card {
-        background: #fff;
-        padding: 35px 30px;
-        border-radius: 16px;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        transition: 0.3s;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .special-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #004466, #ffcc00);
-    }
-
-    .special-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 40px rgba(0,68,102,0.15);
-    }
-
-    .special-icon {
-        font-size: 3rem;
-        margin-bottom: 20px;
-    }
-
-    .special-card h3 {
-        color: #004466;
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-    }
-
-    .special-card p {
-        color: #666;
-        line-height: 1.7;
-    }
-
-    .morocco-special .closing-text {
-        text-align: center;
-        font-size: 1.1rem;
-        color: #555;
-        max-width: 850px;
-        margin: 0 auto;
-        line-height: 1.8;
-        font-style: italic;
-    }
-
-    /* --- CTA SECTION --- */
-    .final-cta {
-        background: linear-gradient(135deg, #004466 0%, #006699 100%);
-        color: #fff;
-        padding: 60px 40px;
-        border-radius: 20px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 10px 40px rgba(0,68,102,0.2);
-    }
-
-    .final-cta::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 400px;
-        height: 400px;
-        background: rgba(255,204,0,0.1);
-        border-radius: 50%;
-    }
-
-    .final-cta h2 {
-        font-size: 2.5rem;
-        margin-bottom: 25px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .final-cta p {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-        opacity: 0.95;
-        position: relative;
-        z-index: 1;
-    }
-
-    .cta-button {
-        display: inline-block;
-        background: #ffcc00;
-        color: #004466;
-        padding: 16px 40px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 1.1rem;
-        transition: 0.3s;
-        box-shadow: 0 8px 20px rgba(255,204,0,0.3);
-        position: relative;
-        z-index: 1;
-    }
-
-    .cta-button:hover {
-        background: #e6b800;
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(255,204,0,0.4);
-    }
-
-    /* --- FOOTER --- */
-    .site-footer {
-        background-color: #004466;
-        color: #fff;
-        text-align: center;
-        padding: 25px 20px;
-        border-radius: 12px 12px 0 0;
-        font-size: 0.95rem;
-        margin-top: 80px;
-    }
-
-    .site-footer .footer-links {
-        margin-bottom: 12px;
-    }
-
-    .site-footer .footer-links a {
-        color: #ffcc00;
-        margin: 0 12px;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    .site-footer .footer-links a:hover {
-        text-decoration: underline;
-        color: #e6b800;
-    }
-
-    .site-footer p {
-        margin: 0;
-        color: #fff;
-    }
-
-    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-        .main-nav {
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .about-hero h1 {
-            font-size: 2.2rem;
-        }
-
-        .about-hero p {
-            font-size: 1.1rem;
-        }
-
-        .nav-links {
-            gap: 20px;
-        }
-
-        .nav-links li a {
-            font-size: 0.9rem;
-        }
-
-        .about-story {
-            padding: 40px 30px;
-        }
-
-        .about-story h2,
-        .values-section h2,
-        .team-section h2 {
-            font-size: 2rem;
-        }
-
-        .values-grid,
-        .team-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .final-cta h2 {
-            font-size: 1.8rem;
-        }
-
-        .language-switcher {
-            order: 1;
-        }
-
-        .nav-links {
-            order: 3;
-            width: 100%;
-            justify-content: center;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .about-story {
-            padding: 30px 20px;
-        }
-
-        .final-cta {
-            padding: 40px 25px;
-        }
+      .abt-section { padding: 72px 0; }
+      .abt-values-grid { grid-template-columns: 1fr; }
+      .abt-hero-inner { padding: 80px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="main-nav">
-      <ul class="nav-links">
-          <li><a href="index.html" data-translate="nav.home">Home</a></li>
-          <li><a href="services.html" data-translate="nav.services">Services</a></li>
-          <li><a href="about.html" data-translate="nav.about">About us</a></li>
-      </ul>
-      
-      <!-- Language Switcher -->
-      <div class="language-switcher">
+<!-- NAV -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+        <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+      </svg>
+      <span class="nav-logo-text">Travel <span>Readz</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" data-translate="nav.home">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-center-stack">
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
+        <div class="language-switcher">
           <button class="lang-btn active" data-lang="en">EN</button>
           <button class="lang-btn" data-lang="fr">FR</button>
           <button class="lang-btn" data-lang="es">ES</button>
+        </div>
       </div>
-  </nav>
-
-  <!-- HERO SECTION -->
-  <section class="about-hero">
-      <h1 data-translate="about.hero.title">About Travel Readz</h1>
-      <p data-translate="about.hero.subtitle">Your trusted partner for unforgettable Moroccan travel experiences</p>
-  </section>
-
-  <!-- MAIN CONTAINER -->
-  <div class="about-container">
-
-      <!-- OUR STORY -->
-      <section class="about-story">
-          <h2 data-translate="about.story.title">Our Story</h2>
-          <p data-translate="about.story.p1">
-              Founded with a passion for travel and a deep love for Morocco, Travel Readz was created to bridge the gap between travelers and authentic experiences. We understand that planning a trip to Morocco can feel overwhelming — from navigating bustling medinas to understanding local customs and finding hidden gems that guidebooks often miss.
-          </p>
-          <p data-translate="about.story.p2">
-              That's why we're here. Our mission is to provide high-quality digital travel guides, practical resources, and expert insights that make every journey seamless and memorable. Whether you're a first-time visitor or a seasoned explorer, we aim to inspire adventurers while offering the tools and knowledge needed to travel with confidence.
-          </p>
-          <p data-translate="about.story.p3">
-              What started as a personal project to help fellow travelers has grown into a trusted resource for thousands seeking authentic Moroccan experiences. Every guide, template, and resource we create is crafted with care, local knowledge, and a commitment to helping you discover Morocco the way it's meant to be experienced.
-          </p>
-      </section>
-
-      <!-- WHY CHOOSE US -->
-      <section class="values-section">
-          <h2 data-translate="about.values.title">Why Choose Travel Readz</h2>
-          <div class="values-grid">
-              
-              <div class="value-card">
-                  <div class="value-icon">📚</div>
-                  <h3 data-translate="about.values.card1.title">Expert Knowledge</h3>
-                  <p data-translate="about.values.card1.desc">Curated travel guides and resources created by local experts and experienced travelers who know Morocco inside out.</p>
-              </div>
-
-              <div class="value-card">
-                  <div class="value-icon">✨</div>
-                  <h3 data-translate="about.values.card2.title">Quality First</h3>
-                  <p data-translate="about.values.card2.desc">Every product we offer is carefully crafted and tested to ensure it delivers real value to your travel experience.</p>
-              </div>
-
-              <div class="value-card">
-                  <div class="value-icon">🎨</div>
-                  <h3 data-translate="about.values.card3.title">Creative Tools</h3>
-                  <p data-translate="about.values.card3.desc">Exclusive digital templates, presets, and tools designed to help you document and share your Morocco journey beautifully.</p>
-              </div>
-
-              <div class="value-card">
-                  <div class="value-icon">💬</div>
-                  <h3 data-translate="about.values.card4.title">Dedicated Support</h3>
-                  <p data-translate="about.values.card4.desc">Our team is always ready to help with your questions, from pre-trip planning to on-the-ground support via WhatsApp.</p>
-              </div>
-
-          </div>
-      </section>
-
-      <!-- TEAM SECTION -->
-      <section class="team-section">
-          <h2 data-translate="about.team.title">Meet Our Team</h2>
-          <div class="team-grid">
-              
-              <div class="team-member">
-                  <div class="team-member-image">
-                      <span>👤</span>
-                  </div>
-                  <div class="team-member-info">
-                      <h3 data-translate="about.team.member1.name">SOUFIANE</h3>
-                      <p data-translate="about.team.member1.role">Founder & Travel Expert</p>
-                  </div>
-              </div>
-
-              <div class="team-member">
-                  <div class="team-member-image">
-                      <span>👤</span>
-                  </div>
-                  <div class="team-member-info">
-                      <h3 data-translate="about.team.member2.name">LAHCEN</h3>
-                      <p data-translate="about.team.member2.role">Marketing & Content Strategy</p>
-                  </div>
-              </div>
-
-              <div class="team-member">
-                  <div class="team-member-image">
-                      <span>👤</span>
-                  </div>
-                  <div class="team-member-info">
-                      <h3 data-translate="about.team.member3.name">HAMZA</h3>
-                      <p data-translate="about.team.member3.role">Design & Digital Products</p>
-                  </div>
-              </div>
-
-          </div>
-      </section>
-
-      <!-- WHAT MAKES MOROCCO SPECIAL -->
-      <section class="morocco-special">
-          <h2 data-translate="about.morocco.title">What Makes Morocco Special</h2>
-          <p class="intro-text" data-translate="about.morocco.intro">
-              Morocco is more than just a destination — it's an experience that awakens all your senses. From the moment you arrive, you'll discover a land where ancient traditions meet modern vitality, creating memories that last a lifetime.
-          </p>
-          
-          <div class="special-grid">
-              
-              <div class="special-card">
-                  <div class="special-icon">🏛️</div>
-                  <h3 data-translate="about.morocco.card1.title">Rich History & Culture</h3>
-                  <p data-translate="about.morocco.card1.desc">Walk through centuries-old medinas, explore imperial cities, and discover architectural wonders that tell stories of Berber, Arab, and European influences woven together over millennia.</p>
-              </div>
-
-              <div class="special-card">
-                  <div class="special-icon">🏜️</div>
-                  <h3 data-translate="about.morocco.card2.title">Diverse Landscapes</h3>
-                  <p data-translate="about.morocco.card2.desc">From the golden dunes of the Sahara Desert to the snow-capped Atlas Mountains, pristine Atlantic beaches to lush valleys — Morocco offers breathtaking natural diversity unlike anywhere else.</p>
-              </div>
-
-              <div class="special-card">
-                  <div class="special-icon">🍽️</div>
-                  <h3 data-translate="about.morocco.card3.title">Incredible Cuisine</h3>
-                  <p data-translate="about.morocco.card3.desc">Savor the aromatic flavors of tagines, couscous, and mint tea. Moroccan cuisine is a feast for the senses, blending spices, fresh ingredients, and cooking techniques passed down through generations.</p>
-              </div>
-
-              <div class="special-card">
-                  <div class="special-icon">🤝</div>
-                  <h3 data-translate="about.morocco.card4.title">Warm Hospitality</h3>
-                  <p data-translate="about.morocco.card4.desc">Experience the genuine warmth of Moroccan hospitality. The local people welcome visitors with open hearts, offering tea, sharing stories, and making you feel like part of the family.</p>
-              </div>
-
-              <div class="special-card">
-                  <div class="special-icon">🎨</div>
-                  <h3 data-translate="about.morocco.card5.title">Vibrant Arts & Crafts</h3>
-                  <p data-translate="about.morocco.card5.desc">Discover world-renowned craftsmanship in colorful souks — from intricate tilework and hand-woven carpets to leather goods and traditional pottery, each piece tells a unique story.</p>
-              </div>
-
-              <div class="special-card">
-                  <div class="special-icon">✨</div>
-                  <h3 data-translate="about.morocco.card6.title">Magical Atmosphere</h3>
-                  <p data-translate="about.morocco.card6.desc">Feel the enchantment of sunset calls to prayer, lantern-lit alleyways, bustling markets, and starlit desert nights. Morocco has a timeless magic that captivates every traveler.</p>
-              </div>
-
-          </div>
-
-          <p class="closing-text" data-translate="about.morocco.closing">
-              Whether you're seeking adventure, relaxation, cultural immersion, or spiritual reflection — Morocco offers something extraordinary for every type of traveler. Let us help you discover it all.
-          </p>
-      </section>
-
-      <!-- CTA SECTION -->
-      <section class="final-cta">
-          <h2 data-translate="about.cta.title">Ready to Explore Morocco?</h2>
-          <p data-translate="about.cta.subtitle">Start your journey with our comprehensive travel guides and resources</p>
-          <a href="shop.html" class="cta-button" data-translate="about.cta.button">Browse Our Shop</a>
-      </section>
-
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul>
+      <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services" onclick="closeDrawer()">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about" onclick="closeDrawer()">Journal</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-      <div class="footer-links">
-          <a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a>
-          <a href="terms.html" data-translate="footer.terms">Terms & Conditions</a>
-          <a href="contact.html" data-translate="footer.contact">Contact Us</a>
-          <a href="about.html" data-translate="footer.about">About Us</a>
+
+<!-- HERO -->
+<section class="abt-hero">
+  <div class="abt-hero-bg"></div>
+  <div class="abt-hero-glow"></div>
+  <div class="abt-hero-inner reveal">
+    <div class="abt-hero-eyebrow" data-translate="about.hero.eyebrow">Who We Are</div>
+    <h1 class="abt-hero-title" data-translate="about.hero.title">
+      Built by Moroccans.<br><em>Made for Travelers.</em>
+    </h1>
+    <p class="abt-hero-sub" data-translate="about.hero.subtitle">
+      We didn't create another generic travel blog. We built a toolkit — shaped by real local knowledge, for travelers who want to experience Morocco the right way.
+    </p>
+  </div>
+</section>
+
+
+<!-- OUR STORY -->
+<section class="abt-section abt-section-dark">
+  <div class="container">
+    <div class="abt-story-block reveal">
+
+      <div class="abt-story-left">
+        <div class="abt-story-counter">01</div>
+        <div class="abt-story-divider"></div>
+        <div>
+          <div class="abt-story-label" data-translate="about.story.label">Est. 2024</div>
+          <div class="abt-story-stat-num">5,000+</div>
+          <div class="abt-story-stat-desc" data-translate="about.story.statDesc">Travelers guided through Morocco</div>
+          <div class="abt-story-divider"></div>
+          <div class="abt-story-stat-num">4</div>
+          <div class="abt-story-stat-desc" data-translate="about.story.statDesc2">Premium digital tools in one guide</div>
+        </div>
       </div>
-      <p data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
-  </footer>
 
-  <!-- Multi-Language Script -->
-  <script src="translations.js"></script>
+      <div class="abt-story-right">
+        <h2 class="abt-story-title" data-translate="about.story.title">
+          A guide written from<br><em>the inside out.</em>
+        </h2>
+        <p class="abt-story-text" data-translate="about.story.p1">
+          Most Morocco travel content is written by tourists who spent two weeks here. Travel Readz is different — it's built by people who were born and raised in Morocco, who know which riads are worth the price, which guides are genuine, and which souks to avoid on a Tuesday.
+        </p>
+        <div class="abt-story-pull">
+          <p data-translate="about.story.pull">
+            "Morocco isn't hard to navigate. It's just easier when someone who knows it walks alongside you — and that's exactly what this guide does."
+          </p>
+        </div>
+        <p class="abt-story-text" data-translate="about.story.p2">
+          We started Travel Readz after watching too many visitors spend their limited time lost, overcharged, or missing the experiences that make Morocco unforgettable. The guide grew from that frustration into a full toolkit — maps, budget planning, cultural etiquette, and direct support — everything a traveler actually needs, in one place.
+        </p>
+        <p class="abt-story-text" data-translate="about.story.p3">
+          Every word was written with a specific traveler in mind: someone who wants to go beyond the postcard, spend wisely, and come home with stories that don't start with "we got a bit lost…"
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY CHOOSE US -->
+<section class="abt-section" style="background: #0a1716;">
+  <div class="container">
+    <div class="abt-section-header text-center reveal" style="text-align:center; margin-bottom: 68px;">
+      <div class="abt-eyebrow" data-translate="about.values.eyebrow">Why Choose Us</div>
+      <h2 class="abt-section-title light" data-translate="about.values.title">What sets Travel Readz <em>apart</em></h2>
+      <p class="abt-section-subtitle light" data-translate="about.values.subtitle">Four things we refuse to compromise on — no matter what.</p>
+    </div>
+
+    <div class="abt-values-grid reveal">
+
+      <div class="abt-value-card">
+        <div class="abt-value-num">01</div>
+        <span class="abt-value-icon">🧭</span>
+        <h3 data-translate="about.values.card1.title">Local, Not Touristic</h3>
+        <p data-translate="about.values.card1.desc">Every recommendation in our guide is a place we've been to ourselves — not a paid placement, not a blog aggregate. If we don't stand behind it, it doesn't make the cut.</p>
+      </div>
+
+      <div class="abt-value-card">
+        <div class="abt-value-num">02</div>
+        <span class="abt-value-icon">✦</span>
+        <h3 data-translate="about.values.card2.title">Precision Over Volume</h3>
+        <p data-translate="about.values.card2.desc">We don't give you 200 options and call it a guide. We give you the 20 that actually matter, clearly explained — so you can plan a trip in hours, not days.</p>
+      </div>
+
+      <div class="abt-value-card">
+        <div class="abt-value-num">03</div>
+        <span class="abt-value-icon">🛡</span>
+        <h3 data-translate="about.values.card3.title">Respect Built In</h3>
+        <p data-translate="about.values.card3.desc">Our cultural etiquette guide exists because we believe respectful travel leads to better travel. Knowing the customs isn't just polite — it opens doors that stay shut for most visitors.</p>
+      </div>
+
+      <div class="abt-value-card">
+        <div class="abt-value-num">04</div>
+        <span class="abt-value-icon">💬</span>
+        <h3 data-translate="about.values.card4.title">Real Support, Real People</h3>
+        <p data-translate="about.values.card4.desc">The private travel assistance isn't a chatbot or a FAQ page. It's direct access to someone in Morocco who can answer your actual question, in real time, while you're standing in a souk.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TEAM -->
+<section class="abt-section" style="background: var(--sand-light);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 68px;" class="reveal">
+      <div class="abt-eyebrow" style="color: var(--ochre); justify-content: center;">
+        <span style="display:block;width:24px;height:1px;background:var(--ochre);"></span>
+        <span data-translate="about.team.eyebrow">The People Behind It</span>
+        <span style="display:block;width:24px;height:1px;background:var(--ochre);"></span>
+      </div>
+      <h2 class="abt-section-title dark" data-translate="about.team.title">Three Moroccans. <em>One mission.</em></h2>
+      <p class="abt-section-subtitle ink" data-translate="about.team.subtitle">We didn't outsource this. Every part of Travel Readz was built by us — people who know this country, love it, and want others to experience it properly.</p>
+    </div>
+
+    <div class="abt-team-grid reveal">
+
+      <div class="abt-team-card">
+        <div class="abt-team-photo">
+          <div class="abt-team-zellige"></div>
+          <div class="abt-team-photo-inner">
+            <div class="abt-team-initials">S</div>
+          </div>
+          <div class="abt-team-role-bar"></div>
+        </div>
+        <div class="abt-team-info">
+          <div class="abt-team-name" data-translate="about.team.member1.name">Soufiane</div>
+          <div class="abt-team-role" data-translate="about.team.member1.role">Founder & Local Guide Expert</div>
+          <p class="abt-team-bio" data-translate="about.team.member1.bio">Born in Morocco, traveled every corner of it. Soufiane built the guide from years of hosting visitors and watching them make the same avoidable mistakes — then wrote the version he wished they'd had.</p>
+        </div>
+      </div>
+
+      <div class="abt-team-card">
+        <div class="abt-team-photo">
+          <div class="abt-team-zellige"></div>
+          <div class="abt-team-photo-inner">
+            <div class="abt-team-initials">L</div>
+          </div>
+          <div class="abt-team-role-bar"></div>
+        </div>
+        <div class="abt-team-info">
+          <div class="abt-team-name" data-translate="about.team.member2.name">Lahcen</div>
+          <div class="abt-team-role" data-translate="about.team.member2.role">Content & Brand Strategy</div>
+          <p class="abt-team-bio" data-translate="about.team.member2.bio">Lahcen shapes how Travel Readz speaks — making sure every word is clear, honest, and useful. He's the reason the guide reads like advice from a friend, not a brochure.</p>
+        </div>
+      </div>
+
+      <div class="abt-team-card">
+        <div class="abt-team-photo">
+          <div class="abt-team-zellige"></div>
+          <div class="abt-team-photo-inner">
+            <div class="abt-team-initials">H</div>
+          </div>
+          <div class="abt-team-role-bar"></div>
+        </div>
+        <div class="abt-team-info">
+          <div class="abt-team-name" data-translate="about.team.member3.name">Hamza</div>
+          <div class="abt-team-role" data-translate="about.team.member3.role">Design & Digital Products</div>
+          <p class="abt-team-bio" data-translate="about.team.member3.bio">Hamza designs every tool in the package — the maps, the budget calculator, the layout of the guide itself. If it looks clean and works beautifully, that's him.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- WHAT MAKES MOROCCO SPECIAL -->
+<section class="abt-section abt-section-dark">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 68px;" class="reveal">
+      <div class="abt-eyebrow" data-translate="about.morocco.eyebrow">Why Morocco</div>
+      <h2 class="abt-section-title light" data-translate="about.morocco.title">A country that demands <em>to be understood</em></h2>
+      <p class="abt-section-subtitle light" data-translate="about.morocco.subtitle">Morocco isn't a passive destination. It rewards curiosity, punishes shortcuts, and gives back tenfold to those who come prepared.</p>
+    </div>
+
+    <div class="abt-morocco-grid reveal">
+
+      <div class="abt-morocco-card">
+        <span class="abt-morocco-icon">🏛️</span>
+        <h3 data-translate="about.morocco.card1.title">Living History</h3>
+        <p data-translate="about.morocco.card1.desc">The medinas here aren't museums — people live, work, and trade in them exactly as they have for centuries. Understanding that context changes everything about how you move through them.</p>
+      </div>
+
+      <div class="abt-morocco-card">
+        <span class="abt-morocco-icon">🏔️</span>
+        <h3 data-translate="about.morocco.card2.title">Extreme Variety</h3>
+        <p data-translate="about.morocco.card2.desc">Desert, mountains, Atlantic coast, imperial cities, Berber villages — Morocco compresses more landscape and culture into one country than most travelers expect. Planning matters here.</p>
+      </div>
+
+      <div class="abt-morocco-card">
+        <span class="abt-morocco-icon">🍋</span>
+        <h3 data-translate="about.morocco.card3.title">Food Worth Seeking</h3>
+        <p data-translate="about.morocco.card3.desc">The best food in Morocco is never in the tourist restaurant facing the square. Knowing where to eat — and what to order — is the difference between a meal and a memory.</p>
+      </div>
+
+      <div class="abt-morocco-card">
+        <span class="abt-morocco-icon">🤝</span>
+        <h3 data-translate="about.morocco.card4.title">Hospitality That's Real</h3>
+        <p data-translate="about.morocco.card4.desc">Moroccan hospitality isn't a marketing phrase. But it's also not unconditional. Knowing how to receive it, respond to it, and reciprocate it makes every human interaction richer.</p>
+      </div>
+
+      <div class="abt-morocco-card">
+        <span class="abt-morocco-icon">🎨</span>
+        <h3 data-translate="about.morocco.card5.title">Craft & Artisanship</h3>
+        <p data-translate="about.morocco.card5.desc">Zellige tilework, hand-knotted carpets, leather tanning by hand in open vats — Morocco's crafts are still done the old way. Knowing what you're looking at makes the souk a museum, not a market.</p>
+      </div>
+
+      <div class="abt-morocco-card">
+        <span class="abt-morocco-icon">🌙</span>
+        <h3 data-translate="about.morocco.card6.title">The Right Pace</h3>
+        <p data-translate="about.morocco.card6.desc">Morocco moves slowly on purpose. A rushed itinerary misses all of it. The best moments here — mint tea on a rooftop, a call to prayer at dusk, a conversation that goes nowhere useful — can't be scheduled.</p>
+      </div>
+
+    </div>
+
+    <div class="abt-morocco-closing reveal">
+      <p class="abt-morocco-closing-quote" data-translate="about.morocco.closing">
+        "Travel Readz exists so that when you arrive in Morocco, you arrive ready — not to rush through it, but to actually be in it."
+      </p>
+      <div class="abt-morocco-closing-source" data-translate="about.morocco.closingSource">— Soufiane, Founder</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="abt-final-cta">
+  <div class="abt-final-inner reveal">
+    <div class="abt-final-eyebrow" data-translate="about.cta.eyebrow">Start Here</div>
+    <h2 class="abt-final-title" data-translate="about.cta.title">
+      Morocco is waiting.<br><em>Don't arrive unprepared.</em>
+    </h2>
+    <p class="abt-final-sub" data-translate="about.cta.subtitle">
+      The Travel Readz guide gives you local maps, cultural knowledge, budget tools, and direct support — everything you need to travel Morocco with confidence from day one.
+    </p>
+    <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="abt-final-btn" data-translate="about.cta.button">
+      Get the Travel Readz Guide
+      <span>→</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-wordmark">Travel <span>Readz</span></div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a></li>
+        <li><a href="terms.html" data-translate="footer.terms">Terms &amp; Conditions</a></li>
+        <li><a href="contact.html" data-translate="footer.contact">Contact Us</a></li>
+        <li><a href="about.html" data-translate="footer.about">About Us</a></li>
+      </ul>
+    </div>
+    <p class="footer-copyright" data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<script src="translations.js" onerror="void(0)"></script>
+<script>
+  /* Mobile nav */
+  const mobileNavStyle = document.createElement('style');
+  mobileNavStyle.textContent = `
+    .nav-center-stack {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 14px; position: static; transform: none;
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        display: flex; flex-direction: row; align-items: center;
+        height: 68px; min-height: 68px; padding: 0 16px; position: relative;
+      }
+      .nav-logo { flex-shrink: 0; }
+      .nav-right {
+        display: flex; flex-direction: row; align-items: center;
+        margin-left: auto; flex-shrink: 0; gap: 8px;
+      }
+      .nav-center-stack {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+      }
+      .language-switcher { display: flex; gap: 3px; }
+      .lang-btn { font-size: 0.58rem; padding: 2px 5px; }
+      .nav-cta { font-size: 0.58rem; padding: 5px 10px; white-space: nowrap; }
+      .hamburger { flex-shrink: 0; margin-left: 4px; }
+    }
+  `;
+  document.head.appendChild(mobileNavStyle);
+
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('mobile-drawer');
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) closeDrawer();
+  });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
-
-
