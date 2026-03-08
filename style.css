@@ -2020,12 +2020,22 @@ body::after {
   .offer-grid-dark { grid-template-columns: 1fr; }
   .product-grid    { grid-template-columns: 1fr; }
   .digital-bundle-banner { padding: 44px 24px; }
+   position: relative; }  /* add this */
+    .nav-center-stack {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
 }
 
 @media (max-width: 480px) {
   .tab-btn-icon { display: none; }
   .tab-btn { padding: 16px 14px; font-size: 0.65rem; }
 }
+
 
 
 
