@@ -1,509 +1,903 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Readz | Marrakech Maps Guide</title>
-    <meta name="description" content="This premium travel gift is included free when you purchase the Travel Readz ebook. Discover what's inside and why travelers love it.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
-
-    <style>
-        /* --- GLOBAL STYLES --- */
-        body, html {
-            font-family: 'Inter', sans-serif;
-            width: 100%;
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
-            background-color: #f9fafb;
-        }
-
-        * { box-sizing: border-box; }
-
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
-        h1 { font-weight: 700; }
-        h2 { font-weight: 600; }
-        h3 { font-weight: 600; }
-
-        .fade-transition { opacity: 0; transition: opacity 0.3s ease; }
-        .fade-transition.active { opacity: 1; }
-
-        /* --- NAVIGATION --- */
-        .main-nav {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 18px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            z-index: 999;
-            box-shadow: 0 2px 20px rgba(0,68,102,0.08);
-            position: sticky;
-            top: 0;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 40px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            color: #004466;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .nav-links li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px; left: 0;
-            width: 0; height: 2px;
-            background: #ffcc00;
-            transition: width 0.3s;
-        }
-
-        .nav-links li a:hover { color: #006699; }
-        .nav-links li a:hover::after { width: 100%; }
-
-        .language-switcher {
-            display: flex; gap: 8px; background: #f8fafb;
-            padding: 6px; border-radius: 8px; border: 1px solid #e0e0e0;
-        }
-
-        .lang-btn {
-            background: transparent; border: none; color: #666;
-            font-weight: 600; font-size: 0.85rem; padding: 6px 14px;
-            border-radius: 6px; cursor: pointer; transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .lang-btn:hover { background: rgba(0,68,102,0.1); color: #004466; }
-
-        .lang-btn.active {
-            background: linear-gradient(135deg, #004466 0%, #006699 100%);
-            color: white; box-shadow: 0 2px 8px rgba(0,68,102,0.3);
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, #004466 0%, #006699 100%);
-            color: white !important; padding: 10px 24px; border-radius: 8px;
-            font-weight: 600; font-size: 0.9rem; transition: transform 0.3s, box-shadow 0.3s;
-            white-space: nowrap; text-decoration: none;
-        }
-
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,68,102,0.25); }
-
-        /* --- HERO SECTION --- */
-        .gift-hero {
-            background: linear-gradient(135deg, #004466 0%, #005580 50%, #006699 100%);
-            color: #fff; padding: 80px 80px 100px; display: flex; flex-wrap: wrap;
-            align-items: center; justify-content: center; gap: 60px;
-            max-width: 1200px; margin: 0 auto; position: relative;
-            overflow: hidden; border-radius: 40px;
-        }
-
-        .gift-hero::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.5;
-        }
-
-        .gift-hero-text {
-            flex: 1; min-width: 320px; position: relative; z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-badge {
-            display: inline-block; background: rgba(255,204,0,0.2); color: #ffcc00;
-            padding: 8px 16px; border-radius: 50px; font-size: 0.85rem;
-            font-weight: 600; margin-bottom: 20px; border: 1px solid rgba(255,204,0,0.3);
-        }
-
-        .gift-hero-text h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.1; }
-        .gift-hero-text p { font-size: 1.25rem; line-height: 1.8; margin-bottom: 30px; opacity: 0.95; }
-
-        .gift-cta {
-            display: inline-flex; align-items: center; gap: 10px; background: #ffcc00;
-            color: #004466; padding: 18px 36px; border-radius: 12px; text-decoration: none;
-            font-weight: 700; font-size: 1.1rem; transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255,204,0,0.3); margin-bottom: 10px;
-        }
-
-        .gift-cta:hover { background: #ffd700; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255,204,0,0.4); }
-
-        .gift-cta-subtext { display: block; font-size: 0.9rem; margin-top: 15px; opacity: 0.9; }
-        .gift-payment-methods { margin-top: 25px; }
-        .gift-payment-methods img { max-width: 200px; opacity: 0.9; }
-
-        .gift-hero-img {
-            flex: 1; min-width: 320px; text-align: center; position: relative;
-            z-index: 1; animation: fadeIn 1s ease-out 0.3s both;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .map-mockup {
-            position: relative; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-
-        .map-mockup img { max-width: 100%; border-radius: 16px; transition: 0.3s; }
-
-        .floating-badge {
-            position: absolute; background: white; color: #004466; padding: 12px 18px;
-            border-radius: 10px; font-size: 0.9rem; font-weight: 600;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2); animation: pulse 3s ease-in-out infinite;
-            white-space: nowrap; z-index: 2;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) translateY(0); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-            50% { transform: scale(1.05) translateY(-5px); box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
-        }
-
-        .badge-1 { top: 5%; right: -5%; animation-delay: 0s; background: linear-gradient(135deg, #ffcc00, #ffd700); color: #004466; }
-        .badge-2 { bottom: 35%; left: -8%; animation-delay: 1s; }
-        .badge-3 { bottom: 8%; right: 0%; animation-delay: 2s; background: linear-gradient(135deg, #ffcc00, #ffd700); color: #004466; }
-
-        /* --- MAIN CONTAINER --- */
-        .main-container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
-
-        /* --- FEATURES SECTION --- */
-        .features-section { margin-bottom: 80px; }
-
-        .features-section h2 { color: #004466; font-size: 2.5rem; text-align: center; margin-bottom: 20px; }
-
-        .features-section > p {
-            text-align: center; color: #666; font-size: 1.1rem;
-            max-width: 900px; margin: 0 auto 50px; line-height: 1.8;
-        }
-
-        .features-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px; margin-top: 50px;
-        }
-
-        .feature-card {
-            background: #fff; padding: 40px 30px; border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08); text-align: center;
-            transition: all 0.3s; position: relative; overflow: hidden;
-            border-left: 4px solid #ffcc00;
-        }
-
-        .feature-card::before {
-            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-            background: linear-gradient(90deg, #004466, #ffcc00); opacity: 0; transition: opacity 0.3s;
-        }
-
-        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,68,102,0.15); border-left-color: #006699; }
-        .feature-card:hover::before { opacity: 1; }
-
-        .feature-icon { font-size: 4rem; margin-bottom: 20px; display: inline-block; }
-        .feature-card p { color: #666; line-height: 1.7; font-size: 1.05rem; }
-
-        /* --- REVIEWS SECTION --- */
-        .reviews-section {
-            background: linear-gradient(180deg, #f8fafb, #fff); padding: 80px 40px;
-            border-radius: 20px; margin-bottom: 80px; box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-        }
-
-        .reviews-section h2 {
-            color: #004466; font-size: 2.5rem; text-align: center; margin-bottom: 50px;
-            position: relative; padding-bottom: 20px;
-        }
-
-        .reviews-section h2::after {
-            content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 100px; height: 4px; background: linear-gradient(90deg, #004466, #ffcc00); border-radius: 2px;
-        }
-
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-        .review-card {
-            background: #fff; padding: 35px; border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s;
-            border-top: 4px solid #ffcc00;
-        }
-
-        .review-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(0,68,102,0.15); }
-        .review-card p { color: #555; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px; font-style: italic; }
-
-        .review-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 2px solid #f0f4f7; }
-        .stars { color: #ffcc00; font-size: 1.2rem; }
-        .reviewer { color: #004466; font-weight: 700; }
-
-        /* --- BONUS SECTION --- */
-        .bonus-section { padding: 80px 0; background: white; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-
-        .section-badge {
-            display: inline-block; background: rgba(0,102,153,0.1); color: #006699;
-            padding: 8px 20px; border-radius: 50px; font-size: 0.85rem;
-            font-weight: 600; margin-bottom: 15px;
-        }
-
-        .section-title { font-size: 2.5rem; color: #004466; text-align: center; margin-bottom: 15px; }
-
-        .section-subtitle {
-            font-size: 1.15rem; color: #666; margin-top: 15px;
-            max-width: 600px; margin-left: auto; margin-right: auto;
-        }
-
-        .bonus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 50px; }
-
-        .bonus-card {
-            background: #f8fafb; padding: 30px; border-radius: 12px; text-align: center;
-            transition: all 0.3s; position: relative; border: 2px solid transparent;
-        }
-
-        .bonus-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,68,102,0.15); border-color: #ffcc00; }
-
-        .bonus-value {
-            position: absolute; top: 15px; right: 15px; background: #ffcc00;
-            color: #004466; padding: 6px 12px; border-radius: 20px;
-            font-size: 0.85rem; font-weight: 700;
-        }
-
-        .bonus-card img { border-radius: 8px; margin: 0 auto 20px; width: 100%; max-width: 190px; height: 200px; object-fit: cover; display: block; }
-        .bonus-card h3 { font-size: 1.2rem; color: #004466; margin-bottom: 10px; }
-        .bonus-card p { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
-
-        .bonus-link { color: #006699; font-weight: 600; font-size: 0.95rem; transition: color 0.3s; text-decoration: none; }
-        .bonus-link:hover { color: #004466; }
-
-        /* --- FINAL CTA --- */
-        .final-cta {
-            background: linear-gradient(135deg, #004466, #006699); color: #fff;
-            padding: 80px 40px; border-radius: 20px; text-align: center;
-            position: relative; overflow: hidden; box-shadow: 0 15px 50px rgba(0,68,102,0.2);
-        }
-
-        .final-cta::before {
-            content: ""; position: absolute; top: -50%; right: -10%;
-            width: 500px; height: 500px; background: rgba(255,204,0,0.1);
-            border-radius: 50%; animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-        .final-cta h2 { font-size: 2.8rem; margin-bottom: 30px; position: relative; z-index: 1; }
-
-        .cta-button {
-            display: inline-block; background: #ffcc00; color: #004466;
-            padding: 18px 40px; border-radius: 12px; text-decoration: none;
-            font-weight: 700; font-size: 1.15rem; transition: all 0.3s;
-            box-shadow: 0 8px 20px rgba(255,204,0,0.3); position: relative; z-index: 1;
-        }
-
-        .cta-button:hover { background: #ffd700; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,204,0,0.4); }
-
-        /* --- FOOTER --- */
-        .site-footer {
-            background-color: #004466; color: #fff; text-align: center;
-            padding: 40px 20px 25px; font-size: 0.95rem; margin-top: 80px;
-        }
-
-        .site-footer .footer-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .site-footer .footer-links a { color: #ffcc00; text-decoration: none; transition: 0.3s; font-weight: 500; }
-        .site-footer .footer-links a:hover { color: white; }
-        .site-footer p { margin: 0; color: rgba(255,255,255,0.7); }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .gift-hero { flex-direction: column; padding: 60px 25px 80px; }
-            .gift-hero-text h1 { font-size: 2rem; }
-            .gift-hero-text p { font-size: 1.1rem; }
-
-            .main-nav { flex-wrap: wrap; justify-content: center; }
-            .nav-links { gap: 20px; order: 3; width: 100%; justify-content: center; }
-            .language-switcher { order: 1; }
-            .nav-cta { order: 2; }
-
-            .features-grid, .reviews-grid, .bonus-grid { grid-template-columns: 1fr; }
-            .reviews-section, .final-cta { padding: 60px 25px; }
-            .final-cta h2 { font-size: 2rem; }
-            .features-section h2, .reviews-section h2, .section-title { font-size: 2rem; }
-        }
-
-        @media (max-width: 480px) {
-            .language-switcher { width: 100%; justify-content: center; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Readz | Marrakech Travel Map Guide</title>
+  <meta name="description" content="Hand-picked attractions, hidden gems, riads, restaurants, and local tips — all saved directly to Google Maps for your Marrakech adventure.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ════════════════════════════════════════════
+       MAPS PAGE — CUSTOM STYLES
+    ════════════════════════════════════════════ */
+
+    /* ── Split Hero ── */
+    .maps-hero {
+      position: relative;
+      background: #071918;
+      min-height: 600px;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+    }
+    .maps-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .maps-hero-glow {
+      position: absolute; top: -10%; right: -5%;
+      width: 55%; height: 120%;
+      background: radial-gradient(ellipse 60% 70% at 70% 40%,
+        rgba(200,134,58,0.08) 0%, rgba(19,58,56,0.15) 45%, transparent 70%);
+      pointer-events: none;
+    }
+    .maps-hero-rule {
+      position: absolute; top: 0; bottom: 0; left: 50%;
+      width: 1px;
+      background: linear-gradient(to bottom,
+        transparent 0%, rgba(200,169,110,0.12) 20%,
+        rgba(200,169,110,0.22) 50%, rgba(200,169,110,0.12) 80%, transparent 100%);
+      transform: skewX(-3deg);
+      pointer-events: none;
+    }
+    .maps-hero-inner {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+      min-height: 600px;
+    }
+
+    /* Left text */
+    .maps-hero-left { padding: 88px 0; }
+
+    .maps-hero-credential {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(200,169,110,0.07);
+      border: 1px solid rgba(200,169,110,0.2);
+      padding: 7px 16px 7px 12px;
+      margin-bottom: 28px;
+    }
+    .maps-hero-credential-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #c8863a;
+      box-shadow: 0 0 6px rgba(200,134,58,0.6);
+      animation: mapsPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes mapsPulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.5; transform:scale(0.85); }
+    }
+    .maps-hero-credential span {
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e;
+    }
+
+    .maps-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.8vw, 3.1rem);
+      font-weight: 300; color: #e8dcc8;
+      line-height: 1.18; margin-bottom: 22px;
+    }
+    .maps-hero-title em { font-style: italic; color: #c8a96e; display: block; }
+
+    .maps-hero-desc {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(232,220,200,0.5);
+      line-height: 1.85; margin-bottom: 36px; max-width: 420px;
+    }
+
+    .maps-hero-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px;
+    }
+    .maps-hero-tag {
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.1em; color: rgba(200,169,110,0.6);
+      background: rgba(200,169,110,0.05);
+      border: 1px solid rgba(200,169,110,0.12);
+      padding: 5px 12px;
+    }
+
+    .maps-hero-cta-group { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+
+    .maps-hero-cta-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #c8863a; color: #fff;
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      text-decoration: none; padding: 14px 28px;
+      transition: all 0.3s ease;
+    }
+    .maps-hero-cta-primary:hover { background: #c8a96e; gap: 16px; color: #fff; }
+
+    .maps-hero-cta-free {
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
+      color: rgba(200,169,110,0.4); letter-spacing: 0.06em;
+      padding-top: 4px;
+    }
+
+    /* Right image */
+    .maps-hero-right {
+      position: relative; display: flex;
+      align-items: center; justify-content: center;
+      padding: 60px 0;
+    }
+    .maps-hero-img-wrap {
+      position: relative;
+    }
+    .maps-hero-img-wrap::before,
+    .maps-hero-img-wrap::after {
+      content: ''; position: absolute;
+      width: 40px; height: 40px;
+      border-color: rgba(200,169,110,0.28); border-style: solid;
+    }
+    .maps-hero-img-wrap::before { top: -12px; left: -12px; border-width: 1px 0 0 1px; }
+    .maps-hero-img-wrap::after  { bottom: -12px; right: -12px; border-width: 0 1px 1px 0; }
+
+    .maps-hero-img-glow {
+      position: absolute; inset: -30px;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%,
+        rgba(200,134,58,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .maps-hero-img-wrap img {
+      width: 100%; max-width: 340px; display: block;
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 20px 48px rgba(0,0,0,0.5));
+    }
+
+    /* Floating stat card */
+    .maps-hero-stat {
+      position: absolute; bottom: 52px; left: -24px;
+      background: rgba(7,25,24,0.92);
+      border: 1px solid rgba(200,169,110,0.2);
+      border-left: 3px solid #c8863a;
+      padding: 16px 22px; backdrop-filter: blur(8px); z-index: 3;
+    }
+    .maps-hero-stat-num {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 300;
+      color: #c8a96e; line-height: 1;
+    }
+    .maps-hero-stat-label {
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(232,220,200,0.4); margin-top: 4px;
+    }
+
+    /* Verified badge */
+    .maps-hero-verified {
+      position: absolute; top: 56px; right: -18px;
+      background: rgba(7,25,24,0.92);
+      border: 1px solid rgba(200,169,110,0.18);
+      padding: 10px 16px;
+      display: flex; align-items: center; gap: 8px;
+      backdrop-filter: blur(8px); z-index: 3;
+    }
+    .maps-hero-verified svg { width: 13px; height: 13px; fill: #c8863a; flex-shrink: 0; }
+    .maps-hero-verified span {
+      font-family: var(--sans); font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: #c8a96e;
+    }
+
+    /* ── SECTION BASE ── */
+    .maps-section { padding: 100px 0; }
+    .maps-section-dark {
+      background: #0d1a19;
+      position: relative; overflow: hidden;
+    }
+    .maps-section-dark::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .maps-section-dark::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(200,134,58,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .maps-section-dark .container { position: relative; z-index: 1; }
+
+    /* ── SECTION HEADER ── */
+    .maps-section-header {
+      text-align: center; margin-bottom: 68px;
+    }
+    .maps-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 18px;
+    }
+    .maps-eyebrow::before, .maps-eyebrow::after {
+      content: ''; display: block; width: 24px; height: 1px; background: #c8863a;
+    }
+    .maps-section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      font-weight: 300; line-height: 1.2; margin-bottom: 14px;
+    }
+    .maps-section-title.light { color: #e8dcc8; }
+    .maps-section-title.light em { color: #c8a96e; font-style: italic; }
+    .maps-section-title.dark  { color: var(--tile); }
+    .maps-section-title.dark  em { color: var(--ochre); font-style: italic; }
+    .maps-section-subtitle {
+      font-size: 0.92rem; font-weight: 300;
+      color: rgba(232,220,200,0.45);
+      line-height: 1.85; max-width: 520px; margin: 0 auto;
+    }
+    .maps-section-subtitle.ink { color: var(--smoke); }
+
+    /* ── FEATURES GRID ── */
+    .maps-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2px;
+    }
+    .maps-feature-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(200,169,110,0.1);
+      padding: 48px 36px;
+      position: relative; overflow: hidden;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .maps-feature-card:hover {
+      background: rgba(200,134,58,0.05);
+      border-color: rgba(200,169,110,0.22);
+    }
+    .maps-feature-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c8863a, transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .maps-feature-card:hover::before { opacity: 1; }
+    .maps-feature-num {
+      font-family: var(--serif); font-size: 3rem; font-weight: 300;
+      color: rgba(200,169,110,0.08); line-height: 1; margin-bottom: 20px;
+    }
+    .maps-feature-icon { font-size: 2rem; margin-bottom: 18px; display: block; }
+    .maps-feature-card h3 {
+      font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
+      color: #e8dcc8; margin-bottom: 12px;
+    }
+    .maps-feature-card p {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(232,220,200,0.45); line-height: 1.8;
+    }
+
+    /* ── WHAT'S INCLUDED BLOCK ── */
+    .maps-included-block {
+      background: rgba(200,134,58,0.05);
+      border: 1px solid rgba(200,169,110,0.15);
+      border-left: 4px solid #c8863a;
+      padding: 52px 52px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      position: relative; overflow: hidden;
+    }
+    .maps-included-block::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 100% 50%, rgba(200,134,58,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .maps-included-left, .maps-included-right { position: relative; z-index: 1; }
+
+    .maps-included-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 20px;
+    }
+    .maps-included-eyebrow svg { width: 14px; height: 14px; fill: #c8863a; }
+
+    .maps-included-title {
+      font-family: var(--serif); font-size: 1.8rem; font-weight: 300;
+      color: #e8dcc8; line-height: 1.25; margin-bottom: 16px;
+    }
+    .maps-included-title em { font-style: italic; color: #c8a96e; }
+    .maps-included-desc {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(232,220,200,0.45); line-height: 1.85; margin-bottom: 28px;
+    }
+    .maps-note {
+      background: rgba(7,25,24,0.6);
+      border: 1px solid rgba(200,169,110,0.12);
+      padding: 16px 20px;
+      font-size: 0.8rem; font-weight: 300;
+      color: rgba(200,169,110,0.45); line-height: 1.7;
+    }
+
+    .maps-list-label {
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,110,0.4); margin-bottom: 20px;
+    }
+    .maps-checklist { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .maps-checklist li {
+      display: flex; align-items: flex-start; gap: 14px;
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(232,220,200,0.7); line-height: 1.6;
+    }
+    .maps-check {
+      width: 22px; height: 22px; flex-shrink: 0;
+      background: rgba(200,134,58,0.15);
+      border: 1px solid rgba(200,134,58,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; color: #c8863a; margin-top: 1px;
+    }
+
+    /* ── REVIEWS ── */
+    .maps-reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    .maps-review-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      padding: 40px 36px;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-top-color 0.35s;
+    }
+    .maps-review-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(30,48,64,0.1);
+      border-top-color: var(--ochre);
+    }
+    .maps-review-quote {
+      font-family: var(--serif); font-size: 5rem;
+      color: var(--ochre); opacity: 0.2; line-height: 0.8;
+      margin-bottom: 16px;
+    }
+    .maps-review-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 14px; }
+    .maps-review-text {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: 300;
+      font-style: italic; color: var(--ink); line-height: 1.75; margin-bottom: 24px;
+    }
+    .maps-review-author {
+      display: flex; align-items: center; gap: 14px;
+      padding-top: 18px; border-top: 1px solid var(--border);
+    }
+    .maps-review-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--tile); color: var(--gold-light);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 0.9rem; font-weight: 300;
+      border: 1px solid var(--border-mid); flex-shrink: 0;
+    }
+    .maps-review-name { font-weight: 600; font-size: 0.88rem; color: var(--tile); margin-bottom: 3px; }
+    .maps-review-role { font-size: 0.75rem; font-weight: 300; color: var(--smoke); }
+
+    /* ── BONUS CARDS ── */
+    .maps-bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .maps-bonus-card {
+      background: var(--sand-light);
+      border: 1px solid var(--border);
+      padding: 36px 28px; text-align: center;
+      position: relative;
+      transition: all 0.35s var(--ease);
+    }
+    .maps-bonus-card::after {
+      content: ''; position: absolute; inset: -1px;
+      border: 1px solid var(--ochre); opacity: 0; transition: opacity 0.35s;
+    }
+    .maps-bonus-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(30,48,64,0.1); }
+    .maps-bonus-card:hover::after { opacity: 1; }
+    .maps-bonus-value {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--ochre); color: var(--cream);
+      padding: 4px 12px; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .maps-bonus-card img {
+      border-radius: 3px; margin: 0 auto 20px;
+      max-width: 190px; display: block;
+    }
+    .maps-bonus-card h3 {
+      font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
+      color: var(--tile); margin-bottom: 10px;
+    }
+    .maps-bonus-card p {
+      color: var(--smoke); font-size: 0.88rem; font-weight: 300;
+      line-height: 1.75; margin-bottom: 18px;
+    }
+    .maps-bonus-link {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
+      color: var(--ochre); display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.3s, color 0.3s;
+    }
+    .maps-bonus-link:hover { gap: 12px; color: var(--ochre-deep); }
+
+    /* ── FINAL CTA ── */
+    .maps-final-cta {
+      background: #071918;
+      padding: 120px 0;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .maps-final-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 50% 100%, rgba(200,134,58,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .maps-final-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .maps-final-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 0 24px; }
+    .maps-final-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8a96e; margin-bottom: 28px;
+    }
+    .maps-final-eyebrow::before, .maps-final-eyebrow::after {
+      content: ''; display: block; width: 28px; height: 1px; background: #c8863a;
+    }
+    .maps-final-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: #e8dcc8; line-height: 1.2; margin-bottom: 18px;
+    }
+    .maps-final-title em { font-style: italic; color: #c8a96e; }
+    .maps-final-sub {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(232,220,200,0.4); line-height: 1.85; margin-bottom: 44px;
+    }
+    .maps-final-cta-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #c8863a; color: #fff;
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none; padding: 16px 36px;
+      transition: all 0.35s; margin-bottom: 12px;
+    }
+    .maps-final-cta-btn:hover { background: #c8a96e; gap: 18px; color: #fff; }
+    .maps-final-note {
+      display: block; font-size: 0.72rem; font-weight: 300;
+      color: rgba(200,169,110,0.3); letter-spacing: 0.06em; margin-top: 14px;
+    }
+    .maps-final-trust {
+      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+      margin-top: 36px;
+      font-family: var(--sans); font-size: 0.68rem; font-weight: 400;
+      color: rgba(200,169,110,0.3); letter-spacing: 0.08em;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .maps-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0; min-height: auto;
+        padding: 0 24px;
+      }
+      .maps-hero-left { padding: 72px 0 32px; }
+      .maps-hero-right { padding: 0 0 72px; }
+      .maps-hero-rule { display: none; }
+      .maps-hero-stat { left: 0; bottom: 80px; }
+      .maps-hero-verified { right: 0; top: 20px; }
+      .maps-hero { min-height: auto; }
+      .maps-included-block { grid-template-columns: 1fr; gap: 36px; padding: 36px 28px; }
+      .maps-reviews-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .maps-section { padding: 72px 0; }
+      .maps-features-grid { grid-template-columns: 1fr; gap: 1px; }
+      .maps-bonus-grid { grid-template-columns: 1fr; }
+      .maps-final-trust { flex-direction: column; align-items: center; gap: 10px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- NAVIGATION -->
-<nav class="main-nav">
-    <ul class="nav-links">
-        <li><a href="index.html" data-translate="nav.home">Home</a></li>
-        <li><a href="services.html" data-translate="nav.services">Services</a></li>
-        <li><a href="about.html" data-translate="nav.about">About Us</a></li>
+<!-- NAV — matches index.html exactly -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+        <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+      </svg>
+      <span class="nav-logo-text">Travel <span>Readz</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" data-translate="nav.home">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
     </ul>
-
-    <div class="language-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="es">ES</button>
+    <div class="nav-right">
+      <div class="nav-center-stack">
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-
-   
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul>
+      <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services" onclick="closeDrawer()">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about" onclick="closeDrawer()">Journal</a></li>
+    </ul>
+  </div>
 </nav>
 
-<!-- HERO SECTION -->
-<section class="gift-hero">
-    <div class="gift-hero-text">
-        <div class="hero-badge" data-translate="maps.hero.badge">🗺️ Interactive Travel Guide</div>
-        <h1 data-translate="maps.hero.title">The Ultimate Marrakech Google Maps Travel Guide</h1>
-        <p data-translate="maps.hero.subtitle">Hand-picked attractions, hidden gems, riads, restaurants, and local tips — all saved directly to Google Maps for your Marrakech adventure.</p>
-        <a href="https://travelreadz.gumroad.com/l/Marrakech-Map-Guide?wanted=true" class="gift-cta" data-translate="maps.hero.cta">$5 - Buy Individually</a>
-        <span class="gift-cta-subtext" data-translate="maps.hero.freeNote">✨ Included FREE with the Travel Readz ebook</span>
-        <div class="gift-payment-methods">
-            <img src="https://i.ibb.co/x8HbqXPp/payment-Capture-removebg-preview.png" alt="Payment Methods">
-        </div>
+
+<!-- HERO — Split Layout -->
+<section class="maps-hero">
+  <div class="maps-hero-bg"></div>
+  <div class="maps-hero-glow"></div>
+  <div class="maps-hero-rule"></div>
+
+  <div class="maps-hero-inner">
+
+    <!-- LEFT -->
+    <div class="maps-hero-left">
+      <div class="maps-hero-credential">
+        <span class="maps-hero-credential-dot"></span>
+        <span data-translate="maps.hero.badge">🗺️ Interactive Travel Guide</span>
+      </div>
+
+      <h1 class="maps-hero-title" data-translate="maps.hero.title">
+        Marrakech
+        <em>Travel Map Guide</em>
+      </h1>
+
+      <p class="maps-hero-desc" data-translate="maps.hero.subtitle">
+        Hand-picked attractions, hidden gems, riads, restaurants, and local tips — all saved directly to Google Maps for your Marrakech adventure.
+      </p>
+
+      <div class="maps-hero-tags">
+        <span class="maps-hero-tag">📍 100+ Pinned Spots</span>
+        <span class="maps-hero-tag">💎 Hidden Gems</span>
+        <span class="maps-hero-tag">🍽️ Local Eats</span>
+        <span class="maps-hero-tag">🏨 Riad Picks</span>
+      </div>
+
+      <div class="maps-hero-cta-group">
+        <a href="https://travelreadz.gumroad.com/l/Marrakech-Map-Guide?wanted=true" class="maps-hero-cta-primary" data-translate="maps.hero.cta">
+          Buy Individually — $5
+          <span>→</span>
+        </a>
+        <div class="maps-hero-cta-free" data-translate="maps.hero.freeNote">✦ Included free with every Travel Readz guide purchase</div>
+      </div>
     </div>
-    <div class="gift-hero-img">
-        <div class="map-mockup">
-            <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568882/Untitled_design_9_hljh1y.png" alt="Marrakech Google Maps Guide">
-            <div class="floating-badge badge-1" data-translate="maps.badge1">📍Must-See Spots</div>
-            <div class="floating-badge badge-2" data-translate="maps.badge2">🗺️ Interactive Maps</div>
-            <div class="floating-badge badge-3" data-translate="maps.badge3">💎 Hidden Gems</div>
+
+    <!-- RIGHT -->
+    <div class="maps-hero-right">
+      <div class="maps-hero-img-wrap">
+        <div class="maps-hero-img-glow"></div>
+        <img
+          src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568882/Untitled_design_9_hljh1y.png"
+          alt="Marrakech Maps Guide"
+        >
+        <div class="maps-hero-stat">
+          <div class="maps-hero-stat-num">100+</div>
+          <div class="maps-hero-stat-label" data-translate="maps.hero.statLabel">Pinned Locations</div>
         </div>
+        <div class="maps-hero-verified">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span data-translate="maps.hero.verified">Local Expert Curated</span>
+        </div>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<!-- MAIN CONTAINER -->
-<div class="main-container">
 
-    <!-- FEATURES -->
-    <section class="features-section">
-        <h2 data-translate="maps.features.title">What You'll Get</h2>
-        <p data-translate="maps.features.subtitle">This gift includes everything you need to navigate Marrakech like a local: detailed maps, hidden gems, practical tips, and curated recommendations. Perfect for first-time visitors or returning travelers.</p>
+<!-- FEATURES -->
+<section class="maps-section maps-section-dark">
+  <div class="container">
+    <div class="maps-section-header reveal">
+      <div class="maps-eyebrow" data-translate="maps.features.eyebrow">What You Get</div>
+      <h2 class="maps-section-title light" data-translate="maps.features.title">Everything to Navigate <em>Like a Local</em></h2>
+      <p class="maps-section-subtitle" data-translate="maps.features.subtitle">This guide includes everything you need to explore Marrakech confidently — from hidden alleys to the best mint tea in the medina.</p>
+    </div>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🗺️</div>
-                <p data-translate="maps.features.card1.desc">Curated travel insights designed to save you time and enhance your experience.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💎</div>
-                <p data-translate="maps.features.card2.desc">Local recommendations and hidden gems you won't easily find online.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📍</div>
-                <p data-translate="maps.features.card3.desc">Easy-to-use Google Maps guide with every attraction perfectly pinned.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏨</div>
-                <p data-translate="maps.features.card4.desc">Expert tips for accommodations, authentic dining, and secret local spots.</p>
-            </div>
+    <div class="maps-features-grid reveal">
+      <div class="maps-feature-card">
+        <div class="maps-feature-num">01</div>
+        <span class="maps-feature-icon">🗺️</span>
+        <h3 data-translate="maps.features.card1.title">Curated Google Maps</h3>
+        <p data-translate="maps.features.card1.desc">Every recommended spot pre-pinned and organized by category — open on your phone and navigate instantly.</p>
+      </div>
+      <div class="maps-feature-card">
+        <div class="maps-feature-num">02</div>
+        <span class="maps-feature-icon">💎</span>
+        <h3 data-translate="maps.features.card2.title">Hidden Gems Only Locals Know</h3>
+        <p data-translate="maps.features.card2.desc">Secret courtyards, artisan workshops, and neighborhood spots that don't appear in mainstream travel guides.</p>
+      </div>
+      <div class="maps-feature-card">
+        <div class="maps-feature-num">03</div>
+        <span class="maps-feature-icon">📍</span>
+        <h3 data-translate="maps.features.card3.title">Precise Pinned Locations</h3>
+        <p data-translate="maps.features.card3.desc">Every attraction, restaurant, and riad pinned with precision — even in the narrow lanes of the medina where addresses don't exist.</p>
+      </div>
+      <div class="maps-feature-card">
+        <div class="maps-feature-num">04</div>
+        <span class="maps-feature-icon">🏨</span>
+        <h3 data-translate="maps.features.card4.title">Accommodation & Dining</h3>
+        <p data-translate="maps.features.card4.desc">Expert picks for riads, authentic local restaurants, rooftop cafés, and street food stalls worth your time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHAT'S INCLUDED BLOCK -->
+<section class="maps-section" style="background: #0a1716; padding: 100px 0;">
+  <div class="container">
+    <div class="maps-included-block reveal">
+      <div class="maps-included-left">
+        <div class="maps-included-eyebrow">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span data-translate="maps.included.eyebrow">Local Expert Guide</span>
         </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="reviews-section">
-        <h2 data-translate="maps.reviews.title">What Travelers Say</h2>
-
-        <div class="reviews-grid">
-            <div class="review-card">
-                <p data-translate="maps.reviews.review1.text">"This guide alone is worth the price of the ebook. The maps were incredibly detailed and helped us discover places we would have never found on our own. Extremely helpful!"</p>
-                <div class="review-meta">
-                    <span class="stars">★★★★★</span>
-                    <span class="reviewer">Sarah M.</span>
-                </div>
-            </div>
-            <div class="review-card">
-                <p data-translate="maps.reviews.review2.text">"Clear, practical, and beautifully organized. The Google Maps integration made navigation so easy. We visited every spot they recommended and loved them all. Highly recommended."</p>
-                <div class="review-meta">
-                    <span class="stars">★★★★★</span>
-                    <span class="reviewer">David K.</span>
-                </div>
-            </div>
-            <div class="review-card">
-                <p data-translate="maps.reviews.review3.text">"Saved me hours of planning and helped me avoid tourist traps. The local recommendations were spot-on. Best travel resource I've ever used for Morocco!"</p>
-                <div class="review-meta">
-                    <span class="stars">★★★★★</span>
-                    <span class="reviewer">Lina R.</span>
-                </div>
-            </div>
+        <h2 class="maps-included-title" data-translate="maps.included.title">
+          Built for Real Travel.<br><em>Not for tourists.</em>
+        </h2>
+        <p class="maps-included-desc" data-translate="maps.included.desc">
+          Every pin in this guide was added by someone who walks these streets daily — not pulled from TripAdvisor or a travel blog. The medina is beautiful and disorienting. This map gives you the confidence to explore it properly.
+        </p>
+        <div class="maps-note" data-translate="maps.included.note">
+          Compatible with Google Maps on iPhone and Android. Save to your account and access offline — perfect for medina navigation without data.
         </div>
-    </section>
+      </div>
+      <div class="maps-included-right">
+        <div class="maps-list-label" data-translate="maps.included.listLabel">Categories Included</div>
+        <ul class="maps-checklist">
+          <li><span class="maps-check">✔</span><span data-translate="maps.included.item1">Medina hidden alleys &amp; local markets</span></li>
+          <li><span class="maps-check">✔</span><span data-translate="maps.included.item2">Authentic restaurants &amp; street food stalls</span></li>
+          <li><span class="maps-check">✔</span><span data-translate="maps.included.item3">Boutique riads &amp; guesthouses</span></li>
+          <li><span class="maps-check">✔</span><span data-translate="maps.included.item4">Rooftop cafés with genuine views</span></li>
+          <li><span class="maps-check">✔</span><span data-translate="maps.included.item5">Hammams, spas &amp; artisan workshops</span></li>
+          <li><span class="maps-check">✔</span><span data-translate="maps.included.item6">Cultural sites beyond Jemaa el-Fna</span></li>
+          <li><span class="maps-check">✔</span><span data-translate="maps.included.item7">Scam-prone zones to avoid &amp; why</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- BONUS SECTION -->
-    <section class="bonus-section">
-        <div class="section-header">
-            <span class="section-badge" data-translate="maps.bonus.badge">Free Bonuses</span>
-            <h2 class="section-title" data-translate="maps.bonus.title">Other Free Gifts Included</h2>
-            <p class="section-subtitle" data-translate="maps.bonus.subtitle">Worth $24.99 — Yours free when you get the guide today</p>
+
+<!-- REVIEWS -->
+<section class="maps-section" style="background: var(--sand-light);">
+  <div class="container">
+    <div class="maps-section-header reveal">
+      <div class="maps-eyebrow" style="color: var(--ochre);">
+        <span style="display:block;width:24px;height:1px;background:var(--ochre);"></span>
+        <span data-translate="maps.reviews.eyebrow">Traveler Reviews</span>
+        <span style="display:block;width:24px;height:1px;background:var(--ochre);"></span>
+      </div>
+      <h2 class="maps-section-title dark" data-translate="maps.reviews.title">What Travelers <em>Say</em></h2>
+      <p class="maps-section-subtitle ink" data-translate="maps.reviews.subtitle">From solo explorers to families — verified buyers share their experience.</p>
+    </div>
+    <div class="maps-reviews-grid reveal">
+      <div class="maps-review-card">
+        <div class="maps-review-quote">"</div>
+        <div class="maps-review-stars">★★★★★</div>
+        <p class="maps-review-text" data-translate="maps.reviews.review1.text">"This guide alone is worth the price of the ebook. The maps were incredibly detailed and helped us discover places we would have never found on our own."</p>
+        <div class="maps-review-author">
+          <div class="maps-review-avatar">SM</div>
+          <div>
+            <div class="maps-review-name">Sarah M.</div>
+            <div class="maps-review-role" data-translate="maps.reviews.review1.role">Solo Traveler · Verified Buyer</div>
+          </div>
         </div>
-
-        <div class="bonus-grid">
-            <div class="bonus-card">
-                <div class="bonus-value" data-translate="bonus.item4.value">Value: $5</div>
-                <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770481514/ChatGPT_Image_Feb_7_2026_05_24_56_PM_wkfmbb.png" alt="Travel Budget Calculator">
-                <h3 data-translate="bonus.item4.title">Travel Budget Calculator</h3>
-                <p data-translate="bonus.item4.desc">Plan your budget, track expenses, and compare spending in real-time</p>
-                <a href="travel-budget-calculator.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
-            </div>
-
-            <div class="bonus-card">
-                <div class="bonus-value" data-translate="bonus.item3.value">Value: $15</div>
-                <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770488914/ChatGPT_Image_Feb_7_2026_07_28_22_PM_hebpaa.png" alt="WhatsApp Support">
-                <h3 data-translate="bonus.item3.title">Direct WhatsApp Support</h3>
-                <p data-translate="bonus.item3.desc">Get real-time answers from a local during your trip</p>
-                <a href="free-whatsapp-support.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
-            </div>
-
-            <div class="bonus-card">
-                <div class="bonus-value" data-translate="bonus.item1.value">Value: $4.99</div>
-                <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770485941/ChatGPT_Image_Feb_7_2026_06_38_50_PM_zo8laq.png" alt="Cultural Etiquette Guide">
-                <h3 data-translate="bonus.item1.title">Cultural Etiquette Mini Guide</h3>
-                <p data-translate="bonus.item1.desc">Quick-reference guide to Moroccan customs and social norms</p>
-                <a href="morocco-travel-etiquette.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
-            </div>
+      </div>
+      <div class="maps-review-card">
+        <div class="maps-review-quote">"</div>
+        <div class="maps-review-stars">★★★★★</div>
+        <p class="maps-review-text" data-translate="maps.reviews.review2.text">"Clear, practical, and beautifully organized. The Google Maps integration made navigation so easy. We visited every spot recommended and loved them all."</p>
+        <div class="maps-review-author">
+          <div class="maps-review-avatar">DK</div>
+          <div>
+            <div class="maps-review-name">David K.</div>
+            <div class="maps-review-role" data-translate="maps.reviews.review2.role">Couple Trip · Verified Buyer</div>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="maps-review-card">
+        <div class="maps-review-quote">"</div>
+        <div class="maps-review-stars">★★★★★</div>
+        <p class="maps-review-text" data-translate="maps.reviews.review3.text">"Saved me hours of planning and helped me avoid tourist traps completely. The local recommendations were spot-on. Best travel resource I've ever used."</p>
+        <div class="maps-review-author">
+          <div class="maps-review-avatar">LR</div>
+          <div>
+            <div class="maps-review-name">Lina R.</div>
+            <div class="maps-review-role" data-translate="maps.reviews.review3.role">First-time Visitor · Verified Buyer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- FINAL CTA -->
-    <section class="final-cta">
-        <h2 data-translate="maps.cta.title">Ready to Unlock All These Gifts?</h2>
-        <a href="index.html" class="cta-button" data-translate="maps.cta.button">Get the Travel Readz Ebook</a>
-    </section>
 
-</div>
+<!-- OTHER BONUSES -->
+<section class="bonus-section reveal" style="margin-bottom: 80px;">
+  <div class="container">
+    <div class="bonus-header">
+      <div class="section-eyebrow centered" data-translate="maps.bonus.badge">Included Bonuses</div>
+      <h2 class="section-title" data-translate="maps.bonus.title">Other Gifts <em>in the Package</em></h2>
+      <p class="section-subtitle" data-translate="maps.bonus.subtitle">Worth $24.99 — included with every guide purchase</p>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-value" data-translate="bonus.item3.value">Value: $15</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png" alt="WhatsApp Support">
+        <h3 data-translate="bonus.item3.title">Direct WhatsApp Support</h3>
+        <p data-translate="bonus.item3.desc">Get real-time answers from a local during your trip</p>
+        <a href="free-whatsapp-support.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-value" data-translate="bonus.item4.value">Value: $5</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770567733/Untitled_design_7_eqjs9c.png" alt="Budget Calculator">
+        <h3 data-translate="bonus.item4.title">Budget Calculator Tool</h3>
+        <p data-translate="bonus.item4.desc">Plan your expenses accurately with our interactive calculator</p>
+        <a href="travel-budget-calculator.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-value" data-translate="bonus.item1.value">Value: $4.99</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770509045/Untitled_design_2_b4rwdn.png" alt="Etiquette Mini Guide">
+        <h3 data-translate="bonus.item1.title">Cultural Etiquette Mini Guide</h3>
+        <p data-translate="bonus.item1.desc">Quick-reference guide to Moroccan customs and social norms</p>
+        <a href="morocco-travel-etiquette.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="maps-final-cta">
+  <div class="maps-final-inner reveal">
+    <div class="maps-final-eyebrow" data-translate="maps.cta.eyebrow">Unlock Your Guide</div>
+    <h2 class="maps-final-title" data-translate="maps.cta.title">
+      Navigate Marrakech with <em>Total Confidence.</em>
+    </h2>
+    <p class="maps-final-sub" data-translate="maps.cta.subtitle">
+      Get the complete Travel Readz guide and receive this map guide free — along with private travel assistance, a budget calculator, and the cultural etiquette guide.
+    </p>
+    <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="maps-final-cta-btn" data-translate="maps.cta.button">
+      Get the Travel Readz Guide
+      <span>→</span>
+    </a>
+    <span class="maps-final-note" data-translate="maps.cta.note">✦ Or purchase this map guide individually for $5</span>
+    <div class="maps-final-trust">
+      <span data-translate="maps.cta.trust1">✓ Instant Access</span>
+      <span data-translate="maps.cta.trust2">✓ Works Offline</span>
+      <span data-translate="maps.cta.trust3">✓ iPhone &amp; Android</span>
+      <span data-translate="maps.cta.trust4">✓ All 4 Bonuses Free</span>
+    </div>
+  </div>
+</section>
+
 
 <!-- FOOTER -->
 <footer class="site-footer">
-    <div class="footer-links">
-        <a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a>
-        <a href="terms.html" data-translate="footer.terms">Terms & Conditions</a>
-        <a href="contact.html" data-translate="footer.contact">Contact Us</a>
-        <a href="about.html" data-translate="footer.about">About Us</a>
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-wordmark">Travel <span>Readz</span></div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a></li>
+        <li><a href="terms.html" data-translate="footer.terms">Terms &amp; Conditions</a></li>
+        <li><a href="contact.html" data-translate="footer.contact">Contact Us</a></li>
+        <li><a href="about.html" data-translate="footer.about">About Us</a></li>
+      </ul>
     </div>
-    <p data-translate="footer.copyright">&copy; 2025 Travel Readz. All Rights Reserved.</p>
+    <p class="footer-copyright" data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+  </div>
 </footer>
 
-<script src="translations.js"></script>
+
+<script src="translations.js" onerror="void(0)"></script>
+<script>
+  /* Mobile nav CSS injection */
+  const mobileNavStyle = document.createElement('style');
+  mobileNavStyle.textContent = `
+    .nav-center-stack {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 14px;
+      position: static;
+      transform: none;
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 68px;
+        min-height: 68px;
+        padding: 0 16px;
+        position: relative;
+      }
+      .nav-logo { flex-shrink: 0; }
+      .nav-right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: auto;
+        flex-shrink: 0;
+        gap: 8px;
+      }
+      .nav-center-stack {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      .language-switcher { display: flex; gap: 3px; }
+      .lang-btn { font-size: 0.58rem; padding: 2px 5px; }
+      .nav-cta { font-size: 0.58rem; padding: 5px 10px; white-space: nowrap; }
+      .hamburger { flex-shrink: 0; margin-left: 4px; }
+    }
+  `;
+  document.head.appendChild(mobileNavStyle);
+
+  /* Nav scroll */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* Hamburger */
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('mobile-drawer');
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) closeDrawer();
+  });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
-
-
