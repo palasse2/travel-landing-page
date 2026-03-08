@@ -73,6 +73,16 @@ body::after {
 }
 .main-nav.scrolled { box-shadow: 0 4px 40px rgba(30,48,64,0.08); }
 
+/* ── Desktop: lang + cta in one row ── */
+.nav-center-stack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  position: static;      /* ← ADD THIS */
+  transform: none;       /* ← ADD THIS */
+}
+
 .nav-container {
   max-width: 1240px; margin: 0 auto; padding: 0 48px;
   height: 72px;
@@ -2035,6 +2045,7 @@ body::after {
   .tab-btn-icon { display: none; }
   .tab-btn { padding: 16px 14px; font-size: 0.65rem; }
 }
+
 
 
 
