@@ -19,52 +19,39 @@
   <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
 
   <style>
-    /* ── Mobile nav: single row — logo left | switcher+CTA stacked | hamburger right ── */
+    /* ── Mobile nav: center stack, hamburger on right ── */
     @media (max-width: 768px) {
       .nav-container {
-        display: flex;
-        flex-direction: row;
+        height: auto;
+        min-height: 64px;
+        padding: 8px 16px;
         align-items: center;
-        height: 60px;
-        min-height: 60px;
-        padding: 0 16px;
-      }
-      .nav-logo {
-        flex-shrink: 0;
-        margin-right: auto;
       }
       .nav-right {
+        flex: 1;
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 10px;
-        flex-shrink: 0;
+        justify-content: flex-end;
+        gap: 82px;
       }
       .nav-center-stack {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 4px;
+        gap: 5px;
       }
-      .language-switcher {
-        display: flex;
-        gap: 3px;
-      }
-      .lang-btn {
-        font-size: 0.58rem;
-        padding: 2px 5px;
+        /* inside .nav-center-stack */
       }
       .nav-cta {
-        font-size: 0.58rem;
-        padding: 5px 10px;
+        font-size: 0.6rem;
+        padding: 7px 12px;
         white-space: nowrap;
       }
       .hamburger {
         flex-shrink: 0;
-        margin-left: 4px;
       }
-    }
-
+    
     /* ── Experiences section (replaces services) ── */
     .experiences-home-section {
       padding: 110px 0;
@@ -242,8 +229,8 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <ul>
       <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
-      <li><a href="services.html" data-translate="nav.services" onclick="closeDrawer()">Services</a></li>
-      <li><a href="about.html" data-translate="nav.about" onclick="closeDrawer()">About Us</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services" onclick="closeDrawer()">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about" onclick="closeDrawer()">Journal</a></li>
     </ul>
   </div>
 </nav>
@@ -738,8 +725,8 @@
 <section class="experiences-home-section">
   <div class="container">
     <div class="services-header reveal">
-      <div class="section-eyebrow centered" data-translate="experiences.eyebrow">Curated Experiences</div>
-      <h2 class="section-title" data-translate="experiences.title">Explore Our <em>Morocco Tours</em></h2>
+      <div class="section-eyebrow centered">Curated Experiences</div>
+      <h2 class="section-title">Explore Our <em>Morocco Tours</em></h2>
     </div>
 
     <div class="exp-home-grid reveal">
@@ -884,7 +871,7 @@
     </div>
 
     <div style="text-align:center;" class="reveal">
-      <a href="Experiences.html" class="btn-secondary" data-translate="experiences.button">Explore All Experiences</a>
+      <a href="Experiences.html" class="btn-secondary">Explore All Experiences</a>
     </div>
   </div>
 </section>
