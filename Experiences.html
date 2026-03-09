@@ -14,6 +14,7 @@
 <!-- ============================================================
      NAVIGATION
 ============================================================ -->
+<!-- NAV -->
 <nav class="main-nav" id="main-nav">
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
@@ -27,18 +28,19 @@
 
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html" data-translate="nav.home">Home</a></li>
-      <li><a href="experiences.html" class="nav-active" data-translate="nav.services">Experiences</a></li>
-      <li><a href="journal.html" data-translate="nav.journal">Journal</a></li>
-     
+      <li><a href="Experiences.html" data-translate="nav.services">Experience</a></li>
+      <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
     </ul>
 
     <div class="nav-right">
-      <div class="language-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="es">ES</button>
+      <div class="nav-center-stack">
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
       </div>
-      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -48,8 +50,8 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <ul>
       <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
-      <li><a href="experiences.html" onclick="closeDrawer()">Experiences</a></li>
-      <li><a href="journal.html" onclick="closeDrawer()">Journal</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services" onclick="closeDrawer()">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about" onclick="closeDrawer()">Journal</a></li>
     </ul>
   </div>
 </nav>
