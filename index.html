@@ -19,39 +19,6 @@
   <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
 
   <style>
-    /* ── Mobile nav: center stack, hamburger on right ── */
-    @media (max-width: 768px) {
-      .nav-container {
-        height: auto;
-        min-height: 64px;
-        padding: 8px 16px;
-        align-items: center;
-      }
-      .nav-right {
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 82px;
-      }
-      .nav-center-stack {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-      }
-        /* inside .nav-center-stack */
-      }
-      .nav-cta {
-        font-size: 0.6rem;
-        padding: 7px 12px;
-        white-space: nowrap;
-      }
-      .hamburger {
-        flex-shrink: 0;
-      }
-    
     /* ── Experiences section (replaces services) ── */
     .experiences-home-section {
       padding: 110px 0;
@@ -207,18 +174,18 @@
 
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html" data-translate="nav.home">Home</a></li>
-      <li><a href="Experiences.html" data-translate="nav.services">Experience</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services">Experiences</a></li>
       <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
     </ul>
 
     <div class="nav-right">
       <div class="nav-center-stack">
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
         <div class="language-switcher">
           <button class="lang-btn active" data-lang="en">EN</button>
           <button class="lang-btn" data-lang="fr">FR</button>
           <button class="lang-btn" data-lang="es">ES</button>
         </div>
-        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -725,8 +692,8 @@
 <section class="experiences-home-section">
   <div class="container">
     <div class="services-header reveal">
-      <div class="section-eyebrow centered">Curated Experiences</div>
-      <h2 class="section-title">Explore Our <em>Morocco Tours</em></h2>
+      <div class="section-eyebrow centered" data-translate="experiences.eyebrow">Curated Experiences</div>
+      <h2 class="section-title" data-translate="experiences.title">Explore Our <em>Morocco Tours</em></h2>
     </div>
 
     <div class="exp-home-grid reveal">
@@ -871,7 +838,7 @@
     </div>
 
     <div style="text-align:center;" class="reveal">
-      <a href="Experiences.html" class="btn-secondary">Explore All Experiences</a>
+      <a href="Experiences.html" class="btn-secondary" data-translate="experiences.button">Explore All Experiences</a>
     </div>
   </div>
 </section>
@@ -952,6 +919,35 @@
 
 <script src="translations.js"></script>
 <script>
+  /* ── Mobile nav fix (matches all other pages) ── */
+  const mobileNavStyle = document.createElement('style');
+  mobileNavStyle.textContent = `
+    .nav-center-stack {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 14px; position: static; transform: none;
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        display: flex; flex-direction: row; align-items: center;
+        height: 68px; min-height: 68px; padding: 0 16px; position: relative;
+      }
+      .nav-logo { flex-shrink: 0; }
+      .nav-right {
+        display: flex; flex-direction: row; align-items: center;
+        margin-left: auto; flex-shrink: 0; gap: 8px;
+      }
+      .nav-center-stack {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+      }
+      .language-switcher { display: flex; gap: 3px; }
+      .lang-btn { font-size: 0.58rem; padding: 2px 5px; }
+      .nav-cta { font-size: 0.58rem; padding: 5px 10px; white-space: nowrap; }
+      .hamburger { flex-shrink: 0; margin-left: 4px; }
+    }
+  `;
+  document.head.appendChild(mobileNavStyle);
+
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
@@ -997,3 +993,4 @@
 
 </body>
 </html>
+
