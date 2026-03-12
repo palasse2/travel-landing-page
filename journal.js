@@ -276,7 +276,7 @@ function _renderBatch() {
   if (_shown < filtered.length) {
     loadWrap.innerHTML = [
       '<button class="journal-load-more-btn" id="jnl-load-btn">',
-      '  <span data-translate="journal.loadMore">Load More Stories</span>',
+      '  Load More Stories',
       '  <span aria-hidden="true">→</span>',
       '</button>'
     ].join('');
@@ -293,7 +293,6 @@ function _buildFilterBar() {
 
   var lbl = document.createElement('span');
   lbl.className = 'journal-filter-label';
-  lbl.setAttribute('data-translate', 'journal.filter');
   lbl.textContent = 'Filter';
   bar.appendChild(lbl);
 
@@ -353,7 +352,7 @@ function _buildCard(post, featured) {
     '  <h2 class="journal-card-title">' + esc(post.title||'Untitled') + '</h2>',
     '  <p class="journal-card-excerpt">' + esc(post.excerpt||'') + '</p>',
     '  <span class="journal-card-read-more">',
-    '    <span data-translate="journal.readMore">Read Article</span>',
+    '    Read Article',
     '    <span aria-hidden="true">→</span>',
     '  </span>',
     '</div>'
@@ -454,7 +453,7 @@ async function _renderSinglePost(slug) {
     }).join('');
     tocHtml = [
       '<div class="post-sidebar-section">',
-      '  <div class="post-sidebar-label" data-translate="journal.toc">In This Article</div>',
+      '  <div class="post-sidebar-label">In This Article</div>',
       '  <ul class="post-toc" id="post-toc">' + tocItems + '</ul>',
       '</div>'
     ].join('');
@@ -483,7 +482,7 @@ async function _renderSinglePost(slug) {
     }).join('');
     relHtml = [
       '<div class="post-sidebar-section">',
-      '  <div class="post-sidebar-label" data-translate="journal.related">Related Articles</div>',
+      '  <div class="post-sidebar-label">Related Articles</div>',
       relCards,
       '</div>'
     ].join('');
@@ -502,7 +501,7 @@ async function _renderSinglePost(slug) {
 
   container.innerHTML = [
     '<a href="journal.html" class="post-back-link">',
-    '  ← <span data-translate="journal.backToJournal">Back to Journal</span>',
+    '  ← Back to Journal',
     '</a>',
     '<div class="post-layout">',
     '  <article>',
@@ -547,7 +546,7 @@ async function _renderSinglePost(slug) {
 function _postCta() {
   return [
     '<div class="post-cta-block">',
-    '  <p data-translate="journal.cta.text">',
+    '  <p>',
     '    Planning a trip to Morocco? The Travel Readz guide has everything —',
     '    local maps, cultural knowledge, a budget calculator, and direct WhatsApp support.',
     '  </p>',
