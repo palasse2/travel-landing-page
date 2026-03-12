@@ -1,54 +1,19 @@
 /* ════════════════════════════════════════════════════════════
    JOURNAL.JS  —  Travel Readz
-   Fetches posts from Sanity CMS and renders:
+   Fetches posts from Hashnode and renders:
      • Post grid  → journal.html
      • Single post → journal.html?slug=my-post-slug
    ────────────────────────────────────────────────────────────
    QUICK SETUP
-   1. Create a free project at https://sanity.io
-   2. Replace SANITY_PROJECT_ID below with your project ID
-   3. Sanity → Settings → API → CORS Origins → add your domain
-   4. Publish posts in Sanity Studio — they appear instantly
-   (Schema reference at the bottom of this file)
+   1. Create a free blog at https://hashnode.com
+   2. Your host is already set below
+   3. Write posts in Hashnode — they appear instantly here
 ════════════════════════════════════════════════════════════ */
 
-/* ── CONFIG  (edit these two lines) ─────────────────────── */
-const SANITY_PROJECT_ID = 'cldl9ygg';
-const SANITY_DATASET    = 'production';
-const SANITY_API_VER    = '2024-01-01';
-const POSTS_PER_PAGE    = 9;
-
-/* ══════════════════════════════════════════════════════════
-   SANITY HELPERS
-══════════════════════════════════════════════════════════ */
-
-function sanityUrl(query, params) {
-  params = params || {};
-  var base = 'https://' + SANITY_PROJECT_ID + '.apicdn.sanity.io/v' + SANITY_API_VER + '/data/query/' + SANITY_DATASET;
-  var q = '?query=' + encodeURIComponent(query.trim());
-  var p = Object.keys(params).map(function(k) {
-    return '&$' + k + '=' + encodeURIComponent(JSON.stringify(params[k]));
-  }).join('');
-  return base + q + p;
-}
-
-function imgUrl(ref, w, h) {
-  if (!ref) return null;
-  w = w || 800;
-  try {
-    var parts = ref.split('-');
-    var ext   = parts.pop();
-    var dims  = parts.pop();
-    var id    = parts.slice(1).join('-');
-    var wh    = dims.split('x');
-    var ow = parseInt(wh[0], 10) || 800;
-    var oh = parseInt(wh[1], 10) || 500;
-    var fh = h || Math.round((oh / ow) * w);
-    return 'https://cdn.sanity.io/images/' + SANITY_PROJECT_ID + '/' + SANITY_DATASET
-      + '/' + id + '-' + dims + '.' + ext
-      + '?w=' + w + '&h=' + fh + '&fit=crop&auto=format&q=80';
-  } catch(e) { return null; }
-}
+/* ── CONFIG ──────────────────────────────────────────────── */
+const HASHNODE_HOST    = 'travelreadz.hashnode.dev';
+const HASHNODE_API     = 'https://gql.hashnode.com';
+const POSTS_PER_PAGE   = 9;
 
 /* ══════════════════════════════════════════════════════════
    UTILITIES
@@ -67,12 +32,8 @@ function fmtDate(iso) {
   } catch(e) { return iso; }
 }
 
-function readTime(blocks) {
-  var words = (blocks || [])
-    .filter(function(b){ return b && b._type === 'block'; })
-    .map(function(b){ return (b.children||[]).map(function(c){ return c.text||''; }).join(' '); })
-    .join(' ').trim().split(/\s+/).length;
-  return Math.max(1, Math.ceil(words / 200)) + ' min read';
+function readTime(minutes) {
+  return (minutes || 1) + ' min read';
 }
 
 function initials(name) {
@@ -90,90 +51,18 @@ function setMeta(prop, content) {
 }
 
 /* ══════════════════════════════════════════════════════════
-   PORTABLE TEXT → HTML
+   HASHNODE API HELPER
 ══════════════════════════════════════════════════════════ */
 
-function ptToHtml(blocks) {
-  if (!Array.isArray(blocks)) return '';
-
-  // Group list items
-  var grouped = [];
-  var listBuf = [], listStyle = null;
-
-  function flushList() {
-    if (!listBuf.length) return;
-    grouped.push({ _listType: listStyle, items: listBuf.slice() });
-    listBuf = []; listStyle = null;
-  }
-
-  blocks.forEach(function(b) {
-    if (!b) return;
-    if (b._type === 'block' && b.listItem) {
-      if (listStyle !== b.listItem) flushList();
-      listStyle = b.listItem;
-      listBuf.push(b);
-    } else {
-      flushList();
-      grouped.push(b);
-    }
+async function hashnodeQuery(query, variables) {
+  var res = await fetch(HASHNODE_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: query, variables: variables || {} })
   });
-  flushList();
-
-  return grouped.map(function(item) {
-    // List group
-    if (item._listType) {
-      var tag = item._listType === 'bullet' ? 'ul' : 'ol';
-      var lis = item.items.map(function(b) {
-        return '<li>' + renderInline(b.children||[], b.markDefs||[]) + '</li>';
-      }).join('');
-      return '<' + tag + '>' + lis + '</' + tag + '>';
-    }
-    // Image
-    if (item._type === 'image' && item.asset && item.asset._ref) {
-      var src = imgUrl(item.asset._ref, 1200);
-      var cap = item.caption ? '<figcaption>' + esc(item.caption) + '</figcaption>' : '';
-      return '<figure><img src="' + src + '" alt="' + esc(item.alt||'') + '" loading="lazy">' + cap + '</figure>';
-    }
-    // Code block
-    if (item._type === 'code') {
-      var lang = item.language ? ' data-lang="' + esc(item.language) + '"' : '';
-      return '<pre' + lang + '><code>' + esc(item.code||'') + '</code></pre>';
-    }
-    // Standard block
-    if (item._type !== 'block') return '';
-    var inner = renderInline(item.children||[], item.markDefs||[]);
-    var hid = item._headingId ? ' id="' + item._headingId + '"' : '';
-    switch (item.style) {
-      case 'h2':         return '<h2' + hid + '>' + inner + '</h2>';
-      case 'h3':         return '<h3' + hid + '>' + inner + '</h3>';
-      case 'h4':         return '<h4' + hid + '>' + inner + '</h4>';
-      case 'blockquote': return '<blockquote><p>' + inner + '</p></blockquote>';
-      default:
-        return inner.trim() ? '<p>' + inner + '</p>' : '<hr>';
-    }
-  }).join('\n');
-}
-
-function renderInline(spans, markDefs) {
-  return (spans||[]).map(function(span) {
-    var t = esc(span.text||'');
-    (span.marks||[]).forEach(function(mark) {
-      if      (mark==='strong')          { t = '<strong>' + t + '</strong>'; }
-      else if (mark==='em')              { t = '<em>' + t + '</em>'; }
-      else if (mark==='code')            { t = '<code>' + t + '</code>'; }
-      else if (mark==='underline')       { t = '<u>' + t + '</u>'; }
-      else if (mark==='strike-through')  { t = '<s>' + t + '</s>'; }
-      else {
-        var def = (markDefs||[]).find(function(d){ return d._key === mark; });
-        if (def && def._type === 'link') {
-          var ext = (def.href||'').startsWith('http');
-          var rel = ext ? ' target="_blank" rel="noopener noreferrer"' : '';
-          t = '<a href="' + esc(def.href||'#') + '"' + rel + '>' + t + '</a>';
-        }
-      }
-    });
-    return t;
-  }).join('');
+  var data = await res.json();
+  if (data.errors) throw new Error(data.errors[0].message);
+  return data.data;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -183,6 +72,8 @@ var _allPosts     = [];
 var _shown        = 0;
 var _activeFilter = 'all';
 var _categories   = [];
+var _endCursor    = null;
+var _hasMore      = false;
 
 /* ══════════════════════════════════════════════════════════
    ENTRY POINT
@@ -203,32 +94,56 @@ async function _renderGrid() {
   var container = document.getElementById('journal-container');
   container.innerHTML = _skeletonGrid(6);
 
-  var query = [
-    '*[_type == "post"] | order(publishedAt desc) {',
-    '  _id, title,',
-    '  "slug": slug.current,',
-    '  publishedAt, excerpt,',
-    '  "category": category->title,',
-    '  "coverRef": mainImage.asset._ref,',
-    '  body',
-    '}'
-  ].join('\n');
+  var query = `
+    query GetPosts($host: String!, $first: Int!, $after: String) {
+      publication(host: $host) {
+        posts(first: $first, after: $after) {
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+          edges {
+            node {
+              id
+              title
+              slug
+              publishedAt
+              brief
+              readTimeInMinutes
+              coverImage { url }
+              tags { name }
+              author { name profilePicture }
+            }
+          }
+        }
+      }
+    }
+  `;
 
   try {
-    var res  = await fetch(sanityUrl(query));
-    var data = await res.json();
-    if (!res.ok || data.error) throw new Error((data.error && data.error.description) || 'Sanity fetch error');
-    _allPosts = data.result || [];
+    var data = await hashnodeQuery(query, {
+      host: HASHNODE_HOST,
+      first: POSTS_PER_PAGE,
+      after: null
+    });
+
+    var publication = data.publication;
+    if (!publication) throw new Error('Publication not found. Check your Hashnode host.');
+
+    var posts = publication.posts.edges.map(function(e){ return e.node; });
+    _endCursor = publication.posts.pageInfo.endCursor;
+    _hasMore   = publication.posts.pageInfo.hasNextPage;
+    _allPosts  = posts;
+
   } catch(err) {
-    var hint = (err.message||'').includes('YOUR_PROJECT_ID')
-      ? 'Open journal.js and replace YOUR_PROJECT_ID with your Sanity project ID.'
-      : err.message;
-    container.innerHTML = _emptyState('📡', 'Could not load posts', hint);
+    container.innerHTML = _emptyState('📡', 'Could not load posts', err.message);
     console.error('[Journal]', err);
     return;
   }
 
-  _categories   = [...new Set(_allPosts.map(function(p){ return p.category; }).filter(Boolean))];
+  _categories   = [...new Set(_allPosts.map(function(p){
+    return p.tags && p.tags[0] ? p.tags[0].name : null;
+  }).filter(Boolean))];
   _shown        = 0;
   _activeFilter = 'all';
 
@@ -251,7 +166,9 @@ async function _renderGrid() {
 function _renderBatch() {
   var filtered = _activeFilter === 'all'
     ? _allPosts
-    : _allPosts.filter(function(p){ return p.category === _activeFilter; });
+    : _allPosts.filter(function(p){
+        return p.tags && p.tags.some(function(t){ return t.name === _activeFilter; });
+      });
 
   var grid     = document.getElementById('jnl-grid');
   var loadWrap = document.getElementById('jnl-load-wrap');
@@ -273,11 +190,10 @@ function _renderBatch() {
 
   _shown += batch.length;
 
-  if (_shown < filtered.length) {
+  if (_shown < filtered.length || _hasMore) {
     loadWrap.innerHTML = [
       '<button class="journal-load-more-btn" id="jnl-load-btn">',
-      '  Load More Stories',
-      '  <span aria-hidden="true">→</span>',
+      '  Load More Stories →',
       '</button>'
     ].join('');
     document.getElementById('jnl-load-btn').addEventListener('click', _renderBatch);
@@ -328,7 +244,7 @@ function _buildCard(post, featured) {
   card.className = 'journal-card' + (featured ? ' journal-card--featured' : '');
   card.style.cursor = 'pointer';
 
-  var src = imgUrl(post.coverRef, featured ? 1200 : 600);
+  var src = post.coverImage ? post.coverImage.url : null;
   var imgInner = src
     ? '<img src="' + src + '" alt="' + esc(post.title||'') + '" loading="lazy">'
     : '<div class="journal-card-img-placeholder" aria-hidden="true">' +
@@ -338,8 +254,9 @@ function _buildCard(post, featured) {
           '<polyline points="21 15 16 10 5 21"/>' +
         '</svg></div>';
 
-  var tag = post.category
-    ? '<div class="journal-card-tag">' + esc(post.category) + '</div>' : '';
+  var category = post.tags && post.tags[0] ? post.tags[0].name : null;
+  var tag = category
+    ? '<div class="journal-card-tag">' + esc(category) + '</div>' : '';
 
   card.innerHTML = [
     '<div class="journal-card-img">' + imgInner + tag + '</div>',
@@ -347,14 +264,11 @@ function _buildCard(post, featured) {
     '  <div class="journal-card-meta">',
     '    <time class="journal-card-date" datetime="' + esc(post.publishedAt||'') + '">' + fmtDate(post.publishedAt) + '</time>',
     '    <span class="journal-card-meta-dot" aria-hidden="true"></span>',
-    '    <span class="journal-card-read-time">' + readTime(post.body) + '</span>',
+    '    <span class="journal-card-read-time">' + readTime(post.readTimeInMinutes) + '</span>',
     '  </div>',
     '  <h2 class="journal-card-title">' + esc(post.title||'Untitled') + '</h2>',
-    '  <p class="journal-card-excerpt">' + esc(post.excerpt||'') + '</p>',
-    '  <span class="journal-card-read-more">',
-    '    Read Article',
-    '    <span aria-hidden="true">→</span>',
-    '  </span>',
+    '  <p class="journal-card-excerpt">' + esc(post.brief||'') + '</p>',
+    '  <span class="journal-card-read-more">Read Article →</span>',
     '</div>'
   ].join('');
 
@@ -372,36 +286,54 @@ async function _renderSinglePost(slug) {
   var container = document.getElementById('journal-container');
   container.innerHTML = _skeletonPost();
 
-  var postQuery = [
-    '*[_type == "post" && slug.current == $slug][0] {',
-    '  _id, title,',
-    '  "slug": slug.current,',
-    '  publishedAt, excerpt,',
-    '  "category": category->title,',
-    '  "authorName": author->name,',
-    '  "coverRef": mainImage.asset._ref,',
-    '  "coverAlt": mainImage.alt,',
-    '  body',
-    '}'
-  ].join('\n');
+  var query = `
+    query GetPost($host: String!, $slug: String!) {
+      publication(host: $host) {
+        post(slug: $slug) {
+          id
+          title
+          slug
+          publishedAt
+          readTimeInMinutes
+          brief
+          content { html }
+          coverImage { url }
+          tags { name }
+          author { name profilePicture }
+          seo { title description }
+        }
+      }
+    }
+  `;
 
-  var relQuery = [
-    '*[_type == "post" && slug.current != $slug] | order(publishedAt desc) [0..2] {',
-    '  title,',
-    '  "slug": slug.current,',
-    '  publishedAt,',
-    '  "coverRef": mainImage.asset._ref',
-    '}'
-  ].join('\n');
+  var relQuery = `
+    query GetRelated($host: String!, $first: Int!) {
+      publication(host: $host) {
+        posts(first: $first) {
+          edges {
+            node {
+              title
+              slug
+              publishedAt
+              coverImage { url }
+            }
+          }
+        }
+      }
+    }
+  `;
 
   var post, related;
   try {
     var results = await Promise.all([
-      fetch(sanityUrl(postQuery, { slug: slug })).then(function(r){ return r.json(); }),
-      fetch(sanityUrl(relQuery,  { slug: slug })).then(function(r){ return r.json(); })
+      hashnodeQuery(query, { host: HASHNODE_HOST, slug: slug }),
+      hashnodeQuery(relQuery, { host: HASHNODE_HOST, first: 4 })
     ]);
-    post    = results[0].result;
-    related = results[1].result || [];
+    post    = results[0].publication && results[0].publication.post;
+    related = (results[1].publication && results[1].publication.posts.edges || [])
+      .map(function(e){ return e.node; })
+      .filter(function(p){ return p.slug !== slug; })
+      .slice(0, 3);
   } catch(err) {
     container.innerHTML = _emptyState('📡', 'Could not load article', 'Please try again later.');
     console.error('[Journal]', err);
@@ -415,55 +347,40 @@ async function _renderSinglePost(slug) {
 
   // Update page meta
   document.title = post.title + ' | Travel Readz Journal';
-  setMeta('og:title',       post.title);
-  setMeta('og:description', post.excerpt||'');
-  if (post.coverRef) setMeta('og:image', imgUrl(post.coverRef, 1200, 630));
+  setMeta('og:title',       post.seo ? post.seo.title : post.title);
+  setMeta('og:description', post.seo ? post.seo.description : post.brief);
+  if (post.coverImage) setMeta('og:image', post.coverImage.url);
 
   // Update hero
   var heroTitle    = document.getElementById('journal-page-title');
   var heroSubtitle = document.getElementById('journal-page-subtitle');
-  if (heroTitle)    heroTitle.textContent    = post.title||'';
-  if (heroSubtitle) heroSubtitle.textContent = post.excerpt||'';
+  if (heroTitle)    heroTitle.textContent    = post.title || '';
+  if (heroSubtitle) heroSubtitle.textContent = post.brief || '';
 
-  // Assign heading IDs for TOC
-  var hIdx = 0;
-  var bodyBlocks = (post.body||[]).map(function(b) {
-    if (b && b._type==='block' && (b.style==='h2'||b.style==='h3')) {
-      return Object.assign({}, b, { _headingId: 'h-' + (hIdx++) });
-    }
-    return b;
-  });
-  var headings = bodyBlocks.filter(function(b){ return b && b._headingId; });
-
-  // Body HTML — inject mid-post CTA after 3rd paragraph
-  var rawBody = ptToHtml(bodyBlocks);
-  var pCount  = 0;
-  var bodyWithCta = rawBody.replace(/<\/p>/g, function(m) {
+  // Hashnode returns ready HTML — inject mid-post CTA after 3rd paragraph
+  var rawHtml  = (post.content && post.content.html) || '';
+  var pCount   = 0;
+  var bodyHtml = rawHtml.replace(/<\/p>/gi, function(m) {
     pCount++;
     return m + (pCount === 3 ? _postCta() : '');
   });
 
-  // TOC
-  var tocHtml = '';
-  if (headings.length) {
-    var tocItems = headings.map(function(h) {
-      var text   = (h.children||[]).map(function(c){ return c.text||''; }).join('');
-      var indent = h.style==='h3' ? ' style="padding-left:24px"' : '';
-      return '<li><a href="#' + h._headingId + '"' + indent + '>' + esc(text) + '</a></li>';
-    }).join('');
-    tocHtml = [
-      '<div class="post-sidebar-section">',
-      '  <div class="post-sidebar-label">In This Article</div>',
-      '  <ul class="post-toc" id="post-toc">' + tocItems + '</ul>',
-      '</div>'
-    ].join('');
-  }
+  // Category tag
+  var category = post.tags && post.tags[0] ? post.tags[0].name : null;
+  var tagHtml  = category
+    ? '<div class="post-tags"><span class="post-tag">' + esc(category) + '</span></div>'
+    : '';
 
-  // Related posts
+  // Cover image
+  var coverHtml = post.coverImage
+    ? '<div class="post-cover"><img src="' + post.coverImage.url + '" alt="' + esc(post.title||'') + '" loading="eager"></div>'
+    : '';
+
+  // Related posts sidebar
   var relHtml = '';
   if (related.length) {
     var relCards = related.map(function(r) {
-      var thumb = imgUrl(r.coverRef, 112, 112);
+      var thumb = r.coverImage ? r.coverImage.url : null;
       var href  = 'journal.html?slug=' + encodeURIComponent(r.slug||'');
       return [
         '<div class="post-related-card" role="link" tabindex="0"',
@@ -488,70 +405,38 @@ async function _renderSinglePost(slug) {
     ].join('');
   }
 
-  // Cover image
-  var coverSrc  = imgUrl(post.coverRef, 1400, 788);
-  var coverHtml = coverSrc
-    ? '<div class="post-cover"><img src="' + coverSrc + '" alt="' + esc(post.coverAlt||post.title||'') + '" loading="eager"></div>'
-    : '';
-
-  // Category tag
-  var tagHtml = post.category
-    ? '<div class="post-tags"><span class="post-tag">' + esc(post.category) + '</span></div>'
-    : '';
-
   container.innerHTML = [
-    '<a href="journal.html" class="post-back-link">',
-    '  ← Back to Journal',
-    '</a>',
+    '<a href="journal.html" class="post-back-link">← Back to Journal</a>',
     '<div class="post-layout">',
     '  <article>',
          tagHtml,
     '    <h1 class="post-title">' + esc(post.title||'') + '</h1>',
     '    <div class="post-meta">',
     '      <div class="post-author">',
-    '        <div class="post-author-avatar" aria-hidden="true">' + initials(post.authorName) + '</div>',
-    '        <span class="post-author-name">' + esc(post.authorName||'Travel Readz') + '</span>',
+    '        <div class="post-author-avatar" aria-hidden="true">' + initials(post.author && post.author.name) + '</div>',
+    '        <span class="post-author-name">' + esc((post.author && post.author.name)||'Travel Readz') + '</span>',
     '      </div>',
     '      <div class="post-meta-sep" aria-hidden="true"></div>',
     '      <time class="post-date" datetime="' + esc(post.publishedAt||'') + '">' + fmtDate(post.publishedAt) + '</time>',
     '      <div class="post-meta-sep" aria-hidden="true"></div>',
-    '      <span class="post-read-time">' + readTime(post.body) + '</span>',
+    '      <span class="post-read-time">' + readTime(post.readTimeInMinutes) + '</span>',
     '    </div>',
          coverHtml,
-    '    <div class="post-body">' + bodyWithCta + '</div>',
+    '    <div class="post-body">' + bodyHtml + '</div>',
     '  </article>',
     '  <aside class="post-sidebar">',
-         tocHtml,
          relHtml,
     '  </aside>',
     '</div>'
   ].join('\n');
-
-  // TOC active highlight on scroll
-  if (headings.length) {
-    var tocLinks  = container.querySelectorAll('.post-toc a');
-    var headingEls = Array.from(container.querySelectorAll('[id^="h-"]'));
-    window.addEventListener('scroll', function() {
-      var current = '';
-      headingEls.forEach(function(el) {
-        if (window.scrollY >= el.offsetTop - 160) current = el.id;
-      });
-      tocLinks.forEach(function(a) {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-      });
-    }, { passive: true });
-  }
 }
 
 function _postCta() {
   return [
     '<div class="post-cta-block">',
-    '  <p>',
-    '    Planning a trip to Morocco? The Travel Readz guide has everything —',
-    '    local maps, cultural knowledge, a budget calculator, and direct WhatsApp support.',
-    '  </p>',
-    '  <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true"',
-    '     class="post-cta-btn">',
+    '  <p>Planning a trip to Morocco? The Travel Readz guide has everything —',
+    '    local maps, cultural knowledge, a budget calculator, and direct WhatsApp support.</p>',
+    '  <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="post-cta-btn">',
     '    Get the Guide →',
     '  </a>',
     '</div>'
@@ -606,86 +491,3 @@ function _emptyState(icon, title, msg) {
     '</div>'
   ].join('');
 }
-
-/* ════════════════════════════════════════════════════════════
-   SANITY STUDIO SCHEMA  (copy into your Studio project)
-   ────────────────────────────────────────────────────────────
-
-   schemas/post.js
-   ───────────────
-   export default {
-     name: 'post', title: 'Post', type: 'document',
-     fields: [
-       { name:'title',       type:'string',   title:'Title',       validation:R=>R.required() },
-       { name:'slug',        type:'slug',     title:'Slug',        options:{source:'title'}, validation:R=>R.required() },
-       { name:'author',      type:'reference',title:'Author',      to:[{type:'author'}] },
-       { name:'category',    type:'reference',title:'Category',    to:[{type:'category'}] },
-       { name:'mainImage',   type:'image',    title:'Cover Image', options:{hotspot:true},
-         fields:[{name:'alt',type:'string',title:'Alt text'}] },
-       { name:'publishedAt', type:'datetime', title:'Published At' },
-       { name:'excerpt',     type:'text',     title:'Excerpt',     rows:4 },
-       { name:'body',        type:'array',    title:'Body',
-         of:[
-           { type:'block',
-             styles:[
-               {title:'Normal',    value:'normal'},
-               {title:'Heading 2', value:'h2'},
-               {title:'Heading 3', value:'h3'},
-               {title:'Quote',     value:'blockquote'},
-             ],
-             marks:{
-               decorators:[
-                 {title:'Bold',   value:'strong'},
-                 {title:'Italic', value:'em'},
-                 {title:'Code',   value:'code'},
-               ],
-               annotations:[
-                 { name:'link', type:'object', title:'Link',
-                   fields:[{name:'href',type:'url',title:'URL'}] }
-               ]
-             }
-           },
-           { type:'image', options:{hotspot:true},
-             fields:[
-               {name:'alt',     type:'string',title:'Alt text'},
-               {name:'caption', type:'string',title:'Caption'},
-             ]
-           }
-         ]
-       }
-     ],
-     preview:{
-       select:{title:'title',author:'author.name',media:'mainImage'},
-       prepare({title,author,media}){return{title,subtitle:author?`by ${author}`:'',media};}
-     }
-   };
-
-   schemas/author.js
-   ──────────────────
-   export default {
-     name:'author', title:'Author', type:'document',
-     fields:[
-       {name:'name',  type:'string', title:'Name'},
-       {name:'image', type:'image',  title:'Photo'},
-       {name:'bio',   type:'text',   title:'Bio'},
-     ]
-   };
-
-   schemas/category.js
-   ────────────────────
-   export default {
-     name:'category', title:'Category', type:'document',
-     fields:[
-       {name:'title',       type:'string', title:'Title'},
-       {name:'description', type:'text',   title:'Description'},
-     ]
-   };
-
-   schemas/index.js
-   ─────────────────
-   import post     from './post';
-   import author   from './author';
-   import category from './category';
-   export const schemaTypes = [post, author, category];
-
-════════════════════════════════════════════════════════════ */
