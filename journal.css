@@ -522,3 +522,9 @@
   .journal-card--featured .journal-card-body { padding: 28px 24px 32px; }
   .post-body { font-size: 0.9rem; }
 }
+.post-cta-btn {
+  color: #fff !important;
+}
+.post-cta-btn:hover {
+  color: #fff !important;
+}
