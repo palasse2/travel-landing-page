@@ -13,7 +13,7 @@
 ════════════════════════════════════════════════════════════ */
 
 /* ── CONFIG  (edit these two lines) ─────────────────────── */
-const SANITY_PROJECT_ID = 'vvrboiiz';  // ← replace
+const SANITY_PROJECT_ID = 'cldl9ygg';  // ← replace
 const SANITY_DATASET    = 'production';
 const SANITY_API_VER    = '2024-01-01';
 const POSTS_PER_PAGE    = 9;
