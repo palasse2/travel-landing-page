@@ -1,19 +1,15 @@
 /* ════════════════════════════════════════════════════════════
    JOURNAL.JS  —  Travel Readz
-   Fetches posts from Hashnode and renders:
+   Fetches posts from Sanity CMS and renders:
      • Post grid  → journal.html
      • Single post → journal.html?slug=my-post-slug
-   ────────────────────────────────────────────────────────────
-   QUICK SETUP
-   1. Create a free blog at https://hashnode.com
-   2. Your host is already set below
-   3. Write posts in Hashnode — they appear instantly here
 ════════════════════════════════════════════════════════════ */
 
 /* ── CONFIG ──────────────────────────────────────────────── */
-const HASHNODE_HOST    = 'travelreadz.hashnode.dev';
-const HASHNODE_API     = 'https://gql.hashnode.com';
-const POSTS_PER_PAGE   = 9;
+const SANITY_PROJECT_ID = 'cldl9ygg';
+const SANITY_DATASET    = 'production';
+const SANITY_API_VER    = '2024-01-01';
+const POSTS_PER_PAGE    = 9;
 
 /* ══════════════════════════════════════════════════════════
    UTILITIES
@@ -32,8 +28,10 @@ function fmtDate(iso) {
   } catch(e) { return iso; }
 }
 
-function readTime(minutes) {
-  return (minutes || 1) + ' min read';
+function readTime(text) {
+  if (!text) return '1 min read';
+  var words = text.split(/\s+/).length;
+  return Math.max(1, Math.round(words / 200)) + ' min read';
 }
 
 function initials(name) {
@@ -51,18 +49,105 @@ function setMeta(prop, content) {
 }
 
 /* ══════════════════════════════════════════════════════════
-   HASHNODE API HELPER
+   SANITY HELPERS
 ══════════════════════════════════════════════════════════ */
 
-async function hashnodeQuery(query, variables) {
-  var res = await fetch(HASHNODE_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: query, variables: variables || {} })
-  });
+function sanityUrl(query, params) {
+  params = params || {};
+  var base = 'https://' + SANITY_PROJECT_ID + '.apicdn.sanity.io/v' + SANITY_API_VER + '/data/query/' + SANITY_DATASET;
+  var q = '?query=' + encodeURIComponent(query.trim());
+  var p = Object.keys(params).map(function(k) {
+    return '&$' + k + '=' + encodeURIComponent(JSON.stringify(params[k]));
+  }).join('');
+  return base + q + p;
+}
+
+function imgUrl(ref, w, h) {
+  if (!ref) return null;
+  w = w || 800;
+  try {
+    var parts = ref.split('-');
+    var ext   = parts.pop();
+    var dims  = parts.pop();
+    var id    = parts.slice(1).join('-');
+    var wh    = dims.split('x');
+    var ow    = parseInt(wh[0], 10) || 800;
+    var oh    = parseInt(wh[1], 10) || 500;
+    var fh    = h || Math.round((oh / ow) * w);
+    return 'https://cdn.sanity.io/images/' + SANITY_PROJECT_ID + '/' + SANITY_DATASET
+      + '/' + id + '-' + dims + '.' + ext
+      + '?w=' + w + '&h=' + fh + '&fit=crop&auto=format&q=80';
+  } catch(e) { return null; }
+}
+
+async function sanityFetch(query, params) {
+  var url = sanityUrl(query, params);
+  var res = await fetch(url);
+  if (!res.ok) throw new Error('Sanity API error: ' + res.status);
   var data = await res.json();
-  if (data.errors) throw new Error(data.errors[0].message);
-  return data.data;
+  return data.result;
+}
+
+/* ══════════════════════════════════════════════════════════
+   PORTABLE TEXT → HTML
+══════════════════════════════════════════════════════════ */
+
+function portableToHtml(blocks) {
+  if (!blocks || !blocks.length) return '';
+  return blocks.map(function(block) {
+    if (block._type === 'image') {
+      var src = imgUrl(block.asset && block.asset._ref, 900);
+      if (!src) return '';
+      var cap = block.caption ? '<figcaption>' + esc(block.caption) + '</figcaption>' : '';
+      return '<figure><img src="' + src + '" alt="' + esc(block.alt||'') + '" loading="lazy">' + cap + '</figure>';
+    }
+    if (block._type !== 'block') return '';
+
+    var tag = block.style === 'h2'         ? 'h2'
+            : block.style === 'h3'         ? 'h3'
+            : block.style === 'h4'         ? 'h4'
+            : block.style === 'blockquote' ? 'blockquote'
+            : 'p';
+
+    if (!block.children || !block.children.length) return '<' + tag + '></' + tag + '>';
+
+    var inner = block.children.map(function(span) {
+      var text = esc(span.text || '');
+      if (!text) return '';
+      var marks = span.marks || [];
+      if (marks.indexOf('strong') > -1) text = '<strong>' + text + '</strong>';
+      if (marks.indexOf('em') > -1)     text = '<em>' + text + '</em>';
+      if (marks.indexOf('code') > -1)   text = '<code>' + text + '</code>';
+      var linkMark = marks.find(function(m) {
+        return block.markDefs && block.markDefs.some(function(d){ return d._key === m && d._type === 'link'; });
+      });
+      if (linkMark) {
+        var def = block.markDefs.find(function(d){ return d._key === linkMark; });
+        text = '<a href="' + esc(def.href||'#') + '" target="_blank" rel="noopener">' + text + '</a>';
+      }
+      return text;
+    }).join('');
+
+    if (tag === 'blockquote') return '<blockquote><p>' + inner + '</p></blockquote>';
+    return '<' + tag + '>' + inner + '</' + tag + '>';
+  }).join('\n');
+}
+
+function extractPlainText(blocks) {
+  if (!blocks) return '';
+  return blocks.filter(function(b){ return b._type === 'block'; })
+    .map(function(b){ return (b.children||[]).map(function(s){ return s.text||''; }).join(''); })
+    .join(' ');
+}
+
+function extractHeadings(blocks) {
+  if (!blocks) return [];
+  return blocks.filter(function(b){ return b._type === 'block' && (b.style === 'h2' || b.style === 'h3'); })
+    .map(function(b){
+      var text = (b.children||[]).map(function(s){ return s.text||''; }).join('');
+      var id   = text.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+      return { text: text, id: id, level: b.style };
+    });
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -72,8 +157,6 @@ var _allPosts     = [];
 var _shown        = 0;
 var _activeFilter = 'all';
 var _categories   = [];
-var _endCursor    = null;
-var _hasMore      = false;
 
 /* ══════════════════════════════════════════════════════════
    ENTRY POINT
@@ -94,56 +177,23 @@ async function _renderGrid() {
   var container = document.getElementById('journal-container');
   container.innerHTML = _skeletonGrid(6);
 
-  var query = `
-    query GetPosts($host: String!, $first: Int!, $after: String) {
-      publication(host: $host) {
-        posts(first: $first, after: $after) {
-          pageInfo {
-            hasNextPage
-            endCursor
-          }
-          edges {
-            node {
-              id
-              title
-              slug
-              publishedAt
-              brief
-              readTimeInMinutes
-              coverImage { url }
-              tags { name }
-              author { name profilePicture }
-            }
-          }
-        }
-      }
-    }
-  `;
+  var query = '*[_type == "post"] | order(publishedAt desc) { _id, title, slug, publishedAt, "excerpt": array::join(string::split(pt::text(body), "")[0..200], "") + "...", "imageRef": mainImage.asset._ref, "category": categories[0]->title, "bodyText": pt::text(body) }';
 
   try {
-    var data = await hashnodeQuery(query, {
-      host: HASHNODE_HOST,
-      first: POSTS_PER_PAGE,
-      after: null
-    });
-
-    var publication = data.publication;
-    if (!publication) throw new Error('Publication not found. Check your Hashnode host.');
-
-    var posts = publication.posts.edges.map(function(e){ return e.node; });
-    _endCursor = publication.posts.pageInfo.endCursor;
-    _hasMore   = publication.posts.pageInfo.hasNextPage;
-    _allPosts  = posts;
-
+    _allPosts = await sanityFetch(query);
+    if (!_allPosts) _allPosts = [];
   } catch(err) {
-    container.innerHTML = _emptyState('📡', 'Could not load posts', err.message);
+    container.innerHTML = _emptyState('📡', 'Could not load posts', 'Check your Sanity project ID and CORS settings.');
     console.error('[Journal]', err);
     return;
   }
 
-  _categories   = [...new Set(_allPosts.map(function(p){
-    return p.tags && p.tags[0] ? p.tags[0].name : null;
-  }).filter(Boolean))];
+  if (_allPosts.length === 0) {
+    container.innerHTML = _emptyState('✍️', 'No posts yet', 'Publish your first post in Sanity Studio.');
+    return;
+  }
+
+  _categories   = [...new Set(_allPosts.map(function(p){ return p.category; }).filter(Boolean))];
   _shown        = 0;
   _activeFilter = 'all';
 
@@ -166,9 +216,7 @@ async function _renderGrid() {
 function _renderBatch() {
   var filtered = _activeFilter === 'all'
     ? _allPosts
-    : _allPosts.filter(function(p){
-        return p.tags && p.tags.some(function(t){ return t.name === _activeFilter; });
-      });
+    : _allPosts.filter(function(p){ return p.category === _activeFilter; });
 
   var grid     = document.getElementById('jnl-grid');
   var loadWrap = document.getElementById('jnl-load-wrap');
@@ -182,7 +230,7 @@ function _renderBatch() {
   var batch = filtered.slice(_shown, _shown + POSTS_PER_PAGE);
   batch.forEach(function(post, idx) {
     var featured = (_shown === 0 && idx === 0);
-    var card     = _buildCard(post, featured);
+    var card = _buildCard(post, featured);
     card.classList.add('reveal');
     setTimeout(function(){ card.classList.add('in'); }, 60 * idx);
     grid.appendChild(card);
@@ -190,12 +238,8 @@ function _renderBatch() {
 
   _shown += batch.length;
 
-  if (_shown < filtered.length || _hasMore) {
-    loadWrap.innerHTML = [
-      '<button class="journal-load-more-btn" id="jnl-load-btn">',
-      '  Load More Stories →',
-      '</button>'
-    ].join('');
+  if (_shown < filtered.length) {
+    loadWrap.innerHTML = '<button class="journal-load-more-btn" id="jnl-load-btn">Load More Stories →</button>';
     document.getElementById('jnl-load-btn').addEventListener('click', _renderBatch);
   } else {
     loadWrap.innerHTML = '';
@@ -208,15 +252,15 @@ function _buildFilterBar() {
   bar.className = 'journal-filters';
 
   var lbl = document.createElement('span');
-  lbl.className = 'journal-filter-label';
+  lbl.className   = 'journal-filter-label';
   lbl.textContent = 'Filter';
   bar.appendChild(lbl);
 
   function makeBtn(label, cat, active) {
     var b = document.createElement('button');
-    b.className    = 'journal-filter-btn' + (active ? ' active' : '');
-    b.dataset.cat  = cat;
-    b.textContent  = label;
+    b.className   = 'journal-filter-btn' + (active ? ' active' : '');
+    b.dataset.cat = cat;
+    b.textContent = label;
     return b;
   }
 
@@ -242,21 +286,14 @@ function _buildCard(post, featured) {
   featured = !!featured;
   var card = document.createElement('article');
   card.className = 'journal-card' + (featured ? ' journal-card--featured' : '');
-  card.style.cursor = 'pointer';
 
-  var src = post.coverImage ? post.coverImage.url : null;
+  var src      = imgUrl(post.imageRef, featured ? 1200 : 800, featured ? 675 : 533);
   var imgInner = src
     ? '<img src="' + src + '" alt="' + esc(post.title||'') + '" loading="lazy">'
-    : '<div class="journal-card-img-placeholder" aria-hidden="true">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">' +
-          '<rect x="3" y="3" width="18" height="18" rx="2"/>' +
-          '<circle cx="8.5" cy="8.5" r="1.5"/>' +
-          '<polyline points="21 15 16 10 5 21"/>' +
-        '</svg></div>';
+    : '<div class="journal-card-img-placeholder" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
 
-  var category = post.tags && post.tags[0] ? post.tags[0].name : null;
-  var tag = category
-    ? '<div class="journal-card-tag">' + esc(category) + '</div>' : '';
+  var tag = post.category
+    ? '<div class="journal-card-tag">' + esc(post.category) + '</div>' : '';
 
   card.innerHTML = [
     '<div class="journal-card-img">' + imgInner + tag + '</div>',
@@ -264,16 +301,16 @@ function _buildCard(post, featured) {
     '  <div class="journal-card-meta">',
     '    <time class="journal-card-date" datetime="' + esc(post.publishedAt||'') + '">' + fmtDate(post.publishedAt) + '</time>',
     '    <span class="journal-card-meta-dot" aria-hidden="true"></span>',
-    '    <span class="journal-card-read-time">' + readTime(post.readTimeInMinutes) + '</span>',
+    '    <span class="journal-card-read-time">' + readTime(post.bodyText) + '</span>',
     '  </div>',
     '  <h2 class="journal-card-title">' + esc(post.title||'Untitled') + '</h2>',
-    '  <p class="journal-card-excerpt">' + esc(post.brief||'') + '</p>',
+    '  <p class="journal-card-excerpt">' + esc(post.excerpt||'') + '</p>',
     '  <span class="journal-card-read-more">Read Article →</span>',
     '</div>'
   ].join('');
 
   card.addEventListener('click', function() {
-    window.location.href = 'journal.html?slug=' + encodeURIComponent(post.slug||'');
+    window.location.href = 'journal.html?slug=' + encodeURIComponent((post.slug && post.slug.current)||'');
   });
 
   return card;
@@ -286,54 +323,17 @@ async function _renderSinglePost(slug) {
   var container = document.getElementById('journal-container');
   container.innerHTML = _skeletonPost();
 
-  var query = `
-    query GetPost($host: String!, $slug: String!) {
-      publication(host: $host) {
-        post(slug: $slug) {
-          id
-          title
-          slug
-          publishedAt
-          readTimeInMinutes
-          brief
-          content { html }
-          coverImage { url }
-          tags { name }
-          author { name profilePicture }
-          seo { title description }
-        }
-      }
-    }
-  `;
-
-  var relQuery = `
-    query GetRelated($host: String!, $first: Int!) {
-      publication(host: $host) {
-        posts(first: $first) {
-          edges {
-            node {
-              title
-              slug
-              publishedAt
-              coverImage { url }
-            }
-          }
-        }
-      }
-    }
-  `;
+  var postQuery = '*[_type == "post" && slug.current == $slug][0] { _id, title, slug, publishedAt, body, "imageRef": mainImage.asset._ref, "category": categories[0]->title, "authorName": author->name }';
+  var relQuery  = '*[_type == "post" && slug.current != $slug] | order(publishedAt desc) [0..2] { title, slug, publishedAt, "imageRef": mainImage.asset._ref }';
 
   var post, related;
   try {
     var results = await Promise.all([
-      hashnodeQuery(query, { host: HASHNODE_HOST, slug: slug }),
-      hashnodeQuery(relQuery, { host: HASHNODE_HOST, first: 4 })
+      sanityFetch(postQuery, { slug: slug }),
+      sanityFetch(relQuery,  { slug: slug })
     ]);
-    post    = results[0].publication && results[0].publication.post;
-    related = (results[1].publication && results[1].publication.posts.edges || [])
-      .map(function(e){ return e.node; })
-      .filter(function(p){ return p.slug !== slug; })
-      .slice(0, 3);
+    post    = results[0];
+    related = results[1] || [];
   } catch(err) {
     container.innerHTML = _emptyState('📡', 'Could not load article', 'Please try again later.');
     console.error('[Journal]', err);
@@ -345,65 +345,55 @@ async function _renderSinglePost(slug) {
     return;
   }
 
-  // Update page meta
-  document.title = post.title + ' | Travel Readz Journal';
-  setMeta('og:title',       post.seo ? post.seo.title : post.title);
-  setMeta('og:description', post.seo ? post.seo.description : post.brief);
-  if (post.coverImage) setMeta('og:image', post.coverImage.url);
+  document.title = (post.title||'Article') + ' | Travel Readz Journal';
+  var plainText = extractPlainText(post.body);
+  var excerpt   = plainText.slice(0, 160);
+  setMeta('og:title',       post.title||'');
+  setMeta('og:description', excerpt);
+  var coverSrc = imgUrl(post.imageRef, 1200, 630);
+  if (coverSrc) setMeta('og:image', coverSrc);
 
-  // Update hero
   var heroTitle    = document.getElementById('journal-page-title');
   var heroSubtitle = document.getElementById('journal-page-subtitle');
   if (heroTitle)    heroTitle.textContent    = post.title || '';
-  if (heroSubtitle) heroSubtitle.textContent = post.brief || '';
+  if (heroSubtitle) heroSubtitle.textContent = excerpt;
 
-  // Hashnode returns ready HTML — inject mid-post CTA after 3rd paragraph
-  var rawHtml  = (post.content && post.content.html) || '';
+  var rawHtml  = portableToHtml(post.body);
   var pCount   = 0;
   var bodyHtml = rawHtml.replace(/<\/p>/gi, function(m) {
     pCount++;
     return m + (pCount === 3 ? _postCta() : '');
   });
 
-  // Category tag
-  var category = post.tags && post.tags[0] ? post.tags[0].name : null;
-  var tagHtml  = category
-    ? '<div class="post-tags"><span class="post-tag">' + esc(category) + '</span></div>'
-    : '';
+  var headings = extractHeadings(post.body);
+  headings.forEach(function(h) {
+    var re = new RegExp('(<h[23]>)(' + h.text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')(</h[23]>)');
+    bodyHtml = bodyHtml.replace(re, '<' + h.level + '><span id="' + h.id + '">' + esc(h.text) + '</span></' + h.level + '>');
+  });
 
-  // Cover image
-  var coverHtml = post.coverImage
-    ? '<div class="post-cover"><img src="' + post.coverImage.url + '" alt="' + esc(post.title||'') + '" loading="eager"></div>'
-    : '';
+  var tocHtml = '';
+  if (headings.length > 1) {
+    var items = headings.map(function(h) {
+      return '<li><a href="#' + h.id + '">' + esc(h.text) + '</a></li>';
+    }).join('');
+    tocHtml = '<div class="post-sidebar-section"><div class="post-sidebar-label">In This Article</div><ul class="post-toc">' + items + '</ul></div>';
+  }
 
-  // Related posts sidebar
   var relHtml = '';
   if (related.length) {
     var relCards = related.map(function(r) {
-      var thumb = r.coverImage ? r.coverImage.url : null;
-      var href  = 'journal.html?slug=' + encodeURIComponent(r.slug||'');
-      return [
-        '<div class="post-related-card" role="link" tabindex="0"',
-        '  onclick="location.href=\'' + href + '\'"',
-        '  onkeydown="if(event.key===\'Enter\')location.href=\'' + href + '\'">',
-        '  <div class="post-related-thumb">',
-        (thumb ? '<img src="' + thumb + '" alt="' + esc(r.title||'') + '" loading="lazy">'
-               : '<div style="width:100%;height:100%;background:#0d1a19;"></div>'),
-        '  </div>',
-        '  <div class="post-related-info">',
-        '    <div class="post-related-title">' + esc(r.title||'') + '</div>',
-        '    <time class="post-related-date" datetime="' + esc(r.publishedAt||'') + '">' + fmtDate(r.publishedAt) + '</time>',
-        '  </div>',
-        '</div>'
-      ].join('');
+      var thumb = imgUrl(r.imageRef, 120, 120);
+      var href  = 'journal.html?slug=' + encodeURIComponent((r.slug && r.slug.current)||'');
+      return '<div class="post-related-card" role="link" tabindex="0" onclick="location.href=\'' + href + '\'" onkeydown="if(event.key===\'Enter\')location.href=\'' + href + '\'">'
+        + '<div class="post-related-thumb">' + (thumb ? '<img src="' + thumb + '" alt="' + esc(r.title||'') + '" loading="lazy">' : '<div style="width:100%;height:100%;background:#0d1a19;"></div>') + '</div>'
+        + '<div class="post-related-info"><div class="post-related-title">' + esc(r.title||'') + '</div>'
+        + '<time class="post-related-date" datetime="' + esc(r.publishedAt||'') + '">' + fmtDate(r.publishedAt) + '</time></div></div>';
     }).join('');
-    relHtml = [
-      '<div class="post-sidebar-section">',
-      '  <div class="post-sidebar-label">Related Articles</div>',
-      relCards,
-      '</div>'
-    ].join('');
+    relHtml = '<div class="post-sidebar-section"><div class="post-sidebar-label">Related Articles</div>' + relCards + '</div>';
   }
+
+  var coverHtml = coverSrc ? '<div class="post-cover"><img src="' + coverSrc + '" alt="' + esc(post.title||'') + '" loading="eager"></div>' : '';
+  var tagHtml   = post.category ? '<div class="post-tags"><span class="post-tag">' + esc(post.category) + '</span></div>' : '';
 
   container.innerHTML = [
     '<a href="journal.html" class="post-back-link">← Back to Journal</a>',
@@ -413,34 +403,41 @@ async function _renderSinglePost(slug) {
     '    <h1 class="post-title">' + esc(post.title||'') + '</h1>',
     '    <div class="post-meta">',
     '      <div class="post-author">',
-    '        <div class="post-author-avatar" aria-hidden="true">' + initials(post.author && post.author.name) + '</div>',
-    '        <span class="post-author-name">' + esc((post.author && post.author.name)||'Travel Readz') + '</span>',
+    '        <div class="post-author-avatar" aria-hidden="true">' + initials(post.authorName) + '</div>',
+    '        <span class="post-author-name">' + esc(post.authorName||'Travel Readz') + '</span>',
     '      </div>',
-    '      <div class="post-meta-sep" aria-hidden="true"></div>',
+    '      <div class="post-meta-sep"></div>',
     '      <time class="post-date" datetime="' + esc(post.publishedAt||'') + '">' + fmtDate(post.publishedAt) + '</time>',
-    '      <div class="post-meta-sep" aria-hidden="true"></div>',
-    '      <span class="post-read-time">' + readTime(post.readTimeInMinutes) + '</span>',
+    '      <div class="post-meta-sep"></div>',
+    '      <span class="post-read-time">' + readTime(plainText) + '</span>',
     '    </div>',
          coverHtml,
     '    <div class="post-body">' + bodyHtml + '</div>',
     '  </article>',
-    '  <aside class="post-sidebar">',
-         relHtml,
-    '  </aside>',
+    '  <aside class="post-sidebar">' + tocHtml + relHtml + '</aside>',
     '</div>'
   ].join('\n');
+
+  if (headings.length > 1) {
+    var tocLinks = container.querySelectorAll('.post-toc a');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(function(a){ a.classList.remove('active'); });
+          var active = container.querySelector('.post-toc a[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    headings.forEach(function(h) {
+      var el = document.getElementById(h.id);
+      if (el) observer.observe(el);
+    });
+  }
 }
 
 function _postCta() {
-  return [
-    '<div class="post-cta-block">',
-    '  <p>Planning a trip to Morocco? The Travel Readz guide has everything —',
-    '    local maps, cultural knowledge, a budget calculator, and direct WhatsApp support.</p>',
-    '  <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="post-cta-btn">',
-    '    Get the Guide →',
-    '  </a>',
-    '</div>'
-  ].join('');
+  return '<div class="post-cta-block"><p>Planning a trip to Morocco? The Travel Readz guide has everything — local maps, cultural knowledge, a budget calculator, and direct WhatsApp support.</p><a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="post-cta-btn">Get the Guide →</a></div>';
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -450,44 +447,15 @@ function _skeletonGrid(n) {
   n = n || 6;
   var cards = '';
   for (var i = 0; i < n; i++) {
-    cards += [
-      '<div class="skeleton-card">',
-      '  <div class="skeleton-img"></div>',
-      '  <div class="skeleton-body">',
-      '    <div class="skeleton-line skeleton-line--short"></div>',
-      '    <div class="skeleton-line skeleton-line--title"></div>',
-      '    <div class="skeleton-line"></div>',
-      '    <div class="skeleton-line"></div>',
-      '    <div class="skeleton-line skeleton-line--short"></div>',
-      '  </div>',
-      '</div>'
-    ].join('');
+    cards += '<div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line skeleton-line--short"></div><div class="skeleton-line skeleton-line--title"></div><div class="skeleton-line"></div><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div></div>';
   }
   return '<div class="journal-skeleton-grid">' + cards + '</div>';
 }
 
 function _skeletonPost() {
-  return [
-    '<div style="max-width:760px;margin:0 auto;">',
-    '  <div class="skeleton-line" style="width:120px;height:12px;margin-bottom:40px;"></div>',
-    '  <div class="skeleton-line skeleton-line--short" style="margin-bottom:16px;"></div>',
-    '  <div class="skeleton-line skeleton-line--title" style="height:38px;margin-bottom:24px;"></div>',
-    '  <div class="skeleton-line" style="width:55%;margin-bottom:40px;"></div>',
-    '  <div class="skeleton-img" style="aspect-ratio:16/9;margin-bottom:48px;"></div>',
-    '  <div class="skeleton-line"></div>',
-    '  <div class="skeleton-line"></div>',
-    '  <div class="skeleton-line"></div>',
-    '  <div class="skeleton-line skeleton-line--short"></div>',
-    '</div>'
-  ].join('');
+  return '<div style="max-width:760px;margin:0 auto;"><div class="skeleton-line" style="width:120px;height:12px;margin-bottom:40px;"></div><div class="skeleton-line skeleton-line--short" style="margin-bottom:16px;"></div><div class="skeleton-line skeleton-line--title" style="height:38px;margin-bottom:24px;"></div><div class="skeleton-line" style="width:55%;margin-bottom:40px;"></div><div class="skeleton-img" style="aspect-ratio:16/9;margin-bottom:48px;"></div><div class="skeleton-line"></div><div class="skeleton-line"></div><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div>';
 }
 
 function _emptyState(icon, title, msg) {
-  return [
-    '<div class="journal-empty">',
-    '  <div class="journal-empty-icon" aria-hidden="true">' + icon + '</div>',
-    '  <h3>' + esc(title) + '</h3>',
-    '  <p>' + esc(msg) + '</p>',
-    '</div>'
-  ].join('');
+  return '<div class="journal-empty"><div class="journal-empty-icon" aria-hidden="true">' + icon + '</div><h3>' + esc(title) + '</h3><p>' + esc(msg) + '</p></div>';
 }
