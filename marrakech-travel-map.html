@@ -1,515 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Readz | Marrakech Travel Map Guide</title>
-  <meta name="description" content="Hand-picked attractions, hidden gems, riads, restaurants, and local tips — all saved directly to Google Maps for your Marrakech adventure.">
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* ════════════════════════════════════════════
-       MAPS PAGE — CUSTOM STYLES
-    ════════════════════════════════════════════ */
-
-    /* ── Split Hero ── */
-    .maps-hero {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Readz | Private Travel Assistance</title>
+    <meta name="description" content="Structured private travel assistance for verified Travel Readz guide buyers. Expert Morocco guidance — available exclusively to guide purchasers.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+    /* ══════════════════════════════════════════
+       CUSTOM SPLIT HERO — Private Assistance
+    ══════════════════════════════════════════ */
+    .pta-hero {
       position: relative;
       background: #071918;
-      min-height: 600px;
+      min-height: 620px;
       display: flex;
       align-items: stretch;
       overflow: hidden;
+      padding: 0;
     }
-    .maps-hero-bg {
-      position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
+
+    /* deep zellige geometry layer */
+    .pta-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.045)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
-    .maps-hero-glow {
-      position: absolute; top: -10%; right: -5%;
-      width: 55%; height: 120%;
+
+    /* warm glow from right */
+    .pta-hero-glow {
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 120%;
       background: radial-gradient(ellipse 60% 70% at 70% 40%,
-        rgba(200,134,58,0.08) 0%, rgba(19,58,56,0.15) 45%, transparent 70%);
+        rgba(200,134,58,0.09) 0%,
+        rgba(19,58,56,0.18) 45%,
+        transparent 70%);
       pointer-events: none;
     }
-    .maps-hero-rule {
-      position: absolute; top: 0; bottom: 0; left: 50%;
+
+    /* thin gold diagonal rule */
+    .pta-hero-rule {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
       width: 1px;
       background: linear-gradient(to bottom,
-        transparent 0%, rgba(200,169,110,0.12) 20%,
-        rgba(200,169,110,0.22) 50%, rgba(200,169,110,0.12) 80%, transparent 100%);
+        transparent 0%,
+        rgba(200,169,110,0.15) 20%,
+        rgba(200,169,110,0.25) 50%,
+        rgba(200,169,110,0.15) 80%,
+        transparent 100%);
       transform: skewX(-3deg);
       pointer-events: none;
     }
-    .maps-hero-inner {
-      position: relative; z-index: 2;
-      width: 100%; max-width: 1200px;
-      margin: 0 auto; padding: 0 40px;
+
+    .pta-hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 64px;
-      min-height: 600px;
+      min-height: 620px;
     }
 
-    /* Left text */
-    .maps-hero-left { padding: 88px 0; }
+    /* LEFT — text */
+    .pta-hero-left {
+      padding: 80px 0;
+    }
 
-    .maps-hero-credential {
-      display: inline-flex; align-items: center; gap: 9px;
+    .pta-hero-credential {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
       background: rgba(200,169,110,0.07);
       border: 1px solid rgba(200,169,110,0.2);
       padding: 7px 16px 7px 12px;
       margin-bottom: 28px;
     }
-    .maps-hero-credential-dot {
-      width: 6px; height: 6px; border-radius: 50%;
+    .pta-hero-credential-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
       background: #c8863a;
       box-shadow: 0 0 6px rgba(200,134,58,0.6);
-      animation: mapsPulse 2.2s ease-in-out infinite;
+      animation: ptaPulse 2.2s ease-in-out infinite;
     }
-    @keyframes mapsPulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:0.5; transform:scale(0.85); }
+    @keyframes ptaPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
     }
-    .maps-hero-credential span {
-      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e;
+    .pta-hero-credential span {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8a96e;
     }
 
-    .maps-hero-title {
+    .pta-hero-title {
       font-family: var(--serif);
-      font-size: clamp(2.2rem, 3.8vw, 3.1rem);
-      font-weight: 300; color: #e8dcc8;
-      line-height: 1.18; margin-bottom: 22px;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: #e8dcc8;
+      line-height: 1.18;
+      margin-bottom: 22px;
     }
-    .maps-hero-title em { font-style: italic; color: #c8a96e; display: block; }
+    .pta-hero-title em {
+      font-style: italic;
+      color: #c8a96e;
+      display: block;
+    }
 
-    .maps-hero-desc {
-      font-size: 0.9rem; font-weight: 300;
+    .pta-hero-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
       color: rgba(232,220,200,0.5);
-      line-height: 1.85; margin-bottom: 36px; max-width: 420px;
+      line-height: 1.85;
+      margin-bottom: 36px;
+      max-width: 420px;
     }
 
-    .maps-hero-tags {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px;
+    .pta-hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
     }
-    .maps-hero-tag {
-      font-family: var(--sans); font-size: 0.62rem; font-weight: 500;
-      letter-spacing: 0.1em; color: rgba(200,169,110,0.6);
+    .pta-hero-tag {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(200,169,110,0.6);
       background: rgba(200,169,110,0.05);
       border: 1px solid rgba(200,169,110,0.12);
       padding: 5px 12px;
     }
 
-    .maps-hero-cta-group { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
-
-    .maps-hero-cta-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #c8863a; color: #fff;
-      font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      text-decoration: none; padding: 14px 28px;
+    .pta-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #c8863a;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
       transition: all 0.3s ease;
     }
-    .maps-hero-cta-primary:hover { background: #c8a96e; gap: 16px; color: #fff; }
-
-    .maps-hero-cta-free {
-      font-family: var(--sans); font-size: 0.72rem; font-weight: 300;
-      color: rgba(200,169,110,0.4); letter-spacing: 0.06em;
-      padding-top: 4px;
+    .pta-hero-cta:hover {
+      background: #c8a96e;
+      gap: 16px;
+      color: #fff;
+    }
+    .pta-hero-cta-note {
+      margin-top: 14px;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(200,169,110,0.35);
+      letter-spacing: 0.04em;
     }
 
-    /* Right image */
-    .maps-hero-right {
-      position: relative; display: flex;
-      align-items: center; justify-content: center;
+    /* RIGHT — image */
+    .pta-hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 60px 0;
     }
-    .maps-hero-img-wrap {
+
+    .pta-hero-img-wrap {
       position: relative;
     }
-    .maps-hero-img-wrap::before,
-    .maps-hero-img-wrap::after {
-      content: ''; position: absolute;
+    /* corner accent lines */
+    .pta-hero-img-wrap::before,
+    .pta-hero-img-wrap::after {
+      content: '';
+      position: absolute;
       width: 40px; height: 40px;
-      border-color: rgba(200,169,110,0.28); border-style: solid;
+      border-color: rgba(200,169,110,0.3);
+      border-style: solid;
     }
-    .maps-hero-img-wrap::before { top: -12px; left: -12px; border-width: 1px 0 0 1px; }
-    .maps-hero-img-wrap::after  { bottom: -12px; right: -12px; border-width: 0 1px 1px 0; }
+    .pta-hero-img-wrap::before {
+      top: -12px; left: -12px;
+      border-width: 1px 0 0 1px;
+    }
+    .pta-hero-img-wrap::after {
+      bottom: -12px; right: -12px;
+      border-width: 0 1px 1px 0;
+    }
 
-    .maps-hero-img-glow {
-      position: absolute; inset: -30px;
+    .pta-hero-img-glow {
+      position: absolute;
+      inset: -30px;
       background: radial-gradient(ellipse 70% 60% at 50% 50%,
-        rgba(200,134,58,0.1) 0%, transparent 65%);
+        rgba(200,134,58,0.12) 0%,
+        transparent 65%);
       pointer-events: none;
     }
-    .maps-hero-img-wrap img {
-      width: 100%; max-width: 340px; display: block;
-      position: relative; z-index: 1;
+
+    .pta-hero-img-wrap img {
+      width: 100%;
+      max-width: 360px;
+      display: block;
+      position: relative;
+      z-index: 1;
       filter: drop-shadow(0 20px 48px rgba(0,0,0,0.5));
     }
 
-    /* Floating stat card */
-    .maps-hero-stat {
-      position: absolute; bottom: 52px; left: -24px;
+    /* floating stat card */
+    .pta-hero-stat {
+      position: absolute;
+      bottom: 48px;
+      left: -20px;
       background: rgba(7,25,24,0.92);
       border: 1px solid rgba(200,169,110,0.2);
       border-left: 3px solid #c8863a;
-      padding: 16px 22px; backdrop-filter: blur(8px); z-index: 3;
+      padding: 16px 22px;
+      backdrop-filter: blur(8px);
+      z-index: 3;
     }
-    .maps-hero-stat-num {
-      font-family: var(--serif); font-size: 1.6rem; font-weight: 300;
-      color: #c8a96e; line-height: 1;
+    .pta-hero-stat-num {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #c8a96e;
+      line-height: 1;
     }
-    .maps-hero-stat-label {
-      font-family: var(--sans); font-size: 0.6rem; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(232,220,200,0.4); margin-top: 4px;
+    .pta-hero-stat-label {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(232,220,200,0.4);
+      margin-top: 4px;
     }
 
-    /* Verified badge */
-    .maps-hero-verified {
-      position: absolute; top: 56px; right: -18px;
+    /* verified badge floating */
+    .pta-hero-verified {
+      position: absolute;
+      top: 52px;
+      right: -16px;
       background: rgba(7,25,24,0.92);
       border: 1px solid rgba(200,169,110,0.18);
       padding: 10px 16px;
-      display: flex; align-items: center; gap: 8px;
-      backdrop-filter: blur(8px); z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(8px);
+      z-index: 3;
     }
-    .maps-hero-verified svg { width: 13px; height: 13px; fill: #c8863a; flex-shrink: 0; }
-    .maps-hero-verified span {
-      font-family: var(--sans); font-size: 0.58rem; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase; color: #c8a96e;
+    .pta-hero-verified svg {
+      width: 14px; height: 14px;
+      fill: #c8863a; flex-shrink: 0;
+    }
+    .pta-hero-verified span {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c8a96e;
     }
 
-    /* ── SECTION BASE ── */
-    .maps-section { padding: 100px 0; }
-    .maps-section-dark {
-      background: #0d1a19;
-      position: relative; overflow: hidden;
+    /* mobile hero */
+    @media (max-width: 900px) {
+      .pta-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+        min-height: auto;
+        padding: 0 24px;
+      }
+      .pta-hero-left { padding: 64px 0 32px; }
+      .pta-hero-right { padding: 0 0 64px; }
+      .pta-hero-rule { display: none; }
+      .pta-hero-stat { left: 0; bottom: 72px; }
+      .pta-hero-verified { right: 0; top: 16px; }
+      .pta-hero { min-height: auto; }
     }
-    .maps-section-dark::before {
+       /* mobile hero */
+       @media (max-width: 768px) {
+      .pta-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+        min-height: auto;
+        padding: 0 24px;
+      }
+      .pta-hero-left {  flex-direction: column;
+        text-align: center; padding: 64px 0 32px;text-align: center; }
+      .pta-hero-right { padding: 0 0 64px;text-align: center; }
+      .pta-hero-rule { display: none; text-align: center;}
+      .pta-hero-stat { left: 0; bottom: 72px; text-align: center;}
+      .pta-hero-verified { right: 0; top: 16px;text-align: center; }
+      .pta-hero { min-height: auto; text-align: center;}
+      .pta-hero-tags {
+        text-align: center;
+        position: relative;
+        left: 12.5%;
+      }
+    }
+
+    /* ── PRIVATE ASSISTANCE BLOCK ── */
+    .pta-block {
+      position: relative;
+      background: #0d1f1e;
+      border: 1px solid rgba(200,169,110,0.18);
+      border-left: 4px solid #c8863a;
+      padding: 56px 52px;
+      overflow: hidden;
+      margin: 80px 0;
+    }
+    .pta-block::before {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
-    .maps-section-dark::after {
+    .pta-block::after {
       content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(200,134,58,0.07) 0%, transparent 70%);
+      position: absolute;
+      top: 0; right: 0;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle at top right, rgba(200,134,58,0.06) 0%, transparent 65%);
       pointer-events: none;
     }
-    .maps-section-dark .container { position: relative; z-index: 1; }
-
-    /* ── SECTION HEADER ── */
-    .maps-section-header {
-      text-align: center; margin-bottom: 68px;
-    }
-    .maps-eyebrow {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      color: #c8863a; margin-bottom: 18px;
-    }
-    .maps-eyebrow::before, .maps-eyebrow::after {
-      content: ''; display: block; width: 24px; height: 1px; background: #c8863a;
-    }
-    .maps-section-title {
-      font-family: var(--serif);
-      font-size: clamp(1.9rem, 3vw, 2.8rem);
-      font-weight: 300; line-height: 1.2; margin-bottom: 14px;
-    }
-    .maps-section-title.light { color: #e8dcc8; }
-    .maps-section-title.light em { color: #c8a96e; font-style: italic; }
-    .maps-section-title.dark  { color: var(--tile); }
-    .maps-section-title.dark  em { color: var(--ochre); font-style: italic; }
-    .maps-section-subtitle {
-      font-size: 0.92rem; font-weight: 300;
-      color: rgba(232,220,200,0.45);
-      line-height: 1.85; max-width: 520px; margin: 0 auto;
-    }
-    .maps-section-subtitle.ink { color: var(--smoke); }
-
-    /* ── FEATURES GRID ── */
-    .maps-features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 2px;
-    }
-    .maps-feature-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(200,169,110,0.1);
-      padding: 48px 36px;
-      position: relative; overflow: hidden;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .maps-feature-card:hover {
-      background: rgba(200,134,58,0.05);
-      border-color: rgba(200,169,110,0.22);
-    }
-    .maps-feature-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #c8863a, transparent);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .maps-feature-card:hover::before { opacity: 1; }
-    .maps-feature-num {
-      font-family: var(--serif); font-size: 3rem; font-weight: 300;
-      color: rgba(200,169,110,0.08); line-height: 1; margin-bottom: 20px;
-    }
-    .maps-feature-icon { font-size: 2rem; margin-bottom: 18px; display: block; }
-    .maps-feature-card h3 {
-      font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
-      color: #e8dcc8; margin-bottom: 12px;
-    }
-    .maps-feature-card p {
-      font-size: 0.88rem; font-weight: 300;
-      color: rgba(232,220,200,0.45); line-height: 1.8;
-    }
-
-    /* ── WHAT'S INCLUDED BLOCK ── */
-    .maps-included-block {
-      background: rgba(200,134,58,0.05);
-      border: 1px solid rgba(200,169,110,0.15);
-      border-left: 4px solid #c8863a;
-      padding: 52px 52px;
+    .pta-block-inner {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 52px;
-      position: relative; overflow: hidden;
+      gap: 64px;
+      align-items: start;
     }
-    .maps-included-block::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 50% 80% at 100% 50%, rgba(200,134,58,0.05) 0%, transparent 70%);
-      pointer-events: none;
+    
+    .pta-block-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8863a;
+      margin-bottom: 20px;
     }
-    .maps-included-left, .maps-included-right { position: relative; z-index: 1; }
-
-    .maps-included-eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: #c8863a; margin-bottom: 20px;
+    .pta-block-eyebrow svg {
+      width: 14px; height: 14px;
+      fill: #c8863a;
     }
-    .maps-included-eyebrow svg { width: 14px; height: 14px; fill: #c8863a; }
-
-    .maps-included-title {
-      font-family: var(--serif); font-size: 1.8rem; font-weight: 300;
-      color: #e8dcc8; line-height: 1.25; margin-bottom: 16px;
+    .pta-block-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: #e8dcc8;
+      line-height: 1.25;
+      margin-bottom: 20px;
     }
-    .maps-included-title em { font-style: italic; color: #c8a96e; }
-    .maps-included-desc {
-      font-size: 0.88rem; font-weight: 300;
-      color: rgba(232,220,200,0.45); line-height: 1.85; margin-bottom: 28px;
+    .pta-block-title em {
+      font-style: italic;
+      color: #c8a96e;
     }
-    .maps-note {
-      background: rgba(7,25,24,0.6);
-      border: 1px solid rgba(200,169,110,0.12);
-      padding: 16px 20px;
-      font-size: 0.8rem; font-weight: 300;
-      color: rgba(200,169,110,0.45); line-height: 1.7;
-    }
-
-    .maps-list-label {
-      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(200,169,110,0.4); margin-bottom: 20px;
-    }
-    .maps-checklist { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .maps-checklist li {
-      display: flex; align-items: flex-start; gap: 14px;
-      font-size: 0.88rem; font-weight: 300;
-      color: rgba(232,220,200,0.7); line-height: 1.6;
-    }
-    .maps-check {
-      width: 22px; height: 22px; flex-shrink: 0;
-      background: rgba(200,134,58,0.15);
-      border: 1px solid rgba(200,134,58,0.3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.7rem; color: #c8863a; margin-top: 1px;
+    .pta-block-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(232,220,200,0.55);
+      line-height: 1.8;
+      margin-bottom: 28px;
     }
 
-    /* ── REVIEWS ── */
-    .maps-reviews-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 24px;
+    /* exclusivity pill */
+    .pta-exclusivity {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,134,58,0.08);
+      border: 1px solid rgba(200,134,58,0.2);
+      padding: 9px 18px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #c8863a;
+      letter-spacing: 0.04em;
     }
-    .maps-review-card {
+    .pta-exclusivity::before {
+      content: '◆';
+      font-size: 0.5rem;
+    }
+
+    /* right: features */
+   
+    .pta-features-label {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(200,169,110,0.5);
+      margin-bottom: 20px;
+    }
+    .pta-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+    }
+    .pta-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(200,169,110,0.07);
+      font-size: 0.88rem;
+      color: rgba(232,220,200,0.75);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .pta-features-list li:last-child { border-bottom: none; }
+    .pta-check {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: rgba(200,134,58,0.12);
+      border: 1px solid rgba(200,134,58,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #c8863a;
+      margin-top: 2px;
+    }
+
+    /* constraints block */
+    .pta-constraints {
+      background: rgba(200,169,110,0.04);
+      border: 1px solid rgba(200,169,110,0.1);
+      border-left: 3px solid rgba(200,169,110,0.3);
+      padding: 20px 22px;
+      margin-bottom: 24px;
+    }
+    .pta-constraints p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(232,220,200,0.45);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .pta-constraints strong {
+      color: rgba(232,220,200,0.65);
+      font-weight: 500;
+    }
+
+    /* upgrade note */
+    .pta-upgrade-note {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(200,169,110,0.35);
+      font-style: italic;
+      letter-spacing: 0.02em;
+      padding-top: 20px;
+      border-top: 1px solid rgba(200,169,110,0.08);
+    }
+
+    /* ── HOW IT WORKS ── */
+    .step-card {
       background: var(--cream);
       border: 1px solid var(--border);
-      border-top: 3px solid var(--gold);
-      padding: 40px 36px;
-      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-top-color 0.35s;
-    }
-    .maps-review-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(30,48,64,0.1);
-      border-top-color: var(--ochre);
-    }
-    .maps-review-quote {
-      font-family: var(--serif); font-size: 5rem;
-      color: var(--ochre); opacity: 0.2; line-height: 0.8;
-      margin-bottom: 16px;
-    }
-    .maps-review-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 14px; }
-    .maps-review-text {
-      font-family: var(--serif); font-size: 1.05rem; font-weight: 300;
-      font-style: italic; color: var(--ink); line-height: 1.75; margin-bottom: 24px;
-    }
-    .maps-review-author {
-      display: flex; align-items: center; gap: 14px;
-      padding-top: 18px; border-top: 1px solid var(--border);
-    }
-    .maps-review-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--tile); color: var(--gold-light);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 0.9rem; font-weight: 300;
-      border: 1px solid var(--border-mid); flex-shrink: 0;
-    }
-    .maps-review-name { font-weight: 600; font-size: 0.88rem; color: var(--tile); margin-bottom: 3px; }
-    .maps-review-role { font-size: 0.75rem; font-weight: 300; color: var(--smoke); }
-
-    /* ── BONUS CARDS ── */
-    .maps-bonus-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-    }
-    .maps-bonus-card {
-      background: var(--sand-light);
-      border: 1px solid var(--border);
-      padding: 36px 28px; text-align: center;
+      border-left: 4px solid #c8863a;
+      padding: 44px 36px;
       position: relative;
       transition: all 0.35s var(--ease);
     }
-    .maps-bonus-card::after {
-      content: ''; position: absolute; inset: -1px;
-      border: 1px solid var(--ochre); opacity: 0; transition: opacity 0.35s;
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+      border-left-color: #c8a96e;
     }
-    .maps-bonus-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(30,48,64,0.1); }
-    .maps-bonus-card:hover::after { opacity: 1; }
-    .maps-bonus-value {
-      position: absolute; top: 14px; right: 14px;
-      background: var(--ochre); color: var(--cream);
-      padding: 4px 12px; font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-    }
-    .maps-bonus-card img {
-      border-radius: 3px; margin: 0 auto 20px;
-      max-width: 190px; display: block;
-    }
-    .maps-bonus-card h3 {
-      font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
-      color: var(--tile); margin-bottom: 10px;
-    }
-    .maps-bonus-card p {
-      color: var(--smoke); font-size: 0.88rem; font-weight: 300;
-      line-height: 1.75; margin-bottom: 18px;
-    }
-    .maps-bonus-link {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
-      color: var(--ochre); display: inline-flex; align-items: center; gap: 6px;
-      transition: gap 0.3s, color 0.3s;
-    }
-    .maps-bonus-link:hover { gap: 12px; color: var(--ochre-deep); }
-
-    /* ── FINAL CTA ── */
-    .maps-final-cta {
-      background: #071918;
-      padding: 120px 0;
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .maps-final-cta::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 50% 60% at 50% 100%, rgba(200,134,58,0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .maps-final-cta::after {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-    .maps-final-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 0 24px; }
-    .maps-final-eyebrow {
-      display: inline-flex; align-items: center; gap: 14px;
-      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      color: #c8a96e; margin-bottom: 28px;
-    }
-    .maps-final-eyebrow::before, .maps-final-eyebrow::after {
-      content: ''; display: block; width: 28px; height: 1px; background: #c8863a;
-    }
-    .maps-final-title {
+    .step-number {
+      position: absolute;
+      top: -18px; left: 24px;
+      background: linear-gradient(135deg, #c8863a, #c8a96e);
+      color: #fff;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: var(--serif);
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 300; color: #e8dcc8; line-height: 1.2; margin-bottom: 18px;
+      font-size: 1.25rem;
+      font-weight: 300;
+      box-shadow: 0 4px 16px rgba(200,134,58,0.25);
     }
-    .maps-final-title em { font-style: italic; color: #c8a96e; }
-    .maps-final-sub {
-      font-size: 0.9rem; font-weight: 300;
-      color: rgba(232,220,200,0.4); line-height: 1.85; margin-bottom: 44px;
+    .step-card h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--tile);
+      margin: 20px 0 12px;
     }
-    .maps-final-cta-btn {
-      display: inline-flex; align-items: center; gap: 12px;
-      background: #c8863a; color: #fff;
-      font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      text-decoration: none; padding: 16px 36px;
-      transition: all 0.35s; margin-bottom: 12px;
+    .step-card p {
+      color: var(--smoke);
+      font-weight: 300;
+      line-height: 1.78;
+      font-size: 0.88rem;
     }
-    .maps-final-cta-btn:hover { background: #c8a96e; gap: 18px; color: #fff; }
-    .maps-final-note {
-      display: block; font-size: 0.72rem; font-weight: 300;
-      color: rgba(200,169,110,0.3); letter-spacing: 0.06em; margin-top: 14px;
-    }
-    .maps-final-trust {
-      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
-      margin-top: 36px;
-      font-family: var(--sans); font-size: 0.68rem; font-weight: 400;
-      color: rgba(200,169,110,0.3); letter-spacing: 0.08em;
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
     }
 
-    /* ── MOBILE ── */
-    @media (max-width: 900px) {
-      .maps-hero-inner {
-        grid-template-columns: 1fr;
-        gap: 0; min-height: auto;
-        padding: 0 24px;
-      }
-      .maps-hero-left { padding: 72px 0 32px; }
-      .maps-hero-right { padding: 0 0 72px; }
-      .maps-hero-rule { display: none; }
-      .maps-hero-stat { left: 0; bottom: 80px; }
-      .maps-hero-verified { right: 0; top: 20px; }
-      .maps-hero { min-height: auto; }
-      .maps-included-block { grid-template-columns: 1fr; gap: 36px; padding: 36px 28px; }
-      .maps-reviews-grid { grid-template-columns: 1fr; }
+    /* ── COVERAGE ── */
+    .coverage-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 5px solid rgba(200,134,58,0.4);
+      padding: 40px 32px;
+      transition: all 0.35s var(--ease);
+    }
+    .coverage-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.07);
+      border-left-color: #c8863a;
+    }
+    .coverage-card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--tile);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .coverage-icon { font-size: 1.6rem; }
+    .coverage-card ul {
+      list-style: none;
+      padding: 0; margin: 0;
+    }
+    .coverage-card li {
+      color: var(--smoke);
+      padding: 9px 0 9px 28px;
+      position: relative;
+      line-height: 1.6;
+      font-size: 0.88rem;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .coverage-card li:last-child { border-bottom: none; }
+    .coverage-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #c8863a;
+      font-weight: 700;
+    }
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── FEATURE ROW reuse ── */
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1080px) {
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .pta-block-inner { grid-template-columns: 1fr; gap: 40px; }
+      .pta-block { padding: 44px 32px; }
     }
     @media (max-width: 768px) {
-      .maps-section { padding: 72px 0; }
-      .maps-features-grid { grid-template-columns: 1fr; gap: 1px; }
-      .maps-bonus-grid { grid-template-columns: 1fr; }
-      .maps-final-trust { flex-direction: column; align-items: center; gap: 10px; }
-    }
-  </style>
+      .steps-grid { grid-template-columns: 1fr; }
+      .coverage-grid { grid-template-columns: 1fr; }
+      .feature-row { grid-template-columns: 1fr; }
+      .pta-block { padding: 36px 24px; }
+      .pta-block-title { font-size: 1.6rem; }
+      .nav-container {
+    position: relative; }  /* add this */
+    .nav-center-stack {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    
+  }
+  }
+    
+    </style>
 </head>
+
 <body>
 
-<!-- NAV — matches index.html exactly -->
+<!-- NAVIGATION -->
 <nav class="main-nav" id="main-nav">
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
@@ -548,62 +653,61 @@
   </div>
 </nav>
 
+<!-- PAGE HERO — Split Layout -->
+<section class="pta-hero">
+  <div class="pta-hero-bg"></div>
+  <div class="pta-hero-glow"></div>
+  <div class="pta-hero-rule"></div>
 
-<!-- HERO — Split Layout -->
-<section class="maps-hero">
-  <div class="maps-hero-bg"></div>
-  <div class="maps-hero-glow"></div>
-  <div class="maps-hero-rule"></div>
+  <div class="pta-hero-inner">
 
-  <div class="maps-hero-inner">
-
-    <!-- LEFT -->
-    <div class="maps-hero-left">
-      <div class="maps-hero-credential">
-        <span class="maps-hero-credential-dot"></span>
-        <span data-translate="maps.hero.badge">🗺️ Interactive Travel Guide</span>
+    <!-- LEFT: Text -->
+    <div class="pta-hero-left">
+      <div class="pta-hero-credential">
+        <span class="pta-hero-credential-dot"></span>
+        <span data-translate="whatsapp.hero.badge">Guide Buyers Only</span>
       </div>
 
-      <h1 class="maps-hero-title" data-translate="maps.hero.title">
-        Marrakech
-        <em>Travel Map Guide</em>
+      <h1 class="pta-hero-title" data-translate="whatsapp.hero.title">
+        Private Travel
+        <em>Assistance</em>
       </h1>
 
-      <p class="maps-hero-desc" data-translate="maps.hero.subtitle">
-        Hand-picked attractions, hidden gems, riads, restaurants, and local tips — all saved directly to Google Maps for your Marrakech adventure.
+      <p class="pta-hero-desc" data-translate="whatsapp.hero.desc">
+        Structured, expert guidance for verified guide buyers — helping you avoid costly mistakes and navigate Morocco with confidence.
       </p>
 
-      <div class="maps-hero-tags">
-        <span class="maps-hero-tag">📍 100+ Pinned Spots</span>
-        <span class="maps-hero-tag">💎 Hidden Gems</span>
-        <span class="maps-hero-tag">🍽️ Local Eats</span>
-        <span class="maps-hero-tag">🏨 Riad Picks</span>
+      <div class="pta-hero-tags">
+        <span class="pta-hero-tag" data-translate="pta.hero.tag1">&#10004; Up to 3 Questions</span>
+        <span class="pta-hero-tag" data-translate="pta.hero.tag2">&#10004; 24-48h Response</span>
+        <span class="pta-hero-tag" data-translate="pta.hero.tag3">&#10004; Verified Buyers Only</span>
+        <span class="pta-hero-tag" data-translate="pta.hero.tag4">&#10004; Local Expert</span>
       </div>
 
-      <div class="maps-hero-cta-group">
-        <a href="https://travelreadz.gumroad.com/l/Marrakech-Map-Guide?wanted=true" class="maps-hero-cta-primary" data-translate="maps.hero.cta">
-          Buy Individually — $5
-          <span>→</span>
-        </a>
-        <div class="maps-hero-cta-free" data-translate="maps.hero.freeNote">✦ Included free with every Travel Readz guide purchase</div>
-      </div>
+      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="pta-hero-cta" id="hero-cta-btn">
+        <span data-translate="pta.hero.cta">Unlock Access — $9.99</span>
+        <span>&rarr;</span>
+      </a>
+      <div class="pta-hero-cta-note" data-translate="pta.hero.ctaNote">&#10086; Included free with every guide purchase</div>
     </div>
 
-    <!-- RIGHT -->
-    <div class="maps-hero-right">
-      <div class="maps-hero-img-wrap">
-        <div class="maps-hero-img-glow"></div>
+    <!-- RIGHT: Image -->
+    <div class="pta-hero-right">
+      <div class="pta-hero-img-wrap">
+        <div class="pta-hero-img-glow"></div>
         <img
-          src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568882/Untitled_design_9_hljh1y.png"
-          alt="Marrakech Maps Guide"
+          src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png"
+          alt="Private Travel Assistance"
         >
-        <div class="maps-hero-stat">
-          <div class="maps-hero-stat-num">100+</div>
-          <div class="maps-hero-stat-label" data-translate="maps.hero.statLabel">Pinned Locations</div>
+        <!-- floating stat -->
+        <div class="pta-hero-stat">
+          <div class="pta-hero-stat-num">24h</div>
+          <div class="pta-hero-stat-label" data-translate="pta.hero.statLabel">Avg. Response Time</div>
         </div>
-        <div class="maps-hero-verified">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-          <span data-translate="maps.hero.verified">Local Expert Curated</span>
+        <!-- verified badge -->
+        <div class="pta-hero-verified">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="#c8863a"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span data-translate="pta.hero.verified">Verified Buyers Only</span>
         </div>
       </div>
     </div>
@@ -612,150 +716,217 @@
 </section>
 
 
-<!-- FEATURES -->
-<section class="maps-section maps-section-dark">
-  <div class="container">
-    <div class="maps-section-header reveal">
-      <div class="maps-eyebrow" data-translate="maps.features.eyebrow">What You Get</div>
-      <h2 class="maps-section-title light" data-translate="maps.features.title">Everything to Navigate <em>Like a Local</em></h2>
-      <p class="maps-section-subtitle" data-translate="maps.features.subtitle">This guide includes everything you need to explore Marrakech confidently — from hidden alleys to the best mint tea in the medina.</p>
-    </div>
 
-    <div class="maps-features-grid reveal">
-      <div class="maps-feature-card">
-        <div class="maps-feature-num">01</div>
-        <span class="maps-feature-icon">🗺️</span>
-        <h3 data-translate="maps.features.card1.title">Curated Google Maps</h3>
-        <p data-translate="maps.features.card1.desc">Every recommended spot pre-pinned and organized by category — open on your phone and navigate instantly.</p>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PRIVATE TRAVEL ASSISTANCE BLOCK — Premium Section
+  ════════════════════════════════════════════════════════ -->
+  <div class="pta-block reveal">
+    <div class="pta-block-inner">
+
+      <!-- LEFT: Positioning -->
+      <div class="pta-block-left">
+        <div class="pta-block-eyebrow">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span data-translate="pta.block.eyebrow">Private Travel Assistance</span>
+        </div>
+        <h2 class="pta-block-title" data-translate="pta.block.title">Structured Guidance.<br><em>Reserved for Buyers.</em></h2>
+        <p class="pta-block-desc" data-translate="pta.block.desc">This is not a public support channel. Verified guide buyers receive limited, structured assistance to clarify travel doubts, avoid common mistakes, and make the most of their Morocco trip — delivered by a local expert who wrote the guide.</p>
+
+        <div class="pta-exclusivity" data-translate="pta.block.exclusivity">Available to a limited number of buyers per month</div>
+
+        <div style="margin-top: 28px;">
+          <div class="pta-constraints">
+            <p>
+              <span data-translate="pta.block.constraint1"><strong>This is structured assistance — not unlimited consulting.</strong> Each buyer receives a defined number of questions, addressed within a set response window. This keeps the quality of every response high and the advice genuinely useful.</span>
+            </p>
+          </div>
+
+          <div class="pta-upgrade-note" data-translate="pta.block.upgradeNote">Note: Future versions of this guide may include private assistance as a paid upgrade. Current buyers receive it complimentary.</div>
+        </div>
       </div>
-      <div class="maps-feature-card">
-        <div class="maps-feature-num">02</div>
-        <span class="maps-feature-icon">💎</span>
-        <h3 data-translate="maps.features.card2.title">Hidden Gems Only Locals Know</h3>
-        <p data-translate="maps.features.card2.desc">Secret courtyards, artisan workshops, and neighborhood spots that don't appear in mainstream travel guides.</p>
+
+      <!-- RIGHT: Features -->
+      <div class="pta-block-right">
+        <div class="pta-features-label" data-translate="pta.features.label">What's Included</div>
+        <ul class="pta-features-list">
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item1">Ask up to <strong style="color:rgba(232,220,200,0.9);">3 travel-related questions</strong> — focused, practical, and answered in full</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item2">Itinerary clarification &amp; optimization based on your travel dates and priorities</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item3">Local recommendations guidance — where to eat, stay, or explore in specific cities</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item4">Scam-avoidance advice tailored to your itinerary and experience level</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item5">Response within <strong style="color:rgba(232,220,200,0.9);">24–48 hours</strong> — considered, not rushed</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item6">Accessible via WhatsApp — <strong style="color:rgba(232,220,200,0.9);">for verified guide buyers only</strong></span>
+          </li>
+        </ul>
+
+        <div class="pta-constraints">
+          <p data-translate="pta.block.constraint2">Access is granted upon purchase verification. The WhatsApp number is not public. <strong>Questions outside the scope of Morocco travel or the guide content are not covered.</strong></p>
+        </div>
+
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary" id="pricing-cta-btn" style="margin-top: 28px; display: inline-flex;">
+          <span data-translate="pta.block.cta">Get the Guide — Unlock Access</span>
+          <span class="btn-arrow">→</span>
+        </a>
       </div>
-      <div class="maps-feature-card">
-        <div class="maps-feature-num">03</div>
-        <span class="maps-feature-icon">📍</span>
-        <h3 data-translate="maps.features.card3.title">Precise Pinned Locations</h3>
-        <p data-translate="maps.features.card3.desc">Every attraction, restaurant, and riad pinned with precision — even in the narrow lanes of the medina where addresses don't exist.</p>
-      </div>
-      <div class="maps-feature-card">
-        <div class="maps-feature-num">04</div>
-        <span class="maps-feature-icon">🏨</span>
-        <h3 data-translate="maps.features.card4.title">Accommodation & Dining</h3>
-        <p data-translate="maps.features.card4.desc">Expert picks for riads, authentic local restaurants, rooftop cafés, and street food stalls worth your time.</p>
-      </div>
+
     </div>
   </div>
-</section>
 
-
-<!-- WHAT'S INCLUDED BLOCK -->
-<section class="maps-section" style="background: #0a1716; padding: 100px 0;">
-  <div class="container">
-    <div class="maps-included-block reveal">
-      <div class="maps-included-left">
-        <div class="maps-included-eyebrow">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-          <span data-translate="maps.included.eyebrow">Local Expert Guide</span>
-        </div>
-        <h2 class="maps-included-title" data-translate="maps.included.title">
-          Built for Real Travel.<br><em>Not for tourists.</em>
-        </h2>
-        <p class="maps-included-desc" data-translate="maps.included.desc">
-          Every pin in this guide was added by someone who walks these streets daily — not pulled from TripAdvisor or a travel blog. The medina is beautiful and disorienting. This map gives you the confidence to explore it properly.
-        </p>
-        <div class="maps-note" data-translate="maps.included.note">
-          Compatible with Google Maps on iPhone and Android. Save to your account and access offline — perfect for medina navigation without data.
-        </div>
+  <!-- HOW IT WORKS -->
+  <section style="margin-bottom: 80px;" class="reveal">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="ornament" style="margin-bottom:24px;"><span class="ornament-sym">✦ ✦ ✦</span></div>
+      <div class="section-eyebrow centered" data-translate="pta.steps.eyebrow">Simple Process</div>
+      <h2 class="section-title" data-translate="whatsapp.howItWorks.title">How It <em>Works</em></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3 data-translate="whatsapp.step1.title">Purchase the Guide</h3>
+        <p data-translate="whatsapp.step1.desc">Complete your purchase on Gumroad. Your confirmation email includes the private WhatsApp contact and access instructions.</p>
       </div>
-      <div class="maps-included-right">
-        <div class="maps-list-label" data-translate="maps.included.listLabel">Categories Included</div>
-        <ul class="maps-checklist">
-          <li><span class="maps-check">✔</span><span data-translate="maps.included.item1">Medina hidden alleys &amp; local markets</span></li>
-          <li><span class="maps-check">✔</span><span data-translate="maps.included.item2">Authentic restaurants &amp; street food stalls</span></li>
-          <li><span class="maps-check">✔</span><span data-translate="maps.included.item3">Boutique riads &amp; guesthouses</span></li>
-          <li><span class="maps-check">✔</span><span data-translate="maps.included.item4">Rooftop cafés with genuine views</span></li>
-          <li><span class="maps-check">✔</span><span data-translate="maps.included.item5">Hammams, spas &amp; artisan workshops</span></li>
-          <li><span class="maps-check">✔</span><span data-translate="maps.included.item6">Cultural sites beyond Jemaa el-Fna</span></li>
-          <li><span class="maps-check">✔</span><span data-translate="maps.included.item7">Scam-prone zones to avoid &amp; why</span></li>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3 data-translate="whatsapp.step2.title">Save the Contact</h3>
+        <p data-translate="whatsapp.step2.desc">Add the number to your contacts before you travel. This is a private line — not publicly listed or searchable.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3 data-translate="whatsapp.step3.title">Submit Your Questions</h3>
+        <p data-translate="whatsapp.step3.desc">Send your travel questions clearly and specifically. Responses are delivered within 24–48 hours, focused and actionable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE COVER -->
+  <section style="margin-bottom: 80px;" class="reveal">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="section-eyebrow centered" data-translate="pta.coverage.eyebrow">Scope of Assistance</div>
+      <h2 class="section-title" data-translate="pta.coverage.title">Topics We <em>Cover</em></h2>
+      <p class="section-subtitle" data-translate="pta.coverage.desc">
+        Assistance is focused on practical, high-impact questions that directly improve your Morocco experience.
+      </p>
+    </div>
+    <div class="coverage-grid">
+      <div class="coverage-card">
+        <h3><span class="coverage-icon">🚖</span> <span data-translate="whatsapp.coverage1.title">Transport & Logistics</span></h3>
+        <ul>
+          <li data-translate="whatsapp.coverage1.item1">Airport to city transport options</li>
+          <li data-translate="whatsapp.coverage1.item2">Fair taxi rates and avoiding scams</li>
+          <li data-translate="whatsapp.coverage1.item3">Using local buses and trains</li>
+          <li data-translate="whatsapp.coverage1.item4">App-based ride services</li>
+        </ul>
+      </div>
+      <div class="coverage-card">
+        <h3><span class="coverage-icon">🏠</span> <span data-translate="whatsapp.coverage2.title">Accommodation</span></h3>
+        <ul>
+          <li data-translate="whatsapp.coverage2.item1">Check-in difficulties</li>
+          <li data-translate="whatsapp.coverage2.item2">Finding your riad or hotel</li>
+          <li data-translate="whatsapp.coverage2.item3">Communication with hosts</li>
+          <li data-translate="whatsapp.coverage2.item4">Understanding local customs</li>
+        </ul>
+      </div>
+      <div class="coverage-card">
+        <h3><span class="coverage-icon">🧭</span> <span data-translate="whatsapp.coverage3.title">Navigation & Safety</span></h3>
+        <ul>
+          <li data-translate="whatsapp.coverage3.item1">Getting to major landmarks</li>
+          <li data-translate="whatsapp.coverage3.item2">Safe areas to explore</li>
+          <li data-translate="whatsapp.coverage3.item3">Local etiquette tips</li>
+          <li data-translate="whatsapp.coverage3.item4">Emergency contacts</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- REVIEWS -->
-<section class="maps-section" style="background: var(--sand-light);">
-  <div class="container">
-    <div class="maps-section-header reveal">
-      <div class="maps-eyebrow" style="color: var(--ochre);">
-        <span style="display:block;width:24px;height:1px;background:var(--ochre);"></span>
-        <span data-translate="maps.reviews.eyebrow">Traveler Reviews</span>
-        <span style="display:block;width:24px;height:1px;background:var(--ochre);"></span>
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section reveal" style="margin-bottom: 80px;">
+    <div class="container">
+      <div class="testi-header">
+        <div class="ornament" style="margin-bottom:24px;"><span class="ornament-sym">✦ ✦ ✦</span></div>
+        <div class="section-eyebrow centered" data-translate="pta.reviews.eyebrow">Buyer Feedback</div>
+        <h2 class="section-title" data-translate="pta.reviews.title">What Buyers Say</h2>
       </div>
-      <h2 class="maps-section-title dark" data-translate="maps.reviews.title">What Travelers <em>Say</em></h2>
-      <p class="maps-section-subtitle ink" data-translate="maps.reviews.subtitle">From solo explorers to families — verified buyers share their experience.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="quote-mark" style="font-size:4rem;">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text" data-translate="whatsapp.review1.text">
+            "I couldn't find my riad in the Fes medina. Sent a message, got a clear response in under an hour. Exactly what I needed."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SM</div>
+            <div>
+              <div class="author-name">Sarah M.</div>
+              <div class="author-title">Solo Traveler</div>
+              <div class="author-source">Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark" style="font-size:4rem;">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text" data-translate="whatsapp.review2.text">
+            "Asked about taxi rates from the airport. Got a specific, honest answer. No stress, no overcharging on arrival."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JL</div>
+            <div>
+              <div class="author-name">James L.</div>
+              <div class="author-title">First-time Visitor</div>
+              <div class="author-source">Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark" style="font-size:4rem;">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text" data-translate="whatsapp.review3.text">
+            "The advice was direct, practical, and clearly from someone who actually knows Morocco. That's rare."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ER</div>
+            <div>
+              <div class="author-name">Emma R.</div>
+              <div class="author-title">Backpacker</div>
+              <div class="author-source">Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="maps-reviews-grid reveal">
-      <div class="maps-review-card">
-        <div class="maps-review-quote">"</div>
-        <div class="maps-review-stars">★★★★★</div>
-        <p class="maps-review-text" data-translate="maps.reviews.review1.text">"This guide alone is worth the price of the ebook. The maps were incredibly detailed and helped us discover places we would have never found on our own."</p>
-        <div class="maps-review-author">
-          <div class="maps-review-avatar">SM</div>
-          <div>
-            <div class="maps-review-name">Sarah M.</div>
-            <div class="maps-review-role" data-translate="maps.reviews.review1.role">Solo Traveler · Verified Buyer</div>
-          </div>
-        </div>
-      </div>
-      <div class="maps-review-card">
-        <div class="maps-review-quote">"</div>
-        <div class="maps-review-stars">★★★★★</div>
-        <p class="maps-review-text" data-translate="maps.reviews.review2.text">"Clear, practical, and beautifully organized. The Google Maps integration made navigation so easy. We visited every spot recommended and loved them all."</p>
-        <div class="maps-review-author">
-          <div class="maps-review-avatar">DK</div>
-          <div>
-            <div class="maps-review-name">David K.</div>
-            <div class="maps-review-role" data-translate="maps.reviews.review2.role">Couple Trip · Verified Buyer</div>
-          </div>
-        </div>
-      </div>
-      <div class="maps-review-card">
-        <div class="maps-review-quote">"</div>
-        <div class="maps-review-stars">★★★★★</div>
-        <p class="maps-review-text" data-translate="maps.reviews.review3.text">"Saved me hours of planning and helped me avoid tourist traps completely. The local recommendations were spot-on. Best travel resource I've ever used."</p>
-        <div class="maps-review-author">
-          <div class="maps-review-avatar">LR</div>
-          <div>
-            <div class="maps-review-name">Lina R.</div>
-            <div class="maps-review-role" data-translate="maps.reviews.review3.role">First-time Visitor · Verified Buyer</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- OTHER BONUSES -->
-<section class="bonus-section reveal" style="margin-bottom: 80px;">
-  <div class="container">
+  <!-- OTHER BONUSES -->
+  <section class="bonus-section reveal" style="margin-bottom: 80px;">
     <div class="bonus-header">
-      <div class="section-eyebrow centered" data-translate="maps.bonus.badge">Included Bonuses</div>
-      <h2 class="section-title" data-translate="maps.bonus.title">Other Gifts <em>in the Package</em></h2>
-      <p class="section-subtitle" data-translate="maps.bonus.subtitle">Worth $24.99 — included with every guide purchase</p>
+      <div class="section-eyebrow centered" data-translate="pta.bonus.badge">Included Bonuses</div>
+      <h2 class="section-title" data-translate="pta.bonus.title">Other Gifts <em>in the Package</em></h2>
+      <p class="section-subtitle" data-translate="pta.bonus.subtitle">Worth $24.99 — included with every guide purchase</p>
     </div>
-  
- <div class="bonus-card">
-        <div class="bonus-value" data-translate="bonus.item3.value">Value: $15</div>
-        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png" alt="WhatsApp Support">
-        <h3 data-translate="bonus.item3.title">Direct WhatsApp Support</h3>
-        <p data-translate="bonus.item3.desc">Get real-time answers from a local during your trip</p>
-        <a href="free-whatsapp-support.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-value" data-translate="bonus.item2.value">Value: $5</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568882/Untitled_design_9_hljh1y.png" alt="Marrakech Maps">
+        <h3 data-translate="bonus.item2.title">Custom Google Maps</h3>
+        <p data-translate="bonus.item2.desc">Pre-loaded maps with all recommended spots for easy navigation</p>
+        <a href="marrakech-travel-map.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
       </div>
       <div class="bonus-card">
         <div class="bonus-value" data-translate="bonus.item4.value">Value: $5</div>
@@ -772,34 +943,29 @@
         <a href="morocco-travel-etiquette.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- FINAL CTA -->
-<section class="maps-final-cta">
-  <div class="maps-final-inner reveal">
-    <div class="maps-final-eyebrow" data-translate="maps.cta.eyebrow">Unlock Your Guide</div>
-    <h2 class="maps-final-title" data-translate="maps.cta.title">
-      Navigate Marrakech with <em>Total Confidence.</em>
-    </h2>
-    <p class="maps-final-sub" data-translate="maps.cta.subtitle">
-      Get the complete Travel Readz guide and receive this map guide free — along with private travel assistance, a budget calculator, and the cultural etiquette guide.
-    </p>
-    <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="maps-final-cta-btn" data-translate="maps.cta.button">
-      Get the Travel Readz Guide
-      <span>→</span>
-    </a>
-    <span class="maps-final-note" data-translate="maps.cta.note">✦ Or purchase this map guide individually for $5</span>
-    <div class="maps-final-trust">
-      <span data-translate="maps.cta.trust1">✓ Instant Access</span>
-      <span data-translate="maps.cta.trust2">✓ Works Offline</span>
-      <span data-translate="maps.cta.trust3">✓ iPhone &amp; Android</span>
-      <span data-translate="maps.cta.trust4">✓ All 4 Bonuses Free</span>
+  <!-- FINAL CTA -->
+  <section class="final-cta-section reveal">
+    <div class="container">
+      <div class="final-cta-content">
+        <div class="final-eyebrow" data-translate="pta.finalCta.eyebrow">Exclusive to Guide Buyers</div>
+        <h2 class="section-title light" data-translate="pta.finalCta.title">Travel Morocco with <em>Expert Backing.</em></h2>
+        <p class="section-subtitle" data-translate="pta.finalCta.subtitle" style="color:rgba(232,220,200,0.5);margin:16px auto 48px;">The complete Travel Readz guide — plus private travel assistance, custom maps, budget calculator, and cultural etiquette guide. Everything you need to travel Morocco properly.</p>
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary large" id="final-cta-btn" data-translate="pta.finalCta.btn">
+          Get the Travel Readz Guide
+          <span class="btn-arrow">→</span>
+        </a>
+        <div class="final-trust">
+          <span data-translate="pta.finalCta.trust1">✓ Instant Download</span>
+          <span data-translate="pta.finalCta.trust2">✓ Private Assistance Included</span>
+          <span data-translate="pta.finalCta.trust3">✓ All 4 Bonuses Free</span>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+</div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -808,7 +974,7 @@
       <div class="footer-wordmark">Travel <span>Readz</span></div>
       <ul class="footer-links">
         <li><a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a></li>
-        <li><a href="terms.html" data-translate="footer.terms">Terms &amp; Conditions</a></li>
+        <li><a href="terms.html" data-translate="footer.terms">Terms & Conditions</a></li>
         <li><a href="contact.html" data-translate="footer.contact">Contact Us</a></li>
         <li><a href="about.html" data-translate="footer.about">About Us</a></li>
       </ul>
@@ -817,20 +983,19 @@
   </div>
 </footer>
 
-
 <script src="translations.js" onerror="void(0)"></script>
 <script>
   /* Mobile nav CSS injection */
   const mobileNavStyle = document.createElement('style');
   mobileNavStyle.textContent = `
+    /* ── Desktop: lang + cta in one row ── */
     .nav-center-stack {
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 14px;
-      position: static;
-      transform: none;
     }
+
     @media (max-width: 768px) {
       .nav-container {
         display: flex;
@@ -839,21 +1004,18 @@
         height: 68px;
         min-height: 68px;
         padding: 0 16px;
-        position: relative;
+        
       }
-      .nav-logo { flex-shrink: 0; }
+      .nav-logo { flex-shrink: 0; margin-right: auto; }
       .nav-right {
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-left: auto;
-        flex-shrink: 0;
         gap: 8px;
+        flex-shrink: 0;
       }
+      /* mobile: CTA on top, lang below — stacked, centered */
       .nav-center-stack {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -875,7 +1037,7 @@
 
   /* Hamburger */
   const hamburger = document.getElementById('hamburger');
-  const drawer    = document.getElementById('mobile-drawer');
+  const drawer = document.getElementById('mobile-drawer');
   hamburger.addEventListener('click', () => {
     const open = drawer.classList.toggle('open');
     hamburger.classList.toggle('open', open);
