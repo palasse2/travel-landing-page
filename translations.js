@@ -177,7 +177,192 @@ const translations = {
     "footer.terms": "Terms & Conditions",
     "footer.contact": "Contact Us",
     "footer.about": "About Us",
+    "footer.copyright": "© 2025 Travel Readz. All Rights Reserved.",
+      
+    // Navigation (unchanged)
+    "nav.home": "Home",
+    "nav.services": "Experiences",
+    "nav.about": "Journal",
+    "nav.cta": "Get Your Guide",
+
+    // Page Hero (NEW)
+    "shop.hero.eyebrow": "Morocco, Your Way",
+    "shop.hero.subtitle": "Live Morocco in the field, or carry it in your pocket.",
+
+    // Tab Bar (NEW)
+    "tab.experiences.title": "Experiences",
+    "tab.experiences.sub": "Tours, activities & insurance",
+    "tab.digital.title": "Digital Products",
+    "tab.digital.sub": "Guides, templates & presets",
+
+    // Experiences Panel (NEW)
+    "exp.eyebrow": "Before You Go",
+    "exp.title": "Book Your <em>Experiences</em>",
+    "exp.tours.label": "Curated Tours & Activities",
+
+    // Insurance Highlight (NEW)
+    "shop.badge.recommended": "Recommended",
+    "shop.insurance.title": "SafetyWing Travel Insurance",
+    "shop.insurance.desc": "Affordable travel medical coverage trusted by nomads worldwide. 180+ countries, flexible monthly plans — get covered before your Morocco adventure begins.",
+    "shop.insurance.feature1": "🌍 180+ countries",
+    "shop.insurance.feature2": "💰 From $45/month",
+    "shop.insurance.feature3": "📱 Instant coverage",
+    "shop.insurance.cta": "Get Protected",
+
+    // Tour Badges (NEW)
+    "shop.badge.bestseller": "Bestseller",
+    "shop.badge.popular": "Popular",
+    "shop.badge.topRated": "Top Rated",
+
+    // Tour 1: Desert Adventure
+    "shop.tour1.location": "📍 Marrakech → Merzouga",
+    "shop.tour1.title": "3-Day Desert Adventure to the Sahara",
+    "shop.tour1.desc": "Camel rides, desert camping under the stars, and authentic Berber hospitality through stunning landscapes.",
+    "shop.tour1.feature1": "⏱️ 3 days",
+    "shop.tour1.feature2": "🚗 Pickup included",
+    "shop.tour1.feature3": "🍽️ Meals included",
+
+    // Tour 2: Imperial Cities
+    "shop.tour2.location": "📍 Multiple Cities",
+    "shop.tour2.title": "Imperial Cities & Chefchaouen: 3-Day Cultural Tour",
+    "shop.tour2.desc": "Morocco's historical treasures and the stunning Blue Pearl city — ancient medinas and magnificent architecture.",
+    "shop.tour2.feature1": "⏱️ 3 days",
+    "shop.tour2.feature2": "🏛️ UNESCO sites",
+    "shop.tour2.feature3": "👥 Small groups",
+
+    // Tour 3: Hassan II Mosque
+    "shop.tour3.location": "📍 Casablanca",
+    "shop.tour3.title": "Hassan II Mosque: Premium Guided Tour",
+    "shop.tour3.desc": "One of the world's largest mosques with premium guided access. Exquisite Moroccan craftsmanship and oceanfront views.",
+    "shop.tour3.feature1": "⏱️ 2 hours",
+    "shop.tour3.feature2": "🎫 Skip-the-line",
+    "shop.tour3.feature3": "🎧 Audio guide",
+
+    // Tour 4: Hot Air Balloon
+    "shop.tour4.location": "📍 Marrakech",
+    "shop.tour4.title": "Hot Air Balloon Flight & Berber Breakfast",
+    "shop.tour4.desc": "Soar above the Atlas Mountains at sunrise and enjoy an authentic Berber breakfast — breathtaking views guaranteed.",
+    "shop.tour4.feature1": "⏱️ 4 hours",
+    "shop.tour4.feature2": "🌅 Sunrise flight",
+    "shop.tour4.feature3": "☕ Breakfast",
+
+    // Tour 5: Ourika Waterfalls
+    "shop.tour5.location": "📍 Atlas Mountains",
+    "shop.tour5.title": "Ourika Waterfalls & Atlas Mountains Day Trip",
+    "shop.tour5.desc": "Scenic mountain views, waterfall hikes, and included lunch in the refreshing Ourika Valley.",
+    "shop.tour5.feature1": "⏱️ Full day",
+    "shop.tour5.feature2": "🥾 Hiking",
+    "shop.tour5.feature3": "🍽️ Lunch included",
+
+    // Tour 6: Agafay Desert
+    "shop.tour6.location": "📍 Agafay Desert",
+    "shop.tour6.title": "Agafay Desert: Quad, Camel Ride & Dinner Show",
+    "shop.tour6.desc": "Quad biking, camel rides, and a spectacular dinner show under the stars. The perfect evening adventure.",
+    "shop.tour6.feature1": "⏱️ Evening",
+    "shop.tour6.feature2": "🏍️ Quad biking",
+    "shop.tour6.feature3": "🎭 Live show",
+
+    // Tour 7: Majorelle Garden
+    "shop.tour7.location": "📍 Marrakech",
+    "shop.tour7.title": "Majorelle Garden & YSL Museum Entry",
+    "shop.tour7.desc": "The iconic cobalt blue garden and the legacy of Yves Saint Laurent — Marrakech's most beautiful garden.",
+    "shop.tour7.feature1": "⏱️ 2-3 hours",
+    "shop.tour7.feature2": "🎫 Entry tickets",
+    "shop.tour7.feature3": "📸 Photo spots",
+
+    // Common elements
+    "shop.reviews": "reviews",
+    "shop.checkAvailability": "Check Availability →",
+
+    // Digital Products (NEW)
+    "shop.section.digital.eyebrow": "Digital Downloads",
+    "shop.section.guides": "Travel <em>Guides</em>",
+    "shop.section.templates.eyebrow": "Creative Tools",
+    "shop.section.templates": "Templates & <em>Presets</em>",
+
+    // Product Badges (NEW)
+    "shop.badge.new": "New",
+    "shop.badge.sale": "20% Off",
+    "shop.badge.free": "100% Off",
+    "shop.badge.trending": "Trending",
+    "shop.badge.hot": "Hot 🔥",
+
+    // Product 1: Morocco Guide
+    "shop.product1.category": "Travel Guide",
+    "shop.product1.title": "Unlocking Morocco: Ultimate 2026 Guide",
+    "shop.product1.desc": "Complete guide with 10 chapters, insider tips, city itineraries, and bonus content.",
+
+    // Product 2: Etiquette
+    "shop.product2.category": "Travel Etiquette",
+    "shop.product2.title": "Morocco Travel Etiquette: Dos & Don'ts",
+    "shop.product2.desc": "Essential cultural etiquette, clothing rules, and local customs — travel Morocco respectfully.",
+
+    // Product 3: Budget Calculator
+    "shop.product3.category": "Budget Calculator",
+    "shop.product3.title": "Travel Budget Calculator",
+    "shop.product3.desc": "Set your budget, track spending over time — a universal tool for travelers anywhere.",
+
+    // Product 4: Marrakech Map
+    "shop.product4.category": "Google Map Guide",
+    "shop.product4.title": "Marrakech Google Maps Travel Guide",
+    "shop.product4.desc": "Hand-picked attractions, hidden gems, riads, and local tips — saved to Google Maps.",
+
+    // Template 1: Lightroom
+    "shop.template1.category": "Photo Editing",
+    "shop.template1.title": "Moody Travel Lightroom Presets",
+    "shop.template1.desc": "Transform your photos with a cinematic, warm travel look in one click.",
+
+    // Template 2: Instagram Stories
+    "shop.template2.category": "Social Media",
+    "shop.template2.title": "Instagram Story Templates for Travel Creators",
+    "shop.template2.desc": "Premium, elegant Instagram Stories designed for creators who want a professional presence.",
+
+    // Template 3: Reels
+    "shop.template3.category": "Video Editing",
+    "shop.template3.title": "730+ Viral Instagram Reels — Ready to Post",
+    "shop.template3.desc": "High-quality viral-style Reels to grow faster and save hours of content creation.",
+
+    // Template 4: Canva
+    "shop.template4.category": "Canva Templates",
+    "shop.template4.title": "3000+ Instagram Design Templates",
+    "shop.template4.desc": "Professionally designed templates to create eye-catching posts, stories, and reels in minutes.",
+
+    // Template 5: Watercolor
+    "shop.template5.category": "Watercolor",
+    "shop.template5.title": "Watercolor Travel the World Clipart",
+    "shop.template5.desc": "Beautiful watercolor landmarks, maps, and travel icons for invitations, planners, and projects.",
+
+    // Template 6: Hand-Drawn
+    "shop.template6.category": "Hand-Drawn Illustrations",
+    "shop.template6.title": "Travel Clipart — Hand-Drawn Illustrations",
+    "shop.template6.desc": "Charming hand-drawn illustrations for bloggers, designers, and creators who want unique graphics.",
+
+    // Common product elements
+    "shop.quickView": "View Details →",
+    "shop.buyNow": "Buy Now →",
+
+    // Bundle Banner (NEW)
+    "shop.banner.eyebrow": "Limited Time",
+    "shop.banner.title": "🎁 Complete Morocco <em>Bundle</em>",
+    "shop.banner.desc": "Get the complete travel collection and save 40% when you bundle all guides together.",
+    "shop.banner.button": "View Bundle Deal",
+
+    // Final CTA (unchanged)
+    "finalCta.eyebrow": "Begin Here",
+    "finalCta.title": "Ready to Experience<br>the <em>Real Morocco?</em>",
+    "finalCta.subtitle": "Join hundreds of travelers who've discovered Morocco the local way.",
+    "finalCta.button": "Download Your Guide Now — $9.99",
+    "finalCta.instant": "✓ Instant Download",
+    "finalCta.secure": "✓ Secure Payment",
+    "finalCta.lifetime": "✓ Lifetime Access",
+
+    // Footer (unchanged)
+    "footer.privacy": "Privacy Policy",
+    "footer.terms": "Terms & Conditions",
+    "footer.contact": "Contact Us",
+    "footer.about": "About Us",
     "footer.copyright": "© 2025 Travel Readz. All Rights Reserved."
+  
   },
 
   fr: {
@@ -354,7 +539,192 @@ const translations = {
     "footer.terms": "Conditions Générales",
     "footer.contact": "Contactez-Nous",
     "footer.about": "À Propos",
-    "footer.copyright": "© 2025 Travel Readz. Tous Droits Réservés."
+    "footer.copyright": "© 2025 Travel Readz. Tous Droits Réservés.",
+
+    // Navigation
+    "nav.home": "Accueil",
+    "nav.services": "Expériences",
+    "nav.about": "Journal",
+    "nav.cta": "Obtenez Votre Guide",
+
+    // Page Hero
+    "shop.hero.eyebrow": "Maroc, À Votre Façon",
+    "shop.hero.subtitle": "Vivez le Maroc sur le terrain, ou emportez-le dans votre poche.",
+
+    // Tab Bar
+    "tab.experiences.title": "Expériences",
+    "tab.experiences.sub": "Tours, activités & assurance",
+    "tab.digital.title": "Produits Numériques",
+    "tab.digital.sub": "Guides, templates & préréglages",
+
+    // Experiences Panel
+    "exp.eyebrow": "Avant de Partir",
+    "exp.title": "Réservez Vos <em>Expériences</em>",
+    "exp.tours.label": "Tours & Activités Sélectionnés",
+
+    // Insurance Highlight
+    "shop.badge.recommended": "Recommandé",
+    "shop.insurance.title": "Assurance Voyage SafetyWing",
+    "shop.insurance.desc": "Couverture médicale de voyage abordable approuvée par les nomades du monde entier. 180+ pays, plans mensuels flexibles — soyez couvert avant votre aventure marocaine.",
+    "shop.insurance.feature1": "🌍 180+ pays",
+    "shop.insurance.feature2": "💰 Dès 45 $/mois",
+    "shop.insurance.feature3": "📱 Couverture instantanée",
+    "shop.insurance.cta": "Obtenez Protection",
+
+    // Tour Badges
+    "shop.badge.bestseller": "Meilleur Vendeur",
+    "shop.badge.popular": "Populaire",
+    "shop.badge.topRated": "Meilleure Note",
+
+    // Tour 1: Desert Adventure
+    "shop.tour1.location": "📍 Marrakech → Merzouga",
+    "shop.tour1.title": "Aventure de 3 Jours dans le Désert du Sahara",
+    "shop.tour1.desc": "Balades à dos de chameau, camping désert sous les étoiles et hospitalité berbère authentique à travers des paysages époustouflants.",
+    "shop.tour1.feature1": "⏱️ 3 jours",
+    "shop.tour1.feature2": "🚗 Ramassage inclus",
+    "shop.tour1.feature3": "🍽️ Repas inclus",
+
+    // Tour 2: Imperial Cities
+    "shop.tour2.location": "📍 Plusieurs Villes",
+    "shop.tour2.title": "Villes Impériales & Chefchaouen : Tour Culturel de 3 Jours",
+    "shop.tour2.desc": "Trésors historiques du Maroc et la ville Perle Bleue époustouflante — médinas anciennes et architecture magnifique.",
+    "shop.tour2.feature1": "⏱️ 3 jours",
+    "shop.tour2.feature2": "🏛️ Sites UNESCO",
+    "shop.tour2.feature3": "👥 Petits groupes",
+
+    // Tour 3: Hassan II Mosque
+    "shop.tour3.location": "📍 Casablanca",
+    "shop.tour3.title": "Mosquée Hassan II : Visite Guidée Premium",
+    "shop.tour3.desc": "L'une des plus grandes mosquées du monde avec accès guidé premium. Artisanat marocain exquis et vues sur l'océan.",
+    "shop.tour3.feature1": "⏱️ 2 heures",
+    "shop.tour3.feature2": "🎫 Sans file d'attente",
+    "shop.tour3.feature3": "🎧 Audioguide",
+
+    // Tour 4: Hot Air Balloon
+    "shop.tour4.location": "📍 Marrakech",
+    "shop.tour4.title": "Vol en Montgolfière & Petit-Déjeuner Berbère",
+    "shop.tour4.desc": "Survolez l'Atlas au lever du soleil et dégustez un authentique petit-déjeuner berbère — vues garanties à couper le souffle.",
+    "shop.tour4.feature1": "⏱️ 4 heures",
+    "shop.tour4.feature2": "🌅 Vol au lever du soleil",
+    "shop.tour4.feature3": "☕ Petit-déjeuner",
+
+    // Tour 5: Ourika Waterfalls
+    "shop.tour5.location": "📍 Montagnes de l'Atlas",
+    "shop.tour5.title": "Cascades d'Ourika & Excursion dans l'Atlas",
+    "shop.tour5.desc": "Vues panoramiques montagneuses, randonnées aux cascades et déjeuner inclus dans la vallée rafraîchissante d'Ourika.",
+    "shop.tour5.feature1": "⏱️ Journée complète",
+    "shop.tour5.feature2": "🥾 Randonnée",
+    "shop.tour5.feature3": "🍽️ Déjeuner inclus",
+
+    // Tour 6: Agafay Desert
+    "shop.tour6.location": "📍 Désert d'Agafay",
+    "shop.tour6.title": "Désert d'Agafay : Quad, Chameau & Spectacle Dîner",
+    "shop.tour6.desc": "Quad, balades à chameau et spectacle dîner spectaculaire sous les étoiles. L'aventure du soir parfaite.",
+    "shop.tour6.feature1": "⏱️ Soirée",
+    "shop.tour6.feature2": "🏍️ Quad",
+    "shop.tour6.feature3": "🎭 Spectacle en direct",
+
+    // Tour 7: Majorelle Garden
+    "shop.tour7.location": "📍 Marrakech",
+    "shop.tour7.title": "Jardin Majorelle & Musée YSL : Entrée",
+    "shop.tour7.desc": "Le jardin bleu cobalt emblématique et l'héritage d'Yves Saint Laurent — le plus beau jardin de Marrakech.",
+    "shop.tour7.feature1": "⏱️ 2-3 heures",
+    "shop.tour7.feature2": "🎫 Billets d'entrée",
+    "shop.tour7.feature3": "📸 Spots photo",
+
+    // Common elements
+    "shop.reviews": "avis",
+    "shop.checkAvailability": "Vérifier Disponibilité →",
+
+    // Digital Products
+    "shop.section.digital.eyebrow": "Téléchargements Numériques",
+    "shop.section.guides": "Guides de <em>Voyage</em>",
+    "shop.section.templates.eyebrow": "Outils Créatifs",
+    "shop.section.templates": "Templates & <em>Préréglages</em>",
+
+    // Product Badges
+    "shop.badge.new": "Nouveau",
+    "shop.badge.sale": "-20%",
+    "shop.badge.free": "100% Gratuit",
+    "shop.badge.trending": "Tendance",
+    "shop.badge.hot": "Populaire 🔥",
+
+    // Product 1: Morocco Guide
+    "shop.product1.category": "Guide de Voyage",
+    "shop.product1.title": "Déverrouiller le Maroc : Guide Ultime 2026",
+    "shop.product1.desc": "Guide complet avec 10 chapitres, conseils d'initiés, itinéraires urbains et contenu bonus.",
+
+    // Product 2: Etiquette
+    "shop.product2.category": "Étiquette Voyage",
+    "shop.product2.title": "Étiquette Voyage au Maroc : À Faire & À Ne Pas Faire",
+    "shop.product2.desc": "Étiquette culturelle essentielle, règles vestimentaires et coutumes locales — voyagez respectueusement au Maroc.",
+
+    // Product 3: Budget Calculator
+    "shop.product3.category": "Calculateur Budget",
+    "shop.product3.title": "Calculateur de Budget Voyage",
+    "shop.product3.desc": "Définissez votre budget, suivez vos dépenses — outil universel pour voyageurs.",
+
+    // Product 4: Marrakech Map
+    "shop.product4.category": "Guide Google Maps",
+    "shop.product4.title": "Guide Voyage Google Maps Marrakech",
+    "shop.product4.desc": "Attractions sélectionnées, pépites cachées, riads et conseils locaux — sauvegardé sur Google Maps.",
+
+    // Template 1: Lightroom
+    "shop.template1.category": "Édition Photo",
+    "shop.template1.title": "Préréglages Lightroom Voyages Moody",
+    "shop.template1.desc": "Transformez vos photos avec un look cinématographique chaud de voyage en un clic.",
+
+    // Template 2: Instagram Stories
+    "shop.template2.category": "Réseaux Sociaux",
+    "shop.template2.title": "Templates Stories Instagram pour Créateurs Voyage",
+    "shop.template2.desc": "Stories Instagram premium et élégantes conçues pour les créateurs qui veulent une présence professionnelle.",
+
+    // Template 3: Reels
+    "shop.template3.category": "Édition Vidéo",
+    "shop.template3.title": "730+ Reels Instagram Virals — Prêts à Poster",
+    "shop.template3.desc": "Reels viraux de haute qualité pour grandir plus vite et économiser des heures de création de contenu.",
+
+    // Template 4: Canva
+    "shop.template4.category": "Templates Canva",
+    "shop.template4.title": "3000+ Templates Design Instagram",
+    "shop.template4.desc": "Templates conçus professionnellement pour créer des posts, stories et reels accrocheurs en minutes.",
+
+    // Template 5: Watercolor
+    "shop.template5.category": "Aquarelle",
+    "shop.template5.title": "Clipart Voyages du Monde en Aquarelle",
+    "shop.template5.desc": "Beaux monuments aquarelle, cartes et icônes voyage pour invitations, planners et projets.",
+
+    // Template 6: Hand-Drawn
+    "shop.template6.category": "Illustrations Dessinées Main",
+    "shop.template6.title": "Clipart Voyage — Illustrations Dessinées Main",
+    "shop.template6.desc": "Charmes illustrations dessinées main pour blogueurs, designers et créateurs voulant des graphiques uniques.",
+
+    // Common product elements
+    "shop.quickView": "Voir Détails →",
+    "shop.buyNow": "Acheter Maintenant →",
+
+    // Bundle Banner
+    "shop.banner.eyebrow": "Temps Limité",
+    "shop.banner.title": "🎁 Bundle Complet <em>Maroc</em>",
+    "shop.banner.desc": "Obtenez la collection complète de voyage et économisez 40% en regroupant toutes les guides ensemble.",
+    "shop.banner.button": "Voir Offre Bundle",
+
+    // Final CTA
+    "finalCta.eyebrow": "Commencez Ici",
+    "finalCta.title": "Prêt à Découvrir<br>le <em>Vrai Maroc?</em>",
+    "finalCta.subtitle": "Rejoignez des centaines de voyageurs qui ont découvert le Maroc à la manière locale.",
+    "finalCta.button": "Téléchargez Votre Guide Maintenant — 9,99 $",
+    "finalCta.instant": "✓ Téléchargement Instantané",
+    "finalCta.secure": "✓ Paiement Sécurisé",
+    "finalCta.lifetime": "✓ Accès à Vie",
+
+    // Footer
+    "footer.privacy": "Politique de Confidentialité",
+    "footer.terms": "Conditions Générales",
+    "footer.contact": "Contactez-Nous",
+    "footer.about": "À Propos",
+    "footer.copyright": "© 2025 Travel Readz. Tous Droits Réservés.",
+ 
   },
 
   es: {
@@ -531,7 +901,192 @@ const translations = {
     "footer.terms": "Términos y Condiciones",
     "footer.contact": "Contáctanos",
     "footer.about": "Acerca de",
+    "footer.copyright": "© 2025 Travel Readz. Todos los Derechos Reservados.",
+ 
+    // Navigation
+    "nav.home": "Inicio",
+    "nav.services": "Experiencias",
+    "nav.about": "Blog",
+    "nav.cta": "Obtén Tu Guía",
+
+    // Page Hero
+    "shop.hero.eyebrow": "Marruecos, A Tu Manera",
+    "shop.hero.subtitle": "Vive Marruecos en el terreno, o llévalo en tu bolsillo.",
+
+    // Tab Bar
+    "tab.experiences.title": "Experiencias",
+    "tab.experiences.sub": "Tours, actividades e insurance",
+    "tab.digital.title": "Productos Digitales",
+    "tab.digital.sub": "Guías, templates y presets",
+
+    // Experiences Panel
+    "exp.eyebrow": "Antes de Ir",
+    "exp.title": "Reserva Tus <em>Experiencias</em>",
+    "exp.tours.label": "Tours y Actividades Curados",
+
+    // Insurance
+    "shop.badge.recommended": "Recomendado",
+    "shop.insurance.title": "Seguro de Viaje SafetyWing",
+    "shop.insurance.desc": "Cobertura médica de viaje asequible confiable por nómadas mundialmente. 180+ países, planes mensuales flexibles — cúbrete antes de tu aventura marroquí.",
+    "shop.insurance.feature1": "🌍 180+ países",
+    "shop.insurance.feature2": "💰 Desde $45/mes",
+    "shop.insurance.feature3": "📱 Cobertura instantánea",
+    "shop.insurance.cta": "Obtén Protección",
+
+    // Tour Badges
+    "shop.badge.bestseller": "Más Vendido",
+    "shop.badge.popular": "Popular",
+    "shop.badge.topRated": "Mejor Valorado",
+
+    // Tour 1: Desert Adventure
+    "shop.tour1.location": "📍 Marrakech → Merzouga",
+    "shop.tour1.title": "Aventura de 3 Días al Desierto del Sahara",
+    "shop.tour1.desc": "Paseos en camello, camping en desierto bajo las estrellas y hospitalidad bereber auténtica por paisajes impresionantes.",
+    "shop.tour1.feature1": "⏱️ 3 días",
+    "shop.tour1.feature2": "🚗 Recogida incluida",
+    "shop.tour1.feature3": "🍽️ Comidas incluidas",
+
+    // Tour 2: Imperial Cities
+    "shop.tour2.location": "📍 Múltiples Ciudades",
+    "shop.tour2.title": "Ciudades Imperiales & Chefchaouen: Tour Cultural de 3 Días",
+    "shop.tour2.desc": "Tesoros históricos de Marruecos y la impresionante Perla Azul — medinas antiguas y arquitectura magnífica.",
+    "shop.tour2.feature1": "⏱️ 3 días",
+    "shop.tour2.feature2": "🏛️ Sitios UNESCO",
+    "shop.tour2.feature3": "👥 Grupos pequeños",
+
+    // Tour 3: Hassan II Mosque
+    "shop.tour3.location": "📍 Casablanca",
+    "shop.tour3.title": "Mezquita Hassan II: Tour Guiado Premium",
+    "shop.tour3.desc": "Una de las mezquitas más grandes del mundo con acceso guiado premium. Artesanía marroquí exquisita y vistas al océano.",
+    "shop.tour3.feature1": "⏱️ 2 horas",
+    "shop.tour3.feature2": "🎫 Sin colas",
+    "shop.tour3.feature3": "🎧 Audioguía",
+
+    // Tour 4: Hot Air Balloon
+    "shop.tour4.location": "📍 Marrakech",
+    "shop.tour4.title": "Vuelo en Globo & Desayuno Bereber",
+    "shop.tour4.desc": "Vuela sobre las montañas del Atlas al amanecer y disfruta desayuno bereber auténtico — vistas garantizadas espectaculares.",
+    "shop.tour4.feature1": "⏱️ 4 horas",
+    "shop.tour4.feature2": "🌅 Vuelo amanecer",
+    "shop.tour4.feature3": "☕ Desayuno",
+
+    // Tour 5: Ourika Waterfalls
+    "shop.tour5.location": "📍 Montañas Atlas",
+    "shop.tour5.title": "Cascadas Ourika & Excursión Montañas Atlas",
+    "shop.tour5.desc": "Vistas panorámicas de montaña, caminatas a cascadas y almuerzo incluido en el refrescante Valle Ourika.",
+    "shop.tour5.feature1": "⏱️ Día completo",
+    "shop.tour5.feature2": "🥾 Senderismo",
+    "shop.tour5.feature3": "🍽️ Almuerzo incluido",
+
+    // Tour 6: Agafay Desert
+    "shop.tour6.location": "📍 Desierto Agafay",
+    "shop.tour6.title": "Desierto Agafay: Quad, Camello & Show Cena",
+    "shop.tour6.desc": "Motos quad, paseos en camello y espectacular show de cena bajo las estrellas. La aventura nocturna perfecta.",
+    "shop.tour6.feature1": "⏱️ Noche",
+    "shop.tour6.feature2": "🏍️ Motos quad",
+    "shop.tour6.feature3": "🎭 Show en vivo",
+
+    // Tour 7: Majorelle Garden
+    "shop.tour7.location": "📍 Marrakech",
+    "shop.tour7.title": "Jardín Majorelle & Museo YSL: Entrada",
+    "shop.tour7.desc": "El icónico jardín azul cobalto y el legado de Yves Saint Laurent — el jardín más hermoso de Marrakech.",
+    "shop.tour7.feature1": "⏱️ 2-3 horas",
+    "shop.tour7.feature2": "🎫 Entradas",
+    "shop.tour7.feature3": "📸 Puntos foto",
+
+    // Common
+    "shop.reviews": "reseñas",
+    "shop.checkAvailability": "Ver Disponibilidad →",
+
+    // Digital Products
+    "shop.section.digital.eyebrow": "Descargas Digitales",
+    "shop.section.guides": "Guías de <em>Viaje</em>",
+    "shop.section.templates.eyebrow": "Herramientas Creativas",
+    "shop.section.templates": "Templates & <em>Presets</em>",
+
+    // Product Badges
+    "shop.badge.new": "Nuevo",
+    "shop.badge.sale": "-20%",
+    "shop.badge.free": "100% Gratis",
+    "shop.badge.trending": "Tendencia",
+    "shop.badge.hot": "Popular 🔥",
+
+    // Product 1: Morocco Guide
+    "shop.product1.category": "Guía de Viaje",
+    "shop.product1.title": "Desbloqueando Marruecos: Guía Definitiva 2026",
+    "shop.product1.desc": "Guía completa con 10 capítulos, consejos de insiders, itinerarios de ciudades y contenido bonus.",
+
+    // Product 2: Etiquette
+    "shop.product2.category": "Etiqueta de Viaje",
+    "shop.product2.title": "Etiqueta de Viaje Marruecos: Qué Hacer & No Hacer",
+    "shop.product2.desc": "Etiqueta cultural esencial, reglas de vestimenta y costumbres locales — viaja a Marruecos respetuosamente.",
+
+    // Product 3: Budget Calculator
+    "shop.product3.category": "Calculadora Presupuesto",
+    "shop.product3.title": "Calculadora de Presupuesto de Viaje",
+    "shop.product3.desc": "Establece tu presupuesto, rastrea gastos — herramienta universal para viajeros.",
+
+    // Product 4: Marrakech Map
+    "shop.product4.category": "Guía Google Maps",
+    "shop.product4.title": "Guía de Viaje Google Maps Marrakech",
+    "shop.product4.desc": "Atracciones seleccionadas, joyas ocultas, riads y consejos locales — guardado en Google Maps.",
+
+    // Template 1: Lightroom
+    "shop.template1.category": "Edición Foto",
+    "shop.template1.title": "Presets Lightroom Viajes Moody",
+    "shop.template1.desc": "Transforma tus fotos con look cinematográfico cálido de viaje en un clic.",
+
+    // Template 2: Instagram Stories
+    "shop.template2.category": "Redes Sociales",
+    "shop.template2.title": "Templates Instagram Stories para Creadores de Viajes",
+    "shop.template2.desc": "Stories Instagram premium y elegantes diseñados para creadores que quieren presencia profesional.",
+
+    // Template 3: Reels
+    "shop.template3.category": "Edición Video",
+    "shop.template3.title": "730+ Reels Instagram Virales — Listos para Publicar",
+    "shop.template3.desc": "Reels estilo viral de alta calidad para crecer más rápido y ahorrar horas de creación de contenido.",
+
+    // Template 4: Canva
+    "shop.template4.category": "Templates Canva",
+    "shop.template4.title": "3000+ Templates de Diseño Instagram",
+    "shop.template4.desc": "Templates diseñados profesionalmente para crear posts, stories y reels llamativos en minutos.",
+
+    // Template 5: Watercolor
+    "shop.template5.category": "Acuarela",
+    "shop.template5.title": "Clipart Viajes del Mundo en Acuarela",
+    "shop.template5.desc": "Hermosos monumentos acuarela, mapas e iconos de viaje para invitaciones, planificadores y proyectos.",
+
+    // Template 6: Hand-Drawn
+    "shop.template6.category": "Ilustraciones Dibujadas a Mano",
+    "shop.template6.title": "Clipart Viajes — Ilustraciones Dibujadas a Mano",
+    "shop.template6.desc": "Encantadoras ilustraciones dibujadas a mano para blogueros, diseñadores y creadores que quieren gráficos únicos.",
+
+    // Common product elements
+    "shop.quickView": "Ver Detalles →",
+    "shop.buyNow": "Comprar Ahora →",
+
+    // Bundle Banner
+    "shop.banner.eyebrow": "Tiempo Limitado",
+    "shop.banner.title": "🎁 Bundle Completo <em>Marruecos</em>",
+    "shop.banner.desc": "Obtén la colección completa de viaje y ahorra 40% al agrupar todas las guías juntas.",
+    "shop.banner.button": "Ver Oferta Bundle",
+
+    // Final CTA
+    "finalCta.eyebrow": "Empieza Aquí",
+    "finalCta.title": "¿Listo para Experimentar<br>el <em>Verdadero Marruecos?</em>",
+    "finalCta.subtitle": "Únete a cientos de viajeros que han descubierto Marruecos al estilo local.",
+    "finalCta.button": "Descarga Tu Guía Ahora — $9.99",
+    "finalCta.instant": "✓ Descarga Instantánea",
+    "finalCta.secure": "✓ Pago Seguro",
+    "finalCta.lifetime": "✓ Acceso de por Vida",
+
+    // Footer
+    "footer.privacy": "Política de Privacidad",
+    "footer.terms": "Términos y Condiciones",
+    "footer.contact": "Contáctanos",
+    "footer.about": "Acerca de",
     "footer.copyright": "© 2025 Travel Readz. Todos los Derechos Reservados."
+  
   }
 };
 
