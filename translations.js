@@ -1198,8 +1198,121 @@ fr: {
   'privacy.cta.subtitle': 'Cartes locales, connaissances culturelles, outils budgétaires et support direct — tout en un seul endroit.',
   'privacy.cta.button': 'Obtenir le Guide Travel Readz',
 
-  
- 
+    // Terms & Conditions page
+  'terms.hero.eyebrow': 'Légal',
+  'terms.hero.title': 'Conditions <em>Générales</em>',
+  'terms.hero.subtitle': 'Langage clair. Pas de surprises. Voici à quoi vous acceptez en utilisant Travel Readz — et à ce que nous nous engageons en retour.',
+  'terms.hero.date': 'Dernière mise à jour — Janvier 2025',
+
+  'terms.sidebar.label': 'Contenu',
+  'terms.nav.general': 'Général',
+  'terms.nav.purchases': 'Achats',
+  'terms.nav.use': 'Utilisation du Site',
+  'terms.nav.ip': 'Propriété Intellectuelle',
+  'terms.nav.liability': 'Limitation de Responsabilité',
+  'terms.nav.changes': 'Modifications des Conditions',
+  'terms.nav.contact': 'Contact',
+
+  'terms.section1.num': 'Général',
+  'terms.section1.title': 'Conditions <em>Générales</em>',
+  'terms.section1.p1': 'En accédant ou utilisant le site web Travel Readz, vous acceptez d\'être lié par ces conditions. Si vous n\'acceptez pas une partie d\'entre elles, veuillez ne pas utiliser le site ou acheter nos produits.',
+  'terms.section1.p2': 'Tout le contenu de ce site web — guides, outils, texte, images — est fourni à des fins informatives et d\'utilisation personnelle. Nous veillons à le maintenir précis et utile, mais nous ne garantissons pas que chaque détail soit complet ou à jour en permanence. Le Maroc change ; nous mettons à jour quand nous pouvons.',
+
+  'terms.section2.num': 'Achats',
+  'terms.section2.title': 'Achats & <em>Remboursements</em>',
+  'terms.section2.p1': 'Tous les produits vendus par Travel Readz sont numériques — guides, cartes, calculateurs et matériels bonus. Comme les produits numériques sont livrés immédiatement à l\'achat, toutes les ventes sont définitives par défaut.',
+  'terms.section2.p2': 'Cela dit, nous ne voulons pas de clients mécontents. Si vous avez un vrai problème — un fichier qui ne s\'ouvre pas, un contenu qui ne correspond pas à la description, un problème technique de notre côté — contactez-nous à <a href="mailto:support@travelreadz.com">support@travelreadz.com</a> et nous le résoudrons. Nous traitons chaque cas individuellement.',
+  'terms.section2.highlight': 'Nous ne proposons pas de remboursements purement sur la base de "j\'ai changé d\'avis" pour les produits numériques. S\'il y a un vrai problème, nous le réparons ou le corrigeons.',
+
+  'terms.section3.num': 'Utilisation du Site',
+  'terms.section3.title': 'Utilisation du <em>Site</em>',
+  'terms.section3.p1': 'Vous pouvez utiliser le site web Travel Readz à des fins personnelles et non commerciales. Vous ne pouvez pas tenter de gratter, copier, ingénier à rebours ou reproduire notre contenu ou produits sans autorisation écrite préalable.',
+  'terms.section3.p2': 'Vous ne pouvez pas utiliser le site de manière à perturber son fonctionnement, tenter d\'accéder sans autorisation à une partie de celui-ci, ou violer une loi locale, nationale ou internationale applicable.',
+
+  'terms.section4.num': 'Propriété Intellectuelle',
+  'terms.section4.title': 'Propriété <em>Intellectuelle</em>',
+  'terms.section4.p1': 'Tout le contenu de ce site web — y compris les guides de voyage, outils numériques, copie écrite, design visuel, cartes et marque — est la propriété intellectuelle de Travel Readz et est protégé par la loi sur le droit d\'auteur applicable.',
+  'terms.section4.p2': 'Lorsque vous achetez un produit, vous recevez une licence personnelle, non transférable pour l\'utiliser à des fins de voyage personnelles. Vous ne pouvez pas reproduire, redistribuer, revendre ou partager publiquement le contenu — en tout ou partie — sans notre autorisation écrite explicite.',
+
+  'terms.section5.num': 'Responsabilité',
+  'terms.section5.title': 'Limitation de <em>Responsabilité</em>',
+  'terms.section5.p1': 'Nos guides contiennent des conseils pratiques et recommandations locales basées sur une vraie connaissance du Maroc. Cependant, le voyage comporte par nature de l\'incertitude — les prix changent, les lieux ferment, les conditions évoluent. Travel Readz ne peut être tenu responsable de toute perte, désagrément ou dommage résultant des décisions prises sur la base de notre contenu.',
+  'terms.section5.p2': 'Dans tous les cas, notre responsabilité envers vous ne dépassera pas le montant que vous avez payé pour le produit en question. Nous ne sommes pas responsables des services tiers — transport, hébergement ou activités — mentionnés dans nos matériels.',
+
+  'terms.section6.num': 'Modifications',
+  'terms.section6.title': 'Modifications de <em>Ces Conditions</em>',
+  'terms.section6.p1': 'Nous pouvons mettre à jour ces conditions de temps en temps. Quand nous le faisons, la version mise à jour sera publiée sur cette page avec une date révisée. L\'utilisation continue du site web après publication des modifications constitue votre acceptation des conditions révisées.',
+  'terms.section6.p2': 'Si nous apportons un changement matériel qui affecte significativement vos droits en tant que client, nous ferons des efforts raisonnables pour notifier les acheteurs existants par email.',
+
+  'terms.section7.num': 'Contact',
+  'terms.section7.title': 'Questions & <em>Contact</em>',
+  'terms.section7.p1': 'Si vous avez des questions sur ces conditions, ou si quelque chose ici n\'est pas clair, veuillez nous contacter. Nous préférons expliquer plutôt que de vous laisser dans l\'incertitude sur ce à quoi vous avez accepté.',
+  'terms.section7.p2': 'Envoyez-nous un email à <a href="mailto:support@travelreadz.com">support@travelreadz.com</a> — nous répondons sous 24 heures.',
+
+  'terms.cta.eyebrow': 'Prêt à Partir',
+  'terms.cta.title': 'Le Maroc vous attend.<br><em>Votre guide est prêt.</em>',
+  'terms.cta.subtitle': 'Cartes locales, connaissances culturelles, outils budgétaires et support direct — tout en un seul endroit.',
+  'terms.cta.button': 'Obtenir le Guide Travel Readz', 
+
+  // Budget Calculator page
+  'budget.hero.badge': '💰 Outil Budget',
+  'budget.hero.title': 'Calculateur de\n<em>Budget Voyage</em>',
+  'budget.hero.desc': 'Définissez votre budget, enregistrez vos dépenses au fil du temps et comparez-les — un outil universel pour les voyageurs dans n\'importe quel pays.',
+  'budget.hero.cta': 'Acheter Séparément — 4,99 €',
+  'budget.hero.subtext': '✦ Inclus gratuitement avec chaque achat de guide Travel Readz',
+  'budget.hero.statLabel': 'Catégories de Dépenses',
+  'budget.hero.verified': 'Fonctionne dans N\'importe Quel Pays',
+
+  'budget.features.eyebrow': 'Ce que vous obtenez',
+  'budget.features.title': 'Restez Maître de <em>Chaque Dirham</em>',
+  'budget.features.desc': 'Planifiez à l\'avance, suivez en déplacement et passez en revue à la fin. La manière la plus simple de voyager sans stress financier.',
+
+  'budget.feature1.title': 'Planification Pré-Voyage',
+  'budget.feature1.desc': 'Définissez des budgets par catégories avant de partir — hébergement, nourriture, transport, activités — pour savoir exactement ce que vous pouvez dépenser chaque jour.',
+  'budget.feature2.title': 'Suivi en Temps Réel',
+  'budget.feature2.desc': 'Enregistrez chaque dépense au fur et à mesure. Chaque entrée met à jour automatiquement vos totaux en cours pour éviter les surprises en fin de journée.',
+  'budget.feature3.title': 'Comparaison Budget',
+  'budget.feature3.desc': 'Voyez prévu vs réel d\'un coup d\'œil. Comprenez où vous avez dépassé et où vous avez économisé — utile pour tous vos futurs voyages aussi.',
+  'budget.feature4.title': 'Outil Universel',
+  'budget.feature4.desc': 'Fonctionne dans n\'importe quel pays, n\'importe quelle devise. Que vous soyez au Maroc ou ailleurs dans le monde, la structure s\'adapte à votre voyage.',
+
+  'budget.content.eyebrow': 'Conçu pour de Vrais Voyageurs',
+  'budget.content.title': 'Aucune compétence en tableur requise.<br><em>Ouvrez et commencez.</em>',
+  'budget.content.desc': 'La plupart des voyageurs improvisent et dépensent trop, ou stressent avec des tableurs complexes. Cet outil se situe au milieu — assez simple pour une utilisation quotidienne, assez structuré pour vous donner un vrai aperçu de l\'endroit où va votre argent.',
+  'budget.content.note': 'Conçu comme un fichier Google Sheets. Pas d\'installation, pas de connexion, pas d\'app — ouvrez simplement sur votre téléphone ou ordinateur portable et ça fonctionne immédiatement.',
+  'budget.content.listLabel': 'Ce qu\'il Contient',
+  'budget.content.item1': 'Planificateur de budget quotidien par catégorie',
+  'budget.content.item2': 'Journal des dépenses avec totaux automatiques',
+  'budget.content.item3': 'Vue de comparaison prévu vs réel',
+  'budget.content.item4': 'Flexible en devise (fonctionne dans n\'importe quel pays)',
+  'budget.content.item5': 'Estimations de coûts Maroc pré-remplies',
+  'budget.content.item6': 'Format Google Sheets adapté mobile',
+  'budget.content.item7': 'Accès instantané — pas de téléchargement requis',
+
+  'budget.reviews.eyebrow': 'Avis des Voyageurs',
+  'budget.reviews.title': 'Ce que les <em>Voyageurs</em> Disent',
+  'budget.reviews.subtitle': 'Des voyageurs solo aux couples — les acheteurs vérifiés partagent leur expérience.',
+  'budget.review1.text': '"Cet outil m\'a aidé à planifier mon budget avant le voyage et à m\'y tenir réellement. Voir prévu vs dépensé a fait une énorme différence."',
+  'budget.review1.role': 'Voyageur Solo · Acheteur Vérifié',
+  'budget.review2.text': '"Simple, clair et étonnamment puissant. J\'ai enfin compris où allait mon argent pendant mon voyage."',
+  'budget.review2.role': 'Voyageur en Couple · Acheteur Vérifié',
+  'budget.review3.text': '"Parfait pour n\'importe quel pays. J\'ai planifié mon budget à l\'avance et j\'ai adoré le comparer avec mes dépenses réelles à la fin."',
+  'budget.review3.role': 'Voyageur d\'Aventure · Acheteur Vérifié',
+
+  'budget.bonus.badge': 'Bonus Inclus',
+  'budget.bonus.title': 'Autres Cadeaux <em>dans le Paquet</em>',
+  'budget.bonus.subtitle': 'Valeur 24,99 € — inclus avec chaque achat de guide',
+
+  'budget.finalCta.eyebrow': 'Obtenez Votre Guide',
+  'budget.finalCta.title': 'Voyagez au Maroc sans <em>Stress Financier.</em>',
+  'budget.finalCta.subtitle': 'Obtenez le guide complet Travel Readz et recevez ce calculateur de budget gratuit — avec assistance voyage privée, cartes personnalisées et guide d\'étiquette culturelle.',
+  'budget.finalCta.button': 'Obtenir le Guide Travel Readz',
+  'budget.finalCta.note': '✦ Ou acheter ce calculateur séparément pour 4,99 €',
+  'budget.finalCta.trust1': '✓ Accès Instantané',
+  'budget.finalCta.trust2': '✓ Format Google Sheets',
+  'budget.finalCta.trust3': '✓ Fonctionne sur Tous les Appareils',
+  'budget.finalCta.trust4': '✓ 4 Bonus Gratuits',
+
   },
 
   es: {
@@ -1908,6 +2021,121 @@ fr: {
   'privacy.cta.title': 'Marruecos te espera.<br><em>Tu guía está listo.</em>',
   'privacy.cta.subtitle': 'Mapas locales, conocimiento cultural, herramientas de presupuesto y soporte directo — todo en un solo lugar.',
   'privacy.cta.button': 'Obtener el Guía Travel Readz',
+
+     // Terms & Conditions page
+  'terms.hero.eyebrow': 'Legal',
+  'terms.hero.title': 'Términos & <em>Condiciones</em>',
+  'terms.hero.subtitle': 'Lenguaje claro. Sin sorpresas. Aquí está a qué estás de acuerdo al usar Travel Readz — y a lo que nos comprometemos a cambio.',
+  'terms.hero.date': 'Última actualización — Enero 2025',
+
+  'terms.sidebar.label': 'Contenido',
+  'terms.nav.general': 'General',
+  'terms.nav.purchases': 'Compras',
+  'terms.nav.use': 'Uso del Sitio Web',
+  'terms.nav.ip': 'Propiedad Intelectual',
+  'terms.nav.liability': 'Limitación de Responsabilidad',
+  'terms.nav.changes': 'Cambios en Términos',
+  'terms.nav.contact': 'Contacto',
+
+  'terms.section1.num': 'General',
+  'terms.section1.title': 'Términos <em>Generales</em>',
+  'terms.section1.p1': 'Al acceder o usar el sitio web de Travel Readz, aceptas estar ligado por estos términos. Si no estás de acuerdo con alguna parte de ellos, por favor no uses el sitio ni compres nuestros productos.',
+  'terms.section1.p2': 'Todo el contenido de este sitio web — guías, herramientas, texto, imágenes — se proporciona para uso informativo y personal. Nos esforzamos por mantenerlo preciso y útil, pero no garantizamos que cada detalle esté completo o actualizado en todo momento. Marruecos cambia; actualizamos cuando podemos.',
+
+  'terms.section2.num': 'Compras',
+  'terms.section2.title': 'Compras & <em>Reembolsos</em>',
+  'terms.section2.p1': 'Todos los productos vendidos por Travel Readz son digitales — guías, mapas, calculadoras y materiales bonus. Como los productos digitales se entregan inmediatamente al comprar, todas las ventas son definitivas por defecto.',
+  'terms.section2.p2': 'Dicho esto, no nos interesa tener clientes insatisfechos. Si tienes un problema genuino — un archivo que no se abre, contenido que no era como se describió, un problema técnico de nuestra parte — contáctanos a <a href="mailto:support@travelreadz.com">support@travelreadz.com</a> y lo resolveremos. Tratamos cada caso individualmente.',
+  'terms.section2.highlight': 'No ofrecemos reembolsos puramente basados en "cambié de opinión" para productos digitales. Si hay un problema real, lo arreglamos o lo corregimos.',
+
+  'terms.section3.num': 'Uso del Sitio Web',
+  'terms.section3.title': 'Uso del <em>Sitio Web</em>',
+  'terms.section3.p1': 'Puedes usar el sitio web de Travel Readz para fines personales y no comerciales. No puedes intentar hacer scraping, copiar, ingeniería inversa o reproducir nuestro contenido o productos sin permiso escrito previo.',
+  'terms.section3.p2': 'No puedes usar el sitio de ninguna manera que interrumpa su funcionamiento, intente obtener acceso no autorizado a cualquier parte de él, o viole cualquier ley local, nacional o internacional aplicable.',
+
+  'terms.section4.num': 'Propiedad Intelectual',
+  'terms.section4.title': 'Propiedad <em>Intelectual</em>',
+  'terms.section4.p1': 'Todo el contenido de este sitio web — incluyendo guías de viaje, herramientas digitales, copia escrita, diseño visual, mapas y marca — es propiedad intelectual de Travel Readz y está protegido por la ley de copyright aplicable.',
+  'terms.section4.p2': 'Cuando compras un producto, recibes una licencia personal, no transferible para usarlo para tus propios fines de viaje. No puedes reproducir, redistribuir, revender o compartir públicamente el contenido — total o parcialmente — sin nuestro permiso escrito explícito.',
+
+  'terms.section5.num': 'Responsabilidad',
+  'terms.section5.title': 'Limitación de <em>Responsabilidad</em>',
+  'terms.section5.p1': 'Nuestras guías contienen consejos prácticos y recomendaciones locales basadas en conocimiento real de Marruecos. Sin embargo, viajar implica inherentemente incertidumbre — los precios cambian, los lugares cierran, las condiciones evolucionan. Travel Readz no puede ser responsable de ninguna pérdida, inconveniente o daño derivado de decisiones tomadas basadas en nuestro contenido.',
+  'terms.section5.p2': 'En todos los casos, nuestra responsabilidad contigo no excederá el monto que pagaste por el producto en cuestión. No somos responsables de servicios de terceros — transporte, alojamiento o actividades — referenciados en nuestros materiales.',
+
+  'terms.section6.num': 'Cambios',
+  'terms.section6.title': 'Cambios a <em>Estos Términos</em>',
+  'terms.section6.p1': 'Podemos actualizar estos términos de vez en cuando. Cuando lo hagamos, la versión actualizada se publicará en esta página con una fecha revisada. El uso continuado del sitio web después de que se publiquen cambios constituye tu aceptación de los términos revisados.',
+  'terms.section6.p2': 'Si hacemos un cambio material que afecte significativamente tus derechos como cliente, haremos esfuerzos razonables para notificar a compradores existentes por email.',
+
+  'terms.section7.num': 'Contacto',
+  'terms.section7.title': 'Preguntas & <em>Contacto</em>',
+  'terms.section7.p1': 'Si tienes alguna pregunta sobre estos términos, o si algo aquí no está claro, por favor contáctanos. Preferimos explicar antes que dejarte inseguro sobre a qué estás de acuerdo.',
+  'terms.section7.p2': 'Envíanos un email a <a href="mailto:support@travelreadz.com">support@travelreadz.com</a> — respondemos en 24 horas.',
+
+  'terms.cta.eyebrow': 'Listo para Ir',
+  'terms.cta.title': 'Marruecos te espera.<br><em>Tu guía está listo.</em>',
+  'terms.cta.subtitle': 'Mapas locales, conocimiento cultural, herramientas de presupuesto y soporte directo — todo en un solo lugar.',
+  'terms.cta.button': 'Obtener el Guía Travel Readz',
+
+      // Budget Calculator page
+  'budget.hero.badge': '💰 Herramienta Presupuesto',
+  'budget.hero.title': 'Calculadora de\n<em>Presupuesto de Viaje</em>',
+  'budget.hero.desc': 'Establece tu presupuesto, registra gastos con el tiempo y compáralos — una herramienta universal para viajeros en cualquier país.',
+  'budget.hero.cta': 'Comprar Individualmente — $4.99',
+  'budget.hero.subtext': '✦ Incluido gratis con cada compra de guía Travel Readz',
+  'budget.hero.statLabel': 'Categorías de Gastos',
+  'budget.hero.verified': 'Funciona en Cualquier País',
+
+  'budget.features.eyebrow': 'Lo que Obtienes',
+  'budget.features.title': 'Mantén el Control de <em>Cada Dirham</em>',
+  'budget.features.desc': 'Planifica con antelación, rastrea sobre la marcha y revisa al final. La forma más simple de viajar sin estrés de dinero.',
+
+  'budget.feature1.title': 'Planificación Pre-Viaje',
+  'budget.feature1.desc': 'Establece presupuestos por categorías antes de viajar — alojamiento, comida, transporte, actividades — para saber exactamente cuánto puedes gastar cada día.',
+  'budget.feature2.title': 'Seguimiento en Tiempo Real',
+  'budget.feature2.desc': 'Registra cada gasto mientras vas. Cada entrada actualiza automáticamente tus totales acumulados para que nunca te sorprendas al final del día.',
+  'budget.feature3.title': 'Comparación de Presupuesto',
+  'budget.feature3.desc': 'Ve planeado vs real de un vistazo. Entiende dónde gastaste de más y dónde ahorraste — útil para todos tus futuros viajes también.',
+  'budget.feature4.title': 'Herramienta Universal',
+  'budget.feature4.desc': 'Funciona en cualquier país, cualquier moneda. Estés en Marruecos o en cualquier otro lugar del mundo, la estructura se adapta a tu viaje.',
+
+  'budget.content.eyebrow': 'Diseñado para Viajeros Reales',
+  'budget.content.title': 'No se necesitan habilidades de hoja de cálculo.<br><em>Solo abre y empieza.</em>',
+  'budget.content.desc': 'La mayoría de los viajeros improvisan y gastan de más, o se estresan con hojas de cálculo complejas. Esta herramienta está en el medio — lo suficientemente simple para uso diario, lo suficientemente estructurada para darte visión real de dónde va tu dinero.',
+  'budget.content.note': 'Diseñado como archivo Google Sheets. Sin instalación, sin login, sin app — solo abre en tu teléfono o laptop y funciona inmediatamente.',
+  'budget.content.listLabel': 'Qué Contiene',
+  'budget.content.item1': 'Planificador de presupuesto diario por categoría',
+  'budget.content.item2': 'Registro de gastos con totales automáticos',
+  'budget.content.item3': 'Vista de comparación planeado vs real',
+  'budget.content.item4': 'Flexible en moneda (funciona en cualquier país)',
+  'budget.content.item5': 'Estimaciones de costos Marruecos pre-rellenadas',
+  'budget.content.item6': 'Formato Google Sheets móvil-friendly',
+  'budget.content.item7': 'Acceso instantáneo — sin descarga requerida',
+
+  'budget.reviews.eyebrow': 'Opiniones de Viajeros',
+  'budget.reviews.title': 'Lo que los <em>Viajeros</em> Dicen',
+  'budget.reviews.subtitle': 'Desde viajeros en solitario hasta parejas — compradores verificados comparten su experiencia.',
+  'budget.review1.text': '"Esta herramienta me ayudó a planificar mi presupuesto antes del viaje y realmente cumplirlo. Ver planeado vs gastado hizo una gran diferencia."',
+  'budget.review1.role': 'Viajero Solo · Comprador Verificado',
+  'budget.review2.text': '"Simple, claro y sorprendentemente potente. Finalmente entendí dónde iba mi dinero durante mi viaje."',
+  'budget.review2.role': 'Viajero en Pareja · Comprador Verificado',
+  'budget.review3.text': '"Perfecto para cualquier país. Planifiqué mi presupuesto con antelación y me encantó compararlo con mi gasto real al final."',
+  'budget.review3.role': 'Viajero de Aventura · Comprador Verificado',
+
+  'budget.bonus.badge': 'Bonos Incluidos',
+  'budget.bonus.title': 'Otros Regalos <em>en el Paquete</em>',
+  'budget.bonus.subtitle': 'Valor $24.99 — incluido con cada compra de guía',
+
+  'budget.finalCta.eyebrow': 'Obtén Tu Guía',
+  'budget.finalCta.title': 'Viaja a Marruecos sin <em>Estrés de Dinero.</em>',
+  'budget.finalCta.subtitle': 'Obtén la guía completa Travel Readz y recibe esta calculadora de presupuesto gratis — junto con asistencia de viaje privada, mapas personalizados y guía de etiqueta cultural.',
+  'budget.finalCta.button': 'Obtener la Guía Travel Readz',
+  'budget.finalCta.note': '✦ O comprar esta calculadora individualmente por $4.99',
+  'budget.finalCta.trust1': '✓ Acceso Instantáneo',
+  'budget.finalCta.trust2': '✓ Formato Google Sheets',
+  'budget.finalCta.trust3': '✓ Funciona en Todos los Dispositivos',
+  'budget.finalCta.trust4': '✓ 4 Bonos Gratis'
   }
 };
 
