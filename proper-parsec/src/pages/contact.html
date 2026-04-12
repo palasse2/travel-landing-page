@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Readz | Contact</title>
+  <meta name="description" content="Reach the Travel Readz team. Questions about your guide, trip planning help, or partnership inquiries — we respond within 24 hours.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ════════════════════════════════════════════
+       CONTACT PAGE — CUSTOM STYLES
+    ════════════════════════════════════════════ */
+
+    /* ── HERO ── */
+    .cnt-hero {
+      position: relative;
+      background: #071918;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .cnt-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .cnt-hero-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(200,134,58,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cnt-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 700px; padding: 100px 32px;
+    }
+    .cnt-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 28px;
+    }
+    .cnt-hero-eyebrow::before, .cnt-hero-eyebrow::after {
+      content: ''; display: block; width: 28px; height: 1px; background: #c8863a;
+    }
+    .cnt-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 300; color: #e8dcc8; line-height: 1.15; margin-bottom: 20px;
+    }
+    .cnt-hero-title em { font-style: italic; color: #c8a96e; }
+    .cnt-hero-sub {
+      font-size: 0.92rem; font-weight: 300;
+      color: rgba(232,220,200,0.42); line-height: 1.9;
+      max-width: 520px; margin: 0 auto;
+    }
+
+    /* ── SHARED ── */
+    .cnt-section { padding: 100px 0; }
+
+    .cnt-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 16px;
+    }
+    .cnt-eyebrow::before, .cnt-eyebrow::after {
+      content: ''; display: block; width: 22px; height: 1px; background: #c8863a;
+    }
+    .cnt-section-title {
+      font-family: var(--serif); font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+      font-weight: 300; line-height: 1.2; margin-bottom: 12px;
+    }
+    .cnt-section-title.light { color: #e8dcc8; }
+    .cnt-section-title.light em { color: #c8a96e; font-style: italic; }
+    .cnt-section-title.dark  { color: var(--tile); }
+    .cnt-section-title.dark  em { color: var(--ochre); font-style: italic; }
+    .cnt-section-sub {
+      font-size: 0.9rem; font-weight: 300; line-height: 1.85;
+      max-width: 520px; margin: 0 auto;
+    }
+    .cnt-section-sub.light { color: rgba(232,220,200,0.4); }
+    .cnt-section-sub.ink   { color: var(--smoke); }
+
+    /* ── CONTACT CARDS ── */
+    .cnt-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .cnt-card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(200,169,110,0.08);
+      padding: 56px 44px;
+      transition: background 0.3s, border-color 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .cnt-card:hover {
+      background: rgba(200,134,58,0.04);
+      border-color: rgba(200,169,110,0.18);
+    }
+    .cnt-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c8863a, transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .cnt-card:hover::before { opacity: 1; }
+
+    .cnt-card-num {
+      font-family: var(--serif); font-size: 3rem; font-weight: 300;
+      color: rgba(200,169,110,0.06); line-height: 1; margin-bottom: 24px;
+    }
+    .cnt-card-icon { font-size: 1.8rem; margin-bottom: 20px; display: block; }
+    .cnt-card h3 {
+      font-family: var(--serif); font-size: 1.25rem; font-weight: 400;
+      color: #e8dcc8; margin-bottom: 12px;
+    }
+    .cnt-card p {
+      font-size: 0.86rem; font-weight: 300;
+      color: rgba(232,220,200,0.4); line-height: 1.85; margin-bottom: 24px;
+    }
+    .cnt-card-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #c8863a; text-decoration: none;
+      transition: gap 0.3s, color 0.3s;
+      border-bottom: 1px solid rgba(200,134,58,0.25);
+      padding-bottom: 3px;
+    }
+    .cnt-card-link:hover { gap: 14px; color: #c8a96e; }
+
+    .cnt-social-row {
+      display: flex; gap: 14px; margin-top: 8px;
+    }
+    .cnt-social-btn {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(200,169,110,0.06);
+      border: 1px solid rgba(200,169,110,0.14);
+      padding: 10px 16px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(200,169,110,0.6); text-decoration: none;
+      transition: all 0.3s;
+    }
+    .cnt-social-btn:hover {
+      background: rgba(200,134,58,0.1);
+      border-color: rgba(200,169,110,0.3);
+      color: #c8a96e;
+    }
+    .cnt-social-btn img {
+      width: 18px; height: 18px; object-fit: contain;
+      filter: grayscale(1) brightness(1.5);
+      opacity: 0.5;
+    }
+
+    /* ── FORM SECTION ── */
+    .cnt-form-wrap {
+      background: #0a1716;
+      padding: 100px 0;
+      position: relative; overflow: hidden;
+    }
+    .cnt-form-wrap::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.03)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .cnt-form-wrap .container { position: relative; z-index: 1; }
+    .cnt-form-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .cnt-form-left { padding-top: 8px; }
+    .cnt-form-left-label {
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,169,110,0.35); margin-bottom: 20px;
+    }
+    .cnt-form-left-title {
+      font-family: var(--serif); font-size: 2rem; font-weight: 300;
+      color: #e8dcc8; line-height: 1.25; margin-bottom: 20px;
+    }
+    .cnt-form-left-title em { font-style: italic; color: #c8a96e; }
+    .cnt-form-left-desc {
+      font-size: 0.86rem; font-weight: 300;
+      color: rgba(232,220,200,0.38); line-height: 1.85; margin-bottom: 36px;
+    }
+    .cnt-response-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(200,134,58,0.07);
+      border: 1px solid rgba(200,169,110,0.15);
+      border-left: 3px solid #c8863a;
+      padding: 14px 20px;
+    }
+    .cnt-response-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #c8863a;
+      box-shadow: 0 0 6px rgba(200,134,58,0.5);
+      animation: cntPulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes cntPulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.4; transform:scale(0.8); }
+    }
+    .cnt-response-text {
+      font-family: var(--sans); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.08em; color: #c8a96e; line-height: 1.5;
+    }
+    .cnt-response-text strong { display: block; color: #e8dcc8; font-weight: 600; }
+
+    /* Form */
+    .cnt-form { display: flex; flex-direction: column; gap: 20px; }
+    .cnt-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .cnt-form-group { display: flex; flex-direction: column; gap: 8px; }
+    .cnt-form-group label {
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(200,169,110,0.4);
+    }
+    .cnt-form-group input,
+    .cnt-form-group select,
+    .cnt-form-group textarea {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(200,169,110,0.12);
+      padding: 14px 18px;
+      font-family: var(--sans); font-size: 0.88rem; font-weight: 300;
+      color: #e8dcc8;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      -webkit-appearance: none;
+    }
+    .cnt-form-group input::placeholder,
+    .cnt-form-group textarea::placeholder { color: rgba(232,220,200,0.2); }
+    .cnt-form-group input:focus,
+    .cnt-form-group select:focus,
+    .cnt-form-group textarea:focus {
+      border-color: rgba(200,169,110,0.35);
+      background: rgba(200,134,58,0.04);
+    }
+    .cnt-form-group select option { background: #0d1a19; color: #e8dcc8; }
+    .cnt-form-group textarea { min-height: 140px; resize: vertical; }
+    .cnt-submit-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      background: #c8863a; color: #fff;
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 16px 36px; border: none; cursor: pointer;
+      transition: all 0.3s; width: 100%;
+    }
+    .cnt-submit-btn:hover { background: #c8a96e; gap: 18px; }
+
+    /* ── FAQ ── */
+    .cnt-faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+    .cnt-faq-item {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 40px 44px;
+      transition: background 0.3s, border-color 0.3s;
+      position: relative;
+    }
+    .cnt-faq-item:hover {
+      background: #fff;
+      border-color: rgba(200,134,58,0.2);
+    }
+    .cnt-faq-item::before {
+      content: ''; position: absolute; top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, transparent, rgba(200,134,58,0.3), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .cnt-faq-item:hover::before { opacity: 1; }
+    .cnt-faq-q-label {
+      font-family: var(--sans); font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 12px;
+    }
+    .cnt-faq-question {
+      font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+      color: var(--tile); line-height: 1.35; margin-bottom: 14px;
+    }
+    .cnt-faq-answer {
+      font-size: 0.86rem; font-weight: 300;
+      color: var(--smoke); line-height: 1.85;
+    }
+
+    /* ── FINAL CTA ── */
+    .cnt-final-cta {
+      background: #071918; padding: 110px 0;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cnt-final-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 55% at 50% 100%, rgba(200,134,58,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cnt-final-cta::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .cnt-final-inner {
+      position: relative; z-index: 1;
+      max-width: 600px; margin: 0 auto; padding: 0 24px;
+    }
+    .cnt-final-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8a96e; margin-bottom: 28px;
+    }
+    .cnt-final-eyebrow::before, .cnt-final-eyebrow::after {
+      content: ''; display: block; width: 28px; height: 1px; background: #c8863a;
+    }
+    .cnt-final-title {
+      font-family: var(--serif); font-size: clamp(1.9rem, 3vw, 2.8rem);
+      font-weight: 300; color: #e8dcc8; line-height: 1.2; margin-bottom: 16px;
+    }
+    .cnt-final-title em { font-style: italic; color: #c8a96e; }
+    .cnt-final-sub {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(232,220,200,0.38); line-height: 1.85; margin-bottom: 44px;
+    }
+    .cnt-final-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #c8863a; color: #fff;
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none; padding: 16px 36px;
+      transition: all 0.35s;
+    }
+    .cnt-final-btn:hover { background: #c8a96e; gap: 18px; color: #fff; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 960px) {
+      .cnt-cards-grid { grid-template-columns: 1fr; }
+      .cnt-form-inner { grid-template-columns: 1fr; gap: 44px; }
+      .cnt-faq-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .cnt-section { padding: 72px 0; }
+      .cnt-form-row { grid-template-columns: 1fr; }
+      .cnt-hero-inner { padding: 80px 24px; }
+      .cnt-social-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+        <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+      </svg>
+      <span class="nav-logo-text">Travel <span>Readz</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" data-translate="nav.home">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-center-stack">
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul>
+      <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services" onclick="closeDrawer()">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about" onclick="closeDrawer()">Journal</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="cnt-hero">
+  <div class="cnt-hero-bg"></div>
+  <div class="cnt-hero-glow"></div>
+  <div class="cnt-hero-inner reveal">
+    <div class="cnt-hero-eyebrow" data-translate="contact.hero.eyebrow">Get in Touch</div>
+    <h1 class="cnt-hero-title" data-translate="contact.hero.title">
+      A question deserves<br><em>a real answer.</em>
+    </h1>
+    <p class="cnt-hero-sub" data-translate="contact.hero.subtitle">
+      Not a bot. Not a FAQ redirect. If you write to us, a person reads it and writes back — usually within 24 hours.
+    </p>
+  </div>
+</section>
+
+
+<!-- CONTACT CARDS -->
+<section class="cnt-section" style="background: #0d1a19; padding: 80px 0;">
+  <div class="container">
+    <div class="cnt-cards-grid reveal">
+
+      <div class="cnt-card">
+        <div class="cnt-card-num">01</div>
+        <span class="cnt-card-icon">✉️</span>
+        <h3 data-translate="contact.card1.title">Email Us Directly</h3>
+        <p data-translate="contact.card1.desc">Questions about your order, guide access issues, or anything else — send it here. We respond within 24 hours, no exceptions.</p>
+        <a href="mailto:support@travelreadz.com" class="cnt-card-link" data-translate="contact.card1.link">
+          support@travelreadz.com <span>→</span>
+        </a>
+      </div>
+
+      <div class="cnt-card">
+        <div class="cnt-card-num">02</div>
+        <span class="cnt-card-icon">📍</span>
+        <h3 data-translate="contact.card2.title">Follow the Journey</h3>
+        <p data-translate="contact.card2.desc">Behind-the-scenes Morocco, honest travel tips, and updates on new guides — all on our social channels. No filler content, just what's useful.</p>
+        <div class="cnt-social-row">
+          <a href="https://www.instagram.com/travel_readz/" target="_blank" class="cnt-social-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/640px-Instagram_logo_2022.svg.png" alt="Instagram">
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100091928441437" target="_blank" class="cnt-social-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Facebook_Logo_2023.png/1200px-Facebook_Logo_2023.png" alt="Facebook">
+            Facebook
+          </a>
+        </div>
+      </div>
+
+      <div class="cnt-card">
+        <div class="cnt-card-num">03</div>
+        <span class="cnt-card-icon">🤝</span>
+        <h3 data-translate="contact.card3.title">Partnerships & Collabs</h3>
+        <p data-translate="contact.card3.desc">Working with travel bloggers, agencies, and content creators who genuinely cover Morocco. If that's you, we'd like to hear from you.</p>
+        <a href="mailto:support@travelreadz.com?subject=Partnership Inquiry" class="cnt-card-link" data-translate="contact.card3.link">
+          Start a conversation <span>→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FORM -->
+<section class="cnt-form-wrap">
+  <div class="container">
+    <div class="cnt-form-inner">
+
+      <div class="cnt-form-left reveal">
+        <div class="cnt-form-left-label" data-translate="contact.form.sideLabel">Write to Us</div>
+        <h2 class="cnt-form-left-title" data-translate="contact.form.sideTitle">
+          Tell us exactly<br><em>what you need.</em>
+        </h2>
+        <p class="cnt-form-left-desc" data-translate="contact.form.sideDesc">
+          Whether it's a simple question about the guide, a problem with your purchase, or a complex itinerary question — we'd rather have the full picture than a one-liner. The more detail you give us, the better we can help.
+        </p>
+        <div class="cnt-response-badge">
+          <div class="cnt-response-dot"></div>
+          <div class="cnt-response-text">
+            <strong data-translate="contact.form.badgeStrong">Replies within 24 hours</strong>
+            <span data-translate="contact.form.badgeSub">Every message is read by a real person</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="cnt-form" action="https://formspree.io/f/xqezdpdy" method="POST">
+
+          <div class="cnt-form-row">
+            <div class="cnt-form-group">
+              <label for="name" data-translate="contact.form.name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your full name">
+            </div>
+            <div class="cnt-form-group">
+              <label for="email" data-translate="contact.form.email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="cnt-form-group">
+            <label for="subject" data-translate="contact.form.subjectLabel">Topic</label>
+            <select id="subject" name="subject" required>
+              <option value="" data-translate="contact.form.selectTopic">Select a topic…</option>
+              <option value="guide-question" data-translate="contact.form.optGuide">Question About the Guide</option>
+              <option value="order-support" data-translate="contact.form.optOrder">Order or Access Issue</option>
+              <option value="trip-planning" data-translate="contact.form.optTrip">Trip Planning Help</option>
+              <option value="partnership" data-translate="contact.form.optPartner">Partnership or Collaboration</option>
+              <option value="feedback" data-translate="contact.form.optFeedback">Feedback</option>
+              <option value="other" data-translate="contact.form.optOther">Something Else</option>
+            </select>
+          </div>
+
+          <div class="cnt-form-group">
+            <label for="message" data-translate="contact.form.messageLabel">Your Message</label>
+            <textarea id="message" name="message" required placeholder="Give us as much context as you like — we read it all."></textarea>
+          </div>
+
+          <button type="submit" class="cnt-submit-btn" data-translate="contact.form.submit">
+            Send Message <span>→</span>
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="cnt-section" style="background: var(--sand-light);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 64px;" class="reveal">
+      <div class="cnt-eyebrow" style="color: var(--ochre); justify-content: center;">
+        <span style="display:block;width:22px;height:1px;background:var(--ochre);"></span>
+        <span data-translate="contact.faq.eyebrow">Common Questions</span>
+        <span style="display:block;width:22px;height:1px;background:var(--ochre);"></span>
+      </div>
+      <h2 class="cnt-section-title dark" data-translate="contact.faq.title">Things people ask <em>us most</em></h2>
+      <p class="cnt-section-sub ink" data-translate="contact.faq.subtitle">If your question is here, you have your answer. If it's not, use the form above.</p>
+    </div>
+
+    <div class="cnt-faq-grid reveal">
+
+      <div class="cnt-faq-item">
+        <div class="cnt-faq-q-label">Q —</div>
+        <div class="cnt-faq-question" data-translate="contact.faq.q1.question">When do I get access after purchasing?</div>
+        <div class="cnt-faq-answer" data-translate="contact.faq.q1.answer">Immediately. You'll receive a download link by email the moment your payment clears. Check your spam folder if you don't see it within a few minutes.</div>
+      </div>
+
+      <div class="cnt-faq-item">
+        <div class="cnt-faq-q-label">Q —</div>
+        <div class="cnt-faq-question" data-translate="contact.faq.q2.question">I can't access my purchase. What do I do?</div>
+        <div class="cnt-faq-answer" data-translate="contact.faq.q2.answer">Email us at support@travelreadz.com with your order number. We'll sort it within 24 hours — and if the issue is on our end, we'll fix it immediately.</div>
+      </div>
+
+      <div class="cnt-faq-item">
+        <div class="cnt-faq-q-label">Q —</div>
+        <div class="cnt-faq-question" data-translate="contact.faq.q3.question">Can I get personal advice for my specific trip?</div>
+        <div class="cnt-faq-answer" data-translate="contact.faq.q3.answer">Yes — that's exactly what the Private Travel Assistance bonus is for. Once you purchase the guide, you get direct access to one of our team for real-time trip questions.</div>
+      </div>
+
+      <div class="cnt-faq-item">
+        <div class="cnt-faq-q-label">Q —</div>
+        <div class="cnt-faq-question" data-translate="contact.faq.q4.question">Do you work with travel bloggers or affiliates?</div>
+        <div class="cnt-faq-answer" data-translate="contact.faq.q4.answer">We do, selectively. We look for people who genuinely cover Morocco, not those just chasing a commission. Use the form above — select "Partnership" and introduce yourself properly.</div>
+      </div>
+
+      <div class="cnt-faq-item">
+        <div class="cnt-faq-q-label">Q —</div>
+        <div class="cnt-faq-question" data-translate="contact.faq.q5.question">Is the guide updated regularly?</div>
+        <div class="cnt-faq-answer" data-translate="contact.faq.q5.answer">Yes. We review and update the guide periodically to reflect price changes, new recommendations, and seasonal information. Buyers always get the latest version.</div>
+      </div>
+
+      <div class="cnt-faq-item">
+        <div class="cnt-faq-q-label">Q —</div>
+        <div class="cnt-faq-question" data-translate="contact.faq.q6.question">What if the guide isn't right for me?</div>
+        <div class="cnt-faq-answer" data-translate="contact.faq.q6.answer">We're confident you'll find it valuable — but if you have a genuine concern after purchasing, reach out. We handle every case individually and we're not interested in unhappy customers.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="cnt-final-cta">
+  <div class="cnt-final-inner reveal">
+    <div class="cnt-final-eyebrow" data-translate="contact.cta.eyebrow">Ready to Go</div>
+    <h2 class="cnt-final-title" data-translate="contact.cta.title">
+      Don't wait until you land<br><em>to prepare.</em>
+    </h2>
+    <p class="cnt-final-sub" data-translate="contact.cta.subtitle">
+      The Travel Readz guide gives you everything before you arrive — maps, cultural knowledge, a budget tool, and direct support. One purchase, fully prepared.
+    </p>
+    <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="cnt-final-btn" data-translate="contact.cta.button">
+      Get the Travel Readz Guide <span>→</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-wordmark">Travel <span>Readz</span></div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a></li>
+        <li><a href="terms.html" data-translate="footer.terms">Terms &amp; Conditions</a></li>
+        <li><a href="contact.html" data-translate="footer.contact">Contact Us</a></li>
+        <li><a href="about.html" data-translate="footer.about">About Us</a></li>
+      </ul>
+    </div>
+    <p class="footer-copyright" data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<script src="translations.js" onerror="void(0)"></script>
+<script>
+  const mobileNavStyle = document.createElement('style');
+  mobileNavStyle.textContent = `
+    .nav-center-stack {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 14px; position: static; transform: none;
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        display: flex; flex-direction: row; align-items: center;
+        height: 68px; min-height: 68px; padding: 0 16px; position: relative;
+      }
+      .nav-logo { flex-shrink: 0; }
+      .nav-right {
+        display: flex; flex-direction: row; align-items: center;
+        margin-left: auto; flex-shrink: 0; gap: 8px;
+      }
+      .nav-center-stack {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+      }
+      .language-switcher { display: flex; gap: 3px; }
+      .lang-btn { font-size: 0.58rem; padding: 2px 5px; }
+      .nav-cta { font-size: 0.58rem; padding: 5px 10px; white-space: nowrap; }
+      .hamburger { flex-shrink: 0; margin-left: 4px; }
+    }
+  `;
+  document.head.appendChild(mobileNavStyle);
+
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('mobile-drawer');
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) closeDrawer();
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

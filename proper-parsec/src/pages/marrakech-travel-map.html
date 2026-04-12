@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Readz | Marrakech Maps Guide</title>
+  <meta name="description" content="This premium travel gift is included free when you purchase the Travel Readz ebook. Discover what's inside and why travelers love it."/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png"/>
+
+  <style>
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS — Match Travel Readz system
+    ══════════════════════════════════════════ */
+    :root {
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'Jost', system-ui, sans-serif;
+
+      --bg:      #071918;
+      --bg-2:    #0d1f1e;
+      --bg-3:    #102422;
+      --cream:   #f5f0e8;
+      --text:    #e8dcc8;
+      --muted:   rgba(232,220,200,0.5);
+      --dimmed:  rgba(232,220,200,0.35);
+
+      --gold:    #c8863a;
+      --gold-l:  #c8a96e;
+      --gold-d:  #a0692a;
+      --tile:    #133a38;
+
+      --border:  rgba(200,169,110,0.15);
+      --border-s:rgba(200,169,110,0.08);
+      --ease:    cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+
+    /* ── ZELLIGE PATTERN ── */
+    .zellige-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.045)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* ── ORNAMENT ── */
+    .ornament {
+      text-align: center;
+      color: var(--gold-l);
+      letter-spacing: 0.3em;
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+
+    /* ── EYEBROW ── */
+    .section-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-eyebrow.centered { text-align: center; }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .section-title em { font-style: italic; color: var(--gold-l); }
+
+    .section-subtitle {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 580px;
+      margin: 14px auto 0;
+      text-align: center;
+    }
+
+    /* ── GOLD RULE ── */
+    .gold-rule {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 20px auto;
+    }
+
+    /* ── BUTTON PRIMARY ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 15px 30px;
+      transition: background 0.3s var(--ease), gap 0.3s var(--ease);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--gold-l); gap: 16px; }
+    .btn-arrow { font-size: 1rem; }
+
+    /* ── BTN OUTLINE ── */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--gold-l);
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      border: 1px solid var(--border);
+      transition: all 0.3s var(--ease);
+    }
+    .btn-outline:hover {
+      background: rgba(200,169,110,0.06);
+      border-color: rgba(200,169,110,0.35);
+      gap: 16px;
+    }
+
+    /* ══════════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════════ */
+    .main-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,25,24,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-s);
+      transition: box-shadow 0.3s;
+    }
+    .main-nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.4); }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo-icon { width: 28px; height: 28px; }
+    .nav-logo-text {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo-text span { color: var(--gold); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 0;
+    }
+    .nav-links li a {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 18px;
+      position: relative;
+      transition: color 0.25s;
+    }
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 18px; right: 18px;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s var(--ease);
+    }
+    .nav-links li a:hover { color: var(--gold-l); }
+    .nav-links li a:hover::after { transform: scaleX(1); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .language-switcher {
+      display: flex;
+      gap: 2px;
+      background: rgba(200,169,110,0.06);
+      border: 1px solid var(--border);
+      padding: 4px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--dimmed);
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-transform: uppercase;
+    }
+    .lang-btn:hover { color: var(--gold-l); }
+    .lang-btn.active {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--gold);
+      padding: 10px 20px;
+      text-decoration: none;
+      transition: background 0.25s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--gold-l); }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: all 0.3s;
+    }
+
+    .mobile-drawer {
+      display: none;
+      flex-direction: column;
+      background: var(--bg-2);
+      border-top: 1px solid var(--border-s);
+      padding: 20px 24px 28px;
+    }
+    .mobile-drawer.open { display: flex; }
+    .mobile-drawer ul { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; }
+    .mobile-drawer ul li a {
+      display: block;
+      padding: 12px 0;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-s);
+      transition: color 0.2s;
+    }
+    .mobile-drawer ul li a:hover { color: var(--gold-l); }
+
+    /* ══════════════════════════════════════════
+       HERO — Split Layout (matches PTA page)
+    ══════════════════════════════════════════ */
+    .gift-hero {
+      position: relative;
+      background: var(--bg);
+      min-height: 640px;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    .gift-hero-glow {
+      position: absolute;
+      top: -10%; right: -5%;
+      width: 55%; height: 120%;
+      background: radial-gradient(ellipse 60% 70% at 70% 40%,
+        rgba(200,134,58,0.09) 0%,
+        rgba(19,58,56,0.18) 45%,
+        transparent 70%);
+      pointer-events: none;
+    }
+
+    .gift-hero-rule {
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 1px;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(200,169,110,0.15) 20%,
+        rgba(200,169,110,0.25) 50%,
+        rgba(200,169,110,0.15) 80%,
+        transparent 100%);
+      transform: skewX(-3deg);
+      pointer-events: none;
+    }
+
+    .gift-hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+      min-height: 640px;
+    }
+
+    /* LEFT */
+    .gift-hero-left { padding: 80px 0; }
+
+    .hero-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(200,169,110,0.07);
+      border: 1px solid rgba(200,169,110,0.2);
+      padding: 7px 16px 7px 12px;
+      margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 6px rgba(200,134,58,0.6);
+      animation: heroPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes heroPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .hero-badge-text {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-l);
+    }
+
+    .gift-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.18;
+      margin-bottom: 22px;
+    }
+    .gift-hero-title em {
+      font-style: italic;
+      color: var(--gold-l);
+      display: block;
+    }
+
+    .gift-hero-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 32px;
+      max-width: 420px;
+    }
+
+    /* value pill row */
+    .hero-value-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .hero-tag {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(200,169,110,0.65);
+      background: rgba(200,169,110,0.05);
+      border: 1px solid rgba(200,169,110,0.13);
+      padding: 5px 13px;
+    }
+
+    /* price strip */
+    .hero-price-strip {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding: 16px 20px;
+      background: rgba(200,169,110,0.05);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+    }
+    .price-free {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold-l);
+    }
+    .price-divider { width: 1px; height: 32px; background: var(--border); }
+    .price-individual {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--dimmed);
+      line-height: 1.5;
+    }
+    .price-individual strong {
+      display: block;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.82rem;
+    }
+
+    .hero-cta-group { display: flex; flex-direction: column; gap: 14px; }
+    .hero-cta-note {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(200,169,110,0.35);
+      letter-spacing: 0.04em;
+    }
+
+    /* RIGHT image */
+    .gift-hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 0;
+    }
+
+    .gift-hero-img-wrap {
+      position: relative;
+    }
+    .gift-hero-img-wrap::before,
+    .gift-hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      width: 40px; height: 40px;
+      border-color: rgba(200,169,110,0.28);
+      border-style: solid;
+    }
+    .gift-hero-img-wrap::before {
+      top: -14px; left: -14px;
+      border-width: 1px 0 0 1px;
+    }
+    .gift-hero-img-wrap::after {
+      bottom: -14px; right: -14px;
+      border-width: 0 1px 1px 0;
+    }
+
+    .gift-hero-img-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%,
+        rgba(200,134,58,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .gift-hero-img-wrap img {
+      width: 100%;
+      max-width: 340px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 24px 52px rgba(0,0,0,0.55));
+      animation: imgFloat 7s ease-in-out infinite;
+    }
+    @keyframes imgFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* floating badges */
+    .float-badge {
+      position: absolute;
+      background: rgba(7,25,24,0.94);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      backdrop-filter: blur(8px);
+      z-index: 3;
+    }
+    .float-badge-num {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--gold-l);
+      line-height: 1;
+    }
+    .float-badge-label {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dimmed);
+      margin-top: 3px;
+    }
+
+    .float-badge-verified {
+      position: absolute;
+      top: 50px; right: -18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .float-badge-verified svg {
+      width: 13px; height: 13px;
+      fill: var(--gold); flex-shrink: 0;
+    }
+    .float-badge-verified span {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--gold-l);
+    }
+
+    .float-badge-spots {
+      bottom: 48px;
+      left: -18px;
+      border-left: 3px solid var(--gold);
+    }
+
+    /* ══════════════════════════════════════════
+       TRUST STRIP
+    ══════════════════════════════════════════ */
+    .trust-strip {
+      border-top: 1px solid var(--border-s);
+      border-bottom: 1px solid var(--border-s);
+      background: var(--bg-2);
+      padding: 18px 40px;
+    }
+    .trust-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dimmed);
+    }
+    .trust-item::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.5rem;
+    }
+    .trust-divider { width: 1px; height: 18px; background: var(--border-s); }
+
+    /* ══════════════════════════════════════════
+       MAIN CONTAINER
+    ══════════════════════════════════════════ */
+    .page-body { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    /* ══════════════════════════════════════════
+       FEATURES SECTION
+    ══════════════════════════════════════════ */
+    .features-section {
+      padding: 100px 0 80px;
+    }
+    .features-header { text-align: center; margin-bottom: 64px; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border-s);
+      border: 1px solid var(--border-s);
+    }
+
+    .feature-card {
+      background: var(--bg-2);
+      padding: 44px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s var(--ease);
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-l));
+      transform: scaleX(0);
+      transition: transform 0.35s var(--ease);
+    }
+    .feature-card:hover { background: var(--bg-3); }
+    .feature-card:hover::before { transform: scaleX(1); }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .feature-card h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .feature-card p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ══════════════════════════════════════════
+       WHAT'S INSIDE BLOCK
+    ══════════════════════════════════════════ */
+    .inside-block {
+      position: relative;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      padding: 64px 56px;
+      margin: 0 0 80px;
+      overflow: hidden;
+    }
+    .inside-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .inside-block::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle at top right, rgba(200,134,58,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .inside-block-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .inside-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .inside-eyebrow svg { width: 14px; height: 14px; fill: var(--gold); }
+
+    .inside-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+    .inside-title em { font-style: italic; color: var(--gold-l); }
+
+    .inside-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+
+    .inside-value-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,134,58,0.08);
+      border: 1px solid rgba(200,134,58,0.2);
+      padding: 9px 18px;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .inside-value-box::before { content: '◆'; font-size: 0.5rem; }
+
+    /* checklist */
+    .inside-features-label {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(200,169,110,0.45);
+      margin-bottom: 20px;
+    }
+    .inside-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+    }
+    .inside-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border-s);
+      font-size: 0.88rem;
+      color: rgba(232,220,200,0.75);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .inside-list li:last-child { border-bottom: none; }
+    .check-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: rgba(200,134,58,0.12);
+      border: 1px solid rgba(200,134,58,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.62rem;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    /* note box */
+    .inside-note {
+      background: rgba(200,169,110,0.04);
+      border: 1px solid rgba(200,169,110,0.1);
+      border-left: 3px solid rgba(200,169,110,0.3);
+      padding: 18px 20px;
+    }
+    .inside-note p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--dimmed);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .inside-note strong { color: var(--muted); font-weight: 500; }
+
+    /* ══════════════════════════════════════════
+       REVIEWS SECTION
+    ══════════════════════════════════════════ */
+    .reviews-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border-s);
+      border-bottom: 1px solid var(--border-s);
+    }
+    .reviews-header { text-align: center; margin-bottom: 56px; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-top: 3px solid rgba(200,169,110,0.2);
+      padding: 36px 32px;
+      position: relative;
+      transition: all 0.35s var(--ease);
+    }
+    .review-card:hover {
+      transform: translateY(-6px);
+      border-top-color: var(--gold);
+      box-shadow: 0 20px 52px rgba(0,0,0,0.3);
+    }
+
+    .review-quote {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      line-height: 1;
+      color: rgba(200,169,110,0.15);
+      margin-bottom: 4px;
+    }
+    .stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .review-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-s);
+    }
+    .review-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(200,169,110,0.12);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      color: var(--gold-l);
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+    .review-role {
+      font-size: 0.68rem;
+      color: var(--dimmed);
+      margin-top: 2px;
+    }
+    .verified-badge {
+      margin-left: auto;
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(200,134,58,0.08);
+      border: 1px solid rgba(200,134,58,0.2);
+      padding: 4px 8px;
+    }
+
+    /* ══════════════════════════════════════════
+       BONUS SECTION
+    ══════════════════════════════════════════ */
+    .bonus-section { padding: 100px 0; }
+    .bonus-header { text-align: center; margin-bottom: 56px; }
+
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .bonus-card {
+      background: var(--bg-2);
+      padding: 30px;
+      border-radius: 0;
+      text-align: center;
+      transition: all 0.35s var(--ease);
+      position: relative;
+      border: 1px solid var(--border);
+    }
+    .bonus-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 52px rgba(0,0,0,0.35);
+      border-color: rgba(200,169,110,0.35);
+    }
+
+    .bonus-value {
+      position: absolute;
+      top: 15px; right: 15px;
+      background: var(--gold);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    .bonus-card img {
+      border-radius: 8px;
+      margin: 0 auto 20px;
+      width: 100%;
+      max-width: 190px;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s var(--ease);
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+    }
+    .bonus-card:hover img { transform: translateY(-4px); }
+
+    .bonus-card h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .bonus-card p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .bonus-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      transition: gap 0.25s;
+    }
+    .bonus-link:hover { gap: 10px; }
+
+    /* ══════════════════════════════════════════
+       FINAL CTA
+    ══════════════════════════════════════════ */
+    .final-cta-section {
+      position: relative;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .final-cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.035)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .final-cta-section::after {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(200,134,58,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .final-cta-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 80px 40px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .final-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .final-cta-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .final-cta-title em { font-style: italic; color: var(--gold-l); }
+
+    .final-cta-sub {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .final-cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .final-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+    .final-trust span {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dimmed);
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .site-footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border-s);
+      padding: 52px 40px 32px;
+    }
+    .footer-container { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-wordmark {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+    .footer-wordmark span { color: var(--gold); }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dimmed);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .footer-links a:hover { color: var(--gold-l); }
+    .footer-copyright {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      color: var(--dimmed);
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-s);
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 1080px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .inside-block-inner { grid-template-columns: 1fr; gap: 40px; }
+      .inside-block { padding: 44px 32px; }
+    }
+
+    @media (max-width: 900px) {
+      .gift-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+        min-height: auto;
+        padding: 0 24px;
+      }
+      .gift-hero-left { padding: 64px 0 28px; }
+      .gift-hero-right { padding: 0 0 64px; justify-content: flex-start; }
+      .gift-hero-rule { display: none; }
+      .float-badge-spots { left: 0; bottom: 72px; }
+      .float-badge-verified { right: 0; top: 16px; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .bonus-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .page-body { padding: 0 20px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .bonus-grid { grid-template-columns: 1fr; }
+      .inside-block { padding: 36px 22px; }
+      .trust-strip { padding: 14px 20px; }
+      .trust-divider { display: none; }
+      .site-footer { padding: 40px 20px 24px; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+      .final-cta-inner { padding: 60px 20px; }
+      .hero-price-strip { flex-direction: column; gap: 10px; }
+      .price-divider { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-value-row { gap: 6px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+        <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+      </svg>
+      <span class="nav-logo-text">Travel <span>Readz</span></span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" data-translate="nav.home">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" data-translate="nav.cta">Get the Guide</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul>
+      <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services" onclick="closeDrawer()">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about" onclick="closeDrawer()">Journal</a></li>
+    </ul>
+    <div class="language-switcher" style="margin-top:4px;">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="gift-hero">
+  <div class="zellige-bg"></div>
+  <div class="gift-hero-glow"></div>
+  <div class="gift-hero-rule"></div>
+
+  <div class="gift-hero-inner">
+
+    <!-- LEFT: Text -->
+    <div class="gift-hero-left">
+      <div class="hero-badge-wrap">
+        <span class="hero-badge-dot"></span>
+        <span class="hero-badge-text" data-translate="maps.hero.badge">🗺️ Interactive Travel Guide</span>
+      </div>
+
+      <h1 class="gift-hero-title">
+        The Ultimate
+        <em data-translate="maps.hero.titleEm">Marrakech Maps Guide</em>
+      </h1>
+
+      <p class="gift-hero-desc" data-translate="maps.hero.subtitle">
+        Hand-picked attractions, hidden gems, riads, restaurants, and insider tips — all pinned directly to Google Maps for your Marrakech adventure.
+      </p>
+
+      <div class="hero-value-row">
+        <span class="hero-tag" data-translate="maps.tag1">✦ 100+ Curated Pins</span>
+        <span class="hero-tag" data-translate="maps.tag2">✦ Hidden Gems Included</span>
+        <span class="hero-tag" data-translate="maps.tag3">✦ Works Offline</span>
+        <span class="hero-tag" data-translate="maps.tag4">✦ Instant Access</span>
+      </div>
+
+      <div class="hero-price-strip">
+        <div class="price-free" data-translate="maps.priceLabel">Included Free</div>
+        <div class="price-divider"></div>
+        <div class="price-individual">
+          <strong data-translate="maps.priceIndividual">$5 — Buy Individually</strong>
+          <span data-translate="maps.priceNote">With the Travel Readz guide, it's yours at no extra cost</span>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary">
+          <span data-translate="maps.hero.ctaMain">Get the Guide — Unlock Free</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="https://travelreadz.gumroad.com/l/Marrakech-Map-Guide?wanted=true" class="btn-outline">
+          <span data-translate="maps.hero.ctaIndividual">Buy Maps Only — $5</span>
+          <span>→</span>
+        </a>
+        <div class="hero-cta-note" data-translate="maps.hero.ctaNote">✦ Instant download · No subscription required</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Image -->
+    <div class="gift-hero-right">
+      <div class="gift-hero-img-wrap">
+        <div class="gift-hero-img-glow"></div>
+        <img
+          src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568882/Untitled_design_9_hljh1y.png"
+          alt="Marrakech Google Maps Guide"
+        />
+        <!-- Floating badges -->
+        <div class="float-badge float-badge-spots">
+          <div class="float-badge-num">100+</div>
+          <div class="float-badge-label" data-translate="maps.statLabel">Curated Locations</div>
+        </div>
+        <div class="float-badge float-badge-verified">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span data-translate="maps.verifiedLabel">Expert Curated</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     TRUST STRIP
+════════════════════════════════════════ -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-item" data-translate="maps.trust1">Updated for 2025</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item" data-translate="maps.trust2">Works on Any Device</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item" data-translate="maps.trust3">Offline Access Available</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item" data-translate="maps.trust4">Local Expert Curated</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item" data-translate="maps.trust5">Instant Download</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE BODY
+════════════════════════════════════════ -->
+<div class="page-body">
+
+  <!-- FEATURES -->
+  <section class="features-section reveal">
+    <div class="features-header">
+      <div class="ornament" style="margin-bottom:20px;"><span>✦ ✦ ✦</span></div>
+      <div class="section-eyebrow centered" data-translate="maps.features.eyebrow">What's Inside</div>
+      <h2 class="section-title" style="text-align:center;" data-translate="maps.features.title">Everything You'll <em>Get</em></h2>
+      <div class="gold-rule"></div>
+      <p class="section-subtitle" data-translate="maps.features.subtitle">This guide includes everything you need to navigate Marrakech like a local — detailed pins, hidden gems, practical tips, and curated recommendations.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <span class="feature-icon">🗺️</span>
+        <h3 data-translate="maps.features.card1.title">Curated Map Pins</h3>
+        <p data-translate="maps.features.card1.desc">Over 100 hand-picked locations pinned directly in Google Maps — no searching, no guessing, just open and explore.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <span class="feature-icon">💎</span>
+        <h3 data-translate="maps.features.card2.title">Hidden Gems</h3>
+        <p data-translate="maps.features.card2.desc">Local recommendations and off-the-beaten-path spots you won't find in standard travel blogs or tourist guides.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <span class="feature-icon">📍</span>
+        <h3 data-translate="maps.features.card3.title">Perfectly Pinned</h3>
+        <p data-translate="maps.features.card3.desc">Every attraction, riad, restaurant and landmark is saved with notes — organized by neighborhood for effortless navigation.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <span class="feature-icon">🏨</span>
+        <h3 data-translate="maps.features.card4.title">Accommodation & Dining</h3>
+        <p data-translate="maps.features.card4.desc">Expert picks for authentic riads, local eateries, and dining experiences — all vetted and locally approved.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE BLOCK -->
+  <div class="inside-block reveal">
+    <div class="inside-block-inner">
+
+      <!-- LEFT -->
+      <div>
+        <div class="inside-eyebrow">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span data-translate="maps.inside.eyebrow">Premium Map Guide</span>
+        </div>
+        <h2 class="inside-title" data-translate="maps.inside.title">Navigate Marrakech<br><em>Like a Local.</em></h2>
+        <p class="inside-desc" data-translate="maps.inside.desc">Most travelers waste days wandering the medina, missing the best spots and overpaying at tourist traps. This guide gives you the exact locations a local would share — organized, pinned, and ready to use the moment you land.</p>
+
+        <div class="inside-value-box" data-translate="maps.inside.value">Included free with every ebook purchase</div>
+
+        <div style="margin-top: 28px;">
+          <div class="inside-note">
+            <p data-translate="maps.inside.note"><strong>How it works:</strong> After purchase, you receive a link to save the custom Google Maps collection to your own account. It syncs to your phone automatically — no app download needed beyond Google Maps.</p>
+          </div>
+          <div style="margin-top:20px; font-size:0.72rem; font-weight:300; color:rgba(200,169,110,0.35); font-style:italic; padding-top:16px; border-top: 1px solid rgba(200,169,110,0.08);" data-translate="maps.inside.upgradeNote">Note: This map guide may be sold separately in future. Current buyers receive it complimentary.</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: checklist -->
+      <div>
+        <div class="inside-features-label" data-translate="maps.inside.listLabel">Locations Covered</div>
+        <ul class="inside-list">
+          <li>
+            <span class="check-icon">✔</span>
+            <span data-translate="maps.inside.item1">Jemaa el-Fna square & surrounding medina streets — with the best times to visit each spot</span>
+          </li>
+          <li>
+            <span class="check-icon">✔</span>
+            <span data-translate="maps.inside.item2">Top-rated and hidden riads — from luxury stays to authentic budget guesthouses</span>
+          </li>
+          <li>
+            <span class="check-icon">✔</span>
+            <span data-translate="maps.inside.item3">Local restaurant picks — where residents actually eat, not where tour guides take you</span>
+          </li>
+          <li>
+            <span class="check-icon">✔</span>
+            <span data-translate="maps.inside.item4">Key souks and shopping routes — with notes on what's worth buying and where to negotiate</span>
+          </li>
+          <li>
+            <span class="check-icon">✔</span>
+            <span data-translate="maps.inside.item5">Day-trip departure points — including Ourika Valley, Essaouira, and the Atlas Mountains</span>
+          </li>
+          <li>
+            <span class="check-icon">✔</span>
+            <span data-translate="maps.inside.item6">Emergency locations — hospitals, pharmacies, police stations, and reliable Wi-Fi spots</span>
+          </li>
+        </ul>
+
+        <div class="inside-note">
+          <p data-translate="maps.inside.disclaimer">All pins are reviewed and updated regularly. The collection is shared as a saved Google Maps list — compatible with iOS and Android.</p>
+        </div>
+
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary" style="margin-top: 28px; display:inline-flex;" data-translate="maps.inside.cta">
+          Get the Guide — Maps Included
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section reveal">
+    <div class="reviews-header">
+      <div class="ornament" style="margin-bottom:20px;"><span>✦ ✦ ✦</span></div>
+      <div class="section-eyebrow centered" data-translate="maps.reviews.eyebrow">Traveler Feedback</div>
+      <h2 class="section-title" style="text-align:center;" data-translate="maps.reviews.title">What Travelers <em>Say</em></h2>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="review-text" data-translate="maps.reviews.review1.text">"This guide alone is worth the price of the ebook. The maps were incredibly detailed and helped us discover places we would have never found on our own. Extremely helpful!"</p>
+        <div class="review-meta">
+          <div class="review-avatar">SM</div>
+          <div>
+            <div class="review-name" data-translate="maps.reviews.review1.name">Sarah M.</div>
+            <div class="review-role" data-translate="maps.reviews.review1.role">Solo Traveler</div>
+          </div>
+          <div class="verified-badge" data-translate="maps.reviews.verified">Verified</div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="review-text" data-translate="maps.reviews.review2.text">"Clear, practical, and beautifully organized. The Google Maps integration made navigation so easy. We visited every spot they recommended and loved them all. Highly recommended."</p>
+        <div class="review-meta">
+          <div class="review-avatar">DK</div>
+          <div>
+            <div class="review-name" data-translate="maps.reviews.review2.name">David K.</div>
+            <div class="review-role" data-translate="maps.reviews.review2.role">First-time Visitor</div>
+          </div>
+          <div class="verified-badge" data-translate="maps.reviews.verified">Verified</div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-3">
+        <div class="review-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="review-text" data-translate="maps.reviews.review3.text">"Saved me hours of planning and helped me avoid tourist traps. The local recommendations were spot-on. Best travel resource I've ever used for Morocco!"</p>
+        <div class="review-meta">
+          <div class="review-avatar">LR</div>
+          <div>
+            <div class="review-name" data-translate="maps.reviews.review3.name">Lina R.</div>
+            <div class="review-role" data-translate="maps.reviews.review3.role">Backpacker</div>
+          </div>
+          <div class="verified-badge" data-translate="maps.reviews.verified">Verified</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BONUS -->
+  <section class="bonus-section reveal">
+    <div class="bonus-header">
+      <div class="ornament" style="margin-bottom:20px;"><span>✦ ✦ ✦</span></div>
+      <div class="section-eyebrow centered" data-translate="maps.bonus.badge">Included Bonuses</div>
+      <h2 class="section-title" style="text-align:center;" data-translate="maps.bonus.title">Other Free Gifts <em>in the Package</em></h2>
+      <div class="gold-rule"></div>
+      <p class="section-subtitle" data-translate="maps.bonus.subtitle">Worth $24.99 — yours free with every guide purchase today</p>
+    </div>
+
+    <div class="bonus-grid">
+      <div class="bonus-card reveal reveal-delay-1">
+        <div class="bonus-value" data-translate="bonus.item4.value">Value: $5</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770567733/Untitled_design_7_eqjs9c.png" alt="Budget Calculator">
+        <h3 data-translate="bonus.item4.title">Budget Calculator Tool</h3>
+        <p data-translate="bonus.item4.desc">Plan your expenses accurately with our interactive Morocco budget calculator — track spending in real-time.</p>
+        <a href="travel-budget-calculator.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+      </div>
+
+      <div class="bonus-card reveal reveal-delay-2">
+        <div class="bonus-value" data-translate="bonus.item3.value">Value: $15</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png" alt="Private Travel Assistance">
+        <h3 data-translate="bonus.item3.title">Private Travel Assistance</h3>
+        <p data-translate="bonus.item3.desc">Get expert answers from a local during your trip via private WhatsApp — exclusively for guide buyers.</p>
+        <a href="free-whatsapp-support.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+      </div>
+
+      <div class="bonus-card reveal reveal-delay-3">
+        <div class="bonus-value" data-translate="bonus.item1.value">Value: $4.99</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770509045/Untitled_design_2_b4rwdn.png" alt="Cultural Etiquette Guide">
+        <h3 data-translate="bonus.item1.title">Cultural Etiquette Mini Guide</h3>
+        <p data-translate="bonus.item1.desc">Quick-reference guide to Moroccan customs, greetings, dress codes, and social norms.</p>
+        <a href="morocco-travel-etiquette.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-body -->
+
+<!-- FINAL CTA -->
+<section class="final-cta-section reveal">
+  <div class="final-cta-inner">
+    <div class="ornament" style="margin-bottom:20px;"><span>✦ ✦ ✦</span></div>
+    <div class="final-eyebrow" data-translate="maps.finalCta.eyebrow">Included With Every Purchase</div>
+    <h2 class="final-cta-title" data-translate="maps.finalCta.title">Travel Marrakech with <em>Total Confidence.</em></h2>
+    <p class="final-cta-sub" data-translate="maps.finalCta.sub">The complete Travel Readz guide — plus this Marrakech Maps collection, private travel assistance, budget calculator, and cultural etiquette guide. Everything you need to travel Morocco the right way.</p>
+    <div class="final-cta-btns">
+      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary" data-translate="maps.finalCta.btn">
+        Get the Travel Readz Guide
+        <span class="btn-arrow">→</span>
+      </a>
+      <a href="https://travelreadz.gumroad.com/l/Marrakech-Map-Guide?wanted=true" class="btn-outline" data-translate="maps.finalCta.btnIndividual">
+        Buy Maps Only — $5
+        <span>→</span>
+      </a>
+    </div>
+    <div class="final-trust">
+      <span data-translate="maps.finalCta.trust1">✓ Instant Download</span>
+      <span data-translate="maps.finalCta.trust2">✓ Works on Any Device</span>
+      <span data-translate="maps.finalCta.trust3">✓ All 4 Bonuses Free</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-wordmark">Travel <span>Readz</span></div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a></li>
+        <li><a href="terms.html" data-translate="footer.terms">Terms & Conditions</a></li>
+        <li><a href="contact.html" data-translate="footer.contact">Contact Us</a></li>
+        <li><a href="about.html" data-translate="footer.about">About Us</a></li>
+      </ul>
+    </div>
+    <p class="footer-copyright" data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="translations.js" onerror="void(0)"></script>
+<script>
+  /* Nav scroll */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* Hamburger */
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('mobile-drawer');
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) closeDrawer();
+  });
+
+  /* Scroll reveal */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+</body>
+</html>

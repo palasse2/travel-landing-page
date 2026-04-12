@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Travel Readz</title>
+  <meta name="description" content="Travel Readz Privacy Policy — how we collect, use, and protect your personal information.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ════════════════════════════════════════════
+       PRIVACY PAGE — CUSTOM STYLES
+    ════════════════════════════════════════════ */
+
+    /* ── HERO ── */
+    .prv-hero {
+      position: relative;
+      background: #071918;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .prv-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .prv-hero-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 55% at 50% 100%, rgba(200,134,58,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .prv-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 660px; padding: 80px 32px;
+    }
+    .prv-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 24px;
+    }
+    .prv-hero-eyebrow::before, .prv-hero-eyebrow::after {
+      content: ''; display: block; width: 24px; height: 1px; background: #c8863a;
+    }
+    .prv-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 300; color: #e8dcc8; line-height: 1.15; margin-bottom: 18px;
+    }
+    .prv-hero-title em { font-style: italic; color: #c8a96e; }
+    .prv-hero-sub {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(232,220,200,0.4); line-height: 1.85;
+    }
+    .prv-hero-date {
+      margin-top: 20px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(200,169,110,0.3);
+    }
+
+    /* ── LAYOUT ── */
+    .prv-body {
+      background: #0a1716;
+      padding: 80px 0 100px;
+      position: relative;
+    }
+    .prv-body::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.025)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .prv-body .container { position: relative; z-index: 1; }
+
+    .prv-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    /* Sticky sidebar nav */
+    .prv-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .prv-sidebar-label {
+      font-family: var(--sans); font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(200,169,110,0.3); margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(200,169,110,0.1);
+    }
+    .prv-nav { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .prv-nav li a {
+      display: block;
+      font-family: var(--sans); font-size: 0.75rem; font-weight: 400;
+      color: rgba(232,220,200,0.3); text-decoration: none;
+      padding: 7px 0 7px 14px;
+      border-left: 1px solid transparent;
+      transition: color 0.25s, border-color 0.25s;
+      line-height: 1.4;
+    }
+    .prv-nav li a:hover {
+      color: #c8a96e;
+      border-left-color: #c8863a;
+    }
+
+    /* Content */
+    .prv-content { }
+    .prv-section {
+      margin-bottom: 64px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid rgba(200,169,110,0.07);
+    }
+    .prv-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .prv-section-num {
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .prv-section-num::after {
+      content: ''; display: block; flex: 1; height: 1px;
+      background: rgba(200,169,110,0.12);
+    }
+    .prv-section h2 {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 300;
+      color: #e8dcc8; line-height: 1.2; margin-bottom: 18px;
+    }
+    .prv-section h2 em { font-style: italic; color: #c8a96e; }
+    .prv-section p {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(232,220,200,0.45); line-height: 1.95;
+      margin-bottom: 16px;
+    }
+    .prv-section p:last-child { margin-bottom: 0; }
+    .prv-section a {
+      color: #c8863a; text-decoration: none;
+      border-bottom: 1px solid rgba(200,134,58,0.3);
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .prv-section a:hover { color: #c8a96e; border-color: rgba(200,169,110,0.5); }
+
+    /* Highlight box */
+    .prv-highlight {
+      background: rgba(200,134,58,0.05);
+      border: 1px solid rgba(200,169,110,0.12);
+      border-left: 3px solid #c8863a;
+      padding: 18px 24px;
+      margin: 20px 0;
+    }
+    .prv-highlight p {
+      color: rgba(200,169,110,0.55) !important;
+      margin: 0 !important;
+      font-size: 0.84rem !important;
+    }
+
+    /* ── FINAL CTA ── */
+    .prv-final-cta {
+      background: #071918; padding: 100px 0;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .prv-final-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 55% at 50% 100%, rgba(200,134,58,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .prv-final-cta::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .prv-final-inner {
+      position: relative; z-index: 1;
+      max-width: 580px; margin: 0 auto; padding: 0 24px;
+    }
+    .prv-final-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8a96e; margin-bottom: 24px;
+    }
+    .prv-final-eyebrow::before, .prv-final-eyebrow::after {
+      content: ''; display: block; width: 24px; height: 1px; background: #c8863a;
+    }
+    .prv-final-title {
+      font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300; color: #e8dcc8; line-height: 1.2; margin-bottom: 16px;
+    }
+    .prv-final-title em { font-style: italic; color: #c8a96e; }
+    .prv-final-sub {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(232,220,200,0.38); line-height: 1.85; margin-bottom: 40px;
+    }
+    .prv-final-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #c8863a; color: #fff;
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none; padding: 15px 32px;
+      transition: all 0.35s;
+    }
+    .prv-final-btn:hover { background: #c8a96e; gap: 18px; color: #fff; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 860px) {
+      .prv-layout { grid-template-columns: 1fr; gap: 40px; }
+      .prv-sidebar { position: static; }
+      .prv-nav { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+      .prv-nav li a { border-left: none; border-bottom: 1px solid transparent; padding: 5px 10px; }
+      .prv-nav li a:hover { border-bottom-color: #c8863a; }
+    }
+    @media (max-width: 768px) {
+      .prv-hero-inner { padding: 72px 24px; }
+      .prv-body { padding: 60px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+        <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+      </svg>
+      <span class="nav-logo-text">Travel <span>Readz</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" data-translate="nav.home">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-center-stack">
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul>
+      <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services" onclick="closeDrawer()">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about" onclick="closeDrawer()">Journal</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="prv-hero">
+  <div class="prv-hero-bg"></div>
+  <div class="prv-hero-glow"></div>
+  <div class="prv-hero-inner reveal">
+    <div class="prv-hero-eyebrow" data-translate="privacy.hero.eyebrow">Legal</div>
+    <h1 class="prv-hero-title" data-translate="privacy.hero.title">Privacy <em>Policy</em></h1>
+    <p class="prv-hero-sub" data-translate="privacy.hero.subtitle">
+      We collect only what we need, use it only for what we say, and never sell it. Here's exactly how that works.
+    </p>
+    <div class="prv-hero-date" data-translate="privacy.hero.date">Last updated — January 2025</div>
+  </div>
+</section>
+
+
+<!-- CONTENT -->
+<div class="prv-body">
+  <div class="container">
+    <div class="prv-layout">
+
+      <!-- SIDEBAR NAV -->
+      <aside class="prv-sidebar reveal">
+        <div class="prv-sidebar-label" data-translate="privacy.sidebar.label">Contents</div>
+        <ul class="prv-nav">
+          <li><a href="#collect" data-translate="privacy.nav.collect">Information We Collect</a></li>
+          <li><a href="#use" data-translate="privacy.nav.use">How We Use It</a></li>
+          <li><a href="#cookies" data-translate="privacy.nav.cookies">Cookies & Tracking</a></li>
+          <li><a href="#third-party" data-translate="privacy.nav.thirdParty">Third-Party Services</a></li>
+          <li><a href="#security" data-translate="privacy.nav.security">Data Security</a></li>
+          <li><a href="#rights" data-translate="privacy.nav.rights">Your Rights</a></li>
+          <li><a href="#updates" data-translate="privacy.nav.updates">Policy Updates</a></li>
+        </ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="prv-content reveal">
+
+        <div class="prv-section" id="collect">
+          <div class="prv-section-num">01 — <span data-translate="privacy.section1.num">Collection</span></div>
+          <h2 data-translate="privacy.section1.title">Information <em>We Collect</em></h2>
+          <p data-translate="privacy.section1.p1">When you purchase a product, we collect the information necessary to process your order — your name, email address, and payment details. Payment processing is handled entirely by Gumroad; we never store your card information directly.</p>
+          <p data-translate="privacy.section1.p2">If you subscribe to our newsletter or contact us by email, we collect the information you provide in that message — your name and email address, and whatever you choose to write to us.</p>
+          <div class="prv-highlight">
+            <p data-translate="privacy.section1.highlight">We collect the minimum necessary. We don't ask for information we don't need, and we don't retain it longer than required.</p>
+          </div>
+        </div>
+
+        <div class="prv-section" id="use">
+          <div class="prv-section-num">02 — <span data-translate="privacy.section2.num">Use</span></div>
+          <h2 data-translate="privacy.section2.title">How We <em>Use It</em></h2>
+          <p data-translate="privacy.section2.p1">Your information is used for three things: fulfilling your order, sending you updates directly related to your purchase, and responding to any support requests you send us.</p>
+          <p data-translate="privacy.section2.p2">If you've opted into our newsletter, we may send you travel tips, guide updates, or occasional offers. You can unsubscribe at any time — every email we send includes a clearly visible unsubscribe link.</p>
+          <p data-translate="privacy.section2.p3">We do not sell your data to third parties. We do not share it with advertisers. We do not use it for any purpose beyond what is described here.</p>
+        </div>
+
+        <div class="prv-section" id="cookies">
+          <div class="prv-section-num">03 — <span data-translate="privacy.section3.num">Cookies</span></div>
+          <h2 data-translate="privacy.section3.title">Cookies <em>&amp; Tracking</em></h2>
+          <p data-translate="privacy.section3.p1">Our website uses cookies to understand how visitors use the site — which pages are visited, how long people spend on them, and where they arrive from. This helps us improve the site and the products we offer.</p>
+          <p data-translate="privacy.section3.p2">We use standard analytics tools for this. No personally identifiable information is attached to cookie data. You can disable cookies in your browser settings at any time, though some parts of the site may not function fully without them.</p>
+        </div>
+
+        <div class="prv-section" id="third-party">
+          <div class="prv-section-num">04 — <span data-translate="privacy.section4.num">Third Parties</span></div>
+          <h2 data-translate="privacy.section4.title">Third-Party <em>Services</em></h2>
+          <p data-translate="privacy.section4.p1">We use a small number of trusted third-party services to run the business: Gumroad for payments and product delivery, and standard email providers for support correspondence. Each of these operates under their own privacy policy and data protection standards.</p>
+          <p data-translate="privacy.section4.p2">We only work with third-party providers whose data handling practices meet a standard we're comfortable with. We do not share your data with any third party for marketing or advertising purposes.</p>
+        </div>
+
+        <div class="prv-section" id="security">
+          <div class="prv-section-num">05 — <span data-translate="privacy.section5.num">Security</span></div>
+          <h2 data-translate="privacy.section5.title">Data <em>Security</em></h2>
+          <p data-translate="privacy.section5.p1">All data transmitted through our site is encrypted via HTTPS. Payment processing runs entirely through Gumroad's secure infrastructure — your financial information never passes through our servers.</p>
+          <p data-translate="privacy.section5.p2">While we take reasonable precautions to protect the data we do hold, no system is entirely immune to risk. If we ever become aware of a breach affecting your data, we will inform you promptly and take immediate corrective action.</p>
+        </div>
+
+        <div class="prv-section" id="rights">
+          <div class="prv-section-num">06 — <span data-translate="privacy.section6.num">Your Rights</span></div>
+          <h2 data-translate="privacy.section6.title">Your <em>Rights</em></h2>
+          <p data-translate="privacy.section6.p1">You have the right to know what personal data we hold about you, to request a copy of it, and to request that we correct or delete it. You can exercise any of these rights by emailing us directly at <a href="mailto:support@travelreadz.com">support@travelreadz.com</a>.</p>
+          <p data-translate="privacy.section6.p2">We will respond to data requests within 30 days. If your request requires more time, we'll let you know. There is no charge for making a data request.</p>
+          <div class="prv-highlight">
+            <p data-translate="privacy.section6.highlight">To unsubscribe from emails, simply click the unsubscribe link in any message we've sent you. To request deletion of your data, email us directly.</p>
+          </div>
+        </div>
+
+        <div class="prv-section" id="updates">
+          <div class="prv-section-num">07 — <span data-translate="privacy.section7.num">Updates</span></div>
+          <h2 data-translate="privacy.section7.title">Policy <em>Updates</em></h2>
+          <p data-translate="privacy.section7.p1">We may update this policy from time to time — for example, if we add a new service or if applicable law changes. Any updates will be posted on this page with a revised date at the top.</p>
+          <p data-translate="privacy.section7.p2">We won't make material changes to how we use your data without giving you clear notice. If a significant change affects how your information is handled, we'll inform existing customers directly by email.</p>
+        </div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+<!-- FINAL CTA -->
+<section class="prv-final-cta">
+  <div class="prv-final-inner reveal">
+    <div class="prv-final-eyebrow" data-translate="privacy.cta.eyebrow">Ready to Go</div>
+    <h2 class="prv-final-title" data-translate="privacy.cta.title">
+      Morocco awaits.<br><em>Your guide is ready.</em>
+    </h2>
+    <p class="prv-final-sub" data-translate="privacy.cta.subtitle">
+      Local maps, cultural knowledge, budget tools, and direct support — everything in one place.
+    </p>
+    <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="prv-final-btn" data-translate="privacy.cta.button">
+      Get the Travel Readz Guide <span>→</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-wordmark">Travel <span>Readz</span></div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a></li>
+        <li><a href="terms.html" data-translate="footer.terms">Terms &amp; Conditions</a></li>
+        <li><a href="contact.html" data-translate="footer.contact">Contact Us</a></li>
+        <li><a href="about.html" data-translate="footer.about">About Us</a></li>
+      </ul>
+    </div>
+    <p class="footer-copyright" data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<script src="translations.js" onerror="void(0)"></script>
+<script>
+  const mobileNavStyle = document.createElement('style');
+  mobileNavStyle.textContent = `
+    .nav-center-stack {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 14px; position: static; transform: none;
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        display: flex; flex-direction: row; align-items: center;
+        height: 68px; min-height: 68px; padding: 0 16px; position: relative;
+      }
+      .nav-logo { flex-shrink: 0; }
+      .nav-right {
+        display: flex; flex-direction: row; align-items: center;
+        margin-left: auto; flex-shrink: 0; gap: 8px;
+      }
+      .nav-center-stack {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+      }
+      .language-switcher { display: flex; gap: 3px; }
+      .lang-btn { font-size: 0.58rem; padding: 2px 5px; }
+      .nav-cta { font-size: 0.58rem; padding: 5px 10px; white-space: nowrap; }
+      .hamburger { flex-shrink: 0; margin-left: 4px; }
+    }
+  `;
+  document.head.appendChild(mobileNavStyle);
+
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('mobile-drawer');
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) closeDrawer();
+  });
+
+  /* Sticky sidebar active state */
+  const sections = document.querySelectorAll('.prv-section[id]');
+  const navLinks = document.querySelectorAll('.prv-nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 140) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? '#c8a96e' : '';
+      a.style.borderLeftColor = a.getAttribute('href') === '#' + current
+        ? '#c8863a' : '';
+    });
+  }, { passive: true });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

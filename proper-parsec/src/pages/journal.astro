@@ -1,0 +1,177 @@
+---
+const postFiles = import.meta.glob('./blog/*.mdx', { eager: true });
+console.log('Found files:', Object.keys(postFiles));
+console.log('Posts count:', Object.values(postFiles).length);
+const posts = Object.values(postFiles);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal | Travel Readz</title>
+  <meta name="description" content="Stories, tips, and local knowledge from Morocco. The Travel Readz Journal." />
+  <meta property="og:title" content="Journal | Travel Readz" />
+  <meta property="og:description" content="Stories, tips, and local knowledge from Morocco." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://travelreadz.com/journal" />
+  <meta property="og:image" content="https://res.cloudinary.com/dzidoxclo/image/upload/v1770509045/Untitled_design_2_b4rwdn.png" />
+  <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/journal.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-container">
+    <a href="/index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+        <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+      </svg>
+      <span class="nav-logo-text">Travel <span>Readz</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/Experiences.html">Experiences</a></li>
+      <li><a href="/journal" class="nav-active">Journal</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-center-stack">
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta">Get Your Guide</a>
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/Experiences.html">Experiences</a></li>
+      <li><a href="/journal">Journal</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-zellige"></div>
+  <div class="page-hero-vignette"></div>
+  <div class="page-hero-content reveal">
+    <div class="section-eyebrow centered">Written by a Local</div>
+    <h1 class="page-hero-title">The <em>Journal</em></h1>
+    <p class="page-hero-subtitle">
+      Stories, hidden corners, honest advice — Morocco through the eyes of someone who lives it.
+    </p>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Stories</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Culture</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Hidden Corners</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Local Tips</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Medina Life</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Food &amp; Flavours</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Travel Advice</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Stories</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Culture</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Hidden Corners</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Local Tips</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Medina Life</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Food &amp; Flavours</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Travel Advice</span><span class="marquee-dot">◆</span>
+  </div>
+</div>
+
+<!-- POSTS GRID -->
+<main class="journal-main">
+  <div class="container">
+    {posts.length === 0 ? (
+      <p style="text-align:center; color:var(--smoke); padding: 80px 0;">
+        No posts yet. Add your first .mdx file to src/pages/blog/
+      </p>
+    ) : (
+      <div class="journal-grid">
+        {posts.map((post: any) => (
+          <article class="journal-card reveal">
+            <a href={post.url} class="journal-card-img-wrap">
+              <img src={post.frontmatter.cover} alt={post.frontmatter.title} />
+              <div class="journal-card-overlay"></div>
+              <span class="journal-tag">{post.frontmatter.category}</span>
+            </a>
+            <div class="journal-card-body">
+              <div class="journal-meta">
+                <span class="journal-date">{post.frontmatter.date}</span>
+                <span class="journal-dot">◆</span>
+                <span class="journal-read">{post.frontmatter.readTime}</span>
+              </div>
+              <h2 class="journal-card-title">{post.frontmatter.title}</h2>
+              <p class="journal-card-excerpt">{post.frontmatter.description}</p>
+              <a href={post.url} class="journal-read-link">
+                Read Article <span>→</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-wordmark">Travel <span>Readz</span></div>
+      <ul class="footer-links">
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms &amp; Conditions</a></li>
+        <li><a href="/contact.html">Contact Us</a></li>
+        <li><a href="/about.html">About Us</a></li>
+      </ul>
+    </div>
+    <p class="footer-copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('mobile-drawer');
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+    }
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

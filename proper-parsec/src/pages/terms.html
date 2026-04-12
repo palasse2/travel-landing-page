@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Conditions | Travel Readz</title>
+  <meta name="description" content="Travel Readz Terms & Conditions — the rules that govern your use of our website and digital products.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* reuse identical layout from privacy.html */
+    .trm-hero {
+      position: relative;
+      background: #071918;
+      min-height: 380px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+    .trm-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .trm-hero-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 55% at 50% 100%, rgba(200,134,58,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .trm-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 660px; padding: 80px 32px;
+    }
+    .trm-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 24px;
+    }
+    .trm-hero-eyebrow::before, .trm-hero-eyebrow::after {
+      content: ''; display: block; width: 24px; height: 1px; background: #c8863a;
+    }
+    .trm-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 300; color: #e8dcc8; line-height: 1.15; margin-bottom: 18px;
+    }
+    .trm-hero-title em { font-style: italic; color: #c8a96e; }
+    .trm-hero-sub {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(232,220,200,0.4); line-height: 1.85;
+    }
+    .trm-hero-date {
+      margin-top: 20px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(200,169,110,0.3);
+    }
+
+    /* body */
+    .trm-body {
+      background: #0a1716; padding: 80px 0 100px;
+      position: relative;
+    }
+    .trm-body::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.025)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .trm-body .container { position: relative; z-index: 1; }
+
+    .trm-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 72px; align-items: start;
+    }
+
+    /* sidebar */
+    .trm-sidebar { position: sticky; top: 100px; }
+    .trm-sidebar-label {
+      font-family: var(--sans); font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(200,169,110,0.3); margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(200,169,110,0.1);
+    }
+    .trm-nav { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .trm-nav li a {
+      display: block;
+      font-family: var(--sans); font-size: 0.75rem; font-weight: 400;
+      color: rgba(232,220,200,0.3); text-decoration: none;
+      padding: 7px 0 7px 14px;
+      border-left: 1px solid transparent;
+      transition: color 0.25s, border-color 0.25s; line-height: 1.4;
+    }
+    .trm-nav li a:hover { color: #c8a96e; border-left-color: #c8863a; }
+
+    /* content */
+    .trm-section {
+      margin-bottom: 64px; padding-bottom: 64px;
+      border-bottom: 1px solid rgba(200,169,110,0.07);
+    }
+    .trm-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+    .trm-section-num {
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #c8863a; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .trm-section-num::after {
+      content: ''; display: block; flex: 1; height: 1px;
+      background: rgba(200,169,110,0.12);
+    }
+    .trm-section h2 {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 300;
+      color: #e8dcc8; line-height: 1.2; margin-bottom: 18px;
+    }
+    .trm-section h2 em { font-style: italic; color: #c8a96e; }
+    .trm-section p {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(232,220,200,0.45); line-height: 1.95; margin-bottom: 16px;
+    }
+    .trm-section p:last-child { margin-bottom: 0; }
+    .trm-section a {
+      color: #c8863a; text-decoration: none;
+      border-bottom: 1px solid rgba(200,134,58,0.3);
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .trm-section a:hover { color: #c8a96e; border-color: rgba(200,169,110,0.5); }
+
+    .trm-highlight {
+      background: rgba(200,134,58,0.05);
+      border: 1px solid rgba(200,169,110,0.12);
+      border-left: 3px solid #c8863a;
+      padding: 18px 24px; margin: 20px 0;
+    }
+    .trm-highlight p {
+      color: rgba(200,169,110,0.55) !important;
+      margin: 0 !important; font-size: 0.84rem !important;
+    }
+
+    /* final cta */
+    .trm-final-cta {
+      background: #071918; padding: 100px 0;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .trm-final-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 55% at 50% 100%, rgba(200,134,58,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .trm-final-cta::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .trm-final-inner {
+      position: relative; z-index: 1;
+      max-width: 580px; margin: 0 auto; padding: 0 24px;
+    }
+    .trm-final-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: #c8a96e; margin-bottom: 24px;
+    }
+    .trm-final-eyebrow::before, .trm-final-eyebrow::after {
+      content: ''; display: block; width: 24px; height: 1px; background: #c8863a;
+    }
+    .trm-final-title {
+      font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300; color: #e8dcc8; line-height: 1.2; margin-bottom: 16px;
+    }
+    .trm-final-title em { font-style: italic; color: #c8a96e; }
+    .trm-final-sub {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(232,220,200,0.38); line-height: 1.85; margin-bottom: 40px;
+    }
+    .trm-final-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #c8863a; color: #fff;
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none; padding: 15px 32px; transition: all 0.35s;
+    }
+    .trm-final-btn:hover { background: #c8a96e; gap: 18px; color: #fff; }
+
+    /* mobile */
+    @media (max-width: 860px) {
+      .trm-layout { grid-template-columns: 1fr; gap: 40px; }
+      .trm-sidebar { position: static; }
+      .trm-nav { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+      .trm-nav li a { border-left: none; border-bottom: 1px solid transparent; padding: 5px 10px; }
+      .trm-nav li a:hover { border-bottom-color: #c8863a; }
+    }
+    @media (max-width: 768px) {
+      .trm-hero-inner { padding: 72px 24px; }
+      .trm-body { padding: 60px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+        <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+      </svg>
+      <span class="nav-logo-text">Travel <span>Readz</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" data-translate="nav.home">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-center-stack">
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul>
+      <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services" onclick="closeDrawer()">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about" onclick="closeDrawer()">Journal</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="trm-hero">
+  <div class="trm-hero-bg"></div>
+  <div class="trm-hero-glow"></div>
+  <div class="trm-hero-inner reveal">
+    <div class="trm-hero-eyebrow" data-translate="terms.hero.eyebrow">Legal</div>
+    <h1 class="trm-hero-title" data-translate="terms.hero.title">Terms &amp; <em>Conditions</em></h1>
+    <p class="trm-hero-sub" data-translate="terms.hero.subtitle">
+      Plain language. No surprises. Here's what you agree to when you use Travel Readz — and what we commit to in return.
+    </p>
+    <div class="trm-hero-date" data-translate="terms.hero.date">Last updated — January 2025</div>
+  </div>
+</section>
+
+
+<!-- CONTENT -->
+<div class="trm-body">
+  <div class="container">
+    <div class="trm-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="trm-sidebar reveal">
+        <div class="trm-sidebar-label" data-translate="terms.sidebar.label">Contents</div>
+        <ul class="trm-nav">
+          <li><a href="#general"     data-translate="terms.nav.general">General</a></li>
+          <li><a href="#purchases"   data-translate="terms.nav.purchases">Purchases</a></li>
+          <li><a href="#use"         data-translate="terms.nav.use">Use of Website</a></li>
+          <li><a href="#ip"          data-translate="terms.nav.ip">Intellectual Property</a></li>
+          <li><a href="#liability"   data-translate="terms.nav.liability">Limitation of Liability</a></li>
+          <li><a href="#changes"     data-translate="terms.nav.changes">Changes to Terms</a></li>
+          <li><a href="#contact"     data-translate="terms.nav.contact">Contact</a></li>
+        </ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="reveal">
+
+        <div class="trm-section" id="general">
+          <div class="trm-section-num">01 — <span data-translate="terms.section1.num">General</span></div>
+          <h2 data-translate="terms.section1.title">General <em>Terms</em></h2>
+          <p data-translate="terms.section1.p1">By accessing or using the Travel Readz website, you agree to be bound by these terms. If you do not agree with any part of them, please do not use the site or purchase our products.</p>
+          <p data-translate="terms.section1.p2">All content on this website — guides, tools, text, images — is provided for informational and personal use. We take care to keep it accurate and useful, but we make no guarantee that every detail is complete or current at all times. Morocco changes; we update when we can.</p>
+        </div>
+
+        <div class="trm-section" id="purchases">
+          <div class="trm-section-num">02 — <span data-translate="terms.section2.num">Purchases</span></div>
+          <h2 data-translate="terms.section2.title">Purchases &amp; <em>Refunds</em></h2>
+          <p data-translate="terms.section2.p1">All products sold by Travel Readz are digital — guides, maps, calculators, and bonus materials. Because digital products are delivered immediately on purchase, all sales are final as a default.</p>
+          <p data-translate="terms.section2.p2">That said, we're not interested in unhappy customers. If you have a genuine issue — a file that won't open, content that wasn't as described, a technical problem on our end — contact us at <a href="mailto:support@travelreadz.com">support@travelreadz.com</a> and we'll resolve it. We handle every case individually.</p>
+          <div class="trm-highlight">
+            <p data-translate="terms.section2.highlight">We don't offer refunds purely on the basis of "changed my mind" for digital products. If there's a real problem, we'll fix it or make it right.</p>
+          </div>
+        </div>
+
+        <div class="trm-section" id="use">
+          <div class="trm-section-num">03 — <span data-translate="terms.section3.num">Use of Website</span></div>
+          <h2 data-translate="terms.section3.title">Use of <em>Website</em></h2>
+          <p data-translate="terms.section3.p1">You may use the Travel Readz website for personal, non-commercial purposes. You may not attempt to scrape, copy, reverse-engineer, or reproduce our content or products without prior written permission.</p>
+          <p data-translate="terms.section3.p2">You may not use the site in any way that disrupts its operation, attempts to gain unauthorized access to any part of it, or violates any applicable local, national, or international law.</p>
+        </div>
+
+        <div class="trm-section" id="ip">
+          <div class="trm-section-num">04 — <span data-translate="terms.section4.num">Intellectual Property</span></div>
+          <h2 data-translate="terms.section4.title">Intellectual <em>Property</em></h2>
+          <p data-translate="terms.section4.p1">All content on this website — including the travel guides, digital tools, written copy, visual design, maps, and branding — is the intellectual property of Travel Readz and is protected under applicable copyright law.</p>
+          <p data-translate="terms.section4.p2">When you purchase a product, you receive a personal, non-transferable licence to use it for your own travel purposes. You may not reproduce, redistribute, resell, or share the content publicly — in whole or in part — without our explicit written permission.</p>
+        </div>
+
+        <div class="trm-section" id="liability">
+          <div class="trm-section-num">05 — <span data-translate="terms.section5.num">Liability</span></div>
+          <h2 data-translate="terms.section5.title">Limitation of <em>Liability</em></h2>
+          <p data-translate="terms.section5.p1">Our guides contain practical advice and local recommendations based on real knowledge of Morocco. However, travel inherently involves uncertainty — prices change, places close, conditions evolve. Travel Readz cannot be held liable for any loss, inconvenience, or damage arising from decisions made based on our content.</p>
+          <p data-translate="terms.section5.p2">In all cases, our liability to you will not exceed the amount you paid for the product in question. We are not responsible for third-party services — transport, accommodation, or activities — referenced in our materials.</p>
+        </div>
+
+        <div class="trm-section" id="changes">
+          <div class="trm-section-num">06 — <span data-translate="terms.section6.num">Changes</span></div>
+          <h2 data-translate="terms.section6.title">Changes to <em>These Terms</em></h2>
+          <p data-translate="terms.section6.p1">We may update these terms from time to time. When we do, the updated version will be posted on this page with a revised date. Continued use of the website after changes are posted constitutes your acceptance of the revised terms.</p>
+          <p data-translate="terms.section6.p2">If we make a material change that significantly affects your rights as a customer, we will make reasonable efforts to notify existing buyers by email.</p>
+        </div>
+
+        <div class="trm-section" id="contact">
+          <div class="trm-section-num">07 — <span data-translate="terms.section7.num">Contact</span></div>
+          <h2 data-translate="terms.section7.title">Questions &amp; <em>Contact</em></h2>
+          <p data-translate="terms.section7.p1">If you have any questions about these terms, or if something here is unclear, please reach out. We'd rather explain than have you unsure about what you agreed to.</p>
+          <p data-translate="terms.section7.p2">Email us at <a href="mailto:support@travelreadz.com">support@travelreadz.com</a> — we respond within 24 hours.</p>
+        </div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+<!-- FINAL CTA -->
+<section class="trm-final-cta">
+  <div class="trm-final-inner reveal">
+    <div class="trm-final-eyebrow" data-translate="terms.cta.eyebrow">Ready to Go</div>
+    <h2 class="trm-final-title" data-translate="terms.cta.title">
+      Morocco awaits.<br><em>Your guide is ready.</em>
+    </h2>
+    <p class="trm-final-sub" data-translate="terms.cta.subtitle">
+      Local maps, cultural knowledge, budget tools, and direct support — everything in one place.
+    </p>
+    <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="trm-final-btn" data-translate="terms.cta.button">
+      Get the Travel Readz Guide <span>→</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-wordmark">Travel <span>Readz</span></div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a></li>
+        <li><a href="terms.html" data-translate="footer.terms">Terms &amp; Conditions</a></li>
+        <li><a href="contact.html" data-translate="footer.contact">Contact Us</a></li>
+        <li><a href="about.html" data-translate="footer.about">About Us</a></li>
+      </ul>
+    </div>
+    <p class="footer-copyright" data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<script src="translations.js" onerror="void(0)"></script>
+<script>
+  const mobileNavStyle = document.createElement('style');
+  mobileNavStyle.textContent = `
+    .nav-center-stack {
+      display: flex; flex-direction: row; align-items: center;
+      gap: 14px; position: static; transform: none;
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        display: flex; flex-direction: row; align-items: center;
+        height: 68px; min-height: 68px; padding: 0 16px; position: relative;
+      }
+      .nav-logo { flex-shrink: 0; }
+      .nav-right {
+        display: flex; flex-direction: row; align-items: center;
+        margin-left: auto; flex-shrink: 0; gap: 8px;
+      }
+      .nav-center-stack {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        display: flex; flex-direction: column; align-items: center; gap: 4px;
+      }
+      .language-switcher { display: flex; gap: 3px; }
+      .lang-btn { font-size: 0.58rem; padding: 2px 5px; }
+      .nav-cta { font-size: 0.58rem; padding: 5px 10px; white-space: nowrap; }
+      .hamburger { flex-shrink: 0; margin-left: 4px; }
+    }
+  `;
+  document.head.appendChild(mobileNavStyle);
+
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('mobile-drawer');
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) closeDrawer();
+  });
+
+  /* Sidebar active state on scroll */
+  const sections = document.querySelectorAll('.trm-section[id]');
+  const navLinks = document.querySelectorAll('.trm-nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 140) current = s.id;
+    });
+    navLinks.forEach(a => {
+      const active = a.getAttribute('href') === '#' + current;
+      a.style.color = active ? '#c8a96e' : '';
+      a.style.borderLeftColor = active ? '#c8863a' : '';
+    });
+  }, { passive: true });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Readz | Private Travel Assistance</title>
+    <meta name="description" content="Structured private travel assistance for verified Travel Readz guide buyers. Expert Morocco guidance — available exclusively to guide purchasers.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+    /* ══════════════════════════════════════════
+       CUSTOM SPLIT HERO — Private Assistance
+    ══════════════════════════════════════════ */
+    .pta-hero {
+      position: relative;
+      background: #071918;
+      min-height: 620px;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    /* deep zellige geometry layer */
+    .pta-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.045)' stroke-width='0.5'%3E%3Cpolygon points='40,6 70,22 70,58 40,74 10,58 10,22'/%3E%3Cpolygon points='40,18 58,28 58,52 40,62 22,52 22,28'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* warm glow from right */
+    .pta-hero-glow {
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 120%;
+      background: radial-gradient(ellipse 60% 70% at 70% 40%,
+        rgba(200,134,58,0.09) 0%,
+        rgba(19,58,56,0.18) 45%,
+        transparent 70%);
+      pointer-events: none;
+    }
+
+    /* thin gold diagonal rule */
+    .pta-hero-rule {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(200,169,110,0.15) 20%,
+        rgba(200,169,110,0.25) 50%,
+        rgba(200,169,110,0.15) 80%,
+        transparent 100%);
+      transform: skewX(-3deg);
+      pointer-events: none;
+    }
+
+    .pta-hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+      min-height: 620px;
+    }
+
+    /* LEFT — text */
+    .pta-hero-left {
+      padding: 80px 0;
+    }
+
+    .pta-hero-credential {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(200,169,110,0.07);
+      border: 1px solid rgba(200,169,110,0.2);
+      padding: 7px 16px 7px 12px;
+      margin-bottom: 28px;
+    }
+    .pta-hero-credential-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #c8863a;
+      box-shadow: 0 0 6px rgba(200,134,58,0.6);
+      animation: ptaPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes ptaPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .pta-hero-credential span {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8a96e;
+    }
+
+    .pta-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: #e8dcc8;
+      line-height: 1.18;
+      margin-bottom: 22px;
+    }
+    .pta-hero-title em {
+      font-style: italic;
+      color: #c8a96e;
+      display: block;
+    }
+
+    .pta-hero-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(232,220,200,0.5);
+      line-height: 1.85;
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    .pta-hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .pta-hero-tag {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(200,169,110,0.6);
+      background: rgba(200,169,110,0.05);
+      border: 1px solid rgba(200,169,110,0.12);
+      padding: 5px 12px;
+    }
+
+    .pta-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #c8863a;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      transition: all 0.3s ease;
+    }
+    .pta-hero-cta:hover {
+      background: #c8a96e;
+      gap: 16px;
+      color: #fff;
+    }
+    .pta-hero-cta-note {
+      margin-top: 14px;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(200,169,110,0.35);
+      letter-spacing: 0.04em;
+    }
+
+    /* RIGHT — image */
+    .pta-hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 0;
+    }
+
+    .pta-hero-img-wrap {
+      position: relative;
+    }
+    /* corner accent lines */
+    .pta-hero-img-wrap::before,
+    .pta-hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      width: 40px; height: 40px;
+      border-color: rgba(200,169,110,0.3);
+      border-style: solid;
+    }
+    .pta-hero-img-wrap::before {
+      top: -12px; left: -12px;
+      border-width: 1px 0 0 1px;
+    }
+    .pta-hero-img-wrap::after {
+      bottom: -12px; right: -12px;
+      border-width: 0 1px 1px 0;
+    }
+
+    .pta-hero-img-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%,
+        rgba(200,134,58,0.12) 0%,
+        transparent 65%);
+      pointer-events: none;
+    }
+
+    .pta-hero-img-wrap img {
+      width: 100%;
+      max-width: 360px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 20px 48px rgba(0,0,0,0.5));
+    }
+
+    /* floating stat card */
+    .pta-hero-stat {
+      position: absolute;
+      bottom: 48px;
+      left: -20px;
+      background: rgba(7,25,24,0.92);
+      border: 1px solid rgba(200,169,110,0.2);
+      border-left: 3px solid #c8863a;
+      padding: 16px 22px;
+      backdrop-filter: blur(8px);
+      z-index: 3;
+    }
+    .pta-hero-stat-num {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #c8a96e;
+      line-height: 1;
+    }
+    .pta-hero-stat-label {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(232,220,200,0.4);
+      margin-top: 4px;
+    }
+
+    /* verified badge floating */
+    .pta-hero-verified {
+      position: absolute;
+      top: 52px;
+      right: -16px;
+      background: rgba(7,25,24,0.92);
+      border: 1px solid rgba(200,169,110,0.18);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(8px);
+      z-index: 3;
+    }
+    .pta-hero-verified svg {
+      width: 14px; height: 14px;
+      fill: #c8863a; flex-shrink: 0;
+    }
+    .pta-hero-verified span {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c8a96e;
+    }
+
+    /* mobile hero */
+    @media (max-width: 900px) {
+      .pta-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+        min-height: auto;
+        padding: 0 24px;
+      }
+      .pta-hero-left { padding: 64px 0 32px; }
+      .pta-hero-right { padding: 0 0 64px; }
+      .pta-hero-rule { display: none; }
+      .pta-hero-stat { left: 0; bottom: 72px; }
+      .pta-hero-verified { right: 0; top: 16px; }
+      .pta-hero { min-height: auto; }
+    }
+       /* mobile hero */
+       @media (max-width: 768px) {
+      .pta-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+        min-height: auto;
+        padding: 0 24px;
+      }
+      .pta-hero-left {  flex-direction: column;
+        text-align: center; padding: 64px 0 32px;text-align: center; }
+      .pta-hero-right { padding: 0 0 64px;text-align: center; }
+      .pta-hero-rule { display: none; text-align: center;}
+      .pta-hero-stat { left: 0; bottom: 72px; text-align: center;}
+      .pta-hero-verified { right: 0; top: 16px;text-align: center; }
+      .pta-hero { min-height: auto; text-align: center;}
+      .pta-hero-tags {
+        text-align: center;
+        position: relative;
+        left: 12.5%;
+      }
+    }
+
+    /* ── PRIVATE ASSISTANCE BLOCK ── */
+    .pta-block {
+      position: relative;
+      background: #0d1f1e;
+      border: 1px solid rgba(200,169,110,0.18);
+      border-left: 4px solid #c8863a;
+      padding: 56px 52px;
+      overflow: hidden;
+      margin: 80px 0;
+    }
+    .pta-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(200,169,110,0.04)' stroke-width='0.5'%3E%3Cpolygon points='30,4 56,18 56,42 30,56 4,42 4,18'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .pta-block::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle at top right, rgba(200,134,58,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .pta-block-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    
+    .pta-block-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8863a;
+      margin-bottom: 20px;
+    }
+    .pta-block-eyebrow svg {
+      width: 14px; height: 14px;
+      fill: #c8863a;
+    }
+    .pta-block-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: #e8dcc8;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .pta-block-title em {
+      font-style: italic;
+      color: #c8a96e;
+    }
+    .pta-block-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(232,220,200,0.55);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    /* exclusivity pill */
+    .pta-exclusivity {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,134,58,0.08);
+      border: 1px solid rgba(200,134,58,0.2);
+      padding: 9px 18px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #c8863a;
+      letter-spacing: 0.04em;
+    }
+    .pta-exclusivity::before {
+      content: '◆';
+      font-size: 0.5rem;
+    }
+
+    /* right: features */
+   
+    .pta-features-label {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(200,169,110,0.5);
+      margin-bottom: 20px;
+    }
+    .pta-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+    }
+    .pta-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(200,169,110,0.07);
+      font-size: 0.88rem;
+      color: rgba(232,220,200,0.75);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .pta-features-list li:last-child { border-bottom: none; }
+    .pta-check {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: rgba(200,134,58,0.12);
+      border: 1px solid rgba(200,134,58,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #c8863a;
+      margin-top: 2px;
+    }
+
+    /* constraints block */
+    .pta-constraints {
+      background: rgba(200,169,110,0.04);
+      border: 1px solid rgba(200,169,110,0.1);
+      border-left: 3px solid rgba(200,169,110,0.3);
+      padding: 20px 22px;
+      margin-bottom: 24px;
+    }
+    .pta-constraints p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(232,220,200,0.45);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .pta-constraints strong {
+      color: rgba(232,220,200,0.65);
+      font-weight: 500;
+    }
+
+    /* upgrade note */
+    .pta-upgrade-note {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(200,169,110,0.35);
+      font-style: italic;
+      letter-spacing: 0.02em;
+      padding-top: 20px;
+      border-top: 1px solid rgba(200,169,110,0.08);
+    }
+
+    /* ── HOW IT WORKS ── */
+    .step-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 4px solid #c8863a;
+      padding: 44px 36px;
+      position: relative;
+      transition: all 0.35s var(--ease);
+    }
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+      border-left-color: #c8a96e;
+    }
+    .step-number {
+      position: absolute;
+      top: -18px; left: 24px;
+      background: linear-gradient(135deg, #c8863a, #c8a96e);
+      color: #fff;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      box-shadow: 0 4px 16px rgba(200,134,58,0.25);
+    }
+    .step-card h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--tile);
+      margin: 20px 0 12px;
+    }
+    .step-card p {
+      color: var(--smoke);
+      font-weight: 300;
+      line-height: 1.78;
+      font-size: 0.88rem;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    /* ── COVERAGE ── */
+    .coverage-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 5px solid rgba(200,134,58,0.4);
+      padding: 40px 32px;
+      transition: all 0.35s var(--ease);
+    }
+    .coverage-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.07);
+      border-left-color: #c8863a;
+    }
+    .coverage-card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--tile);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .coverage-icon { font-size: 1.6rem; }
+    .coverage-card ul {
+      list-style: none;
+      padding: 0; margin: 0;
+    }
+    .coverage-card li {
+      color: var(--smoke);
+      padding: 9px 0 9px 28px;
+      position: relative;
+      line-height: 1.6;
+      font-size: 0.88rem;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .coverage-card li:last-child { border-bottom: none; }
+    .coverage-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #c8863a;
+      font-weight: 700;
+    }
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── FEATURE ROW reuse ── */
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1080px) {
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .pta-block-inner { grid-template-columns: 1fr; gap: 40px; }
+      .pta-block { padding: 44px 32px; }
+    }
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .coverage-grid { grid-template-columns: 1fr; }
+      .feature-row { grid-template-columns: 1fr; }
+      .pta-block { padding: 36px 24px; }
+      .pta-block-title { font-size: 1.6rem; }
+      .nav-container {
+    position: relative; }  /* add this */
+    .nav-center-stack {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    
+  }
+  }
+    
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="main-nav" id="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+        <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+      </svg>
+      <span class="nav-logo-text">Travel <span>Readz</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" data-translate="nav.home">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about">Journal</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-center-stack">
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul>
+      <li><a href="index.html" data-translate="nav.home" onclick="closeDrawer()">Home</a></li>
+      <li><a href="Experiences.html" data-translate="nav.services" onclick="closeDrawer()">Experiences</a></li>
+      <li><a href="journal.html" data-translate="nav.about" onclick="closeDrawer()">Journal</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HERO — Split Layout -->
+<section class="pta-hero">
+  <div class="pta-hero-bg"></div>
+  <div class="pta-hero-glow"></div>
+  <div class="pta-hero-rule"></div>
+
+  <div class="pta-hero-inner">
+
+    <!-- LEFT: Text -->
+    <div class="pta-hero-left">
+      <div class="pta-hero-credential">
+        <span class="pta-hero-credential-dot"></span>
+        <span data-translate="whatsapp.hero.badge">Guide Buyers Only</span>
+      </div>
+
+      <h1 class="pta-hero-title" data-translate="whatsapp.hero.title">
+        Private Travel
+        <em>Assistance</em>
+      </h1>
+
+      <p class="pta-hero-desc" data-translate="whatsapp.hero.desc">
+        Structured, expert guidance for verified guide buyers — helping you avoid costly mistakes and navigate Morocco with confidence.
+      </p>
+
+      <div class="pta-hero-tags">
+        <span class="pta-hero-tag" data-translate="pta.hero.tag1">&#10004; Up to 3 Questions</span>
+        <span class="pta-hero-tag" data-translate="pta.hero.tag2">&#10004; 24-48h Response</span>
+        <span class="pta-hero-tag" data-translate="pta.hero.tag3">&#10004; Verified Buyers Only</span>
+        <span class="pta-hero-tag" data-translate="pta.hero.tag4">&#10004; Local Expert</span>
+      </div>
+
+      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="pta-hero-cta" id="hero-cta-btn">
+        <span data-translate="pta.hero.cta">Unlock Access — $9.99</span>
+        <span>&rarr;</span>
+      </a>
+      <div class="pta-hero-cta-note" data-translate="pta.hero.ctaNote">&#10086; Included free with every guide purchase</div>
+    </div>
+
+    <!-- RIGHT: Image -->
+    <div class="pta-hero-right">
+      <div class="pta-hero-img-wrap">
+        <div class="pta-hero-img-glow"></div>
+        <img
+          src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png"
+          alt="Private Travel Assistance"
+        >
+        <!-- floating stat -->
+        <div class="pta-hero-stat">
+          <div class="pta-hero-stat-num">24h</div>
+          <div class="pta-hero-stat-label" data-translate="pta.hero.statLabel">Avg. Response Time</div>
+        </div>
+        <!-- verified badge -->
+        <div class="pta-hero-verified">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="#c8863a"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span data-translate="pta.hero.verified">Verified Buyers Only</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       PRIVATE TRAVEL ASSISTANCE BLOCK — Premium Section
+  ════════════════════════════════════════════════════════ -->
+  <div class="pta-block reveal">
+    <div class="pta-block-inner">
+
+      <!-- LEFT: Positioning -->
+      <div class="pta-block-left">
+        <div class="pta-block-eyebrow">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span data-translate="pta.block.eyebrow">Private Travel Assistance</span>
+        </div>
+        <h2 class="pta-block-title" data-translate="pta.block.title">Structured Guidance.<br><em>Reserved for Buyers.</em></h2>
+        <p class="pta-block-desc" data-translate="pta.block.desc">This is not a public support channel. Verified guide buyers receive limited, structured assistance to clarify travel doubts, avoid common mistakes, and make the most of their Morocco trip — delivered by a local expert who wrote the guide.</p>
+
+        <div class="pta-exclusivity" data-translate="pta.block.exclusivity">Available to a limited number of buyers per month</div>
+
+        <div style="margin-top: 28px;">
+          <div class="pta-constraints">
+            <p>
+              <span data-translate="pta.block.constraint1"><strong>This is structured assistance — not unlimited consulting.</strong> Each buyer receives a defined number of questions, addressed within a set response window. This keeps the quality of every response high and the advice genuinely useful.</span>
+            </p>
+          </div>
+
+          <div class="pta-upgrade-note" data-translate="pta.block.upgradeNote">Note: Future versions of this guide may include private assistance as a paid upgrade. Current buyers receive it complimentary.</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Features -->
+      <div class="pta-block-right">
+        <div class="pta-features-label" data-translate="pta.features.label">What's Included</div>
+        <ul class="pta-features-list">
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item1">Ask up to <strong style="color:rgba(232,220,200,0.9);">3 travel-related questions</strong> — focused, practical, and answered in full</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item2">Itinerary clarification &amp; optimization based on your travel dates and priorities</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item3">Local recommendations guidance — where to eat, stay, or explore in specific cities</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item4">Scam-avoidance advice tailored to your itinerary and experience level</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item5">Response within <strong style="color:rgba(232,220,200,0.9);">24–48 hours</strong> — considered, not rushed</span>
+          </li>
+          <li>
+            <span class="pta-check">✔</span>
+            <span data-translate="pta.features.item6">Accessible via WhatsApp — <strong style="color:rgba(232,220,200,0.9);">for verified guide buyers only</strong></span>
+          </li>
+        </ul>
+
+        <div class="pta-constraints">
+          <p data-translate="pta.block.constraint2">Access is granted upon purchase verification. The WhatsApp number is not public. <strong>Questions outside the scope of Morocco travel or the guide content are not covered.</strong></p>
+        </div>
+
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary" id="pricing-cta-btn" style="margin-top: 28px; display: inline-flex;">
+          <span data-translate="pta.block.cta">Get the Guide — Unlock Access</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section style="margin-bottom: 80px;" class="reveal">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="ornament" style="margin-bottom:24px;"><span class="ornament-sym">✦ ✦ ✦</span></div>
+      <div class="section-eyebrow centered" data-translate="pta.steps.eyebrow">Simple Process</div>
+      <h2 class="section-title" data-translate="whatsapp.howItWorks.title">How It <em>Works</em></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3 data-translate="whatsapp.step1.title">Purchase the Guide</h3>
+        <p data-translate="whatsapp.step1.desc">Complete your purchase on Gumroad. Your confirmation email includes the private WhatsApp contact and access instructions.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3 data-translate="whatsapp.step2.title">Save the Contact</h3>
+        <p data-translate="whatsapp.step2.desc">Add the number to your contacts before you travel. This is a private line — not publicly listed or searchable.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3 data-translate="whatsapp.step3.title">Submit Your Questions</h3>
+        <p data-translate="whatsapp.step3.desc">Send your travel questions clearly and specifically. Responses are delivered within 24–48 hours, focused and actionable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE COVER -->
+  <section style="margin-bottom: 80px;" class="reveal">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="section-eyebrow centered" data-translate="pta.coverage.eyebrow">Scope of Assistance</div>
+      <h2 class="section-title" data-translate="pta.coverage.title">Topics We <em>Cover</em></h2>
+      <p class="section-subtitle" data-translate="pta.coverage.desc">
+        Assistance is focused on practical, high-impact questions that directly improve your Morocco experience.
+      </p>
+    </div>
+    <div class="coverage-grid">
+      <div class="coverage-card">
+        <h3><span class="coverage-icon">🚖</span> <span data-translate="whatsapp.coverage1.title">Transport & Logistics</span></h3>
+        <ul>
+          <li data-translate="whatsapp.coverage1.item1">Airport to city transport options</li>
+          <li data-translate="whatsapp.coverage1.item2">Fair taxi rates and avoiding scams</li>
+          <li data-translate="whatsapp.coverage1.item3">Using local buses and trains</li>
+          <li data-translate="whatsapp.coverage1.item4">App-based ride services</li>
+        </ul>
+      </div>
+      <div class="coverage-card">
+        <h3><span class="coverage-icon">🏠</span> <span data-translate="whatsapp.coverage2.title">Accommodation</span></h3>
+        <ul>
+          <li data-translate="whatsapp.coverage2.item1">Check-in difficulties</li>
+          <li data-translate="whatsapp.coverage2.item2">Finding your riad or hotel</li>
+          <li data-translate="whatsapp.coverage2.item3">Communication with hosts</li>
+          <li data-translate="whatsapp.coverage2.item4">Understanding local customs</li>
+        </ul>
+      </div>
+      <div class="coverage-card">
+        <h3><span class="coverage-icon">🧭</span> <span data-translate="whatsapp.coverage3.title">Navigation & Safety</span></h3>
+        <ul>
+          <li data-translate="whatsapp.coverage3.item1">Getting to major landmarks</li>
+          <li data-translate="whatsapp.coverage3.item2">Safe areas to explore</li>
+          <li data-translate="whatsapp.coverage3.item3">Local etiquette tips</li>
+          <li data-translate="whatsapp.coverage3.item4">Emergency contacts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section reveal" style="margin-bottom: 80px;">
+    <div class="container">
+      <div class="testi-header">
+        <div class="ornament" style="margin-bottom:24px;"><span class="ornament-sym">✦ ✦ ✦</span></div>
+        <div class="section-eyebrow centered" data-translate="pta.reviews.eyebrow">Buyer Feedback</div>
+        <h2 class="section-title" data-translate="pta.reviews.title">What Buyers Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="quote-mark" style="font-size:4rem;">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text" data-translate="whatsapp.review1.text">
+            "I couldn't find my riad in the Fes medina. Sent a message, got a clear response in under an hour. Exactly what I needed."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SM</div>
+            <div>
+              <div class="author-name">Sarah M.</div>
+              <div class="author-title">Solo Traveler</div>
+              <div class="author-source">Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark" style="font-size:4rem;">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text" data-translate="whatsapp.review2.text">
+            "Asked about taxi rates from the airport. Got a specific, honest answer. No stress, no overcharging on arrival."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JL</div>
+            <div>
+              <div class="author-name">James L.</div>
+              <div class="author-title">First-time Visitor</div>
+              <div class="author-source">Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark" style="font-size:4rem;">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text" data-translate="whatsapp.review3.text">
+            "The advice was direct, practical, and clearly from someone who actually knows Morocco. That's rare."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ER</div>
+            <div>
+              <div class="author-name">Emma R.</div>
+              <div class="author-title">Backpacker</div>
+              <div class="author-source">Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER BONUSES -->
+  <section class="bonus-section reveal" style="margin-bottom: 80px;">
+    <div class="bonus-header">
+      <div class="section-eyebrow centered" data-translate="pta.bonus.badge">Included Bonuses</div>
+      <h2 class="section-title" data-translate="pta.bonus.title">Other Gifts <em>in the Package</em></h2>
+      <p class="section-subtitle" data-translate="pta.bonus.subtitle">Worth $24.99 — included with every guide purchase</p>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-value" data-translate="bonus.item2.value">Value: $5</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568882/Untitled_design_9_hljh1y.png" alt="Marrakech Maps">
+        <h3 data-translate="bonus.item2.title">Custom Google Maps</h3>
+        <p data-translate="bonus.item2.desc">Pre-loaded maps with all recommended spots for easy navigation</p>
+        <a href="marrakech-travel-map.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-value" data-translate="bonus.item4.value">Value: $5</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770567733/Untitled_design_7_eqjs9c.png" alt="Budget Calculator">
+        <h3 data-translate="bonus.item4.title">Budget Calculator Tool</h3>
+        <p data-translate="bonus.item4.desc">Plan your expenses accurately with our interactive calculator</p>
+        <a href="travel-budget-calculator.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-value" data-translate="bonus.item1.value">Value: $4.99</div>
+        <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770509045/Untitled_design_2_b4rwdn.png" alt="Etiquette Mini Guide">
+        <h3 data-translate="bonus.item1.title">Cultural Etiquette Mini Guide</h3>
+        <p data-translate="bonus.item1.desc">Quick-reference guide to Moroccan customs and social norms</p>
+        <a href="morocco-travel-etiquette.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta-section reveal">
+    <div class="container">
+      <div class="final-cta-content">
+        <div class="final-eyebrow" data-translate="pta.finalCta.eyebrow">Exclusive to Guide Buyers</div>
+        <h2 class="section-title light" data-translate="pta.finalCta.title">Travel Morocco with <em>Expert Backing.</em></h2>
+        <p class="section-subtitle" data-translate="pta.finalCta.subtitle" style="color:rgba(232,220,200,0.5);margin:16px auto 48px;">The complete Travel Readz guide — plus private travel assistance, custom maps, budget calculator, and cultural etiquette guide. Everything you need to travel Morocco properly.</p>
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary large" id="final-cta-btn" data-translate="pta.finalCta.btn">
+          Get the Travel Readz Guide
+          <span class="btn-arrow">→</span>
+        </a>
+        <div class="final-trust">
+          <span data-translate="pta.finalCta.trust1">✓ Instant Download</span>
+          <span data-translate="pta.finalCta.trust2">✓ Private Assistance Included</span>
+          <span data-translate="pta.finalCta.trust3">✓ All 4 Bonuses Free</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-wordmark">Travel <span>Readz</span></div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" data-translate="footer.privacy">Privacy Policy</a></li>
+        <li><a href="terms.html" data-translate="footer.terms">Terms & Conditions</a></li>
+        <li><a href="contact.html" data-translate="footer.contact">Contact Us</a></li>
+        <li><a href="about.html" data-translate="footer.about">About Us</a></li>
+      </ul>
+    </div>
+    <p class="footer-copyright" data-translate="footer.copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="translations.js" onerror="void(0)"></script>
+<script>
+  /* Mobile nav CSS injection */
+  const mobileNavStyle = document.createElement('style');
+  mobileNavStyle.textContent = `
+    /* ── Desktop: lang + cta in one row ── */
+    .nav-center-stack {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 68px;
+        min-height: 68px;
+        padding: 0 16px;
+        
+      }
+      .nav-logo { flex-shrink: 0; margin-right: auto; }
+      .nav-right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      /* mobile: CTA on top, lang below — stacked, centered */
+      .nav-center-stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      .language-switcher { display: flex; gap: 3px; }
+      .lang-btn { font-size: 0.58rem; padding: 2px 5px; }
+      .nav-cta { font-size: 0.58rem; padding: 5px 10px; white-space: nowrap; }
+      .hamburger { flex-shrink: 0; margin-left: 4px; }
+    }
+  `;
+  document.head.appendChild(mobileNavStyle);
+
+  /* Nav scroll */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* Hamburger */
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('mobile-drawer');
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) closeDrawer();
+  });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

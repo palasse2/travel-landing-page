@@ -1,0 +1,118 @@
+---
+const { frontmatter } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{frontmatter.title} | Travel Readz</title>
+  <meta name="description" content={frontmatter.description} />
+  <meta property="og:title" content={frontmatter.title} />
+  <meta property="og:description" content={frontmatter.description} />
+  <meta property="og:image" content={frontmatter.cover} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/blog-post.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-container">
+      <a href="/index.html" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#c8863a" stroke-width="1" fill="none"/>
+          <polygon points="16,8 24,12.5 24,19.5 16,24 8,19.5 8,12.5" stroke="#c8a96e" stroke-width="0.8" fill="none" opacity="0.6"/>
+          <circle cx="16" cy="16" r="2.5" fill="#c8863a" opacity="0.7"/>
+        </svg>
+        <span class="nav-logo-text">Travel <span>Readz</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/Experiences.html">Experiences</a></li>
+        <li><a href="/journal.html">Journal</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="nav-center-stack">
+          <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta">Get Your Guide</a>
+          <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+          </div>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobile-drawer">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/Experiences.html">Experiences</a></li>
+        <li><a href="/journal.html">Journal</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- BLOG POST HERO -->
+  <div class="post-hero">
+    <div class="post-hero-zellige"></div>
+    <div class="post-hero-vignette"></div>
+    <div class="post-hero-content">
+      <span class="section-eyebrow centered">{frontmatter.category}</span>
+      <h1 class="post-hero-title">{frontmatter.title}</h1>
+      <div class="post-meta">
+        <span class="post-date">{frontmatter.date}</span>
+        <span class="journal-dot">◆</span>
+        <span class="post-read">{frontmatter.readTime}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOG CONTENT -->
+  <main class="post-main">
+    <article class="post-article">
+      <slot />
+    </article>
+
+    <!-- BACK TO JOURNAL -->
+    <div class="post-back">
+      <a href="/journal.html" class="btn-secondary">← Back to Journal</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-wordmark">Travel <span>Readz</span></div>
+        <ul class="footer-links">
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms & Conditions</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="/about.html">About Us</a></li>
+        </ul>
+      </div>
+      <p class="footer-copyright">© 2025 Travel Readz. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('mobile-drawer');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      drawer.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
