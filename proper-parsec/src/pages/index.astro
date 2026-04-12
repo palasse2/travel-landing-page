@@ -164,6 +164,25 @@ const posts = Object.values(postFiles)
       background: var(--ochre);
       color: var(--cream) !important;
       border-color: var(--ochre);
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .journal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .journal-grid {
+    grid-template-columns: 1fr;
+  }
+}
     }
   </style>
 </head>
@@ -648,6 +667,7 @@ const posts = Object.values(postFiles)
       <h2 class="section-title" data-translate="journal.title">Latest <em>Stories</em> & Tips</h2>
       <p class="section-subtitle" data-translate="journal.subtitle">Real dispatches from the medinas, mountains, and desert roads of Morocco.</p>
     </div>
+<div class="journal-grid">
    {posts.map((post: any) => (
   <article class="journal-card">
     <a href={post.url} class="journal-card-img-wrap">
@@ -667,6 +687,8 @@ const posts = Object.values(postFiles)
     </div>
   </article>
 ))}
+    </div>
+
     <div class="journal-footer reveal">
       <a href="journal.html" class="btn-secondary" data-translate="journal.allPosts">Read All Articles</a>
     </div>
