@@ -153,19 +153,42 @@ const { frontmatter } = Astro.props;
       hamburger.classList.remove('open');
     }
   });
+// Auto-generate TOC — wait for full page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const content = document.getElementById('blog-content');
+    const tocList = document.getElementById('toc-list');
 
-  // Auto-generate TOC
-  const content = document.getElementById('blog-content');
-  const tocList = document.getElementById('toc-list');
-  const headings = content.querySelectorAll('h2');
-  headings.forEach((h, i) => {
-    if (!h.id) h.id = 'section-' + i;
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = '#' + h.id;
-    a.textContent = h.textContent;
-    li.appendChild(a);
-    tocList.appendChild(li);
+    if (!content || !tocList) return;
+
+    const headings = content.querySelectorAll('h2');
+    console.log('Headings found:', headings.length);
+
+    if (headings.length === 0) return;
+
+    headings.forEach((h, i) => {
+      if (!h.id) h.id = 'section-' + i;
+
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    // Active highlight on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const link = tocList.querySelector(`a[href="#${id}"]`);
+        if (link && entry.isIntersecting) {
+          tocList.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '0px 0px -70% 0px' });
+
+    headings.forEach(h => observer.observe(h));
   });
 
   // Smooth scroll
