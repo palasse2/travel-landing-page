@@ -283,3 +283,101 @@
   .post-article blockquote p { padding-left: 20px; }
   .post-footer { flex-direction: column; align-items: flex-start; }
 }
+/* ============================================================
+   TABLE OF CONTENTS
+============================================================ */
+
+.post-layout {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* Override old post-article max-width since layout handles it */
+.post-layout .post-article {
+  max-width: 100%;
+  padding: 0;
+}
+
+.post-toc {
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.toc-inner {
+  border-left: 2px solid var(--border);
+  padding-left: 20px;
+}
+
+.toc-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  margin-bottom: 16px;
+}
+
+.toc-link {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--smoke);
+  line-height: 1.4;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.25s, padding-left 0.25s;
+  border: none;
+  text-decoration: none;
+}
+.toc-link:hover {
+  color: var(--ochre);
+  padding-left: 4px;
+  border-bottom: none;
+}
+.toc-link.active {
+  color: var(--ochre);
+  font-weight: 600;
+  padding-left: 4px;
+  border-left: 2px solid var(--ochre);
+  margin-left: -22px;
+  padding-left: 20px;
+}
+.toc-link--sub {
+  font-size: 0.76rem;
+  padding-left: 12px;
+  color: rgba(107,96,87,0.6);
+}
+.toc-link--sub.active {
+  padding-left: 28px;
+  margin-left: -22px;
+}
+
+/* Post footer */
+.post-footer {
+  max-width: 1140px;
+  margin: 60px auto 0;
+  padding: 40px 24px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* ── Responsive — hide TOC on mobile ── */
+@media (max-width: 900px) {
+  .post-layout {
+    grid-template-columns: 1fr;
+  }
+  .post-toc {
+    display: none;
+  }
+}
