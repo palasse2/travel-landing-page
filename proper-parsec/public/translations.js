@@ -1312,6 +1312,53 @@ fr: {
   'budget.finalCta.trust2': '✓ Format Google Sheets',
   'budget.finalCta.trust3': '✓ Fonctionne sur Tous les Appareils',
   'budget.finalCta.trust4': '✓ 4 Bonus Gratuits',
+ 
+  // Pricing Section
+  'pricing.eyebrow': 'Choisissez votre forfait',
+  'pricing.title': 'Un guide.',
+  'pricing.title.em': 'Trois façons',
+  'pricing.subtitle': 'Commencez par l’essentiel ou prenez tout. Chaque forfait inclut le guide complet de 205 pages.',
+
+  // BASIC Tier
+  'pricing.basic.label': 'Basique',
+  'pricing.basic.cadence': 'Paiement unique · Accès instantané',
+  'pricing.basic.features.1': 'Guide interne de 205 pages (PDF)',
+  'pricing.basic.features.2': '17 chapitres + contenu bonus',
+  'pricing.basic.features.3': 'Écrit par un local du Maroc',
+  'pricing.basic.features.4': 'Prix locaux réels & scripts d’arnaques',
+  'pricing.basic.features.5': 'Guide de 50 phrases en Darija',
+  'pricing.basic.features.6': 'Accès à vie & mises à jour',
+  'pricing.basic.features.7': 'Cartes Google personnalisées',
+  'pricing.basic.features.8': 'Outil de calcul de budget',
+  'pricing.basic.features.9': 'Mini e-book culturel',
+  'pricing.basic.features.10': 'Accès WhatsApp direct pendant votre voyage',
+  'pricing.basic.features.11': 'Support voyage en temps réel (éviter arnaques & mauvaises affaires)',
+  'pricing.basic.button': 'Basique — 14,99 $ →',
+  'pricing.basic.note': 'Parfait si vous voulez juste le guide.',
+
+  // COMPLETE Tier
+  'pricing.complete.label': 'Complet',
+  'pricing.complete.cadence': 'Paiement unique · Accès instantané',
+  'pricing.complete.popular': 'Le plus populaire',
+  'pricing.complete.badge': 'Meilleur rapport qualité-prix',
+  'pricing.complete.features.7': 'Carte Google Marrakech personnalisée',
+  'pricing.complete.features.8': 'Calculateur de budget interactif',
+  'pricing.complete.features.9': 'Mini e-book étiquette culturelle',
+  'pricing.complete.button': 'Complet — 19,99 $ →',
+  'pricing.complete.note': 'Tout ce dont vous avez besoin avant et pendant votre voyage.',
+
+  // VIP Tier
+  'pricing.vip.label': 'VIP',
+  'pricing.vip.cadence': 'Paiement unique · Accès instantané · Pour les voyageurs novices',
+  'pricing.vip.button': 'VIP — 29,99 $ →',
+  'pricing.vip.note': 'Une erreur peut coûter plus cher que ce guide. Restez protégé.',
+
+  // Trust Row
+  'pricing.trust.1': '✓ Téléchargement instantané',
+  'pricing.trust.2': '✓ Paiement sécurisé via Gumroad',
+  'pricing.trust.3': '✓ Accès à vie',
+  'pricing.trust.4': '✓ Toutes les 3 versions linguistiques incluses'
+
 
   },
 
@@ -2135,8 +2182,56 @@ fr: {
   'budget.finalCta.trust1': '✓ Acceso Instantáneo',
   'budget.finalCta.trust2': '✓ Formato Google Sheets',
   'budget.finalCta.trust3': '✓ Funciona en Todos los Dispositivos',
-  'budget.finalCta.trust4': '✓ 4 Bonos Gratis'
-  }
+  'budget.finalCta.trust4': '✓ 4 Bonos Gratis', 
+
+{
+  // Pricing Section
+  'pricing.eyebrow': 'Elige tu paquete',
+  'pricing.title': 'Una guía.',
+  'pricing.title.em': 'Tres formas',
+  'pricing.subtitle': 'Comienza con lo esencial o ve a por todo. Cada nivel incluye la guía completa de 205 páginas.',
+
+  // BASIC Tier
+  'pricing.basic.label': 'Básico',
+  'pricing.basic.cadence': 'Pago único · Acceso instantáneo',
+  'pricing.basic.features.1': 'Guía interna de 205 páginas (PDF)',
+  'pricing.basic.features.2': '17 capítulos + contenido bonus',
+  'pricing.basic.features.3': 'Escrito por un local de Marruecos',
+  'pricing.basic.features.4': 'Precios locales reales & guiones de estafas',
+  'pricing.basic.features.5': 'Guía de 50 frases en Darija',
+  'pricing.basic.features.6': 'Acceso de por vida & actualizaciones',
+  'pricing.basic.features.7': 'Mapas de Google personalizados',
+  'pricing.basic.features.8': 'Herramienta calculadora de presupuesto',
+  'pricing.basic.features.9': 'Mini ebook cultural',
+  'pricing.basic.features.10': 'Acceso directo WhatsApp durante tu viaje',
+  'pricing.basic.features.11': 'Soporte de viaje en tiempo real (evita estafas & malos tratos)',
+  'pricing.basic.button': 'Básico — $14.99 →',
+  'pricing.basic.note': 'Perfecto si solo quieres la guía.',
+
+  // COMPLETE Tier
+  'pricing.complete.label': 'Completo',
+  'pricing.complete.cadence': 'Pago único · Acceso instantáneo',
+  'pricing.complete.popular': 'Más popular',
+  'pricing.complete.badge': 'Mejor valor',
+  'pricing.complete.features.7': 'Mapa de Google Marrakech personalizado',
+  'pricing.complete.features.8': 'Calculadora de presupuesto interactiva',
+  'pricing.complete.features.9': 'Mini ebook de etiqueta cultural',
+  'pricing.complete.button': 'Completo — $19.99 →',
+  'pricing.complete.note': 'Todo lo que necesitas antes y durante tu viaje.',
+
+  // VIP Tier
+  'pricing.vip.label': 'VIP',
+  'pricing.vip.cadence': 'Pago único · Acceso instantáneo · Para viajeros primerizos',
+  'pricing.vip.button': 'VIP — $29.99 →',
+  'pricing.vip.note': 'Un error puede costar más que esta guía. Mantente protegido.',
+
+  // Trust Row
+  'pricing.trust.1': '✓ Descarga instantánea',
+  'pricing.trust.2': '✓ Pago seguro vía Gumroad',
+  'pricing.trust.3': '✓ Acceso de por vida',
+  'pricing.trust.4': '✓ Todas las 3 versiones en idioma incluidas',
+
+
 };
 
 // Book cover URLs for each language
