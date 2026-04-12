@@ -74,16 +74,84 @@ const { frontmatter } = Astro.props;
   </div>
 
   <!-- BLOG CONTENT -->
-  <main class="post-main">
-    <article class="post-article">
+<!-- BLOG CONTENT WITH TOC -->
+<main class="post-main">
+  <div class="post-layout">
+
+    <!-- TABLE OF CONTENTS -->
+    <aside class="post-toc" id="post-toc">
+      <div class="toc-inner">
+        <div class="toc-label">Contents</div>
+        <nav id="toc-nav"></nav>
+      </div>
+    </aside>
+
+    <!-- ARTICLE -->
+    <article class="post-article" id="post-article">
       <slot />
     </article>
 
-    <!-- BACK TO JOURNAL -->
-    <div class="post-back">
-      <a href="/journal.html" class="btn-secondary">← Back to Journal</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="post-footer">
+    <div class="post-author">
+      <div class="post-author-avatar">TR</div>
+      <div>
+        <div class="post-author-name">Travel Readz</div>
+        <div class="post-author-title">Local Morocco Expert</div>
+      </div>
     </div>
-  </main>
+    <a href="/journal" class="btn-secondary">← Back to Journal</a>
+  </div>
+</main>
+
+<script is:inline>
+  // Auto-generate TOC from headings
+  const article = document.getElementById('post-article');
+  const tocNav = document.getElementById('toc-nav');
+  const headings = article.querySelectorAll('h2, h3');
+
+  if (headings.length > 0) {
+    headings.forEach((heading, i) => {
+      // Add ID to heading if it doesn't have one
+      if (!heading.id) {
+        heading.id = 'section-' + i;
+      }
+
+      const link = document.createElement('a');
+      link.href = '#' + heading.id;
+      link.textContent = heading.textContent;
+      link.classList.add('toc-link');
+      if (heading.tagName === 'H3') link.classList.add('toc-link--sub');
+
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById(heading.id).scrollIntoView({ behavior: 'smooth' });
+      });
+
+      tocNav.appendChild(link);
+    });
+  } else {
+    document.getElementById('post-toc').style.display = 'none';
+  }
+
+  // Highlight active section on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      const tocLink = tocNav.querySelector(`a[href="#${id}"]`);
+      if (tocLink) {
+        if (entry.isIntersecting) {
+          tocNav.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+          tocLink.classList.add('active');
+        }
+      }
+    });
+  }, { rootMargin: '0px 0px -70% 0px' });
+
+  headings.forEach(h => observer.observe(h));
+</script>
 
   <!-- FOOTER -->
   <footer class="site-footer">
