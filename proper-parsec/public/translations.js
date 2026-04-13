@@ -402,7 +402,7 @@ const translations = {
       "finalCta.eyebrow": "Begin Here",
       "finalCta.title": "Ready to Experience<br>the <em>Real Morocco?</em>",
       "finalCta.subtitle": "Join hundreds of travelers who've discovered Morocco the local way.",
-      "finalCta.button": "Download Your Guide Now — $9.99",
+      "finalCta.button": "Choose Your Package — From $12.99",
       "finalCta.instant": "✓ Instant Download",
       "finalCta.secure": "✓ Secure Payment",
       "finalCta.lifetime": "✓ Lifetime Access",
