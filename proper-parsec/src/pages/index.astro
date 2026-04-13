@@ -28,7 +28,7 @@ const posts = Object.values(postFiles)
   <link rel="icon" href="https://i.ibb.co/DDs51KJT/Blue-and-Orange-Modern-Clean-Travel-Agency-Logo-2.png" type="image/png">
 
   <style>
-    /* ── Experiences section (replaces services) ── */
+    /* ── Experiences section ── */
     .experiences-home-section {
       padding: 110px 0;
       background: var(--tile-dark);
@@ -60,7 +60,6 @@ const posts = Object.values(postFiles)
       gap: 24px;
       margin-bottom: 52px;
     }
-
     .exp-home-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(200,169,110,0.14);
@@ -74,17 +73,13 @@ const posts = Object.values(postFiles)
       border-color: rgba(200,134,58,0.35);
       background: rgba(255,255,255,0.06);
     }
-    .exp-home-card-image {
-      position: relative; height: 210px; overflow: hidden;
-    }
+    .exp-home-card-image { position: relative; height: 210px; overflow: hidden; }
     .exp-home-card-image img {
       width: 100%; height: 100%; object-fit: cover;
       transition: transform 0.55s var(--ease);
       filter: brightness(0.88);
     }
-    .exp-home-card:hover .exp-home-card-image img {
-      transform: scale(1.07); filter: brightness(1);
-    }
+    .exp-home-card:hover .exp-home-card-image img { transform: scale(1.07); filter: brightness(1); }
     .exp-home-card-badge {
       position: absolute; top: 14px; left: 14px; z-index: 2;
       background: var(--ochre); color: var(--cream);
@@ -111,9 +106,7 @@ const posts = Object.values(postFiles)
       color: rgba(232,220,200,0.5);
       line-height: 1.7; flex: 1;
     }
-    .exp-home-card-tags {
-      display: flex; flex-wrap: wrap; gap: 6px;
-    }
+    .exp-home-card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .exp-home-card-tags span {
       font-size: 0.63rem; font-weight: 500;
       letter-spacing: 0.08em;
@@ -122,9 +115,7 @@ const posts = Object.values(postFiles)
       border: 1px solid rgba(200,169,110,0.14);
       padding: 4px 10px;
     }
-    .exp-home-card-rating {
-      font-size: 0.8rem; color: var(--gold); font-weight: 600;
-    }
+    .exp-home-card-rating { font-size: 0.8rem; color: var(--gold); font-weight: 600; }
     .exp-home-card-rating span {
       color: rgba(200,169,110,0.4);
       font-weight: 300; font-size: 0.75rem; margin-left: 4px;
@@ -144,18 +135,10 @@ const posts = Object.values(postFiles)
       background: var(--ochre); border-color: var(--ochre);
       color: var(--cream) !important; gap: 14px;
     }
-
-    /* Hide cards 5-7 on mobile */
     @media (max-width: 768px) {
-      .exp-home-grid .exp-home-card:nth-child(n+5) {
-        display: none;
-      }
-      .exp-home-grid {
-        grid-template-columns: 1fr;
-      }
+      .exp-home-grid .exp-home-card:nth-child(n+5) { display: none; }
+      .exp-home-grid { grid-template-columns: 1fr; }
     }
-
-    /* Discover all btn for dark bg */
     .experiences-home-section .btn-secondary {
       color: var(--sand) !important;
       border-color: rgba(232,220,200,0.3);
@@ -164,26 +147,124 @@ const posts = Object.values(postFiles)
       background: var(--ochre);
       color: var(--cream) !important;
       border-color: var(--ochre);
-.journal-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
-
-/* responsive */
-@media (max-width: 1024px) {
-  .journal-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .journal-grid {
-    grid-template-columns: 1fr;
-  }
-}
     }
+
+    /* ── Journal grid ── */
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    @media (max-width: 1024px) { .journal-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .journal-grid { grid-template-columns: 1fr; } }
+
+    /* ── THREE-TIER PRICING ── */
+    .pricing-section-tiers { padding: 120px 0 80px; background: var(--cream); position: relative; }
+    .pricing-header { text-align: center; margin-bottom: 64px; }
+    .tier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 960px) {
+      .tier-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+    }
+    .tier-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 40px 32px 36px;
+      position: relative;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .tier-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(30,48,64,0.10); }
+    .tier-featured {
+      background: var(--tile-dark);
+      border-color: var(--ochre);
+      transform: translateY(-12px);
+      box-shadow: 0 24px 64px rgba(30,48,64,0.18);
+      z-index: 2;
+    }
+    .tier-featured:hover { transform: translateY(-18px); box-shadow: 0 32px 72px rgba(30,48,64,0.24); }
+    .tier-popular-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--ochre); color: #fff;
+      font-family: var(--sans); font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 6px 18px; white-space: nowrap;
+    }
+    .tier-label {
+      font-family: var(--sans); font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 20px;
+    }
+    .tier-featured .tier-label { color: var(--gold); }
+    .tier-price-wrap { margin-bottom: 24px; }
+    .tier-price {
+      font-family: var(--serif); font-size: 3.2rem; font-weight: 600;
+      color: var(--tile); line-height: 1;
+      display: flex; align-items: flex-start; gap: 2px;
+    }
+    .tier-featured .tier-price { color: var(--sand); }
+    .tier-currency { font-size: 1.4rem; margin-top: 6px; font-weight: 400; }
+    .tier-cents { font-size: 1.6rem; margin-top: 4px; font-weight: 300; }
+    .tier-cadence { font-size: 0.72rem; color: var(--smoke); margin-top: 6px; letter-spacing: 0.04em; }
+    .tier-featured .tier-cadence { color: rgba(232,220,200,0.45); }
+    .tier-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
+    .tier-featured .tier-divider { background: rgba(200,169,110,0.2); }
+    .tier-features {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 11px; margin-bottom: 32px;
+    }
+    .tier-features li {
+      font-size: 0.87rem; color: var(--ink);
+      display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;
+    }
+    .tier-featured .tier-features li { color: rgba(232,220,200,0.8); }
+    .tier-featured .tier-features li strong { color: var(--sand); }
+    .tier-check { color: var(--ochre); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .tier-check-gold { color: var(--gold); }
+    .tier-check-vip { color: #e2c990; }
+    .tier-feature-missing { opacity: 0.35; }
+    .tier-x { color: var(--smoke); flex-shrink: 0; }
+    .tier-btn {
+      display: block; width: 100%; text-align: center;
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 15px 24px;
+      transition: all 0.35s var(--ease);
+      position: relative; margin-bottom: 16px;
+    }
+    .tier-btn-basic {
+      background: transparent; border: 1px solid rgba(30,48,64,0.25); color: var(--tile);
+    }
+    .tier-btn-basic:hover { background: var(--tile); color: var(--cream); border-color: var(--tile); }
+    .tier-btn-complete {
+      background: var(--ochre); color: #fff !important;
+      border: 1px solid var(--ochre); padding: 17px 24px;
+    }
+    .tier-btn-complete:hover { background: var(--ochre-deep); border-color: var(--ochre-deep); }
+    .tier-btn-badge {
+      position: absolute; top: -10px; right: 16px;
+      background: var(--gold); color: var(--tile-dark);
+      font-size: 0.55rem; font-weight: 800; letter-spacing: 0.1em; padding: 3px 8px;
+    }
+    .tier-btn-vip {
+      background: transparent; border: 1px solid var(--gold); color: var(--tile);
+    }
+    .tier-btn-vip:hover { background: var(--gold); color: var(--tile-dark); }
+    .tier-vip { border-color: rgba(200,169,110,0.35); }
+    .tier-note { font-size: 0.72rem; color: var(--smoke); text-align: center; line-height: 1.5; }
+    .tier-featured .tier-note { color: rgba(232,220,200,0.35); }
+    .tier-trust {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 24px; font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.06em; color: var(--smoke); margin-bottom: 24px;
+    }
+    .tier-payment { display: flex; justify-content: center; }
+    .tier-payment img { max-width: 280px; opacity: 0.6; }
   </style>
 </head>
 <body>
@@ -208,7 +289,7 @@ const posts = Object.values(postFiles)
 
     <div class="nav-right">
       <div class="nav-center-stack">
-        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
+        <a href="#pricing" class="nav-cta" id="nav-cta-btn" data-translate="nav.cta">Get Your Guide</a>
         <div class="language-switcher">
           <button class="lang-btn active" data-lang="en">EN</button>
           <button class="lang-btn" data-lang="fr">FR</button>
@@ -244,22 +325,21 @@ const posts = Object.values(postFiles)
       </p>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-number">40+</div>
+          <div class="stat-number">205</div>
           <div class="stat-label" data-translate="hero.stats.pages">Pages</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">10</div>
+          <div class="stat-number">17</div>
           <div class="stat-label" data-translate="hero.stats.chapters">Chapters</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label" data-translate="hero.stats.support">WhatsApp Support</div>
+          <div class="stat-number">3</div>
+          <div class="stat-label">Tiers</div>
         </div>
       </div>
       <div class="hero-cta-group">
-        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary" id="hero-cta-btn">
-          <span class="discount-badge">67% OFF</span>
-          <span data-translate="hero.cta.button">Download Now — $9.99</span>
+        <a href="#pricing" class="btn-primary" id="hero-cta-btn">
+          <span data-translate="hero.cta.button">See Pricing — From $14.99</span>
           <span class="btn-arrow">→</span>
         </a>
         <div class="trust-signals">
@@ -579,33 +659,25 @@ const posts = Object.values(postFiles)
         <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568882/Untitled_design_9_hljh1y.png" class="phone-mockup" alt="Custom Maps">
         <h3 data-translate="bonus.item2.title">Custom Google Maps</h3>
         <p data-translate="bonus.item2.desc">Pre-loaded maps with all recommended spots for easy navigation</p>
-          <br>
+        <br>
         <a href="marrakech-travel-map.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
       </div>
-        
-  <div class="bonus-card premium-card">
-  <div class="bonus-value" data-translate="bonus.whatsapp.value">Value $15</div>
-
-  <div class="bonus-img-wrap">
-    <div class="bonus-img-glow"></div>
-    <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png" class="phone-mockup" alt="WhatsApp Support">
-  </div>
-  <h3 data-translate="bonus.whatsapp.title">Private WhatsApp Assistance</h3>
-  <p data-translate="bonus.whatsapp.desc">
-    Exclusive support for buyers — fast, clear travel advice when you need it.
-  </p>
-  <a href="free-whatsapp-support.html" class="bonus-link premium-link" data-translate="bonus.whatsapp.link">
-    Learn More →
-  </a>
-</div>
-  
+      <div class="bonus-card premium-card">
+        <div class="bonus-value" data-translate="bonus.whatsapp.value">Value $15</div>
+        <div class="bonus-img-wrap">
+          <div class="bonus-img-glow"></div>
+          <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png" class="phone-mockup" alt="WhatsApp Support">
+        </div>
+        <h3 data-translate="bonus.whatsapp.title">Private WhatsApp Assistance</h3>
+        <p data-translate="bonus.whatsapp.desc">Exclusive support for buyers — fast, clear travel advice when you need it.</p>
+        <a href="free-whatsapp-support.html" class="bonus-link premium-link" data-translate="bonus.whatsapp.link">Learn More →</a>
+      </div>
       <div class="bonus-card">
         <div class="bonus-value" data-translate="bonus.item4.value">Value: $5</div>
         <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770567733/Untitled_design_7_eqjs9c.png" class="phone-mockup" alt="Budget Calculator">
         <h3 data-translate="bonus.item4.title">Budget Calculator Tool</h3>
         <p data-translate="bonus.item4.desc">Plan your expenses accurately with our interactive calculator</p>
-        <br>
-        <br>
+        <br><br>
         <a href="travel-budget-calculator.html" class="bonus-link" data-translate="bonus.learnMore">Learn More →</a>
       </div>
     </div>
@@ -613,47 +685,116 @@ const posts = Object.values(postFiles)
 </section>
 
 
+
 <!-- PRICING -->
-<section class="pricing-section">
+ 
+<section class="pricing-section pricing-section-tiers" id="pricing">
   <div class="container">
-    <div class="pricing-box reveal">
-      <div class="pricing-left">
-        <div class="section-eyebrow">Complete Package</div>
-        <h2 data-translate="pricing.title">Get the Complete Morocco Travel Guide</h2>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span> <span data-translate="pricing.feature1">40+ page comprehensive guide</span></li>
-          <li><span class="check">✓</span> <span data-translate="pricing.feature2">10 detailed chapters</span></li>
-          <li><span class="check">✓</span> <span data-translate="pricing.feature3">Written by a Morocco local</span></li>
-          <li><span class="check">✓</span> <span data-translate="pricing.feature4">Free cultural etiquette mini guide</span></li>
-          <li><span class="check">✓</span> <span data-translate="pricing.feature5">Free custom Google Maps</span></li>
-          <li><span class="check">✓</span> <span data-translate="pricing.feature6">Free WhatsApp support</span></li>
-          <li><span class="check">✓</span> <span data-translate="pricing.feature7">Free budget calculator</span></li>
-          <li><span class="check">✓</span> <span data-translate="pricing.feature8">Instant digital download</span></li>
-          <li><span class="check">✓</span> <span data-translate="pricing.feature9">Lifetime access & updates</span></li>
-        </ul>
-      </div>
-      <div class="pricing-right">
-        <div class="price-header">
-          <div class="price-label" data-translate="pricing.priceLabel">One-Time Payment</div>
-          <div class="price-amount">
-            <span class="currency">$</span>
-            <span class="amount">9</span>
-            <span class="cents">.99</span>
-          </div>
-          <div class="price-note" data-translate="pricing.priceNote">Instant Access · No Subscription</div>
-        </div>
-        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="purchase-btn" id="pricing-cta-btn">
-          <span class="discount-badge">67% OFF</span>
-          <span data-translate="pricing.button">Download Now</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </a>
-        <div class="payment-options">
-          <img src="https://i.ibb.co/x8HbqXPp/payment-Capture-removebg-preview.png" alt="Payment Methods">
-        </div>
-      </div>
+    <div class="pricing-header reveal">
+      <div class="ornament" style="margin-bottom:32px;"><span class="ornament-sym">✦ ✦ ✦</span></div>
+      <div class="section-eyebrow centered" data-translate="pricing.eyebrow">Choose Your Package</div>
+      <h2 class="section-title" data-translate="pricing.title">One Guide. <em data-translate="pricing.title.em">Three Ways</em> to Get It.</h2>
+      <p class="section-subtitle" data-translate="pricing.subtitle" style="max-width:520px;margin:0 auto;">Start with the essentials or go all-in with everything. Every tier includes the full 205-page insider guide.</p>
     </div>
+
+    <div class="tier-grid reveal">
+
+      <!-- BASIC -->
+      <div class="tier-card tier-basic">
+        <div class="tier-label" data-translate="pricing.basic.label">Basic</div>
+        <div class="tier-price-wrap">
+          <div class="tier-price"><span class="tier-currency">$</span>14<span class="tier-cents">.99</span></div>
+          <div class="tier-cadence" data-translate="pricing.basic.cadence">One-time · Instant access</div>
+        </div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.basic.features.1">205-page insider guide (PDF)</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.basic.features.2">17 chapters + bonus content</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.basic.features.3">Written by a Morocco local</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.basic.features.4">Real local prices & scam scripts</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.basic.features.5">50 Darija phrases guide</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.basic.features.6">Lifetime access & updates</span></li>
+          <li class="tier-feature-missing"><span class="tier-x">✕</span> <span data-translate="pricing.basic.features.7">Custom Google Maps</span></li>
+          <li class="tier-feature-missing"><span class="tier-x">✕</span> <span data-translate="pricing.basic.features.8">Budget Calculator Tool</span></li>
+          <li class="tier-feature-missing"><span class="tier-x">✕</span> <span data-translate="pricing.basic.features.9">Cultural Mini Ebook</span></li>
+          <li class="tier-feature-missing"><span class="tier-x">✕</span> <span data-translate="pricing.basic.features.10">Direct WhatsApp Access During Your Trip</span></li>
+          <li class="tier-feature-missing"><span class="tier-x">✕</span> <span data-translate="pricing.basic.features.11">Real-Time Travel Support (Avoid Scams & Bad Deals)</span></li>
+        </ul>
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="tier-btn tier-btn-basic" id="pricing-basic-btn">
+          <span data-translate="pricing.basic.button">Get Basic — $14.99 →</span>
+        </a>
+        <p class="tier-note" data-translate="pricing.basic.note">Perfect if you want the guide and nothing else.</p>
+      </div>
+
+      <!-- COMPLETE — FEATURED -->
+      <div class="tier-card tier-complete tier-featured">
+        <div class="tier-popular-badge" data-translate="pricing.complete.popular">Most Popular</div>
+        <div class="tier-label" data-translate="pricing.complete.label">Complete</div>
+        <div class="tier-price-wrap">
+          <div class="tier-price"><span class="tier-currency">$</span>19<span class="tier-cents">.99</span></div>
+          <div class="tier-cadence" data-translate="pricing.complete.cadence">One-time · Instant access</div>
+        </div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.complete.features.1">205-page insider guide (PDF)</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.complete.features.2">17 chapters + bonus content</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.complete.features.3">Written by a Morocco local</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.complete.features.4">Real local prices & scam scripts</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.complete.features.5">50 Darija phrases guide</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.complete.features.6">Lifetime access & updates</span></li>
+          <li><span class="tier-check tier-check-gold">✓</span> <strong><span data-translate="pricing.complete.features.7">Custom Marrakech Google Map</span></strong></li>
+          <li><span class="tier-check tier-check-gold">✓</span> <strong><span data-translate="pricing.complete.features.8">Interactive Budget Calculator</span></strong></li>
+          <li><span class="tier-check tier-check-gold">✓</span> <strong><span data-translate="pricing.complete.features.9">Cultural Etiquette Mini Ebook</span></strong></li>
+          <li class="tier-feature-missing"><span class="tier-x">✕</span> <span data-translate="pricing.complete.features.10">Direct WhatsApp Access During Your Trip</span></li>
+          <li class="tier-feature-missing"><span class="tier-x">✕</span> <span data-translate="pricing.complete.features.11">Real-Time Travel Support (Avoid Scams & Bad Deals)</span></li>
+        </ul>
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="tier-btn tier-btn-complete" id="pricing-complete-btn">
+          <span class="tier-btn-badge" data-translate="pricing.complete.badge">Best Value</span>
+          <span data-translate="pricing.complete.button">Get Complete — $19.99 →</span>
+        </a>
+        <p class="tier-note" data-translate="pricing.complete.note">Everything you need before and during your trip.</p>
+      </div>
+
+      <!-- VIP -->
+      <div class="tier-card tier-vip">
+        <div class="tier-label" data-translate="pricing.vip.label">VIP</div>
+        <div class="tier-price-wrap">
+          <div class="tier-price"><span class="tier-currency">$</span>29<span class="tier-cents">.99</span></div>
+          <div class="tier-cadence" data-translate="pricing.vip.cadence">One-time · Instant access ·  For first-time travelers</div>
+        </div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.vip.features.1">205-page insider guide (PDF)</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.vip.features.2">17 chapters + bonus content</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.vip.features.3">Written by a Morocco local</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.vip.features.4">Real local prices & scam scripts</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.vip.features.5">50 Darija phrases guide</span></li>
+          <li><span class="tier-check">✓</span> <span data-translate="pricing.vip.features.6">Lifetime access & updates</span></li>
+          <li><span class="tier-check tier-check-gold">✓</span> <span data-translate="pricing.vip.features.7">Custom Marrakech Google Map</span></li>
+          <li><span class="tier-check tier-check-gold">✓</span> <span data-translate="pricing.vip.features.8">Interactive Budget Calculator</span></li>
+          <li><span class="tier-check tier-check-gold">✓</span> <span data-translate="pricing.vip.features.9">Cultural Etiquette Mini Ebook</span></li>
+          <li><span class="tier-check tier-check-vip">✓</span> <strong><span data-translate="pricing.vip.features.10">Direct WhatsApp Access During Your Trip</span></strong></li>
+          <li><span class="tier-check tier-check-vip">✓</span> <strong><span data-translate="pricing.vip.features.11">Real-Time Travel Support (Avoid Scams & Bad Deals)</span></strong></li>
+        </ul>
+        <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="tier-btn tier-btn-vip" id="pricing-vip-btn">
+          <span data-translate="pricing.vip.button">Get VIP — $29.99 →</span>
+        </a>
+        <p class="tier-note" data-translate="pricing.vip.note">One mistake can cost more than this guide. Stay protected.</p>
+      </div>
+
+    </div>
+
+    <!-- Trust row -->
+    <div class="tier-trust reveal">
+      <span data-translate="pricing.trust.1">✓ Instant Download</span>
+      <span data-translate="pricing.trust.2">✓ Secure Payment via Gumroad</span>
+      <span data-translate="pricing.trust.3">✓ Lifetime Access</span>
+      <span data-translate="pricing.trust.4">✓ All 3 Language Versions Included</span>
+    </div>
+    <div class="tier-payment reveal">
+      <img src="https://i.ibb.co/x8HbqXPp/payment-Capture-removebg-preview.png" alt="Payment Methods">
+    </div>
+
   </div>
 </section>
 
@@ -667,28 +808,27 @@ const posts = Object.values(postFiles)
       <h2 class="section-title" data-translate="journal.title">Latest <em>Stories</em> & Tips</h2>
       <p class="section-subtitle" data-translate="journal.subtitle">Real dispatches from the medinas, mountains, and desert roads of Morocco.</p>
     </div>
-<div class="journal-grid">
-   {posts.map((post: any) => (
-  <article class="journal-card">
-    <a href={post.url} class="journal-card-img-wrap">
-      <img src={post.frontmatter.cover} alt={post.frontmatter.title} />
-      <div class="journal-card-overlay"></div>
-      <span class="journal-tag">{post.frontmatter.category}</span>
-    </a>
-    <div class="journal-card-body">
-      <div class="journal-meta">
-        <span class="journal-date">{post.frontmatter.date}</span>
-        <span class="journal-dot">◆</span>
-        <span class="journal-read">{post.frontmatter.readTime}</span>
-      </div>
-      <h2 class="journal-card-title">{post.frontmatter.title}</h2>
-      <p class="journal-card-excerpt">{post.frontmatter.description}</p>
-      <a href={post.url} class="journal-read-link">Read Article <span>→</span></a>
+    <div class="journal-grid">
+      {posts.map((post: any) => (
+        <article class="journal-card">
+          <a href={post.url} class="journal-card-img-wrap">
+            <img src={post.frontmatter.cover} alt={post.frontmatter.title} />
+            <div class="journal-card-overlay"></div>
+            <span class="journal-tag">{post.frontmatter.category}</span>
+          </a>
+          <div class="journal-card-body">
+            <div class="journal-meta">
+              <span class="journal-date">{post.frontmatter.date}</span>
+              <span class="journal-dot">◆</span>
+              <span class="journal-read">{post.frontmatter.readTime}</span>
+            </div>
+            <h2 class="journal-card-title">{post.frontmatter.title}</h2>
+            <p class="journal-card-excerpt">{post.frontmatter.description}</p>
+            <a href={post.url} class="journal-read-link">Read Article <span>→</span></a>
+          </div>
+        </article>
+      ))}
     </div>
-  </article>
-))}
-    </div>
-
     <div class="journal-footer reveal">
       <a href="journal.html" class="btn-secondary" data-translate="journal.allPosts">Read All Articles</a>
     </div>
@@ -696,9 +836,7 @@ const posts = Object.values(postFiles)
 </section>
 
 
-<!-- ============================================================
-     EXPERIENCES (replaces "Explore Our Other Services")
-============================================================ -->
+<!-- EXPERIENCES -->
 <section class="experiences-home-section">
   <div class="container">
     <div class="services-header reveal">
@@ -707,8 +845,6 @@ const posts = Object.values(postFiles)
     </div>
 
     <div class="exp-home-grid reveal">
-
-      <!-- 1 -->
       <article class="exp-home-card">
         <div class="exp-home-card-image">
           <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/649ed5e0f1de5.jpeg" alt="Desert Adventure">
@@ -718,17 +854,11 @@ const posts = Object.values(postFiles)
           <div class="exp-home-card-location">📍 Marrakech → Merzouga</div>
           <h3 class="exp-home-card-title">3-Day Desert Adventure to the Sahara</h3>
           <p class="exp-home-card-desc">Camel rides, desert camping under the stars, and authentic Berber hospitality through stunning landscapes.</p>
-          <div class="exp-home-card-tags">
-            <span>⏱️ 3 days</span>
-            <span>🚗 Pickup included</span>
-            <span>🍽️ Meals included</span>
-          </div>
+          <div class="exp-home-card-tags"><span>⏱️ 3 days</span><span>🚗 Pickup included</span><span>🍽️ Meals included</span></div>
           <div class="exp-home-card-rating">★ 4.8 <span>(2,543 reviews)</span></div>
           <a href="https://gyg.me/jDyemv8R" class="exp-home-card-cta" target="_blank" rel="noopener noreferrer">Check Availability →</a>
         </div>
       </article>
-
-      <!-- 2 -->
       <article class="exp-home-card">
         <div class="exp-home-card-image">
           <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/31d46c59d572cda50eb598ce1907068a4a117090df61c3d58a71fd4e368fde91.jpg" alt="Imperial Cities">
@@ -738,17 +868,11 @@ const posts = Object.values(postFiles)
           <div class="exp-home-card-location">📍 Multiple Cities</div>
           <h3 class="exp-home-card-title">Imperial Cities &amp; Chefchaouen: 3-Day Cultural Tour</h3>
           <p class="exp-home-card-desc">Morocco's historical treasures and the stunning Blue Pearl city — ancient medinas and magnificent architecture.</p>
-          <div class="exp-home-card-tags">
-            <span>⏱️ 3 days</span>
-            <span>🏛️ UNESCO sites</span>
-            <span>👥 Small groups</span>
-          </div>
+          <div class="exp-home-card-tags"><span>⏱️ 3 days</span><span>🏛️ UNESCO sites</span><span>👥 Small groups</span></div>
           <div class="exp-home-card-rating">★ 4.7 <span>(1,829 reviews)</span></div>
           <a href="https://gyg.me/y6ct3Rru" class="exp-home-card-cta" target="_blank" rel="noopener noreferrer">Check Availability →</a>
         </div>
       </article>
-
-      <!-- 3 -->
       <article class="exp-home-card">
         <div class="exp-home-card-image">
           <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/83be7bfa43165edc8243fe228935c939d63c3d756112ea397695a772c64fede8.jpeg" alt="Hassan II Mosque">
@@ -757,17 +881,11 @@ const posts = Object.values(postFiles)
           <div class="exp-home-card-location">📍 Casablanca</div>
           <h3 class="exp-home-card-title">Hassan II Mosque: Premium Guided Tour</h3>
           <p class="exp-home-card-desc">One of the world's largest mosques with premium guided access. Exquisite Moroccan craftsmanship and oceanfront views.</p>
-          <div class="exp-home-card-tags">
-            <span>⏱️ 2 hours</span>
-            <span>🎫 Skip-the-line</span>
-            <span>🎧 Audio guide</span>
-          </div>
+          <div class="exp-home-card-tags"><span>⏱️ 2 hours</span><span>🎫 Skip-the-line</span><span>🎧 Audio guide</span></div>
           <div class="exp-home-card-rating">★ 4.9 <span>(3,214 reviews)</span></div>
           <a href="https://gyg.me/6dknH0FM" class="exp-home-card-cta" target="_blank" rel="noopener noreferrer">Check Availability →</a>
         </div>
       </article>
-
-      <!-- 4 -->
       <article class="exp-home-card">
         <div class="exp-home-card-image">
           <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/b8b5c31a6862efdead793235109d9e24c7947371ef47912b10d79ab37d2bf00b.jpeg" alt="Hot Air Balloon">
@@ -777,17 +895,11 @@ const posts = Object.values(postFiles)
           <div class="exp-home-card-location">📍 Marrakech</div>
           <h3 class="exp-home-card-title">Hot Air Balloon Flight &amp; Berber Breakfast</h3>
           <p class="exp-home-card-desc">Soar above the Atlas Mountains at sunrise and enjoy an authentic Berber breakfast — breathtaking views guaranteed.</p>
-          <div class="exp-home-card-tags">
-            <span>⏱️ 4 hours</span>
-            <span>🌅 Sunrise flight</span>
-            <span>☕ Breakfast</span>
-          </div>
+          <div class="exp-home-card-tags"><span>⏱️ 4 hours</span><span>🌅 Sunrise flight</span><span>☕ Breakfast</span></div>
           <div class="exp-home-card-rating">★ 4.9 <span>(4,187 reviews)</span></div>
           <a href="https://gyg.me/J0ArWBQ1" class="exp-home-card-cta" target="_blank" rel="noopener noreferrer">Check Availability →</a>
         </div>
       </article>
-
-      <!-- 5 -->
       <article class="exp-home-card">
         <div class="exp-home-card-image">
           <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/a3dd66602214123ee08ff4804b0286a2bb90e459338bb276a645aef56a59b6c4.png" alt="Ourika Valley">
@@ -796,17 +908,11 @@ const posts = Object.values(postFiles)
           <div class="exp-home-card-location">📍 Atlas Mountains</div>
           <h3 class="exp-home-card-title">Ourika Waterfalls &amp; Atlas Mountains Day Trip</h3>
           <p class="exp-home-card-desc">Scenic mountain views, waterfall hikes, and included lunch in the refreshing Ourika Valley.</p>
-          <div class="exp-home-card-tags">
-            <span>⏱️ Full day</span>
-            <span>🥾 Hiking</span>
-            <span>🍽️ Lunch included</span>
-          </div>
+          <div class="exp-home-card-tags"><span>⏱️ Full day</span><span>🥾 Hiking</span><span>🍽️ Lunch included</span></div>
           <div class="exp-home-card-rating">★ 4.6 <span>(1,956 reviews)</span></div>
           <a href="https://gyg.me/M01DZEYX" class="exp-home-card-cta" target="_blank" rel="noopener noreferrer">Check Availability →</a>
         </div>
       </article>
-
-      <!-- 6 -->
       <article class="exp-home-card">
         <div class="exp-home-card-image">
           <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/8efe44cedceeeba6574f666b38eaf211e91a6d17c94071b2a7f62d49f8ec0584.jpg" alt="Agafay Desert">
@@ -816,17 +922,11 @@ const posts = Object.values(postFiles)
           <div class="exp-home-card-location">📍 Agafay Desert</div>
           <h3 class="exp-home-card-title">Agafay Desert: Quad, Camel Ride &amp; Dinner Show</h3>
           <p class="exp-home-card-desc">Quad biking, camel rides, and a spectacular dinner show under the stars. The perfect evening adventure.</p>
-          <div class="exp-home-card-tags">
-            <span>⏱️ Evening</span>
-            <span>🏍️ Quad biking</span>
-            <span>🎭 Live show</span>
-          </div>
+          <div class="exp-home-card-tags"><span>⏱️ Evening</span><span>🏍️ Quad biking</span><span>🎭 Live show</span></div>
           <div class="exp-home-card-rating">★ 4.8 <span>(3,456 reviews)</span></div>
           <a href="https://gyg.me/XfRTjDai" class="exp-home-card-cta" target="_blank" rel="noopener noreferrer">Check Availability →</a>
         </div>
       </article>
-
-      <!-- 7 -->
       <article class="exp-home-card">
         <div class="exp-home-card-image">
           <img src="https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=center,quality=60,width=1440,height=650,dpr=2/tour_img/50a3f1f1c41a84b89c3b2a63553ae705d4764f7b89f3fd03394ba7ce503ddff2.jpg" alt="Majorelle Garden">
@@ -835,16 +935,11 @@ const posts = Object.values(postFiles)
           <div class="exp-home-card-location">📍 Marrakech</div>
           <h3 class="exp-home-card-title">Majorelle Garden &amp; YSL Museum Entry</h3>
           <p class="exp-home-card-desc">The iconic cobalt blue garden and the legacy of Yves Saint Laurent — Marrakech's most beautiful garden.</p>
-          <div class="exp-home-card-tags">
-            <span>⏱️ 2-3 hours</span>
-            <span>🎫 Entry tickets</span>
-            <span>📸 Photo spots</span>
-          </div>
+          <div class="exp-home-card-tags"><span>⏱️ 2-3 hours</span><span>🎫 Entry tickets</span><span>📸 Photo spots</span></div>
           <div class="exp-home-card-rating">★ 4.7 <span>(5,632 reviews)</span></div>
           <a href="https://gyg.me/eibRCLEQ" class="exp-home-card-cta" target="_blank" rel="noopener noreferrer">Check Availability →</a>
         </div>
       </article>
-
     </div>
 
     <div style="text-align:center;" class="reveal">
@@ -895,9 +990,8 @@ const posts = Object.values(postFiles)
       <p class="section-subtitle" style="color:rgba(232,220,200,0.55);margin:16px auto 52px;" data-translate="finalCta.subtitle">
         Join hundreds of travelers who've discovered Morocco the local way.
       </p>
-      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" class="btn-primary large" id="final-cta-btn">
-        <span class="discount-badge">67% OFF</span>
-        <span data-translate="finalCta.button">Download Your Guide Now — $9.99</span>
+      <a href="#pricing" class="btn-primary large" id="final-cta-btn">
+        <span data-translate="finalCta.button">Choose Your Package — From $14.99</span>
         <span class="btn-arrow">→</span>
       </a>
       <div class="final-trust">
@@ -928,8 +1022,7 @@ const posts = Object.values(postFiles)
 
 
 <script is:inline src="/translations.js"></script>
-<script is:inline >
-  /* ── Mobile nav fix (matches all other pages) ── */
+<script is:inline>
   const mobileNavStyle = document.createElement('style');
   mobileNavStyle.textContent = `
     .nav-center-stack {
@@ -1003,4 +1096,3 @@ const posts = Object.values(postFiles)
 
 </body>
 </html>
-
