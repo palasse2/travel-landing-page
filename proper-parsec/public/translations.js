@@ -2383,18 +2383,17 @@ const translations = {
     setupBookSelector();
   
     // 👉 ADD THIS PART (scroll to pricing)
-    const goToPricingBtn = document.getElementById('go-to-pricing');
-  
-    if (goToPricingBtn) {
-      goToPricingBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-  
-        document.getElementById('pricing').scrollIntoView({
-          behavior: 'smooth'
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.go-to-pricing').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.getElementById('pricing').scrollIntoView({
+        behavior: 'smooth'
       });
-    }
+    });
   });
+});
   
   function initializeLanguage() {
     setLanguage(currentLanguage);
