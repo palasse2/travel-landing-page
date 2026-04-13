@@ -92,9 +92,9 @@ const translations = {
       "testimonials.review4.title": "Adventure Seeker",
   
       // Bonus Section
-      "bonus.badge": "Free Bonuses",
-      "bonus.title": "Get These <em>Extras</em> Free",
-      "bonus.subtitle": "Worth $29.99 — Yours free when you get the guide today",
+      "bonus.badge": "Everything You Need",
+      "bonus.title": "Travel <em>Smarter · </em> Spend <em>Less · </em>Avoid <em>Scams ",
+      "bonus.subtitle": "Tools, maps, and local insights designed to save you time, money, and stress.",
       "bonus.item1.value": "Value: $4.99",
       "bonus.item1.title": "Cultural Etiquette Mini Guide",
       "bonus.item1.desc": "Quick-reference guide to Moroccan customs and social norms",
@@ -120,7 +120,7 @@ const translations = {
   "pricing.basic.label": "Basic",
   "pricing.basic.cadence": "One-time · Instant access",
   "pricing.basic.features.1": "205-page insider guide (PDF)",
-  "pricing.basic.features.2": "17 chapters + bonus content",
+  "pricing.basic.features.2": "20 chapters + bonus content",
   "pricing.basic.features.3": "Written by a Morocco local",
   "pricing.basic.features.4": "Real local prices & scam scripts",
   "pricing.basic.features.5": "50 Darija phrases guide",
@@ -130,7 +130,7 @@ const translations = {
   "pricing.basic.features.9": "Cultural Mini Ebook",
   "pricing.basic.features.10": "Direct WhatsApp Access During Your Trip",
   "pricing.basic.features.11": "Real-Time Travel Support (Avoid Scams & Bad Deals)",
-  "pricing.basic.button": "Get Basic — $14.99 →",
+  "pricing.basic.button": "Get Basic — $12.99 →",
   "pricing.basic.note": "Perfect if you want the guide and nothing else.",
   
   // Complete tier
@@ -139,7 +139,7 @@ const translations = {
   "pricing.complete.popular": "Most Popular",
   "pricing.complete.badge": "Best Value",
   "pricing.complete.features.1": "205-page insider guide (PDF)",
-  "pricing.complete.features.2": "17 chapters + bonus content",
+  "pricing.complete.features.2": "20 chapters + bonus content",
   "pricing.complete.features.3": "Written by a Morocco local",
   "pricing.complete.features.4": "Real local prices & scam scripts",
   "pricing.complete.features.5": "50 Darija phrases guide",
@@ -156,7 +156,7 @@ const translations = {
   "pricing.vip.label": "VIP",
   "pricing.vip.cadence": "One-time · Instant access · For first-time travelers",
   "pricing.vip.features.1": "205-page insider guide (PDF)",
-  "pricing.vip.features.2": "17 chapters + bonus content",
+  "pricing.vip.features.2": "20 chapters + bonus content",
   "pricing.vip.features.3": "Written by a Morocco local",
   "pricing.vip.features.4": "Real local prices & scam scripts",
   "pricing.vip.features.5": "50 Darija phrases guide",
@@ -166,7 +166,7 @@ const translations = {
   "pricing.vip.features.9": "Cultural Etiquette Mini Ebook",
   "pricing.vip.features.10": "Direct WhatsApp Access During Your Trip",
   "pricing.vip.features.11": "Real-Time Travel Support (Avoid Scams & Bad Deals)",
-  "pricing.vip.button": "Get VIP — $29.99 →",
+  "pricing.vip.button": "Get VIP — $34.99 →",
   "pricing.vip.note": "One mistake can cost more than this guide. Stay protected.",
   
   // Trust row
@@ -968,9 +968,9 @@ const translations = {
       "whatsapp.review3.text": "« Les conseils étaient directs, pratiques et clairement de quelqu'un qui connaît vraiment le Maroc. C'est rare. »",
   
       // Bonuses
-      "pta.bonus.badge": "Bonus Inclus",
-      "pta.bonus.title": "Autres Cadeaux\n<em>dans le Paquet</em>",
-      "pta.bonus.subtitle": "Valeur 24,99 $ — inclus avec chaque achat de guide",
+      "bonus.badge": "Tout ce dont vous avez besoin",
+      "bonus.title": "Voyagez <em>plus intelligemment · </em> Dépensez <em>moins · </em>Évitez les <em>arnaques",
+      "bonus.subtitle": "Des outils, des cartes et des conseils locaux conçus pour vous faire gagner du temps, de l'argent et vous éviter du stress.",
       "bonus.item1.value": "Valeur : 4,99 $",
       "bonus.item1.title": "Mini-Guide d'Étiquette Culturelle",
       "bonus.item1.desc": "Guide de référence rapide sur les coutumes et normes sociales marocaines",
@@ -1361,7 +1361,7 @@ const translations = {
     'pricing.basic.label': 'Basique',
     'pricing.basic.cadence': 'Paiement unique · Accès instantané',
     'pricing.basic.features.1': 'Guide interne de 205 pages (PDF)',
-    'pricing.basic.features.2': '17 chapitres + contenu bonus',
+    'pricing.basic.features.2': '20 chapitres + contenu bonus',
     'pricing.basic.features.3': 'Écrit par un local du Maroc',
     'pricing.basic.features.4': 'Prix locaux réels & scripts d’arnaques',
     'pricing.basic.features.5': 'Guide de 50 phrases en Darija',
@@ -1400,7 +1400,7 @@ const translations = {
     // Complete — missing shared features
     
   "pricing.complete.features.1": "Guide interne de 205 pages (PDF)",
-  "pricing.complete.features.2": "17 chapitres + contenu bonus",
+  "pricing.complete.features.2": "20 chapitres + contenu bonus",
   "pricing.complete.features.3": "Écrit par un local du Maroc",
   "pricing.complete.features.4": "Prix locaux réels & scripts d'arnaques",
   "pricing.complete.features.5": "Guide de 50 phrases en Darija",
@@ -1410,7 +1410,7 @@ const translations = {
   
   // VIP — all features
   "pricing.vip.features.1": "Guide interne de 205 pages (PDF)",
-  "pricing.vip.features.2": "17 chapitres + contenu bonus",
+  "pricing.vip.features.2": "20 chapitres + contenu bonus",
   "pricing.vip.features.3": "Écrit par un local du Maroc",
   "pricing.vip.features.4": "Prix locaux réels & scripts d'arnaques",
   "pricing.vip.features.5": "Guide de 50 phrases en Darija",
@@ -1513,19 +1513,19 @@ const translations = {
       "testimonials.review4.title": "Buscador de Aventuras",
   
       // Bonus Section
-      "bonus.badge": "Bonos Gratuitos",
-      "bonus.title": "Obtén Estos <em>Extras</em> Gratis",
-      "bonus.subtitle": "Valor de $29.99 — Tuyo gratis cuando obtienes la guía hoy",
+      "bonus.badge": "Todo lo que necesitas",
+      "bonus.title": "Viaja <em>más inteligente · </em> Gasta <em>menos · </em>Evita <em>estafas",
+      "bonus.subtitle": "Herramientas, mapas y consejos locales diseñados para ahorrarte tiempo, dinero y estrés.",
       "bonus.item1.value": "Valor: $4.99",
       "bonus.item1.title": "Mini Guía de Etiqueta Cultural",
       "bonus.item1.desc": "Guía de referencia rápida sobre costumbres y normas sociales marroquíes",
       "bonus.item2.value": "Valor: $5",
       "bonus.item2.title": "Google Maps Personalizados",
       "bonus.item2.desc": "Mapas precargados con todos los lugares recomendados para una navegación fácil",
-     "bonus.whatsapp.value": "Valor $15",
-  "bonus.whatsapp.title": "Asistencia WhatsApp Privada",
-  "bonus.whatsapp.desc": "Soporte exclusivo para compradores — consejos de viaje rápidos y claros cuando los necesites.",
-  "bonus.whatsapp.link": "Saber Más →",
+      "bonus.whatsapp.value": "Valor $15",
+      "bonus.whatsapp.title": "Asistencia WhatsApp Privada",
+      "bonus.whatsapp.desc": "Soporte exclusivo para compradores — consejos de viaje rápidos y claros cuando los necesites.",
+      "bonus.whatsapp.link": "Saber Más →",
       "bonus.item4.value": "Valor: $5",
       "bonus.item4.title": "Herramienta Calculadora de Presupuesto",
       "bonus.item4.desc": "Planifica tus gastos con precisión con nuestra calculadora interactiva",
@@ -2257,7 +2257,7 @@ const translations = {
     'pricing.basic.label': 'Básico',
     'pricing.basic.cadence': 'Pago único · Acceso instantáneo',
     'pricing.basic.features.1': 'Guía interna de 205 páginas (PDF)',
-    'pricing.basic.features.2': '17 capítulos + contenido bonus',
+    'pricing.basic.features.2': '20 capítulos + contenido bonus',
     'pricing.basic.features.3': 'Escrito por un local de Marruecos',
     'pricing.basic.features.4': 'Precios locales reales & guiones de estafas',
     'pricing.basic.features.5': 'Guía de 50 frases en Darija',
@@ -2267,7 +2267,7 @@ const translations = {
     'pricing.basic.features.9': 'Mini ebook cultural',
     'pricing.basic.features.10': 'Acceso directo WhatsApp durante tu viaje',
     'pricing.basic.features.11': 'Soporte de viaje en tiempo real (evita estafas & malos tratos)',
-    'pricing.basic.button': 'Básico — $14.99 →',
+    'pricing.basic.button': 'Básico — $12.99 →',
     'pricing.basic.note': 'Perfecto si solo quieres la guía.',
   
     // COMPLETE Tier
@@ -2284,7 +2284,7 @@ const translations = {
     // VIP Tier
     'pricing.vip.label': 'VIP',
     'pricing.vip.cadence': 'Pago único · Acceso instantáneo · Para viajeros primerizos',
-    'pricing.vip.button': 'VIP — $29.99 →',
+    'pricing.vip.button': 'VIP — $34.99 →',
     'pricing.vip.note': 'Un error puede costar más que esta guía. Mantente protegido.',
   
     // Trust Row
@@ -2295,7 +2295,7 @@ const translations = {
   
       // Complete — missing shared features
   "pricing.complete.features.1": "Guía interna de 205 páginas (PDF)",
-  "pricing.complete.features.2": "17 capítulos + contenido bonus",
+  "pricing.complete.features.2": "10 capítulos + contenido bonus",
   "pricing.complete.features.3": "Escrito por un local de Marruecos",
   "pricing.complete.features.4": "Precios locales reales & guiones de estafas",
   "pricing.complete.features.5": "Guía de 50 frases en Darija",
@@ -2305,7 +2305,7 @@ const translations = {
   
   // VIP — all features
   "pricing.vip.features.1": "Guía interna de 205 páginas (PDF)",
-  "pricing.vip.features.2": "17 capítulos + contenido bonus",
+  "pricing.vip.features.2": "20 capítulos + contenido bonus",
   "pricing.vip.features.3": "Escrito por un local de Marruecos",
   "pricing.vip.features.4": "Precios locales reales & guiones de estafas",
   "pricing.vip.features.5": "Guía de 50 frases en Darija",
