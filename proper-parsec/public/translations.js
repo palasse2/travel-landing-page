@@ -109,20 +109,71 @@ const translations = {
     "bonus.item4.desc": "Plan your expenses accurately with our interactive calculator",
     "bonus.learnMore": "Learn More →",
 
-    // Pricing
-    "pricing.title": "Get the Complete Morocco Travel Guide",
-    "pricing.feature1": "40+ page comprehensive guide",
-    "pricing.feature2": "10 detailed chapters",
-    "pricing.feature3": "Written by a Morocco local",
-    "pricing.feature4": "Free cultural etiquette mini guide",
-    "pricing.feature5": "Free custom Google Maps",
-    "pricing.feature6": "Free WhatsApp support",
-    "pricing.feature7": "Free budget calculator",
-    "pricing.feature8": "Instant digital download",
-    "pricing.feature9": "Lifetime access & updates",
-    "pricing.priceLabel": "One-Time Payment",
-    "pricing.priceNote": "Instant Access · No Subscription",
-    "pricing.button": "Download Now",
+  
+ // Pricing header
+"pricing.eyebrow": "Choose Your Package",
+"pricing.title": "One Guide.",
+"pricing.title.em": "Three Ways",
+"pricing.subtitle": "Start with the essentials or go all-in with everything. Every tier includes the full 205-page insider guide.",
+
+// Basic tier
+"pricing.basic.label": "Basic",
+"pricing.basic.cadence": "One-time · Instant access",
+"pricing.basic.features.1": "205-page insider guide (PDF)",
+"pricing.basic.features.2": "17 chapters + bonus content",
+"pricing.basic.features.3": "Written by a Morocco local",
+"pricing.basic.features.4": "Real local prices & scam scripts",
+"pricing.basic.features.5": "50 Darija phrases guide",
+"pricing.basic.features.6": "Lifetime access & updates",
+"pricing.basic.features.7": "Custom Google Maps",
+"pricing.basic.features.8": "Budget Calculator Tool",
+"pricing.basic.features.9": "Cultural Mini Ebook",
+"pricing.basic.features.10": "Direct WhatsApp Access During Your Trip",
+"pricing.basic.features.11": "Real-Time Travel Support (Avoid Scams & Bad Deals)",
+"pricing.basic.button": "Get Basic — $14.99 →",
+"pricing.basic.note": "Perfect if you want the guide and nothing else.",
+
+// Complete tier
+"pricing.complete.label": "Complete",
+"pricing.complete.cadence": "One-time · Instant access",
+"pricing.complete.popular": "Most Popular",
+"pricing.complete.badge": "Best Value",
+"pricing.complete.features.1": "205-page insider guide (PDF)",
+"pricing.complete.features.2": "17 chapters + bonus content",
+"pricing.complete.features.3": "Written by a Morocco local",
+"pricing.complete.features.4": "Real local prices & scam scripts",
+"pricing.complete.features.5": "50 Darija phrases guide",
+"pricing.complete.features.6": "Lifetime access & updates",
+"pricing.complete.features.7": "Custom Marrakech Google Map",
+"pricing.complete.features.8": "Interactive Budget Calculator",
+"pricing.complete.features.9": "Cultural Etiquette Mini Ebook",
+"pricing.complete.features.10": "Direct WhatsApp Access During Your Trip",
+"pricing.complete.features.11": "Real-Time Travel Support (Avoid Scams & Bad Deals)",
+"pricing.complete.button": "Get Complete — $19.99 →",
+"pricing.complete.note": "Everything you need before and during your trip.",
+
+// VIP tier
+"pricing.vip.label": "VIP",
+"pricing.vip.cadence": "One-time · Instant access · For first-time travelers",
+"pricing.vip.features.1": "205-page insider guide (PDF)",
+"pricing.vip.features.2": "17 chapters + bonus content",
+"pricing.vip.features.3": "Written by a Morocco local",
+"pricing.vip.features.4": "Real local prices & scam scripts",
+"pricing.vip.features.5": "50 Darija phrases guide",
+"pricing.vip.features.6": "Lifetime access & updates",
+"pricing.vip.features.7": "Custom Marrakech Google Map",
+"pricing.vip.features.8": "Interactive Budget Calculator",
+"pricing.vip.features.9": "Cultural Etiquette Mini Ebook",
+"pricing.vip.features.10": "Direct WhatsApp Access During Your Trip",
+"pricing.vip.features.11": "Real-Time Travel Support (Avoid Scams & Bad Deals)",
+"pricing.vip.button": "Get VIP — $29.99 →",
+"pricing.vip.note": "One mistake can cost more than this guide. Stay protected.",
+
+// Trust row
+"pricing.trust.1": "✓ Instant Download",
+"pricing.trust.2": "✓ Secure Payment via Gumroad",
+"pricing.trust.3": "✓ Lifetime Access",
+"pricing.trust.4": "✓ All 3 Language Versions Included",
 
     // Journal Section
     "journal.eyebrow": "From the Journal",
@@ -536,20 +587,7 @@ fr: {
     "bonus.item4.desc": "Planifiez vos dépenses avec précision avec notre calculateur interactif",
     "bonus.learnMore": "En Savoir Plus →",
 
-    // Pricing
-    "pricing.title": "Obtenez le Guide Complet du Maroc",
-    "pricing.feature1": "Guide complet de plus de 40 pages",
-    "pricing.feature2": "10 chapitres détaillés",
-    "pricing.feature3": "Écrit par un local du Maroc",
-    "pricing.feature4": "Mini guide d'étiquette culturelle gratuit",
-    "pricing.feature5": "Google Maps personnalisées gratuites",
-    "pricing.feature6": "Support WhatsApp gratuit",
-    "pricing.feature7": "Calculateur de budget gratuit",
-    "pricing.feature8": "Téléchargement numérique instantané",
-    "pricing.feature9": "Accès à vie et mises à jour",
-    "pricing.priceLabel": "Paiement Unique",
-    "pricing.priceNote": "Accès Instantané · Aucun Abonnement",
-    "pricing.button": "Télécharger Maintenant",
+
 
     // Journal Section
     "journal.eyebrow": "Du Journal",
@@ -1333,7 +1371,7 @@ fr: {
   'pricing.basic.features.9': 'Mini e-book culturel',
   'pricing.basic.features.10': 'Accès WhatsApp direct pendant votre voyage',
   'pricing.basic.features.11': 'Support voyage en temps réel (éviter arnaques & mauvaises affaires)',
-  'pricing.basic.button': 'Basique — 14,99 $ →',
+  'pricing.basic.button': 'Basique — 12,99 $ →',
   'pricing.basic.note': 'Parfait si vous voulez juste le guide.',
 
   // COMPLETE Tier
@@ -1350,14 +1388,38 @@ fr: {
   // VIP Tier
   'pricing.vip.label': 'VIP',
   'pricing.vip.cadence': 'Paiement unique · Accès instantané · Pour les voyageurs novices',
-  'pricing.vip.button': 'VIP — 29,99 $ →',
+  'pricing.vip.button': 'VIP — 34,99 $ →',
   'pricing.vip.note': 'Une erreur peut coûter plus cher que ce guide. Restez protégé.',
 
   // Trust Row
   'pricing.trust.1': '✓ Téléchargement instantané',
   'pricing.trust.2': '✓ Paiement sécurisé via Gumroad',
   'pricing.trust.3': '✓ Accès à vie',
-  'pricing.trust.4': '✓ Toutes les 3 versions linguistiques incluses'
+  'pricing.trust.4': '✓ Toutes les 3 versions linguistiques incluses',
+  
+  // Complete — missing shared features
+  
+"pricing.complete.features.1": "Guide interne de 205 pages (PDF)",
+"pricing.complete.features.2": "17 chapitres + contenu bonus",
+"pricing.complete.features.3": "Écrit par un local du Maroc",
+"pricing.complete.features.4": "Prix locaux réels & scripts d'arnaques",
+"pricing.complete.features.5": "Guide de 50 phrases en Darija",
+"pricing.complete.features.6": "Accès à vie & mises à jour",
+"pricing.complete.features.10": "Accès WhatsApp direct pendant votre voyage",
+"pricing.complete.features.11": "Support voyage en temps réel (éviter arnaques & mauvaises affaires)",
+
+// VIP — all features
+"pricing.vip.features.1": "Guide interne de 205 pages (PDF)",
+"pricing.vip.features.2": "17 chapitres + contenu bonus",
+"pricing.vip.features.3": "Écrit par un local du Maroc",
+"pricing.vip.features.4": "Prix locaux réels & scripts d'arnaques",
+"pricing.vip.features.5": "Guide de 50 phrases en Darija",
+"pricing.vip.features.6": "Accès à vie & mises à jour",
+"pricing.vip.features.7": "Carte Google Marrakech personnalisée",
+"pricing.vip.features.8": "Calculateur de budget interactif",
+"pricing.vip.features.9": "Mini e-book étiquette culturelle",
+"pricing.vip.features.10": "Accès WhatsApp direct pendant votre voyage",
+"pricing.vip.features.11": "Support voyage en temps réel (éviter arnaques & mauvaises affaires)",
 
 
   },
@@ -2231,6 +2293,29 @@ fr: {
   'pricing.trust.3': '✓ Acceso de por vida',
   'pricing.trust.4': '✓ Todas las 3 versiones en idioma incluidas',
 
+    // Complete — missing shared features
+"pricing.complete.features.1": "Guía interna de 205 páginas (PDF)",
+"pricing.complete.features.2": "17 capítulos + contenido bonus",
+"pricing.complete.features.3": "Escrito por un local de Marruecos",
+"pricing.complete.features.4": "Precios locales reales & guiones de estafas",
+"pricing.complete.features.5": "Guía de 50 frases en Darija",
+"pricing.complete.features.6": "Acceso de por vida & actualizaciones",
+"pricing.complete.features.10": "Acceso directo WhatsApp durante tu viaje",
+"pricing.complete.features.11": "Soporte de viaje en tiempo real (evita estafas & malos tratos)",
+
+// VIP — all features
+"pricing.vip.features.1": "Guía interna de 205 páginas (PDF)",
+"pricing.vip.features.2": "17 capítulos + contenido bonus",
+"pricing.vip.features.3": "Escrito por un local de Marruecos",
+"pricing.vip.features.4": "Precios locales reales & guiones de estafas",
+"pricing.vip.features.5": "Guía de 50 frases en Darija",
+"pricing.vip.features.6": "Acceso de por vida & actualizaciones",
+"pricing.vip.features.7": "Mapa de Google Marrakech personalizado",
+"pricing.vip.features.8": "Calculadora de presupuesto interactiva",
+"pricing.vip.features.9": "Mini ebook de etiqueta cultural",
+"pricing.vip.features.10": "Acceso directo WhatsApp durante tu viaje",
+"pricing.vip.features.11": "Soporte de viaje en tiempo real (evita estafas & malos tratos)",
+
   }
 };
 
@@ -2373,8 +2458,7 @@ function updatePreviewImages(lang) {
 
 function updateBuyLinks(lang) {
   const ctaButtons = [
-    document.getElementById('nav-cta-btn'),
-    document.getElementById('hero-cta-btn'),
+  
     document.getElementById('pricing-cta-btn'),
     document.getElementById('final-cta-btn')
   ];
