@@ -2393,6 +2393,7 @@ const translations = {
       });
     });
   });
+ });
 });
   
   function initializeLanguage() {
