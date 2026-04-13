@@ -2184,7 +2184,7 @@ fr: {
   'budget.finalCta.trust3': '✓ Funciona en Todos los Dispositivos',
   'budget.finalCta.trust4': '✓ 4 Bonos Gratis', 
 
-{
+
   // Pricing Section
   'pricing.eyebrow': 'Elige tu paquete',
   'pricing.title': 'Una guía.',
