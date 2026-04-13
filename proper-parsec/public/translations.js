@@ -2231,7 +2231,7 @@ fr: {
   'pricing.trust.3': '✓ Acceso de por vida',
   'pricing.trust.4': '✓ Todas las 3 versiones en idioma incluidas',
 
-
+  }
 };
 
 // Book cover URLs for each language
