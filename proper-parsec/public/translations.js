@@ -218,7 +218,7 @@ const translations = {
       "finalCta.eyebrow": "Begin Here",
       "finalCta.title": "Ready to Experience the <em>Real Morocco?</em>",
       "finalCta.subtitle": "Join hundreds of travelers who've discovered Morocco the local way.",
-      "finalCta.button": "Download Your Guide Now — $9.99",
+      "finalCta.button": "Choose Your Package — From $12.99",
       "finalCta.instant": "✓ Instant Download",
       "finalCta.secure": "✓ Secure Payment",
       "finalCta.lifetime": "✓ Lifetime Access",
@@ -2356,9 +2356,21 @@ const translations = {
   
   // Buy button URLs
   const buyUrls = {
-    en: "https://travelreadz.gumroad.com/l/ubqlaj?wanted=true",
-    fr: "https://travelreadz.gumroad.com/l/phyccz?wanted=true",
-    es: "https://travelreadz.gumroad.com/l/lnltrl?wanted=true"
+    en: {
+      basic: "EN_BASIC_LINK",
+      complete: "EN_COMPLETE_LINK",
+      vip: "EN_VIP_LINK"
+    },
+    fr: {
+      basic: "FR_BASIC_LINK",
+      complete: "FR_COMPLETE_LINK",
+      vip: "FR_VIP_LINK"
+    },
+    es: {
+      basic: "ES_BASIC_LINK",
+      complete: "ES_COMPLETE_LINK",
+      vip: "ES_VIP_LINK"
+    }
   };
   
   // Current language
@@ -2369,6 +2381,19 @@ const translations = {
     initializeLanguage();
     setupLanguageSwitcher();
     setupBookSelector();
+  
+    // 👉 ADD THIS PART (scroll to pricing)
+    const goToPricingBtn = document.getElementById('go-to-pricing');
+  
+    if (goToPricingBtn) {
+      goToPricingBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+  
+        document.getElementById('pricing').scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    }
   });
   
   function initializeLanguage() {
