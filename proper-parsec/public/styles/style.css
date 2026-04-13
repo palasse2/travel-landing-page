@@ -2057,4 +2057,7 @@ body::after {
     letter-spacing: 0.06em;
   }
 }
+#pricing {
+  scroll-margin-top: 80px;
+}
 
