@@ -1092,6 +1092,13 @@ const posts = Object.values(postFiles)
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// Smooth scroll all go-to-pricing buttons to #pricing section
+document.querySelectorAll('.go-to-pricing').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+  });
+});
 </script>
 
 </body>
