@@ -2357,9 +2357,9 @@ const translations = {
   // Buy button URLs
   const buyUrls = {
     en: {
-      basic: "EN_BASIC_LINK",
-      complete: "EN_COMPLETE_LINK",
-      vip: "EN_VIP_LINK"
+      basic: "https://travelreadz.gumroad.com/l/ubqlaj?wanted=true",
+      complete: "https://travelreadz.gumroad.com/l/zszjx?wanted=true",
+      vip: "https://travelreadz.gumroad.com/l/iamac?wanted=true"
     },
     fr: {
       basic: "FR_BASIC_LINK",
