@@ -2329,12 +2329,12 @@ const translations = {
   // Preview images
   const previewImages = {
     en: [
-      "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150346_b2mzd8.png",
-      "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150723_sxsi6h.png",
-      "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150527_ca5j6j.png",
       "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_145640_uy5jzh.png",
+      "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_145529_evv3dm.png",
       "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150327_ujljkv.png",
-      "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_145529_evv3dm.png"
+      "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_150304_tl8auj.png",
+      "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150527_ca5j6j.png",
+      "https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150346_b2mzd8.png"
     ],
     fr: [
       "https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_600/v1771034226/Screenshot_2026-02-14_023015_xgi44w.png",
