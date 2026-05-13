@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  /* Morocco-inspired dark luxury palette */
+  --color-background: #0a0a0a;
+  --color-foreground: #ffffff;
+  --color-muted: rgba(255, 255, 255, 0.45);
+  --color-muted-foreground: rgba(255, 255, 255, 0.65);
+  --color-card: #1a1a1a;
+  --color-card-foreground: #f0ece4;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.18);
+
+  /* Amber/Gold accent colors */
+  --color-primary: #c8863a;
+  --color-primary-light: #e0a254;
+  --color-primary-dark: #a06828;
+  --color-primary-foreground: #0a0a0a;
+
+  --color-sand: #e8dcc8;
+  --color-off-black: #111111;
+  --color-dark: #161616;
+
+  /* Typography */
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Syne", system-ui, sans-serif;
+
+  /* Animations */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Glass effect utility */
+.glass {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+}
+
+.glass-strong {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border-hover);
+}
+
+/* Ambient glow */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 134, 58, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-background);
+}
