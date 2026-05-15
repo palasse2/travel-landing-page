@@ -36,16 +36,32 @@ const posts = Object.values(postFiles)
       overflow: hidden;
     }
 .nav-logo {
+.main-nav {
   display: flex;
   align-items: center;
-  text-decoration: none;
+  height: 70px; /* control nav height */
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* prevents shrinking weirdly */
 }
 
 .nav-logo-image {
-  width: 8px;
-  height: 42px;
-  object-fit: contain;
+  height: 38px;   /* KEY FIX */
+  width: auto;    /* keeps aspect ratio */
   display: block;
+}
+.main-nav {
+  overflow: hidden;
 }
     .experiences-home-section::before {
       content: '';
