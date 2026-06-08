@@ -279,48 +279,311 @@
     .solution-callout .sol-icon { font-size: 2.2rem; flex-shrink: 0; }
     .solution-callout p { font-size: 1.05rem; color: rgba(255,255,255,0.9); line-height: 1.65; }
     .solution-callout strong { color: var(--green-light); }
+/* ── BOOK SHOWCASE ── */
+.book-section {
+  padding: 100px 24px;
+  background: var(--sand);
+  overflow: hidden;
+}
 
-    /* ── BOOK SHOWCASE ── */
-    .book-section { padding: 100px 24px; background: var(--sand); overflow: hidden; }
-    .book-section-inner {
-      max-width: 1160px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-    }
-    @media (max-width: 768px) { .book-section-inner { grid-template-columns: 1fr; } }
-    .book-mockup { position: relative; display: flex; justify-content: center; }
-    .book-cover-img {
-      width: min(320px, 60vw); border-radius: 18px; padding: 30px; box-shadow:0 32px 80px rgba(9, 9, 9, 0.32), 0 8px 24px rgba(0,0,0,0.12);
-      box-shadow: 0 32px 80px rgba(39,80,57,0.32), 0 8px 24px rgba(0,0,0,0.12);
-      transform: rotate(-2deg); transition: transform 0.4s ease;
-    }
-    .book-cover-img:hover { transform: rotate(0deg) scale(1.02); }
-    .book-badge-float {
-      position: absolute; top: -14px; right: 20px;
-      background: white; border-radius: 18px; padding: 12px 16px;
-      box-shadow: 0 10px 28px rgba(39,80,57,0.18);
-      font-size: 12px; font-weight: 700; color: var(--green-deep);
-      border: 1px solid rgba(39,80,57,0.1);
-    }
-    .book-badge-float span { display: block; font-size: 18px; font-weight: 900; }
-    .book-badge-pages {
-      position: absolute; bottom: -14px; left: 60px;
-      background: var(--green-deep); border-radius: 16px; padding: 10px 16px;
-      box-shadow: 0 10px 28px rgba(39,80,57,0.3);
-      font-size: 12px; font-weight: 700; color: white;
-    }
-    .book-badge-pages span { display: block; font-size: 20px; font-weight: 900; }
-    .book-info h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900;
-      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 16px;
-    }
-    .book-info p { font-size: 1rem; color: var(--neutral-600); line-height: 1.7; margin-bottom: 28px; }
-    .chapter-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
-    .chapter-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--dark); }
-    .chapter-icon {
-      width: 28px; height: 28px; background: var(--green-pale);
-      border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      font-size: 14px; flex-shrink: 0;
-    }
+.book-section-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
+
+/* Header */
+.book-header {
+  text-align: center;
+  max-width: 640px;
+}
+.book-header h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.book-intro {
+  font-size: 1rem;
+  color: var(--neutral-600);
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Book + stats row */
+.book-showcase-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  width: 100%;
+}
+
+.book-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+}
+.book-star {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+}
+.stat-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--green-deep);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--neutral-400);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.book-mockup {
+  flex-shrink: 0;
+}
+.book-cover-img {
+  width: min(220px, 48vw);
+  border-radius: 16px;
+  padding: 20px;
+  background: white;
+  box-shadow:
+    0 40px 80px rgba(39,80,57,0.28),
+    0 8px 24px rgba(0,0,0,0.10);
+  transform: rotate(-1.5deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.book-cover-img:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow:
+    0 52px 96px rgba(39,80,57,0.32),
+    0 12px 32px rgba(0,0,0,0.12);
+}
+
+/* Chapter grid */
+.chapter-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.chapter-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  background: white;
+  border-radius: 16px;
+  border: 1.5px solid rgba(39,80,57,0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.chapter-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(39,80,57,0.09);
+}
+.chapter-card .chapter-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--green-pale);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.chapter-card div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.chapter-card strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.2;
+}
+.chapter-card span {
+  font-size: 12px;
+  color: var(--neutral-600);
+  line-height: 1.4;
+}
+
+/* CTA row */
+.book-cta-row {
+  display: flex;
+  justify-content: center;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .book-section-inner { gap: 40px; }
+/* Book + stats row */
+.book-showcase-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 24px 0;
+}
+
+.book-mockup {
+  position: relative;
+  z-index: 1;
+}
+
+.book-cover-img {
+  width: min(220px, 48vw);
+  border-radius: 16px;
+  padding: 20px;
+  background: white;
+  box-shadow:
+    0 40px 80px rgba(39,80,57,0.28),
+    0 8px 24px rgba(0,0,0,0.10);
+  transform: rotate(-1.5deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.book-cover-img:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow:
+    0 52px 96px rgba(39,80,57,0.32),
+    0 12px 32px rgba(0,0,0,0.12);
+}
+
+.book-stat {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: white;
+  border-radius: 16px;
+  padding: 12px 20px;
+  box-shadow: 0 8px 28px rgba(39,80,57,0.15);
+  border: 1px solid rgba(39,80,57,0.08);
+  z-index: 2;
+  min-width: 110px;
+}
+
+/* rating — top right */
+.book-stat:first-child {
+  
+  top: 0px;
+  right: 60px;;
+  transform: rotate(2deg);
+}
+
+/* pages — bottom left */
+.book-stat:last-child {
+  bottom: 0px;
+  right: 150px;
+  transform: rotate(-2deg);
+}
+
+.stat-num {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--green-deep);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--neutral-400);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .book-stat:first-child {
+    top: -10px;
+    right: calc(50% - 130px);
+  }}
+  .book-showcase-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 24px 0;
+}
+
+.book-mockup {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.book-stat {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: white;
+  border-radius: 16px;
+  padding: 12px 20px;
+  box-shadow: 0 8px 28px rgba(39,80,57,0.15);
+  border: 1px solid rgba(39,80,57,0.08);
+  z-index: 2;
+  min-width: 110px;
+}
+
+.rating-badge {
+  top: 10px;
+  right: -30px;
+  transform: rotate(2deg);
+}
+
+.pages-badge {
+  bottom: 30px;
+  left: -30px;
+  transform: rotate(-2deg);
+}
+
+.stat-num {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--green-deep);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--neutral-400);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+}
+
+
+  .chapter-grid { grid-template-columns: 1fr; gap: 10px; }
+
+  .chapter-card { padding: 14px 16px; }
+  .chapter-card strong { font-size: 13px; }
+  .chapter-card span { font-size: 11px; }
 
     /* ── DESTINATIONS DRAG STRIP ── */
     .destinations-section { padding: 100px 24px; background: var(--white); }
@@ -337,8 +600,7 @@
       box-shadow: 0 10px 32px rgba(0,0,0,0.08);
       display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
       padding: 24px 16px; position: relative; overflow: hidden; flex-shrink: 0;
-      transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;
-    }
+      transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;    }
     .dest-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.14); }
     .dest-emoji {
       position: absolute; top: 50%; left: 50%;
@@ -463,118 +725,61 @@
     .testimonial-name { font-size: 13px; font-weight: 700; color: white; }
     .testimonial-origin { font-size: 11px; color: rgba(255,255,255,0.45); }
 
-  /* ── BONUS SECTION ── */
-.bonus-section { padding: 100px 24px; background: var(--white); }
-.bonus-grid {
-  max-width: 1060px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(2,1fr); gap: 24px;
-}
-@media (max-width: 640px) { .bonus-grid { grid-template-columns: 1fr; } }
+    /* ── BONUS SECTION ── */
+    .bonus-section { padding: 100px 24px; background: var(--white); }
+    .bonus-grid {
+      max-width: 1060px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 24px;
+    }
+    @media (max-width: 640px) { .bonus-grid { grid-template-columns: 1fr; } }
+    .bonus-card {
+      padding: 28px 0 28px 28px;
+      border-radius: 24px;
+      border: 1.5px solid rgba(39,80,57,0.08); background: var(--sand);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      display: flex; align-items: center; gap: 0;
+      overflow: hidden;
+      min-height: 180px;
+    }
+    .bonus-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(39,80,57,0.1); }
+    .bonus-card.whatsapp-card {
+      background: var(--green-deep);
+      border-color: transparent;
+    }
+    .bonus-text-col {
+      flex: 1; min-width: 0; padding-right: 16px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .bonus-img-wrap {
+      flex-shrink: 0;
+      width: 130px; height: 130px;
+      align-self: stretch;
+      display: flex; align-items: flex-end; justify-content: flex-end;
+    }
+    .bonus-img {
+      width: 140px; height: 140px;
+      object-fit: contain; display: block;
+      transform: translateY(10px) rotate(4deg);
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.13));
+    }
+    .bonus-card:hover .bonus-img { transform: translateY(4px) rotate(2deg) scale(1.05); }
+    .bonus-title { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.01em; line-height: 1.25; }
+    .bonus-card.whatsapp-card .bonus-title { color: white; }
+    .bonus-desc { font-size: 13px; color: var(--neutral-600); line-height: 1.6; }
+    .bonus-card.whatsapp-card .bonus-desc { color: rgba(255,255,255,0.75); }
+    .bonus-value-pill {
+      display: inline-block; background: rgba(39,80,57,0.08);
+      border: 1px solid rgba(39,80,57,0.12);
+      color: var(--green-deep); font-size: 10px; font-weight: 700;
+      padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .bonus-card.whatsapp-card .bonus-value-pill {
+      background: rgba(156,245,191,0.15); border-color: rgba(156,245,191,0.25); color: var(--green-light);
+    }
 
-.bonus-card {
-  padding: 28px 0 28px 28px;
-  border-radius: 24px;
-  border: 1.5px solid rgba(39,80,57,0.08); background: var(--sand);
-  transition: transform 0.25s, box-shadow 0.25s;
-  position: relative;
-  display: flex; align-items: center; gap: 0;
-  overflow: hidden;
-  min-height: 180px;
-}
-.bonus-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(39,80,57,0.1); }
-.bonus-card.whatsapp-card {
-  background: var(--green-deep);
-  border-color: transparent;
-}
-
-.bonus-text-col {
-  flex: 1; min-width: 0; padding-right: 16px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-
-.bonus-img-wrap {
-  flex-shrink: 0;
-  width: 130px; height: 130px;
-  align-self: stretch;
-  display: flex; align-items: flex-end; justify-content: flex-end;
-}
-.bonus-img {
-  width: 140px; height: 140px;
-  object-fit: contain; display: block;
-  transform: translateY(10px) rotate(4deg);
-  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.13));
-}
-.bonus-card:hover .bonus-img { transform: translateY(4px) rotate(2deg) scale(1.05); }
-
-.bonus-title {
-  font-size: 16px; font-weight: 800; color: var(--dark);
-  margin-bottom: 8px; letter-spacing: -0.01em; line-height: 1.25;
-}
-.bonus-card.whatsapp-card .bonus-title { color: white; }
-
-.bonus-desc {
-  font-size: 13px; color: var(--neutral-600); line-height: 1.6;
-}
-.bonus-card.whatsapp-card .bonus-desc { color: rgba(255,255,255,0.75); }
-
-.bonus-value-pill {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: rgba(39,80,57,0.08);
-  border: 1px solid rgba(39,80,57,0.12);
-  color: var(--green-deep); font-size: 10px; font-weight: 700;
-  padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
-  text-transform: uppercase; letter-spacing: 0.08em;
-}
-.bonus-card.whatsapp-card .bonus-value-pill {
-  background: rgba(156,245,191,0.15);
-  border-color: rgba(156,245,191,0.25);
-  color: var(--green-light);
-}
-
-/* ── MOBILE FIXES ── */
-@media (max-width: 640px) {
-  .bonus-card {
-    padding: 20px 0 0 20px;   /* less top/left, zero bottom to let image bleed */
-    min-height: 140px;
-    align-items: flex-start;   /* top-align so image sits at bottom naturally */
-  }
-
-  .bonus-text-col {
-    padding-right: 12px;
-    padding-bottom: 20px;      /* breathing room above card bottom */
-  }
-
-  .bonus-title {
-    font-size: 14px;           /* tighter on mobile */
-    margin-bottom: 6px;
-  }
-
-  .bonus-desc {
-    font-size: 12px;
-    line-height: 1.55;
-  }
-
-  .bonus-value-pill {
-    font-size: 9px;
-    padding: 2px 8px;
-    margin-bottom: 8px;
-  }
-
-  .bonus-img-wrap {
-    width: 100px; height: 100px;
-    align-self: flex-end;      /* image anchors to card bottom */
-  }
-
-  .bonus-img {
-    width: 110px; height: 110px;
-    transform: translateY(0px) rotate(3deg);  /* less float on mobile */
-  }
-
-  .bonus-card:hover .bonus-img {
-    transform: translateY(-2px) rotate(1.5deg) scale(1.03);
-  }
-}
     /* ── PRICING ── */
     .pricing-section { padding: 100px 24px; background: var(--sand); }
     .pricing-grid {
@@ -1012,40 +1217,109 @@
     <p><strong data-i18n="solution.strong">You deserve better.</strong> <span data-i18n="solution.text">This guide solves all of these with insider knowledge from someone who actually lives here — not a two-week vacation.</span></p>
   </div>
 </section>
-
 <!-- BOOK SHOWCASE / WHAT'S INSIDE -->
 <section class="book-section" id="what-inside">
   <div class="book-section-inner">
-    <div class="book-mockup reveal">
-      <img class="book-cover-img" src="https://res.cloudinary.com/dzidoxclo/image/upload/v1775917144/Copy_of_Dark_Urban_eBook_Template_in_Black_Blue_and_Yellow_Abstract_Illustrative_Style_ns9qvc.png" alt="Unlocking Morocco Guide">
-      <div class="book-badge-float">
-        <span>4.9★</span>
-        from 27 readers
-      </div>
-      <div class="book-badge-pages">
-        <span>205</span>
-        Pages
-      </div>
+
+    <!-- TOP: label + headline -->
+    <div class="book-header reveal">
+      <p class="section-label" data-i18n="inside.label">What's Inside</p>
+      <h2 data-i18n="inside.title">Everything they forgot<br/>to put on TripAdvisor.</h2>
+      <p class="book-intro" data-i18n="inside.desc">This isn't a sanitized tourist pamphlet. It's the guide written by someone who has spent his whole life navigating Morocco's cities, mountains, desert, and coasts — and wants you to experience it the way locals do.</p>
     </div>
 
-    <div class="book-info">
-      <p class="section-label reveal" style="text-align:left" data-i18n="inside.label">What's Inside</p>
-      <h2 class="reveal reveal-delay-1" style="text-align:left" data-i18n="inside.title">Everything they forgot<br/>to put on TripAdvisor.</h2>
-      <p class="reveal reveal-delay-2" data-i18n="inside.desc">This isn't a sanitized tourist pamphlet. It's the guide written by someone who has spent his whole life navigating Morocco's cities, mountains, desert, and coasts — and wants you to experience it the way locals do.</p>
+    <!-- MIDDLE: book + stats row -->
+    
 
-      <ul class="chapter-list reveal reveal-delay-2">
-        <li><div class="chapter-icon">🤝</div> <span data-i18n="ch.1">Culture & Customs — what not to do in a riad</span></li>
-        <li><div class="chapter-icon">🍜</div> <span data-i18n="ch.2">Food — the best 20-dirham meal in every city</span></li>
-        <li><div class="chapter-icon">🚌</div> <span data-i18n="ch.3">Transport — CTM vs Supratours vs grand taxis</span></li>
-        <li><div class="chapter-icon">⚠️</div> <span data-i18n="ch.4">Scams — the exact 7 traps tourists fall into</span></li>
-        <li><div class="chapter-icon">💸</div> <span data-i18n="ch.5">Budget — how to travel Morocco for €30/day</span></li>
-        <li><div class="chapter-icon">🏕️</div> <span data-i18n="ch.6">Hidden Gems — places locals go, not tourists</span></li>
-        <li><div class="chapter-icon">🌙</div> <span data-i18n="ch.7">Ramadan Travel — how to navigate it respectfully</span></li>
-        <li><div class="chapter-icon">📱</div> <span data-i18n="ch.8">Practical — SIM cards, money, safety, offline maps</span></li>
-      </ul>
+      <div class="book-mockup">
+        <img class="book-cover-img"
+          src="https://res.cloudinary.com/dzidoxclo/image/upload/v1775917144/Copy_of_Dark_Urban_eBook_Template_in_Black_Blue_and_Yellow_Abstract_Illustrative_Style_ns9qvc.png"
+          alt="Unlocking Morocco Guide">
 
-      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" target="_blank" class="btn-pill btn-primary reveal reveal-delay-3" data-i18n="inside.cta">Get your copy — from $12.99 →</a>
+          <div class="book-showcase-row reveal reveal-delay-1">
+            <div class="book-stat">
+              <span class="stat-num">4.9★</span>
+              <span class="stat-label">from 27 readers</span>
+            </div>
+
+            <div class="book-stat">
+              <span class="stat-num">205</span>
+              <span class="stat-label">pages of local intel</span>
+            </div>
+          </div>
+      </div>
+
+
+    
+
+    <!-- BOTTOM: chapter grid -->
+    <ul class="chapter-grid reveal reveal-delay-2">
+      <li class="chapter-card">
+        <div class="chapter-icon">🤝</div>
+        <div>
+          <strong data-i18n="ch.1t">Culture & Customs</strong>
+          <span data-i18n="ch.1s">What not to do in a riad</span>
+        </div>
+      </li>
+      <li class="chapter-card">
+        <div class="chapter-icon">🍜</div>
+        <div>
+          <strong data-i18n="ch.2t">Food</strong>
+          <span data-i18n="ch.2s">The best 20-dirham meal in every city</span>
+        </div>
+      </li>
+      <li class="chapter-card">
+        <div class="chapter-icon">🚌</div>
+        <div>
+          <strong data-i18n="ch.3t">Transport</strong>
+          <span data-i18n="ch.3s">CTM vs Supratours vs grand taxis</span>
+        </div>
+      </li>
+      <li class="chapter-card">
+        <div class="chapter-icon">⚠️</div>
+        <div>
+          <strong data-i18n="ch.4t">Scams</strong>
+          <span data-i18n="ch.4s">The exact 7 traps tourists fall into</span>
+        </div>
+      </li>
+      <li class="chapter-card">
+        <div class="chapter-icon">💸</div>
+        <div>
+          <strong data-i18n="ch.5t">Budget</strong>
+          <span data-i18n="ch.5s">Travel Morocco for €30/day</span>
+        </div>
+      </li>
+      <li class="chapter-card">
+        <div class="chapter-icon">🏕️</div>
+        <div>
+          <strong data-i18n="ch.6t">Hidden Gems</strong>
+          <span data-i18n="ch.6s">Places locals go, not tourists</span>
+        </div>
+      </li>
+      <li class="chapter-card">
+        <div class="chapter-icon">🌙</div>
+        <div>
+          <strong data-i18n="ch.7t">Ramadan Travel</strong>
+          <span data-i18n="ch.7s">How to navigate it respectfully</span>
+        </div>
+      </li>
+      <li class="chapter-card">
+        <div class="chapter-icon">📱</div>
+        <div>
+          <strong data-i18n="ch.8t">Practical</strong>
+          <span data-i18n="ch.8s">SIM cards, money, safety, offline maps</span>
+        </div>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <div class="book-cta-row reveal reveal-delay-3">
+      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" target="_blank"
+         class="btn-pill btn-primary" data-i18n="inside.cta">
+        Get Insider Morocco Access →
+      </a>
     </div>
+
   </div>
 </section>
 
@@ -1079,10 +1353,12 @@
     <div class="preview-track">
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_145529_evv3dm.png" alt="Preview 1"></div>
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150327_ujljkv.png" alt="Preview 2"></div>
-      <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1780940088/Picsart_26-06-08_18-33-54-204_o64yoh.jpg"></div>
+      <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_145640_uy5jzh.png" alt="Preview 3"></div>
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_150633_u8qfzc.png" alt="Preview 4"></div>
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150527_ca5j6j.png" alt="Preview 5"></div>
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150828_ykkwuz.png" alt="Preview 6"></div>
+      <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150359_gymgl7.png" alt="Preview 5"></div>
+      <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_150659_f3weew.png" alt="Preview 6"></div>
     </div>
   </div>
 </section>
@@ -1143,7 +1419,7 @@
 <section class="author-section" id="author">
   <div class="author-inner">
     <div class="author-avatar reveal">
-      <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1780940089/1780760886864_k0uqmv.png" alt="Soufiane">
+      <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1780604734/1779119761880_fhffyk.png" alt="Soufiane">
     </div>
     <div>
       <div class="author-badge reveal" data-i18n="author.badge">✍️ About the Author</div>
@@ -1280,7 +1556,7 @@
         <li><span class="check-icon">✓</span> <span data-i18n="f.etiquette">Cultural Etiquette Mini Ebook</span></li>
         <li class="missing"><span class="x-icon">✕</span> <span data-i18n="f.whatsapp">WhatsApp Support</span></li>
       </ul>
-      <a href="https://travelreadz.gumroad.com/l/zszjx?wanted=true" target="_blank" class="btn-pill btn-pricing btn-pricing-white" data-i18n="tier.2.btn">Get Complete →</a>
+      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" target="_blank" class="btn-pill btn-pricing btn-pricing-white" data-i18n="tier.2.btn">Get Complete →</a>
     </div>
 
     <!-- VIP -->
@@ -1305,7 +1581,7 @@
         ⚡ WhatsApp support is limited — I can only actively assist a small number of travelers at a time.
       </div>
       <br>
-      <a href="https://travelreadz.gumroad.com/l/iamac?wanted=true" target="_blank" class="btn-pill btn-pricing btn-pricing-dark" data-i18n="tier.3.btn">Get VIP →</a>
+      <a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" target="_blank" class="btn-pill btn-pricing btn-pricing-dark" data-i18n="tier.3.btn">Get VIP →</a>
     </div>
     
   </div>
