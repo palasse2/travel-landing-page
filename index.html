@@ -832,12 +832,13 @@
   }
 
   .bonus-img-wrap {
-    width: 90px; height: 90px;
+    width: 150px; height: 150px;
     align-self: flex-end;      /* image anchors to card bottom */
   }
 
   .bonus-img {
-    width: 110px; height: 110px;
+    width: 100%; height: 100%;
+    object-fit: contain;
     transform: translateY(0px) rotate(3deg);  /* less float on mobile */
   }
 
@@ -1286,107 +1287,204 @@
   </div>
 </section>
 <!-- BOOK SHOWCASE / WHAT'S INSIDE -->
-<section class="book-section" id="what-inside">
-  <div class="book-section-inner">
-
-    <!-- TOP: label + headline -->
-    <div class="book-header reveal">
-      <p class="section-label" data-i18n="inside.label">What's Inside</p>
-      <h2 data-i18n="inside.title">Everything they forgot<br/>to put on TripAdvisor.</h2>
-      <p class="book-intro" data-i18n="inside.desc">This isn't a sanitized tourist pamphlet. It's the guide written by someone who has spent his whole life navigating Morocco's cities, mountains, desert, and coasts — and wants you to experience it the way locals do.</p>
-    </div>
-
-    <!-- MIDDLE: book + stats row -->
-    
-
-      <div class="book-mockup">
-        <img class="book-cover-img"
-          src="https://res.cloudinary.com/dzidoxclo/image/upload/v1775917144/Copy_of_Dark_Urban_eBook_Template_in_Black_Blue_and_Yellow_Abstract_Illustrative_Style_ns9qvc.png"
-          alt="Unlocking Morocco Guide">
-
-          <div class="book-showcase-row reveal reveal-delay-1">
-            <div class="book-stat">
-              <span class="stat-num">4.9★</span>
-              <span class="stat-label">from 27 readers</span>
-            </div>
-
-            <div class="book-stat">
-              <span class="stat-num">205</span>
-              <span class="stat-label">pages of local intel</span>
+ 
+<!-- ============ WHAT'S INSIDE (replace your whole section with this) ============ -->
+<style>
+  #what-inside{position:relative;isolation:isolate;overflow-x:clip}
+  /* faint paper grain */
+  #what-inside::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  
+  .wi-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);
+    align-items:start;margin-top:clamp(32px,5vw,64px);text-align:left}
+  
+  /* ---------- LEFT: showcase ---------- */
+  .wi-left{position:sticky;top:110px;align-self:start}
+  .wi-stage{
+    /* TUNE THESE: product width as % of the stage */
+    --w-book:58%; --w-phone:78%; --w-tablet:90%; --star-o:.9;
+    position:relative;width:100%;max-width:580px;margin:0 auto;aspect-ratio:1/1}
+  .wi-stage::before{content:"";position:absolute;inset:8%;z-index:0;pointer-events:none;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(217,197,165,.55),rgba(217,197,165,0));filter:blur(30px)}
+  .wi-layer{position:absolute;inset:0;will-change:transform}
+  .wi-stars{z-index:1}
+  .wi-prods{z-index:2}
+  .wi-star{position:absolute;aspect-ratio:1/1;will-change:transform,opacity;
+    filter:drop-shadow(0 0 28px rgba(200,127,90,.28));opacity:0}
+  .wi-star img{display:block;width:100%;height:100%;object-fit:contain;will-change:transform;-webkit-user-drag:none}
+  .wi-prod{position:absolute;inset:0;margin:auto;height:auto;max-height:100%;display:block;will-change:transform,opacity;
+    filter:drop-shadow(0 28px 34px rgba(40,30,20,.24)) drop-shadow(0 6px 10px rgba(40,30,20,.12));-webkit-user-drag:none}
+  .wi-book{width:var(--w-book)}
+  .wi-phone{width:var(--w-phone);opacity:0}
+  .wi-tablet{width:var(--w-tablet);opacity:0}
+  
+  /* ---------- RIGHT: chapters ---------- */
+  .wi-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(217,197,165,.8)}
+  .wi-item{position:relative;display:flex;align-items:center;gap:18px;padding:18px 14px;
+    border-bottom:1px solid rgba(217,197,165,.8);border-radius:10px;transition:background-color .4s ease}
+  .wi-item::after{content:"";position:absolute;left:14px;bottom:-1px;height:2px;width:56px;background:#C87F5A;
+    transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.45,0,.25,1)}
+  .wi-item:hover{background:rgba(217,197,165,.2)}
+  .wi-item:hover::after{transform:scaleX(1)}
+  .wi-icon{flex:none;width:48px;height:48px;display:grid;place-items:center;font-size:22px;border-radius:50%;
+    background:rgba(217,197,165,.35);transition:transform .45s cubic-bezier(.45,0,.25,1),background-color .45s}
+  .wi-item:hover .wi-icon{transform:translateY(-3px);background:rgba(200,127,90,.2)}
+  .wi-item strong{display:block;font-size:1.05rem;color:#1A3C2E;line-height:1.3}
+  .wi-item span{display:block;margin-top:2px;font-size:.92rem;color:#6b5d4f;line-height:1.4}
+  .wi-cta{margin-top:32px;text-align:left}
+  
+  /* ---------- MOBILE ---------- */
+  @media (max-width:900px){
+    .wi-grid{grid-template-columns:1fr;gap:36px}
+    .wi-left{position:static}
+    .wi-stage{max-width:440px}
+  }
+  @media (max-width:480px){.wi-item{gap:14px;padding:16px 8px}.wi-icon{width:42px;height:42px;font-size:19px}}
+  </style>
+  
+  <section class="book-section" id="what-inside">
+    <div class="book-section-inner">
+  
+      <!-- HEADER (unchanged, centered) -->
+      <div class="book-header reveal">
+        <p class="section-label" data-i18n="inside.label">What's Inside</p>
+        <h2 data-i18n="inside.title">Everything they forgot<br/>to put on TripAdvisor.</h2>
+        <p class="book-intro" data-i18n="inside.desc">This isn't a sanitized tourist pamphlet. It's the guide written by someone who has spent his whole life navigating Morocco's cities, mountains, desert, and coasts — and wants you to experience it the way locals do.</p>
+      </div>
+  
+      <div class="wi-grid">
+  
+        <!-- LEFT: animated showcase -->
+        <div class="wi-left">
+          <div class="wi-stage" aria-label="Unlocking Morocco as a book, on a phone and on a tablet">
+            <div class="wi-layer wi-stars"></div>
+            <div class="wi-layer wi-prods">
+              <img loading="lazy" decoding="async" class="wi-prod wi-book"   src="https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_700/v1794609738/cover_image_rn8kc1.png" alt="Unlocking Morocco Guide">
+              <img loading="lazy" decoding="async" class="wi-prod wi-phone"  src="https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_700/v1794609736/phone_image_depbff.png" alt="Unlocking Morocco on your phone">
+              <img loading="lazy" decoding="async" class="wi-prod wi-tablet" src="https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_1000/v1794609741/ipad_image_dmov6l.png" alt="Unlocking Morocco on your tablet">
             </div>
           </div>
+        </div>
+  
+        <!-- RIGHT: chapters + CTA -->
+        <div class="wi-right">
+          <ul class="wi-list">
+            <li class="wi-item"><div class="wi-icon">🤝</div><div><strong data-i18n="ch.1t">Culture &amp; Customs</strong><span data-i18n="ch.1s">What not to do in a riad</span></div></li>
+            <li class="wi-item"><div class="wi-icon">🍜</div><div><strong data-i18n="ch.2t">Food</strong><span data-i18n="ch.2s">The best 20-dirham meal in every city</span></div></li>
+            <li class="wi-item"><div class="wi-icon">🚌</div><div><strong data-i18n="ch.3t">Transport</strong><span data-i18n="ch.3s">CTM vs Supratours vs grand taxis</span></div></li>
+            <li class="wi-item"><div class="wi-icon">⚠️</div><div><strong data-i18n="ch.4t">Scams</strong><span data-i18n="ch.4s">The exact 7 traps tourists fall into</span></div></li>
+            <li class="wi-item"><div class="wi-icon">💸</div><div><strong data-i18n="ch.5t">Budget</strong><span data-i18n="ch.5s">Travel Morocco for €30/day</span></div></li>
+            <li class="wi-item"><div class="wi-icon">🏕️</div><div><strong data-i18n="ch.6t">Hidden Gems</strong><span data-i18n="ch.6s">Places locals go, not tourists</span></div></li>
+            <li class="wi-item"><div class="wi-icon">🌙</div><div><strong data-i18n="ch.7t">Ramadan Travel</strong><span data-i18n="ch.7s">How to navigate it respectfully</span></div></li>
+            <li class="wi-item"><div class="wi-icon">📱</div><div><strong data-i18n="ch.8t">Practical</strong><span data-i18n="ch.8s">SIM cards, money, safety, offline maps</span></div></li>
+          </ul>
+          <div class="wi-cta reveal reveal-delay-3">
+            <a href="#pricing" class="btn-pill btn-primary" data-i18n="inside.cta">Get Insider Morocco Access →</a>
+          </div>
+        </div>
+  
       </div>
-
-
-    
-
-    <!-- BOTTOM: chapter grid -->
-    <ul class="chapter-grid reveal reveal-delay-2">
-      <li class="chapter-card">
-        <div class="chapter-icon">🤝</div>
-        <div>
-          <strong data-i18n="ch.1t">Culture & Customs</strong>
-          <span data-i18n="ch.1s">What not to do in a riad</span>
-        </div>
-      </li>
-      <li class="chapter-card">
-        <div class="chapter-icon">🍜</div>
-        <div>
-          <strong data-i18n="ch.2t">Food</strong>
-          <span data-i18n="ch.2s">The best 20-dirham meal in every city</span>
-        </div>
-      </li>
-      <li class="chapter-card">
-        <div class="chapter-icon">🚌</div>
-        <div>
-          <strong data-i18n="ch.3t">Transport</strong>
-          <span data-i18n="ch.3s">CTM vs Supratours vs grand taxis</span>
-        </div>
-      </li>
-      <li class="chapter-card">
-        <div class="chapter-icon">⚠️</div>
-        <div>
-          <strong data-i18n="ch.4t">Scams</strong>
-          <span data-i18n="ch.4s">The exact 7 traps tourists fall into</span>
-        </div>
-      </li>
-      <li class="chapter-card">
-        <div class="chapter-icon">💸</div>
-        <div>
-          <strong data-i18n="ch.5t">Budget</strong>
-          <span data-i18n="ch.5s">Travel Morocco for €30/day</span>
-        </div>
-      </li>
-      <li class="chapter-card">
-        <div class="chapter-icon">🏕️</div>
-        <div>
-          <strong data-i18n="ch.6t">Hidden Gems</strong>
-          <span data-i18n="ch.6s">Places locals go, not tourists</span>
-        </div>
-      </li>
-      <li class="chapter-card">
-        <div class="chapter-icon">🌙</div>
-        <div>
-          <strong data-i18n="ch.7t">Ramadan Travel</strong>
-          <span data-i18n="ch.7s">How to navigate it respectfully</span>
-        </div>
-      </li>
-      <li class="chapter-card">
-        <div class="chapter-icon">📱</div>
-        <div>
-          <strong data-i18n="ch.8t">Practical</strong>
-          <span data-i18n="ch.8s">SIM cards, money, safety, offline maps</span>
-        </div>
-      </li>
-    </ul>
-
-    <!-- CTA -->
-    <div class="book-cta-row reveal reveal-delay-3">
-       <a href="#pricing" class="btn-pill btn-primary" data-i18n="inside.cta"> Get Insider Morocco Access →</a>
     </div>
-
-  </div>
-</section>
+  </section>
+  
+  <!-- GSAP + ScrollTrigger (pinned versions). Skip these two lines if your site already loads them. -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+  function wiInit(){
+    const root=document.getElementById('what-inside');
+    if(!root||!window.gsap||!window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+  
+    const stage=root.querySelector('.wi-stage'),
+          starsL=root.querySelector('.wi-stars'),
+          prodsL=root.querySelector('.wi-prods'),
+          prods=[...root.querySelectorAll('.wi-prod')],
+          reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,
+          OP=parseFloat(getComputedStyle(stage).getPropertyValue('--star-o'))||.9;
+  
+    /* star images: assumed s1 = terracotta, s2 = forest green, s3 = sand */
+    const U={
+      s1:'https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_700/v1794609736/star_1_ujjxt7.png',
+      s2:'https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_700/v1794609736/star_2_jxfyn3.png',
+      s3:'https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_700/v1794609736/star_3_wjsnuz.png'
+    };
+    /* per star: [image, left %, top %, size % of stage, delay (s), seconds per turn] */
+    const SC=[
+      [['s1',76,22,55,0,90],  ['s2',24,78,40,.25,70], ['s3',26,24,26,.5,55]],   /* book   */
+      [['s2',72,76,60,.1,80], ['s3',28,24,42,.4,65],  ['s1',72,22,28,.65,50]],  /* phone  */
+      [['s3',16,52,50,0,85],  ['s1',86,40,38,.3,60],  ['s2',78,82,24,.6,45]]   /* tablet */
+    ];
+  
+    const groups=SC.map(sc=>sc.map(([k,x,y,s,d,sp],j)=>{
+      const w=document.createElement('div'); w.className='wi-star';
+      w.style.cssText=`left:${x}%;top:${y}%;width:${s}%;margin:${-s/2}% 0 0 ${-s/2}%`;
+      const im=new Image(); im.loading='lazy'; im.decoding='async'; im.src=U[k]; im.alt=''; im.draggable=false; w.appendChild(im);
+      starsL.appendChild(w);
+      return {w,im,d,sp:(j%2?-1:1)*sp};
+    }));
+    const allStars=groups.flat().map(g=>g.w);
+  
+    /* chapter list reveal */
+    if(!reduce){
+      gsap.from(root.querySelectorAll('.wi-item'),{opacity:0,y:28,duration:.8,ease:'power3.out',stagger:.09,
+        scrollTrigger:{trigger:'.wi-list',start:'top 82%',once:true}});
+    }
+  
+    /* reduced motion: still, finished composition */
+    if(reduce){ gsap.set(groups[0].map(g=>g.w),{opacity:OP}); return; }
+  
+    gsap.set(prods.slice(1),{opacity:0,scale:.96});
+    gsap.set(allStars,{opacity:0,scale:.2});
+  
+    const spins=groups.flat().map(g=>gsap.to(g.im,{rotation:g.sp>0?360:-360,duration:Math.abs(g.sp),ease:'none',repeat:-1,paused:true}));
+  
+    const E='power2.inOut';
+    function enter(tl,i,at){
+      tl.fromTo(prods[i],{opacity:0,scale:.96},{opacity:1,scale:1,duration:.8,ease:E,immediateRender:false},at);
+      groups[i].forEach(g=>tl.fromTo(g.w,{opacity:0,scale:.2},{opacity:OP,scale:1,duration:1.1,ease:'power3.out',immediateRender:false},at+.15+g.d));
+    }
+    function exit(tl,i,at){
+      tl.to(prods[i],{opacity:0,scale:.96,duration:.8,ease:E},at);
+      groups[i].forEach((g,j)=>tl.to(g.w,{opacity:0,scale:.3,duration:.7,ease:'power2.in'},at+j*.08));
+    }
+  
+    /* intro: first scene grows in once */
+    const intro=gsap.timeline({paused:true,onComplete:()=>loop.play()});
+    enter(intro,0,0);
+  
+    /* endless loop: book -> phone -> tablet -> book */
+    const P=3.2, loop=gsap.timeline({paused:true,repeat:-1});
+    for(let i=0;i<3;i++){ const at=(i+1)*P-1; exit(loop,i,at); enter(loop,(i+1)%3,at); }
+  
+    /* only run while visible */
+    ScrollTrigger.create({trigger:stage,start:'top 90%',end:'bottom 10%',
+      onToggle:s=>{
+        if(s.isActive){ intro.progress()<1?intro.play():loop.play(); spins.forEach(t=>t.play()); }
+        else{ intro.pause(); loop.pause(); spins.forEach(t=>t.pause()); }
+      }});
+  
+    /* gentle scroll parallax (stars and products drift at different speeds) */
+    const sc={trigger:stage,start:'top bottom',end:'bottom top',scrub:true};
+    gsap.fromTo(starsL,{yPercent:5},{yPercent:-5,ease:'none',scrollTrigger:sc});
+    gsap.fromTo(prodsL,{yPercent:1.5},{yPercent:-1.5,ease:'none',scrollTrigger:sc});
+  
+    /* subtle cursor tilt (desktop with a mouse only) */
+    if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+      gsap.set([prodsL,starsL],{transformPerspective:900});
+      const o={duration:.9,ease:'power3'};
+      const rx=gsap.quickTo(prodsL,'rotationX',o), ry=gsap.quickTo(prodsL,'rotationY',o),
+            sx=gsap.quickTo(starsL,'x',o),        sy=gsap.quickTo(starsL,'y',o);
+      stage.addEventListener('pointermove',e=>{
+        const r=stage.getBoundingClientRect(),
+              nx=(e.clientX-r.left)/r.width-.5, ny=(e.clientY-r.top)/r.height-.5;
+        ry(nx*8); rx(-ny*8); sx(-nx*18); sy(-ny*18);
+      });
+      stage.addEventListener('pointerleave',()=>{rx(0);ry(0);sx(0);sy(0);});
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wiInit);else wiInit();
+  </script>
 
 <!-- DESTINATIONS DRAG STRIP -->
 <section class="destinations-section" id="destinations">
@@ -1699,7 +1797,7 @@
   <h2 class="cta-title reveal reveal-delay-1" data-i18n="cta.title">Your Morocco trip starts here.</h2>
   <p class="cta-sub reveal reveal-delay-2" data-i18n="cta.sub">Download instantly. Read on any device. Show up knowing things most tourists spend a whole trip figuring out.</p>
   <div class="cta-actions reveal reveal-delay-3">
-    <a href="#pricing"  class="btn-pill btn-cta-primary" data-i18n="cta.btn1">Get Unlocking Morocco — from $12.99 →</a>
+    <a href="#pricing" target="pricing" class="btn-pill btn-cta-primary" data-i18n="cta.btn1">Get Unlocking Morocco — from $12.99 →</a>
     <a href="#pricing" class="btn-pill btn-cta-ghost" data-i18n="cta.btn2">Compare editions</a>
   </div>
   <p class="cta-guarantee reveal reveal-delay-4" data-i18n="cta.guarantee">📥 Instant PDF download · Works offline · Lifetime access & free updates</p>
@@ -1711,9 +1809,8 @@
   <ul class="footer-links">
     <li><a href="#author" data-i18n="footer.about">About</a></li>
     <li><a href="#pricing" data-i18n="footer.pricing">Pricing</a></li>
-<li>
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@travelreadz.com&su=Hello" target="_blank" rel="noopener">Contact</a>
-</li>    <li><a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" target="_blank" data-i18n="footer.buy">Get the Guide</a></li>
+    <li><a href="mailto:travelreadz@support.com">Contact</a></li>
+    <li><a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" target="_blank" data-i18n="footer.buy">Get the Guide</a></li>
   </ul>
   <div class="footer-copy">© 2026 Travel Readz. All rights reserved.</div>
 </footer>
@@ -2538,5 +2635,166 @@ makeDraggable('previewScroll');
 
 })();
 </script>
+
+<!-- ============ SPIDER BUDDY: paste right before </body> ============ -->
+<style>
+  #spiderBuddy{
+    --sp-w:76px; --sp-z:90;
+    position:fixed; left:clamp(10px,2.4vw,36px); top:0; width:var(--sp-w);
+    z-index:var(--sp-z); pointer-events:none; will-change:transform;
+  }
+  .sp-thread{position:absolute;left:50%;bottom:68%;width:2px;height:100vh;margin-left:-1px;
+    background:linear-gradient(rgba(90,75,60,.15),rgba(90,75,60,.7))}
+  .sp-hit{position:relative;pointer-events:auto}
+  .sp-swing{display:block;width:100%;padding:0;margin:0;border:0;background:none;cursor:pointer;
+    transform-origin:50% 32%;will-change:transform;-webkit-tap-highlight-color:transparent}
+  .sp-svg{display:block;width:100%;height:auto;overflow:visible;transition:transform .45s cubic-bezier(.45,0,.25,1);
+    filter:drop-shadow(0 6px 8px rgba(40,30,20,.25))}
+  #spiderBuddy.is-open .sp-svg{transform:scale(1.1)}
+  
+  /* legs wiggle */
+  .sp-leg{fill:none;stroke:#1A3C2E;stroke-width:4;stroke-linecap:round;transform-box:fill-box;
+    animation:sp-wig 1.3s ease-in-out infinite alternate}
+  .sp-l{transform-origin:100% 50%}
+  .sp-r{transform-origin:0 50%;animation-direction:alternate-reverse}
+  .sp-leg:nth-child(2){animation-delay:-.3s}.sp-leg:nth-child(3){animation-delay:-.6s}.sp-leg:nth-child(4){animation-delay:-.9s}
+  @keyframes sp-wig{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+  /* blinking + laughing */
+  .sp-eye{transform-box:fill-box;transform-origin:center;animation:sp-blink 4.6s infinite}
+  @keyframes sp-blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+  .sp-mouth{transform-box:fill-box;transform-origin:50% 0}
+  #spiderBuddy.is-open .sp-mouth{animation:sp-talk .45s ease-in-out infinite alternate}
+  @keyframes sp-talk{from{transform:scaleY(1)}to{transform:scaleY(1.28)}}
+  .sp-pupil{transition:transform .12s ease-out}
+  
+  /* speech bubble */
+  .sp-bubble{position:absolute;left:100%;top:26%;margin-left:10px;padding:9px 15px;border-radius:999px;
+    background:#FAF8F3;color:#1A3C2E;border:1px solid #D9C5A5;font-weight:600;font-size:14px;line-height:1.2;
+    text-decoration:none;white-space:nowrap;box-shadow:0 8px 22px rgba(40,30,20,.16);
+    opacity:0;transform:translateX(-8px) scale(.9);transform-origin:left center;pointer-events:none;
+    transition:opacity .3s ease,transform .4s cubic-bezier(.45,0,.25,1)}
+  .sp-bubble::before{content:"";position:absolute;left:-6px;top:50%;width:10px;height:10px;margin-top:-5px;
+    background:#FAF8F3;border-left:1px solid #D9C5A5;border-bottom:1px solid #D9C5A5;transform:rotate(45deg)}
+  #spiderBuddy.is-open .sp-bubble{opacity:1;transform:none;pointer-events:auto}
+  
+  @media (max-width:640px){#spiderBuddy{--sp-w:54px}.sp-bubble{font-size:13px;padding:8px 12px}}
+  @media print{#spiderBuddy{display:none}}
+  @media (prefers-reduced-motion:reduce){.sp-leg,.sp-eye,#spiderBuddy.is-open .sp-mouth{animation:none}}
+  </style>
+  
+  <div id="spiderBuddy">
+    <div class="sp-thread"></div>
+    <div class="sp-hit">
+      <button class="sp-swing" type="button" aria-label="Spider mascot">
+        <svg class="sp-svg" viewBox="0 0 100 100" aria-hidden="true">
+          <!-- legs -->
+          <g>
+            <path class="sp-leg sp-l" d="M27 52 Q10 40 4 26"/>
+            <path class="sp-leg sp-l" d="M25 58 Q8 56 1 48"/>
+            <path class="sp-leg sp-l" d="M26 65 Q10 74 3 86"/>
+            <path class="sp-leg sp-l" d="M31 72 Q19 86 12 98"/>
+          </g>
+          <g>
+            <path class="sp-leg sp-r" d="M73 52 Q90 40 96 26"/>
+            <path class="sp-leg sp-r" d="M75 58 Q92 56 99 48"/>
+            <path class="sp-leg sp-r" d="M74 65 Q90 74 97 86"/>
+            <path class="sp-leg sp-r" d="M69 72 Q81 86 88 98"/>
+          </g>
+          <!-- body -->
+          <circle cx="50" cy="58" r="26" fill="#1A3C2E"/>
+          <ellipse cx="42" cy="46" rx="10" ry="6" fill="#fff" opacity=".08"/>
+          <!-- cheeks -->
+          <circle cx="30" cy="66" r="4.5" fill="#C87F5A" opacity=".5"/>
+          <circle cx="70" cy="66" r="4.5" fill="#C87F5A" opacity=".5"/>
+          <!-- eyes -->
+          <g class="sp-eye"><circle cx="40" cy="52" r="11.5" fill="#fff"/>
+            <g class="sp-pupil"><circle cx="40" cy="52" r="5.2" fill="#111"/><circle cx="41.8" cy="50" r="1.6" fill="#fff"/></g></g>
+          <g class="sp-eye"><circle cx="60" cy="52" r="11.5" fill="#fff"/>
+            <g class="sp-pupil"><circle cx="60" cy="52" r="5.2" fill="#111"/><circle cx="61.8" cy="50" r="1.6" fill="#fff"/></g></g>
+          <!-- big laughing mouth -->
+          <g class="sp-mouth">
+            <path d="M37 68 Q50 70 63 68 Q60 84 50 84 Q40 84 37 68Z" fill="#2a0f0a"/>
+            <ellipse cx="50" cy="79" rx="5.5" ry="3.2" fill="#C87F5A"/>
+          </g>
+        </svg>
+      </button>
+      <a class="sp-bubble" href="#pricing" data-i18n="spider.msg">Don’t get caught in a tourist trap!</a>
+    </div>
+  </div>
+
+
+
+                                         <!-- spider trick  -->
+
+
+
+
+  <script>
+  (function(){
+    const el=document.getElementById('spiderBuddy'); if(!el) return;
+    const swing=el.querySelector('.sp-swing'), hit=el.querySelector('.sp-hit'),
+          bubble=el.querySelector('.sp-bubble'), pupils=[...el.querySelectorAll('.sp-pupil')];
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,
+          hoverable=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  
+    /* ---- tweak these ---- */
+    const MIN=64;          /* resting height at top of screen (px) */
+    const MAX_VH=.55;      /* lowest point: 55% of screen height */
+    const SCROLL_RANGE=1200; /* px of scrolling to reach the lowest point */
+  
+    let y=MIN, target=MIN, ang=0, t0=performance.now(), timer=null;
+  
+    function calc(){
+      const max=Math.max(innerHeight*MAX_VH,120), p=Math.min(scrollY/SCROLL_RANGE,1);
+      target=MIN+(max-MIN)*p;
+    }
+    function tick(now){
+      const ny=y+(target-y)*.07, v=ny-y; y=ny;
+      const idle=Math.sin((now-t0)/900)*3,
+            goal=Math.sin(now/500)*(1.5+Math.min(Math.abs(v)*2.5,12));
+      ang+=(goal-ang)*.15;
+      el.style.transform='translate3d(0,'+(y+idle).toFixed(2)+'px,0)';
+      swing.style.transform='rotate('+ang.toFixed(2)+'deg)';
+      requestAnimationFrame(tick);
+    }
+    el.style.transform='translate3d(0,'+MIN+'px,0)';
+    if(!reduce){
+      calc();
+      addEventListener('scroll',calc,{passive:true});
+      addEventListener('resize',calc);
+      requestAnimationFrame(tick);
+    }
+  
+    /* eyes follow the pointer */
+    addEventListener('pointermove',e=>{
+      const r=swing.getBoundingClientRect(),
+            dx=e.clientX-(r.left+r.width/2), dy=e.clientY-(r.top+r.height*.52),
+            d=Math.hypot(dx,dy)||1, k=Math.min(d/180,1)*5;
+      const t='translate('+(dx/d*k).toFixed(2)+'px,'+(dy/d*k).toFixed(2)+'px)';
+      pupils.forEach(p=>p.style.transform=t);
+    },{passive:true});
+  
+    /* bubble */
+    const open=()=>el.classList.add('is-open'),
+          close=()=>{el.classList.remove('is-open');clearTimeout(timer);};
+    const toPricing=()=>{const t=document.getElementById('pricing'); t?t.scrollIntoView({behavior:'smooth'}):(location.hash='#pricing');};
+  
+    if(hoverable){
+      hit.addEventListener('pointerenter',open);
+      hit.addEventListener('pointerleave',close);
+      swing.addEventListener('click',toPricing);
+    }else{
+      swing.addEventListener('click',e=>{
+        e.stopPropagation();
+        if(el.classList.contains('is-open')) close();
+        else{ open(); clearTimeout(timer); timer=setTimeout(close,4500); }
+      });
+      document.addEventListener('click',e=>{ if(!hit.contains(e.target)) close(); });
+    }
+    bubble.addEventListener('click',close);
+    swing.addEventListener('focus',open);
+    swing.addEventListener('blur',close);
+  })();
+  </script>
 </body>
 </html>
