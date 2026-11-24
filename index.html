@@ -1249,6 +1249,511 @@
     </div>
   </div>
 </section>
+  <!-- ============================================================
+  TRAVEL READZ — Free Trip Plan form
+  Paste this whole block directly under your hero section.
+  Submissions are emailed to hello@travelreadz.com via FormSubmit.
+  ============================================================ -->
+
+<section id="trip-planner" class="tp" aria-labelledby="tp-title">
+  <div class="tp__card">
+    <p class="tp__eyebrow">Free · Personal · Within 48 hours</p>
+    <h2 id="tp-title">Get your free Morocco trip plan</h2>
+    <p class="tp__sub">
+      Answer 4 quick questions. I'm Soufiane, a Moroccan local.
+      I'll build your plan by hand and email it to you.
+    </p>
+
+    <form id="tp-form" novalidate>
+      <!-- Anti-spam honeypot: real visitors never see or fill this -->
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="tp__honey" aria-hidden="true">
+
+      <div class="tp__progress" aria-hidden="true"><span id="tp-bar"></span></div>
+      <p class="tp__step-label" id="tp-step-label" aria-live="polite">Question 1 of 4</p>
+
+      <!-- Step 1 -->
+      <fieldset class="tp__step" data-step="1">
+        <legend>How long is your trip?</legend>
+        <div class="tp__grid">
+          <label class="tp__opt"><input type="radio" name="trip_length" value="3-4 days"><span>3–4 days</span></label>
+          <label class="tp__opt"><input type="radio" name="trip_length" value="5-7 days"><span>5–7 days</span></label>
+          <label class="tp__opt"><input type="radio" name="trip_length" value="8-10 days"><span>8–10 days</span></label>
+          <label class="tp__opt"><input type="radio" name="trip_length" value="11+ days"><span>11+ days</span></label>
+        </div>
+        <label class="tp__field tp__custom">
+          <span>Something else? Type the number of days</span>
+          <input type="number" name="trip_days_custom" min="1" max="60" step="1" inputmode="numeric" placeholder="e.g. 14">
+        </label>
+      </fieldset>
+
+      <!-- Step 2 -->
+      <fieldset class="tp__step" data-step="2" hidden>
+        <legend>Which month are you travelling?</legend>
+        <div class="tp__grid tp__grid--3" id="tp-months"><!-- the next 12 months are added by the script --></div>
+      </fieldset>
+
+      <!-- Step 3 -->
+      <fieldset class="tp__step" data-step="3" hidden>
+        <legend>What's your travel style?</legend>
+        <div class="tp__grid tp__grid--1">
+          <label class="tp__opt"><input type="radio" name="travel_style" value="Budget"><span>Budget<small>Hostels &amp; simple riads, local food</small></span></label>
+          <label class="tp__opt"><input type="radio" name="travel_style" value="Mid-range"><span>Mid-range<small>Nice riads, a mix of local and comfort</small></span></label>
+          <label class="tp__opt"><input type="radio" name="travel_style" value="Comfort"><span>Comfort<small>Boutique stays, private transfers</small></span></label>
+        </div>
+      </fieldset>
+
+      <!-- Step 4 -->
+      <fieldset class="tp__step" data-step="4" hidden>
+        <legend>What do you want to experience? <small>(pick any)</small></legend>
+        <div class="tp__grid">
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Cities &amp; medinas"><span>Cities &amp; medinas</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Sahara desert"><span>Sahara desert</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Atlas mountains"><span>Atlas mountains</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Beaches &amp; coast"><span>Beaches &amp; coast</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Food"><span>Local food</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Hidden gems"><span>Hidden gems</span></label>
+        </div>
+      </fieldset>
+
+      <!-- Step 5: contact -->
+      <fieldset class="tp__step" data-step="5" hidden>
+        <legend>Where should I send your plan?</legend>
+
+        <label class="tp__field">
+          <span>First name <small>(optional)</small></span>
+          <input type="text" name="first_name" autocomplete="given-name" maxlength="60">
+        </label>
+
+        <label class="tp__field">
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" inputmode="email" required maxlength="120">
+        </label>
+
+        <label class="tp__field">
+          <span>Anything specific? <small>(optional)</small></span>
+          <textarea name="notes" rows="3" maxlength="500" placeholder="Travelling with kids, a must-see city, budget per day..."></textarea>
+        </label>
+
+        <label class="tp__consent">
+          <input type="checkbox" name="consent" value="yes" required>
+          <span>
+            I agree to receive my trip plan and occasional emails about Morocco travel from Travel Readz.
+            I can unsubscribe anytime. See the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.
+          </span>
+        </label>
+      </fieldset>
+
+      <p class="tp__error" id="tp-error" role="alert" hidden></p>
+
+      <div class="tp__nav">
+        <button type="button" class="tp__btn tp__btn--ghost" id="tp-back" hidden>Back</button>
+        <button type="button" class="tp__btn" id="tp-next" hidden>Next</button>
+        <button type="submit" class="tp__btn" id="tp-submit" hidden>Send me my plan</button>
+      </div>
+    </form>
+
+    <div class="tp__success" id="tp-success" hidden tabindex="-1">
+      <h3>You're all set 🇲🇦</h3>
+      <p>
+        Thank you! I'll prepare your plan personally and email it to you
+        within 48 hours. Check your spam folder if you don't see it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Colours/font come from the site's own :root variables; fallbacks keep it working alone */
+  #trip-planner {
+    --tp-accent: var(--green-deep, #275039);
+    --tp-accent-dark: var(--green-mid, #3a6b4f);
+    --tp-light: var(--green-light, #9CF5BF);
+    --tp-pale: var(--green-pale, #E8F5E9);
+    --tp-text: var(--dark, #171717);
+    --tp-muted: var(--neutral-600, #525252);
+    --tp-soft: var(--neutral-400, #a1a1a1);
+    --tp-card: var(--sand, #FAF9F6);
+    --tp-border: rgba(39, 80, 57, 0.14);
+
+    padding: 80px 24px;
+    background: var(--white, #ffffff);
+    font-family: 'Poppins', sans-serif;
+    color: var(--tp-text);
+    -webkit-font-smoothing: antialiased;
+  }
+  #trip-planner *, #trip-planner *::before, #trip-planner *::after { box-sizing: border-box; font-family: inherit; }
+
+  #trip-planner .tp__card {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px 22px;
+    background: var(--tp-card);
+    border: 1.5px solid rgba(39, 80, 57, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 12px 32px rgba(39, 80, 57, 0.08);
+  }
+  #trip-planner .tp__eyebrow {
+    margin: 0 0 14px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--tp-accent);
+  }
+  #trip-planner h2 {
+    margin: 0 0 12px;
+    text-align: center;
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: var(--tp-text);
+  }
+  #trip-planner .tp__sub {
+    margin: 0 auto 28px;
+    max-width: 460px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--tp-muted);
+  }
+
+  #trip-planner .tp__honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+  #trip-planner .tp__progress { height: 6px; background: rgba(39, 80, 57, 0.1); border-radius: 999px; overflow: hidden; }
+  #trip-planner .tp__progress span {
+    display: block; height: 100%; width: 20%;
+    background: var(--tp-accent);
+    border-radius: 999px;
+    transition: width .3s ease;
+  }
+  #trip-planner .tp__step-label {
+    margin: 10px 0 18px;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .1em;
+    color: var(--tp-soft);
+  }
+
+  #trip-planner fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  #trip-planner fieldset[hidden] { display: none; }
+  #trip-planner legend {
+    padding: 0; margin: 0 0 14px;
+    font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em;
+    color: var(--tp-text);
+  }
+  #trip-planner legend small { font-weight: 400; color: var(--tp-muted); font-size: .85rem; letter-spacing: 0; }
+
+  #trip-planner .tp__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  #trip-planner .tp__grid--1 { grid-template-columns: 1fr; }
+  #trip-planner .tp__grid--3 { grid-template-columns: repeat(3, 1fr); }
+  #trip-planner .tp__opt--wide { grid-column: 1 / -1; }
+  #trip-planner .tp__grid--3 .tp__opt span { min-height: 62px; padding: 8px; text-align: center; align-items: center; }
+  #trip-planner .tp__custom { margin: 16px 0 0; }
+
+  #trip-planner .tp__opt { position: relative; display: block; cursor: pointer; }
+  #trip-planner .tp__opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+  #trip-planner .tp__opt span {
+    display: flex; flex-direction: column; justify-content: center;
+    min-height: 56px; padding: 12px 16px;
+    background: #fff; border: 1.5px solid var(--tp-border); border-radius: 16px;
+    font-size: 13.5px; font-weight: 700; line-height: 1.25; color: var(--tp-text);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s, background .2s;
+  }
+  #trip-planner .tp__opt span small { margin-top: 3px; font-weight: 400; font-size: 12px; color: var(--tp-muted); }
+  #trip-planner .tp__opt:hover span { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(39, 80, 57, 0.09); border-color: var(--tp-accent); }
+  #trip-planner .tp__opt input:focus-visible + span { outline: 3px solid var(--tp-light); outline-offset: 2px; }
+  #trip-planner .tp__opt.is-checked span { border-color: var(--tp-accent); background: var(--tp-pale); }
+
+  #trip-planner .tp__field { display: block; margin-bottom: 14px; }
+  #trip-planner .tp__field > span { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 700; }
+  #trip-planner .tp__field small { font-weight: 400; color: var(--tp-muted); }
+  #trip-planner .tp__field input,
+  #trip-planner .tp__field textarea {
+    width: 100%; padding: 12px 16px;
+    font: inherit; font-size: 16px; /* 16px stops iOS zoom */
+    color: var(--tp-text);
+    background: #fff; border: 1.5px solid var(--tp-border); border-radius: 16px;
+  }
+  #trip-planner .tp__field input:focus,
+  #trip-planner .tp__field textarea:focus { outline: none; border-color: var(--tp-accent); box-shadow: 0 0 0 3px rgba(156, 245, 191, .5); }
+
+  #trip-planner .tp__consent { display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; color: var(--tp-muted); line-height: 1.55; }
+  #trip-planner .tp__consent input { margin-top: 3px; width: 18px; height: 18px; flex: none; accent-color: var(--tp-accent); }
+  #trip-planner .tp__consent a { color: var(--tp-accent); font-weight: 600; }
+
+  #trip-planner .tp__error { margin: 14px 0 0; padding: 10px 14px; border-radius: 14px; background: #fde8e8; color: #8a1c1c; font-size: 13px; }
+  #trip-planner .tp__error[hidden] { display: none; }
+
+  #trip-planner .tp__nav { display: flex; gap: 10px; margin-top: 20px; }
+  #trip-planner .tp__btn {
+    flex: 1; min-height: 50px; padding: 13px 26px;
+    font-size: 15px; font-weight: 700; color: #fff;
+    background: var(--tp-accent); border: 0; border-radius: 999px; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(39, 80, 57, 0.28);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  #trip-planner .tp__btn:hover { transform: scale(1.03); box-shadow: 0 6px 22px rgba(39, 80, 57, 0.38); }
+  #trip-planner .tp__btn:active { transform: scale(0.97); }
+  #trip-planner .tp__btn:disabled { opacity: .6; cursor: wait; transform: none; }
+  #trip-planner .tp__btn[hidden] { display: none; }
+  #trip-planner .tp__btn--ghost { flex: 0 0 auto; color: var(--tp-accent); background: rgba(39, 80, 57, 0.07); box-shadow: none; }
+  #trip-planner .tp__btn--ghost:hover { background: rgba(39, 80, 57, 0.13); box-shadow: none; transform: none; }
+
+  #trip-planner .tp__success { text-align: center; padding: 16px 0; }
+  #trip-planner .tp__success[hidden] { display: none; }
+  #trip-planner .tp__success h3 { margin: 0 0 8px; font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em; }
+  #trip-planner .tp__success p { margin: 0; color: var(--tp-muted); line-height: 1.65; }
+
+  @media (min-width: 600px) {
+    #trip-planner .tp__card { padding: 44px 48px; }
+  }
+  @media (max-width: 420px) {
+    #trip-planner { padding: 56px 16px; }
+    #trip-planner .tp__grid--3 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  // Submissions are emailed here. First time only: FormSubmit sends you an
+  // activation email — click the link in it once, then it works forever.
+  var ENDPOINT = 'https://formsubmit.co/ajax/hello@travelreadz.com';
+  var TOTAL_QUESTIONS = 4;
+  var LAST_STEP = 5;
+
+  var root = document.getElementById('trip-planner');
+  if (!root) return;
+
+  var form = root.querySelector('#tp-form');
+  var steps = root.querySelectorAll('.tp__step');
+  var bar = root.querySelector('#tp-bar');
+  var label = root.querySelector('#tp-step-label');
+  var errorBox = root.querySelector('#tp-error');
+  var btnBack = root.querySelector('#tp-back');
+  var btnNext = root.querySelector('#tp-next');
+  var btnSubmit = root.querySelector('#tp-submit');
+  var success = root.querySelector('#tp-success');
+  var customDays = form.elements['trip_days_custom'];
+
+  // ---- Month options: the next 12 months, starting with this one ----
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'];
+  var monthsBox = root.querySelector('#tp-months');
+
+  function makeOption(value, text, sub, wide) {
+    var l = document.createElement('label');
+    l.className = 'tp__opt' + (wide ? ' tp__opt--wide' : '');
+    var inp = document.createElement('input');
+    inp.type = 'radio';
+    inp.name = 'travel_month';
+    inp.value = value;
+    var s = document.createElement('span');
+    s.textContent = text;
+    if (sub) {
+      var sm = document.createElement('small');
+      sm.textContent = sub;
+      s.appendChild(sm);
+    }
+    l.appendChild(inp);
+    l.appendChild(s);
+    return l;
+  }
+
+  (function buildMonths() {
+    var now = new Date();
+    for (var i = 0; i < 12; i++) {
+      var d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+      var name = MONTHS[d.getMonth()];
+      monthsBox.appendChild(makeOption(name + ' ' + d.getFullYear(), name, String(d.getFullYear()), false));
+    }
+    monthsBox.appendChild(makeOption('Not sure yet', 'Not sure yet', '', true));
+  })();
+
+  // Trip length = a preset option, or the number the visitor typed
+  function tripLength() {
+    var n = parseInt(customDays.value, 10);
+    if (customDays.value && n >= 1 && n <= 60) return n + (n === 1 ? ' day' : ' days') + ' (typed)';
+    return val('trip_length');
+  }
+
+  var current = 1;
+  var started = false;
+  var advanceTimer = null;
+
+  // ---- Google Analytics 4 (safe if gtag isn't loaded) ----
+  function track(name, params) {
+    try {
+      if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+    } catch (e) { /* never break the form because of analytics */ }
+  }
+
+  function val(name) {
+    var el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+
+  // ---- Step display ----
+  function show(n) {
+    current = n;
+    for (var i = 0; i < steps.length; i++) {
+      steps[i].hidden = (Number(steps[i].getAttribute('data-step')) !== n);
+    }
+    bar.style.width = (n / LAST_STEP * 100) + '%';
+    label.textContent = n <= TOTAL_QUESTIONS
+      ? 'Question ' + n + ' of ' + TOTAL_QUESTIONS
+      : 'Last step';
+
+    btnBack.hidden = (n === 1);
+    btnNext.hidden = !(n === 1 || n === 4); // steps 2-3 auto-advance on click
+    btnSubmit.hidden = (n !== LAST_STEP);
+    hideError();
+
+    var firstField = steps[n - 1].querySelector('input:not([type=hidden]), textarea');
+    if (firstField && n === LAST_STEP) firstField.focus({ preventScroll: true });
+  }
+
+  function showError(msg) { errorBox.textContent = msg; errorBox.hidden = false; }
+  function hideError() { errorBox.hidden = true; errorBox.textContent = ''; }
+
+  // ---- Validation ----
+  function validateStep(n) {
+    if (n === 1) {
+      var typed = parseInt(customDays.value, 10);
+      if (customDays.value && !(typed >= 1 && typed <= 60)) return 'Please enter a number of days between 1 and 60.';
+      if (!tripLength()) return 'Please choose how long your trip is, or type a number of days.';
+    }
+    if (n === 2 && !val('travel_month')) return 'Please choose the month you are travelling.';
+    if (n === 3 && !val('travel_style')) return 'Please choose your travel style.';
+    if (n === 4 && !form.querySelector('input[name="interests"]:checked')) {
+      return 'Please pick at least one thing you want to experience.';
+    }
+    if (n === 5) {
+      var email = form.elements['email'];
+      if (!email.value.trim() || !email.checkValidity()) return 'Please enter a valid email address.';
+      if (!form.elements['consent'].checked) return 'Please tick the box so I can email you your plan.';
+    }
+    return '';
+  }
+
+  function goNext() {
+    var err = validateStep(current);
+    if (err) { showError(err); return; }
+    if (current === 4) {
+      track('tool_complete', { trip_days: tripLength(), travel_style: val('travel_style') });
+    }
+    if (current < LAST_STEP) show(current + 1);
+  }
+
+  // ---- Events ----
+  form.addEventListener('change', function (e) {
+    var t = e.target;
+    if (!started) { started = true; track('tool_start'); }
+
+    // visual "checked" state (works in every browser)
+    if (t.type === 'radio') {
+      var same = form.querySelectorAll('input[name="' + t.name + '"]');
+      for (var i = 0; i < same.length; i++) {
+        same[i].closest('.tp__opt').classList.toggle('is-checked', same[i].checked);
+      }
+      if (t.name === 'trip_length') customDays.value = '';
+      // auto-advance after a radio choice on steps 1-3
+      if (current <= 3) {
+        clearTimeout(advanceTimer);
+        advanceTimer = setTimeout(goNext, 250);
+      }
+    } else if (t.type === 'checkbox' && t.closest('.tp__opt')) {
+      t.closest('.tp__opt').classList.toggle('is-checked', t.checked);
+    }
+    hideError();
+  });
+
+  // Typing a custom number of days un-selects the preset options
+  customDays.addEventListener('input', function () {
+    if (!started) { started = true; track('tool_start'); }
+    if (customDays.value) {
+      var presets = form.querySelectorAll('input[name="trip_length"]');
+      for (var i = 0; i < presets.length; i++) {
+        presets[i].checked = false;
+        presets[i].closest('.tp__opt').classList.remove('is-checked');
+      }
+    }
+    hideError();
+  });
+
+  btnNext.addEventListener('click', goNext);
+  btnBack.addEventListener('click', function () {
+    clearTimeout(advanceTimer);
+    if (current > 1) show(current - 1);
+  });
+
+  // Enter key should never submit early
+  form.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      if (current < LAST_STEP) goNext(); else form.requestSubmit();
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var err = validateStep(LAST_STEP);
+    if (err) { showError(err); return; }
+
+    // Spam bots fill the hidden field — pretend success and stop
+    if (form.elements['_honey'].value) { form.hidden = true; success.hidden = false; return; }
+
+    var interests = [];
+    var boxes = form.querySelectorAll('input[name="interests"]:checked');
+    for (var i = 0; i < boxes.length; i++) interests.push(boxes[i].value);
+
+    var data = {
+      _subject: 'New trip plan request — Travel Readz',
+      _template: 'table',
+      _captcha: 'false',
+      'Trip length': tripLength(),
+      'Travel month': val('travel_month'),
+      'Travel style': val('travel_style'),
+      'Interests': interests.join(', '),
+      'First name': form.elements['first_name'].value.trim(),
+      'Email': form.elements['email'].value.trim(),
+      'Notes': form.elements['notes'].value.trim(),
+      'Consent to email': 'Yes — ' + new Date().toISOString(),
+      'Page': location.href
+    };
+    // Lets you hit "Reply" and answer the visitor directly
+    data._replyto = data['Email'];
+
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Sending...';
+    hideError();
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (res) { return res.json().then(function (j) { return { ok: res.ok, body: j }; }); })
+      .then(function (r) {
+        if (!r.ok || String(r.body.success) !== 'true') throw new Error('submit failed');
+        track('email_submit', { trip_days: data['Trip length'], travel_style: data['Travel style'] });
+        form.hidden = true;
+        success.hidden = false;
+        success.focus();
+      })
+      .catch(function () {
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = 'Send me my plan';
+        showError('Something went wrong. Please try again, or email me directly at hello@travelreadz.com.');
+      });
+  });
+
+  show(1);
+})();
+</script>
+
 
 
 <!-- PROBLEM -->
