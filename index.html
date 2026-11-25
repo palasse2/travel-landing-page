@@ -364,7 +364,15 @@
     .feature-title { font-size: 15px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.01em; }
     .feature-desc { font-size: 13.5px; color: var(--neutral-600); line-height: 1.6; }
 
-.author-section { padding: 0; background: #111; border-radius: 0; width: 100%; display: flex; }
+.author-section {
+  background: #111;
+  display: flex;
+  max-width: 960px;     /* 1. هادي كتصغرو */
+  margin: 80px auto;    /* 2. هادي كديرو فالوسط و كدير ليه الهوا من الفوق و لتحت */
+  border-radius: 28px;  /* 3. هادي كدور القنات */
+  overflow: hidden;     /* 4. هادي ضرورية باش التصويرة ماتخرجش من القنات المدورين */
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
 .author-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
