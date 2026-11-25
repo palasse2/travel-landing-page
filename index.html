@@ -1779,37 +1779,63 @@
 
 <!-- PROBLEM -->
 <section class="problem-section">
+  <style>
+    .problem-section .section-title{ font-weight: 800; text-wrap: balance; }
+    .problem-section .problem-card{ position: relative; padding-top: 60px; }
+    .problem-section .problem-loss{
+      position: absolute; top: 16px; right: 16px; max-width: calc(100% - 32px);
+      display: inline-block; padding: 5px 12px; border-radius: 999px;
+      background: #fdecea; color: #c0392b; border: 1px solid rgba(192,57,43,.22);
+      font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: .01em;
+      white-space: nowrap;
+    }
+    .problem-section .problem-cta{
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      margin-top: 28px; text-align: center;
+    }
+    .problem-section .problem-cta .btn-pill{ max-width: 100%; justify-content: center; text-align: center; }
+    .problem-section .problem-trust{ margin: 0; font-size: 13px; opacity: .7; }
+    @media (max-width: 480px){
+      .problem-section .problem-cta .btn-pill{ width: 100%; max-width: 340px; }
+    }
+  </style>
+
   <p class="section-label reveal" data-i18n="problem.label">The Problem</p>
-  <h2 class="section-title reveal reveal-delay-1" data-i18n="problem.title"> The mistakes that  cost  travelers
-    <br> hundreds  of  euros.</h2>
-  <p class="section-sub reveal reveal-delay-2" data-i18n="problem.sub">Most Morocco guides are written by outsiders. Here's what that costs you.</p>
+  <h2 class="section-title reveal reveal-delay-1" data-i18n="problem.title">Little mistakes that cost you hundreds.</h2>
+  <p class="section-sub reveal reveal-delay-2" data-i18n="problem.sub">TripAdvisor shows you the pretty version. This is what actually happens when you land without a plan.</p>
 
   <div class="problem-grid">
     <div class="problem-card reveal">
-      <div class="problem-num">01</div>
+      <span class="problem-loss" data-i18n="problem.1.loss">-€35</span>
       <div class="problem-title" data-i18n="problem.1.title">Tourist Trap Restaurants</div>
-      <div class="problem-desc" data-i18n="problem.1.desc">Overpriced tagines with mediocre taste while locals eat authentic food around the corner for a fraction of the price.</div>
+      <div class="problem-desc" data-i18n="problem.1.desc">You pay 180 MAD for a tagine. Locals pay 45 MAD next door. You do this 2x a day for 7 days = you lose €35 for nothing.</div>
     </div>
     <div class="problem-card reveal reveal-delay-1">
-      <div class="problem-num">02</div>
+      <span class="problem-loss" data-i18n="problem.2.loss">-€80</span>
       <div class="problem-title" data-i18n="problem.2.title">Common Scams</div>
-      <div class="problem-desc" data-i18n="problem.2.desc">Fake guides, inflated prices, and unnecessary "tours" targeting uninformed travelers every single day.</div>
+      <div class="problem-desc" data-i18n="problem.2.desc">Fake guide in Fes: 400 MAD. Taxi from airport: 500 MAD instead of 150 MAD. 'Free' henna: 200 MAD. In 1 day, you lose €80.</div>
     </div>
     <div class="problem-card reveal reveal-delay-2">
-      <div class="problem-num">03</div>
+      <span class="problem-loss" data-i18n="problem.3.loss">-€50</span>
       <div class="problem-title" data-i18n="problem.3.title">Cultural Mistakes</div>
-      <div class="problem-desc" data-i18n="problem.3.desc">Accidentally offending locals or standing out as a tourist due to gaps in cultural knowledge no guidebook covers.</div>
+      <div class="problem-desc" data-i18n="problem.3.desc">You don't just feel embarrassed. You get treated like a tourist everywhere and you pay tourist prices for everything. One mistake follows you for the whole trip.</div>
     </div>
     <div class="problem-card reveal reveal-delay-3">
-      <div class="problem-num">04</div>
+      <span class="problem-loss" data-i18n="problem.4.loss">-€100 + 7 Days Wasted</span>
       <div class="problem-title" data-i18n="problem.4.title">Cookie-Cutter Itineraries</div>
-      <div class="problem-desc" data-i18n="problem.4.desc">Following the same overcrowded route as every other tourist, missing the real Morocco hidden in plain sight.</div>
+      <div class="problem-desc" data-i18n="problem.4.desc">You follow TripAdvisor, you go to the same 5 places as 2 million tourists. You miss the real Morocco, and you pay tourist prices everywhere.</div>
     </div>
   </div>
 
   <div class="solution-callout reveal">
     <span class="sol-icon">✦</span>
-    <p><strong data-i18n="solution.strong">You deserve better.</strong> <span data-i18n="solution.text">This guide solves all of these with insider knowledge from someone who actually lives here — not a two-week vacation.</span></p>
+    <p><strong data-i18n="solution.strong">You deserve better than guesswork.</strong> <span data-i18n="solution.text">All 4 mistakes = €200+ lost. The guide is $12.99. You do the math.</span></p>
+  </div>
+
+  <div class="problem-cta reveal">
+    <a href="#pricing" class="btn-pill btn-primary btn-hero" data-i18n="problem.cta"
+       onclick="window.gtag&&gtag('event','click_buy',{button_location:'problem'})">Fix All 4 Mistakes — $12.99 →</a>
+    <p class="problem-trust" data-i18n="problem.trust">Instant PDF • Works offline • 7-day money-back guarantee</p>
   </div>
 </section>
 <!-- BOOK SHOWCASE / WHAT'S INSIDE -->
@@ -1872,145 +1898,193 @@
     <div class="book-section-inner">
   
       <!-- HEADER (unchanged, centered) -->
-      <div class="book-header reveal">
-        <p class="section-label" data-i18n="inside.label">What's Inside</p>
-        <h2 data-i18n="inside.title">Everything they forgot<br/>to put on TripAdvisor.</h2>
-        <p class="book-intro" data-i18n="inside.desc">This isn't a sanitized tourist pamphlet. It's the guide written by someone who has spent his whole life navigating Morocco's cities, mountains, desert, and coasts — and wants you to experience it the way locals do.</p>
-      </div>
-  
-      <div class="wi-grid">
-  
-        <!-- LEFT: animated showcase -->
-        <div class="wi-left">
-          <div class="wi-stage" aria-label="Unlocking Morocco as a book, on a phone and on a tablet">
-            <div class="wi-layer wi-stars"></div>
-            <div class="wi-layer wi-prods">
-              <img loading="lazy" decoding="async" class="wi-prod wi-book"   src="https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_700/v1794609738/cover_image_rn8kc1.png" alt="Unlocking Morocco Guide">
-              <img loading="lazy" decoding="async" class="wi-prod wi-phone"  src="https://res.cloudinary.com/dzidoxclo/image/upload/v1794749614/Picsart_26-11-15_13-28-13-552_xse5w1.png" alt="Unlocking Morocco on your phone">
-              <img loading="lazy" decoding="async" class="wi-prod wi-tablet" src="https://res.cloudinary.com/dzidoxclo/image/upload/v1794749615/Picsart_26-11-15_13-30-32-524_i50auj.png" alt="Unlocking Morocco on your tablet">
-            </div>
+      <section id="what-inside" class="wx">
+        <style>
+          .wx{
+            --wx-ink: var(--ink, #1c1b19);
+            --wx-muted: var(--muted, #6b6760);
+            --wx-line: rgba(28,27,25,.08);
+            --wx-accent: var(--green, #2f5d46);
+            padding: clamp(56px, 9vw, 112px) 20px;
+          }
+          .wx__inner{ max-width: 1120px; margin: 0 auto; }
+      
+          /* Header */
+          .wx__head{ text-align: center; max-width: 720px; margin: 0 auto clamp(36px, 6vw, 64px); }
+          .wx__head h2{ margin: 8px 0 14px; text-wrap: balance; }
+          .wx__sub{ margin: 0; color: var(--wx-muted); font-size: clamp(15px, 2vw, 18px); line-height: 1.5; text-wrap: balance; }
+      
+          /* Screenshots */
+          .wx__shots{
+            display: grid; grid-template-columns: 1fr; gap: 40px;
+            justify-items: center; margin-bottom: clamp(48px, 7vw, 80px);
+          }
+          .wx-shot{ margin: 0; width: 100%; max-width: 340px; }
+          .wx-shot__title{
+            margin: 0 0 14px; text-align: center;
+            font-size: 16px; line-height: 1.35; font-weight: 700; color: var(--wx-ink); text-wrap: balance;
+          }
+          .wx-shot__frame{
+            position: relative; aspect-ratio: 3 / 4; overflow: hidden;
+            border-radius: 14px; background: linear-gradient(160deg, #f4f1ea, #e7e2d6);
+            border: 1px solid var(--wx-line);
+            box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 18px 40px -12px rgba(0,0,0,.28);
+            transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s;
+          }
+          .wx-shot__frame img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+          /* page-spine shading so it reads as a real book page */
+          .wx-shot__frame::after{
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(90deg, rgba(0,0,0,.10) 0, rgba(0,0,0,0) 7%, rgba(255,255,255,.12) 8%, rgba(255,255,255,0) 14%);
+          }
+      
+          @media (min-width: 860px){
+            .wx__shots{ grid-template-columns: repeat(3, 1fr); gap: 36px; align-items: start; }
+            .wx-shot{ max-width: none; }
+            .wx-shot:nth-child(1) .wx-shot__frame{ transform: rotate(-2.2deg); }
+            .wx-shot:nth-child(2) .wx-shot__frame{ transform: translateY(-10px); }
+            .wx-shot:nth-child(3) .wx-shot__frame{ transform: rotate(2.2deg); }
+            .wx-shot:hover .wx-shot__frame{
+              transform: rotate(0) translateY(-6px);
+              box-shadow: 0 2px 4px rgba(0,0,0,.05), 0 28px 56px -14px rgba(0,0,0,.34);
+            }
+          }
+      
+          /* Benefit grid */
+          .wx__grid{
+            list-style: none; margin: 0 0 clamp(40px, 6vw, 64px); padding: 0;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+          }
+          @media (min-width: 860px){ .wx__grid{ grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+      
+          .wx-card{
+            background: #fff; border: 1px solid var(--wx-line); border-radius: 16px;
+            padding: 18px 16px; box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 8px 24px -14px rgba(0,0,0,.18);
+          }
+          @media (min-width: 860px){ .wx-card{ padding: 24px 22px; } }
+          .wx-card__icon{
+            width: 38px; height: 38px; border-radius: 10px; margin-bottom: 12px;
+            display: grid; place-items: center;
+            background: color-mix(in srgb, var(--wx-accent) 10%, transparent); color: var(--wx-accent);
+          }
+          .wx-card__icon svg{ width: 20px; height: 20px; }
+          .wx-card strong{ display: block; font-size: 15px; color: var(--wx-ink); margin-bottom: 4px; }
+          .wx-card span{ display: block; font-size: 13.5px; line-height: 1.45; color: var(--wx-muted); }
+          @media (min-width: 860px){
+            .wx-card strong{ font-size: 16px; }
+            .wx-card span{ font-size: 14.5px; }
+          }
+      
+          /* CTA */
+          .wx__cta{ display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+          .wx__btns{ display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 340px; }
+          .wx__btns .btn-pill{ width: 100%; justify-content: center; text-align: center; }
+          @media (min-width: 700px){
+            .wx__btns{ flex-direction: row; max-width: none; width: auto; gap: 14px; }
+            .wx__btns .btn-pill{ width: auto; }
+          }
+          .wx__trust{ margin: 0; font-size: 13px; color: var(--wx-muted); }
+        </style>
+      
+        <div class="wx__inner">
+      
+          <!-- Header -->
+          <div class="wx__head reveal">
+            <p class="section-label" data-i18n="inside.label">What's Inside</p>
+
+            <h2 class="section-title reveal reveal-delay-1" data-i18n="inside.title">Everything they forgot<br/>to put on TripAdvisor.</h2>
+            <p class="wx__sub" data-i18n="inside.sub">This isn't a tourist pamphlet. It's the real prices, the real scams, and the real places locals go.</p>
           </div>
-        </div>
-  
-        <!-- RIGHT: chapters + CTA -->
-        <div class="wi-right">
-          <ul class="wi-list">
-            <li class="wi-item"><div class="wi-icon">🤝</div><div><strong data-i18n="ch.1t">Culture &amp; Customs</strong><span data-i18n="ch.1s">What not to do in a riad</span></div></li>
-            <li class="wi-item"><div class="wi-icon">🍜</div><div><strong data-i18n="ch.2t">Food</strong><span data-i18n="ch.2s">The best 20-dirham meal in every city</span></div></li>
-            <li class="wi-item"><div class="wi-icon">🚌</div><div><strong data-i18n="ch.3t">Transport</strong><span data-i18n="ch.3s">CTM vs Supratours vs grand taxis</span></div></li>
-            <li class="wi-item"><div class="wi-icon">⚠️</div><div><strong data-i18n="ch.4t">Scams</strong><span data-i18n="ch.4s">The exact 7 traps tourists fall into</span></div></li>
-            <li class="wi-item"><div class="wi-icon">💸</div><div><strong data-i18n="ch.5t">Budget</strong><span data-i18n="ch.5s">Travel Morocco for €30/day</span></div></li>
-            <li class="wi-item"><div class="wi-icon">🏕️</div><div><strong data-i18n="ch.6t">Hidden Gems</strong><span data-i18n="ch.6s">Places locals go, not tourists</span></div></li>
-            <li class="wi-item"><div class="wi-icon">🌙</div><div><strong data-i18n="ch.7t">Ramadan Travel</strong><span data-i18n="ch.7s">How to navigate it respectfully</span></div></li>
-            <li class="wi-item"><div class="wi-icon">📱</div><div><strong data-i18n="ch.8t">Practical</strong><span data-i18n="ch.8s">SIM cards, money, safety, offline maps</span></div></li>
+      
+          <!-- 3 screenshots, headline ABOVE each -->
+          <div class="wx__shots">
+            <figure class="wx-shot reveal" aria-labelledby="wx-s1">
+              <h3 class="wx-shot__title" id="wx-s1" data-i18n="inside.s1h">The 7 traps - what they say, and what you say back</h3>
+              <div class="wx-shot__frame">
+                <img loading="lazy" decoding="async" src="/images/sample-scam.jpg" alt="" width="600" height="800">
+              </div>
+            </figure>
+      
+            <figure class="wx-shot reveal reveal-delay-1" aria-labelledby="wx-s2">
+              <h3 class="wx-shot__title" id="wx-s2" data-i18n="inside.s2h">Real Prices: Taxi 150 MAD, not 500</h3>
+              <div class="wx-shot__frame">
+                <img loading="lazy" decoding="async" src="/images/sample-prices.jpg" alt="" width="600" height="800">
+              </div>
+            </figure>
+      
+            <figure class="wx-shot reveal reveal-delay-2" aria-labelledby="wx-s3">
+              <h3 class="wx-shot__title" id="wx-s3" data-i18n="inside.s3h">7-Day Plan, Done For You</h3>
+              <div class="wx-shot__frame">
+                <img loading="lazy" decoding="async" src="/images/sample-itinerary.jpg" alt="" width="600" height="800">
+              </div>
+            </figure>
+          </div>
+      
+          <!-- 6 benefits -->
+          <ul class="wx__grid reveal">
+            <li class="wx-card">
+              <div class="wx-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+              </div>
+              <strong data-i18n="ch.4t">Scams</strong>
+              <span data-i18n="inside.b1d">25 scams, word-for-word scripts of what to say back</span>
+            </li>
+      
+            <li class="wx-card">
+              <div class="wx-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+              </div>
+              <strong data-i18n="ch.2t">Food</strong>
+              <span data-i18n="inside.b2d">Where locals eat, the best 20-dirham meal</span>
+            </li>
+      
+            <li class="wx-card">
+              <div class="wx-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg>
+              </div>
+              <strong data-i18n="ch.3t">Transport</strong>
+              <span data-i18n="inside.b3d">CTM vs Supratours, real taxi prices</span>
+            </li>
+      
+            <li class="wx-card">
+              <div class="wx-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
+              </div>
+              <strong data-i18n="ch.5t">Budget</strong>
+              <span data-i18n="inside.b4d">Full daily budget, no surprises</span>
+            </li>
+      
+            <li class="wx-card">
+              <div class="wx-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+              </div>
+              <strong data-i18n="ch.6t">Hidden Gems</strong>
+              <span data-i18n="inside.b5d">Places tourists never find</span>
+            </li>
+      
+            <li class="wx-card">
+              <div class="wx-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <strong data-i18n="ch.1t">Culture &amp; Customs</strong>
+              <span data-i18n="inside.b6d">What not to do in a riad, how to respect locals</span>
+            </li>
           </ul>
-          <div class="wi-cta reveal reveal-delay-3">
-            <a href="#pricing" class="btn-pill btn-primary" data-i18n="inside.cta">Get Insider Morocco Access →</a>
+      
+          <!-- CTA -->
+          <div class="wx__cta reveal">
+            <div class="wx__btns">
+              <a href="#pricing" class="btn-pill btn-primary" data-i18n="inside.cta1"
+                 onclick="window.gtag&&gtag('event','click_buy',{button_location:'inside'})">Get The Guide — $12.99 →</a>
+              <a href="/sample.pdf" target="_blank" rel="noopener" class="btn-pill btn-ghost" data-i18n="inside.cta2"
+                 onclick="window.gtag&&gtag('event','click_sample',{button_location:'inside'})">See A Free Sample Page</a>
+            </div>
+            <p class="wx__trust" data-i18n="inside.trust">Instant PDF • Works offline • 15-day money-back guarantee</p>
           </div>
+      
         </div>
-  
-      </div>
-    </div>
-  </section>
-  
-  <!-- GSAP + ScrollTrigger (pinned versions). Skip these two lines if your site already loads them. -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-  function wiInit(){
-    const root=document.getElementById('what-inside');
-    if(!root||!window.gsap||!window.ScrollTrigger) return;
-    gsap.registerPlugin(ScrollTrigger);
-  
-    const stage=root.querySelector('.wi-stage'),
-          starsL=root.querySelector('.wi-stars'),
-          prodsL=root.querySelector('.wi-prods'),
-          prods=[...root.querySelectorAll('.wi-prod')],
-          reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,
-          OP=parseFloat(getComputedStyle(stage).getPropertyValue('--star-o'))||.9;
-  
-    /* star images: assumed s1 = terracotta, s2 = forest green, s3 = sand */
-    const U={
-      s1:'https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_700/v1794609736/star_1_ujjxt7.png',
-      s2:'https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_700/v1794609736/star_2_jxfyn3.png',
-      s3:'https://res.cloudinary.com/dzidoxclo/image/upload/f_auto,q_auto,w_700/v1794609736/star_3_wjsnuz.png'
-    };
-    /* per star: [image, left %, top %, size % of stage, delay (s), seconds per turn] */
-    const SC=[
-      [['s1',76,22,55,0,90],  ['s2',24,78,40,.25,70], ['s3',26,24,26,.5,55]],   /* book   */
-      [['s2',72,76,60,.1,80], ['s3',28,24,42,.4,65],  ['s1',72,22,28,.65,50]],  /* phone  */
-      [['s3',16,52,50,0,85],  ['s1',86,40,38,.3,60],  ['s2',78,82,24,.6,45]]   /* tablet */
-    ];
-  
-    const groups=SC.map(sc=>sc.map(([k,x,y,s,d,sp],j)=>{
-      const w=document.createElement('div'); w.className='wi-star';
-      w.style.cssText=`left:${x}%;top:${y}%;width:${s}%;margin:${-s/2}% 0 0 ${-s/2}%`;
-      const im=new Image(); im.loading='lazy'; im.decoding='async'; im.src=U[k]; im.alt=''; im.draggable=false; w.appendChild(im);
-      starsL.appendChild(w);
-      return {w,im,d,sp:(j%2?-1:1)*sp};
-    }));
-    const allStars=groups.flat().map(g=>g.w);
-  
-    /* chapter list reveal */
-    if(!reduce){
-      gsap.from(root.querySelectorAll('.wi-item'),{opacity:0,y:28,duration:.8,ease:'power3.out',stagger:.09,
-        scrollTrigger:{trigger:'.wi-list',start:'top 82%',once:true}});
-    }
-  
-    /* reduced motion: still, finished composition */
-    if(reduce){ gsap.set(groups[0].map(g=>g.w),{opacity:OP}); return; }
-  
-    gsap.set(prods.slice(1),{opacity:0,scale:.96});
-    gsap.set(allStars,{opacity:0,scale:.2});
-  
-    const spins=groups.flat().map(g=>gsap.to(g.im,{rotation:g.sp>0?360:-360,duration:Math.abs(g.sp),ease:'none',repeat:-1,paused:true}));
-  
-    const E='power2.inOut';
-    function enter(tl,i,at){
-      tl.fromTo(prods[i],{opacity:0,scale:.96},{opacity:1,scale:1,duration:.8,ease:E,immediateRender:false},at);
-      groups[i].forEach(g=>tl.fromTo(g.w,{opacity:0,scale:.2},{opacity:OP,scale:1,duration:1.1,ease:'power3.out',immediateRender:false},at+.15+g.d));
-    }
-    function exit(tl,i,at){
-      tl.to(prods[i],{opacity:0,scale:.96,duration:.8,ease:E},at);
-      groups[i].forEach((g,j)=>tl.to(g.w,{opacity:0,scale:.3,duration:.7,ease:'power2.in'},at+j*.08));
-    }
-  
-    /* intro: first scene grows in once */
-    const intro=gsap.timeline({paused:true,onComplete:()=>loop.play()});
-    enter(intro,0,0);
-  
-    /* endless loop: book -> phone -> tablet -> book */
-    const P=3.2, loop=gsap.timeline({paused:true,repeat:-1});
-    for(let i=0;i<3;i++){ const at=(i+1)*P-1; exit(loop,i,at); enter(loop,(i+1)%3,at); }
-  
-    /* only run while visible */
-    ScrollTrigger.create({trigger:stage,start:'top 90%',end:'bottom 10%',
-      onToggle:s=>{
-        if(s.isActive){ intro.progress()<1?intro.play():loop.play(); spins.forEach(t=>t.play()); }
-        else{ intro.pause(); loop.pause(); spins.forEach(t=>t.pause()); }
-      }});
-  
-    /* gentle scroll parallax (stars and products drift at different speeds) */
-    const sc={trigger:stage,start:'top bottom',end:'bottom top',scrub:true};
-    gsap.fromTo(starsL,{yPercent:5},{yPercent:-5,ease:'none',scrollTrigger:sc});
-    gsap.fromTo(prodsL,{yPercent:1.5},{yPercent:-1.5,ease:'none',scrollTrigger:sc});
-  
-    /* subtle cursor tilt (desktop with a mouse only) */
-    if(matchMedia('(hover:hover) and (pointer:fine)').matches){
-      gsap.set([prodsL,starsL],{transformPerspective:900});
-      const o={duration:.9,ease:'power3'};
-      const rx=gsap.quickTo(prodsL,'rotationX',o), ry=gsap.quickTo(prodsL,'rotationY',o),
-            sx=gsap.quickTo(starsL,'x',o),        sy=gsap.quickTo(starsL,'y',o);
-      stage.addEventListener('pointermove',e=>{
-        const r=stage.getBoundingClientRect(),
-              nx=(e.clientX-r.left)/r.width-.5, ny=(e.clientY-r.top)/r.height-.5;
-        ry(nx*8); rx(-ny*8); sx(-nx*18); sy(-ny*18);
-      });
-      stage.addEventListener('pointerleave',()=>{rx(0);ry(0);sx(0);sy(0);});
-    }
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wiInit);else wiInit();
-  </script>
+      </section>
+
 
 <!-- DESTINATIONS DRAG STRIP -->
 <section class="destinations-section" id="destinations">
@@ -2400,7 +2474,57 @@ const translations = {
     "cta.label": "Ready?", "cta.title": "Your Morocco trip starts here.", "cta.sub": "Download instantly. Read on any device. Show up knowing things most tourists spend a whole trip figuring out.",
     "cta.btn1": "Get Unlocking Morocco — from $12.99 →", "cta.btn2": "Compare editions", "cta.guarantee": "📥 Instant PDF download · Works offline · All 3 languages included",
     "footer.about": "About", "footer.pricing": "Pricing", "footer.buy": "Get the Guide",
-    "sticky.from": "From", "sticky.cta": "Get the Ebook →"
+    "sticky.from": "From", "sticky.cta": "Get the Ebook →",
+    "tp.eyebrow": "Free · Personal · Within 48 hours", "tp.title": "Get your free Morocco trip plan", "tp.sub": "Answer 4 quick questions. I'm Soufiane, a Moroccan local. I'll build your plan by hand and email it to you.",
+"tp.step_label": "Question {n} of {total}", "tp.q1": "How long is your trip?",
+"tp.len1": "3–4 days",
+"tp.len2": "5–7 days",
+"tp.len3": "8–10 days",
+"tp.len4": "11+ days",
+"tp.custom": "Something else? Type the number of days",
+"tp.custom_ph": "e.g. 14",
+"tp.q2": "Which month are you travelling?",
+"tp.q3": "What's your travel style?",
+"tp.style1": "Budget",
+"tp.style1d": "Hostels & simple riads, local food",
+"tp.style2": "Mid-range",
+"tp.style2d": "Nice riads, a mix of local and comfort",
+"tp.style3": "Comfort",
+"tp.style3d": "Boutique stays, private transfers",
+"tp.q4": "What do you want to experience?",
+"tp.pickany": "(pick any)",
+"tp.int1": "Cities & medinas",
+"tp.int2": "Sahara desert",
+"tp.int3": "Atlas mountains",
+"tp.int4": "Beaches & coast",
+"tp.int5": "Local food",
+"tp.int6": "Hidden gems",
+"tp.q5": "Where should I send your plan?",
+"tp.fname": "First name",
+"tp.optional": "(optional)",
+"tp.email": "Email",
+"tp.notes": "Anything specific?",
+"tp.notes_ph": "Travelling with kids, a must-see city, budget per day...",
+"tp.consent": "I agree to receive my trip plan and occasional emails about Morocco travel from Travel Readz. I can unsubscribe anytime. See the <a href=\"/privacy\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
+"tp.back": "Back",
+"tp.next": "Next",
+"tp.submit": "Send me my plan",
+"tp.success_title": "You're all set 🇲🇦",
+"tp.success_text": "Thank you! I'll prepare your plan personally and email it to you within 48 hours. Check your spam folder if you don't see it.",
+"inside.sub": "This isn't a tourist pamphlet. It's the real prices, the real scams, and the real places locals go.",
+"inside.s1h": "The 7 traps - what they say, and what you say back",
+"inside.s2h": "Real Prices: Taxi 150 MAD, not 500",
+"inside.s3h": "7-Day Plan, Done For You",
+"inside.b1d": "25 scams, word-for-word scripts of what to say back",
+"inside.b2d": "Where locals eat, the best 20-dirham meal",
+"inside.b3d": "CTM vs Supratours, real taxi prices",
+"inside.b4d": "Full daily budget, no surprises",
+"inside.b5d": "Places tourists never find",
+"inside.b6d": "What not to do in a riad, how to respect locals",
+"inside.cta1": "Get The Guide — $12.99 →",
+"inside.cta2": "See A Free Sample Page",
+"inside.trust": "Instant PDF • Works offline • 15-day money-back guarantee",
+
   },
   fr: {
     "nav.inside": "Contenu", "nav.destinations": "Destinations", "nav.pricing": "Tarifs", "nav.author": "Auteur", "nav.cta": "Obtenir l'Ebook →",
@@ -2458,8 +2582,61 @@ const translations = {
     "cta.label": "Prêt ?", "cta.title": "Votre voyage au Maroc commence ici.", "cta.sub": "Téléchargez instantanément. Lisez sur n'importe quel appareil. Arrivez en sachant ce que la plupart des touristes mettent tout un voyage à comprendre.",
     "cta.btn1": "Obtenir Unlocking Morocco — à partir de $12.99 →", "cta.btn2": "Comparer les éditions", "cta.guarantee": "📥 Téléchargement PDF instantané · Fonctionne hors ligne · Les 3 langues incluses",
     "footer.about": "À Propos", "footer.pricing": "Tarifs", "footer.buy": "Obtenir le Guide",
-    "sticky.from": "À partir de", "sticky.cta": "Obtenir l'Ebook →"
+    "sticky.from": "À partir de", "sticky.cta": "Obtenir l'Ebook →",
+    "tp.eyebrow": "Gratuit · Personnalisé · Sous 48 heures",
+"tp.title": "Recevez votre plan de voyage gratuit pour le Maroc",
+"tp.sub": "Répondez à 4 questions rapides. Je suis Soufiane, un Marocain du cru. Je prépare votre plan à la main et je vous l'envoie par e-mail.",
+"tp.step_label": "Question {n} sur {total}",
+"tp.q1": "Quelle est la durée de votre voyage ?",
+"tp.len1": "3–4 jours",
+"tp.len2": "5–7 jours",
+"tp.len3": "8–10 jours",
+"tp.len4": "11+ jours",
+"tp.custom": "Autre durée ? Indiquez le nombre de jours",
+"tp.custom_ph": "ex. 14",
+"tp.q2": "Quel mois voyagez-vous ?",
+"tp.q3": "Quel est votre style de voyage ?",
+"tp.style1": "Petit budget",
+"tp.style1d": "Auberges et riads simples, cuisine locale",
+"tp.style2": "Milieu de gamme",
+"tp.style2d": "Beaux riads, un mélange de local et de confort",
+"tp.style3": "Confort",
+"tp.style3d": "Hébergements de charme, transferts privés",
+"tp.q4": "Qu'aimeriez-vous découvrir ?",
+"tp.pickany": "(plusieurs choix possibles)",
+"tp.int1": "Villes et médinas",
+"tp.int2": "Désert du Sahara",
+"tp.int3": "Montagnes de l'Atlas",
+"tp.int4": "Plages et côte",
+"tp.int5": "Cuisine locale",
+"tp.int6": "Trésors cachés",
+"tp.q5": "Où dois-je envoyer votre plan ?",
+"tp.fname": "Prénom",
+"tp.optional": "(facultatif)",
+"tp.email": "E-mail",
+"tp.notes": "Une demande particulière ?",
+"tp.notes_ph": "Voyage avec des enfants, une ville incontournable, budget par jour...",
+"tp.consent": "J'accepte de recevoir mon plan de voyage et quelques e-mails occasionnels sur les voyages au Maroc de la part de Travel Readz. Je peux me désinscrire à tout moment. Consultez la <a href=\"/privacy\" target=\"_blank\" rel=\"noopener\">Politique de confidentialité</a>.",
+"tp.back": "Retour",
+"tp.next": "Suivant",
+"tp.submit": "Envoyez-moi mon plan",
+"tp.success_title": "Tout est prêt ! 🇲🇦",
+"tp.success_text": "Merci ! Je prépare votre plan personnellement et vous l'envoie par e-mail sous 48 heures. Pensez à vérifier vos spams si vous ne le voyez pas.",
+"inside.sub": "Ce n'est pas une brochure touristique. Ce sont les vrais prix, les vraies arnaques et les vrais lieux que fréquentent les locaux.",
+"inside.s1h": "Les 7 pièges : ce qu'ils disent, et quoi répondre",
+"inside.s2h": "Vrais prix : taxi 150 MAD, pas 500",
+"inside.s3h": "Plan de 7 jours, tout prêt",
+"inside.b1d": "25 arnaques, avec les phrases exactes pour répondre",
+"inside.b2d": "Où mangent les locaux, le meilleur repas à 20 dirhams",
+"inside.b3d": "CTM vs Supratours, vrais prix de taxi",
+"inside.b4d": "Budget quotidien complet, sans surprise",
+"inside.b5d": "Des lieux que les touristes ne trouvent jamais",
+"inside.b6d": "Ce qu'il ne faut pas faire dans un riad, comment respecter les locaux",
+"inside.cta1": "Obtenir le guide — 12,99 $ →",
+"inside.cta2": "Voir une page d'exemple gratuite",
+"inside.trust": "PDF instantané • Fonctionne hors ligne • Garantie de remboursement de 15 jours",
   },
+
   es: {
     "nav.inside": "Contenido", "nav.destinations": "Destinos", "nav.pricing": "Precios", "nav.author": "Autor", "nav.cta": "Obtener el Ebook →",
     "hero.badge": "205 páginas · Actualizado 2026", "hero.title1a": "No te dejes", "hero.title1b": "estafar", "hero.title2": "en Marruecos.",
@@ -2516,7 +2693,60 @@ const translations = {
     "cta.label": "¿Listo?", "cta.title": "Tu viaje a Marruecos empieza aquí.", "cta.sub": "Descarga al instante. Lee en cualquier dispositivo. Llega sabiendo lo que la mayoría de turistas tardan un viaje entero en descubrir.",
     "cta.btn1": "Obtener Unlocking Morocco — desde $12.99 →", "cta.btn2": "Comparar ediciones", "cta.guarantee": "📥 Descarga PDF instantánea · Funciona sin conexión · Los 3 idiomas incluidos",
     "footer.about": "Acerca de", "footer.pricing": "Precios", "footer.buy": "Obtener la Guía",
-    "sticky.from": "Desde", "sticky.cta": "Obtener el Ebook →"
+    "sticky.from": "Desde", "sticky.cta": "Obtener el Ebook →",
+    "tp.eyebrow": "Gratis · Personal · En 48 horas",
+"tp.title": "Consigue tu plan de viaje gratis por Marruecos",
+"tp.sub": "Responde 4 preguntas rápidas. Soy Soufiane, marroquí de pura cepa. Prepararé tu plan a mano y te lo enviaré por email.",
+"tp.step_label": "Pregunta {n} de {total}",
+"tp.q1": "¿Cuánto dura tu viaje?",
+"tp.len1": "3–4 días",
+"tp.len2": "5–7 días",
+"tp.len3": "8–10 días",
+"tp.len4": "11+ días",
+"tp.custom": "¿Otra duración? Escribe el número de días",
+"tp.custom_ph": "p. ej. 14",
+"tp.q2": "¿En qué mes viajas?",
+"tp.q3": "¿Cuál es tu estilo de viaje?",
+"tp.style1": "Económico",
+"tp.style1d": "Albergues y riads sencillos, comida local",
+"tp.style2": "Gama media",
+"tp.style2d": "Buenos riads, una mezcla de lo local y la comodidad",
+"tp.style3": "Confort",
+"tp.style3d": "Alojamientos con encanto, traslados privados",
+"tp.q4": "¿Qué quieres vivir?",
+"tp.pickany": "(elige las que quieras)",
+"tp.int1": "Ciudades y medinas",
+"tp.int2": "Desierto del Sahara",
+"tp.int3": "Montañas del Atlas",
+"tp.int4": "Playas y costa",
+"tp.int5": "Comida local",
+"tp.int6": "Rincones ocultos",
+"tp.q5": "¿Dónde te envío tu plan?",
+"tp.fname": "Nombre",
+"tp.optional": "(opcional)",
+"tp.email": "Email",
+"tp.notes": "¿Algo en concreto?",
+"tp.notes_ph": "Viajo con niños, una ciudad imprescindible, presupuesto por día...",
+"tp.consent": "Acepto recibir mi plan de viaje y algún email ocasional sobre viajes a Marruecos de Travel Readz. Puedo darme de baja cuando quiera. Consulta la <a href=\"/privacy\" target=\"_blank\" rel=\"noopener\">Política de privacidad</a>.",
+"tp.back": "Atrás",
+"tp.next": "Siguiente",
+"tp.submit": "Enviarme mi plan",
+"tp.success_title": "¡Todo listo! 🇲🇦",
+"tp.success_text": "¡Gracias! Prepararé tu plan personalmente y te lo enviaré por email en un máximo de 48 horas. Revisa tu carpeta de spam si no lo ves.",
+"inside.sub": "Esto no es un folleto turístico. Son los precios reales, las estafas reales y los lugares reales que frecuentan los locales.",
+"inside.s1h": "Las 7 trampas: lo que dicen y qué responder",
+"inside.s2h": "Precios reales: taxi 150 MAD, no 500",
+"inside.s3h": "Plan de 7 días, listo para usar",
+"inside.b1d": "25 estafas, con frases exactas para responder",
+"inside.b2d": "Dónde comen los locales, la mejor comida de 20 dirhams",
+"inside.b3d": "CTM vs Supratours, precios reales de taxi",
+"inside.b4d": "Presupuesto diario completo, sin sorpresas",
+"inside.b5d": "Lugares que los turistas nunca encuentran",
+"inside.b6d": "Qué no hacer en un riad, cómo respetar a los locales",
+"inside.cta1": "Consigue la guía — $12.99 →",
+"inside.cta2": "Ver una página de muestra gratis",
+"inside.trust": "PDF instantáneo • Funciona sin conexión • Garantía de devolución de 15 días",
+
   }
 };
 
