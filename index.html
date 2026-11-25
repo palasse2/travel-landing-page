@@ -364,35 +364,72 @@
     .feature-title { font-size: 15px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.01em; }
     .feature-desc { font-size: 13.5px; color: var(--neutral-600); line-height: 1.6; }
 
-    /* ── AUTHOR ── */
-    .author-section { padding: 100px 0; background: var(--sand); }
-    .author-inner {
-      max-width: 860px; margin: 0 auto;
-      display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center;
-    }
-    @media (max-width: 640px) { .author-inner { grid-template-columns: 1fr; text-align: center; } }
-    .author-avatar {
-      width: 130px; height: 130px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--green-light), var(--green-deep));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 56px; box-shadow: 0 16px 40px rgba(39,80,57,0.28); flex-shrink: 0; overflow: hidden;
-    }
-    @media (max-width: 640px) { .author-avatar { margin: 0 auto; } }
-    .author-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(39,80,57,0.08); border: 1px solid rgba(39,80,57,0.12);
-      border-radius: 999px; padding: 4px 12px;
-      font-size: 11px; font-weight: 700; color: var(--green-deep);
-      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px;
-    }
-    .author-name { font-size: 1.9rem; font-weight: 900; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 12px; }
-    .author-bio { font-size: 15px; color: var(--neutral-600); line-height: 1.7; }
-.author-avatar img {
+.author-section { padding: 0; background: #111; border-radius: 0; }
+.author-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 640px;
+}
+.author-text {
+  background: #111111;
+  color: #fff;
+  padding: 60px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+}
+.author-title {
+  font-size: clamp(44px, 6vw, 88px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin: 0 0 32px;
+  color: #fff;
+}
+.author-p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 18px;
+  text-align: left;
+  max-width: 460px;
+}
+.author-quote { font-weight: 700; color: #fff; }
+.author-cta {
+  display: inline-block;
+  background: #22a35a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 12px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.author-sign {
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+}
+.author-photo { padding: 0; border-radius: 0; overflow: hidden; }
+.author-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
   display: block;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+@media (max-width: 768px) {
+  .author-split { grid-template-columns: 1fr; min-height: 0; }
+  .author-photo { order: -1; }
+  .author-photo img { height: 420px; }
+  .author-text { padding: 40px 24px; gap: 32px; }
+  .author-title { font-size: clamp(40px, 13vw, 64px); }
+  .author-p { max-width: none; }
 }
     /* ── TESTIMONIALS ── */
     .testimonials-section {
@@ -1871,20 +1908,22 @@
 
 <!-- AUTHOR -->
 <section class="author-section" id="author">
-  <div class="container">
-  <div class="author-inner">
-    <div class="author-avatar reveal">
-      <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1793998258/Professional_Studio_Portrait_p9dftj.png" alt="Soufiane">
+  <div class="author-split">
+    <div class="author-text">
+      <div>
+        <h2 class="author-title" data-i18n="author.badge">ABOUT<br>THE AUTHOR</h2>
+        <p class="author-p" data-i18n="author.bio">Soufiane is a Moroccan born and raised in Agadir. He grew up watching tourists get scammed, overpay, and leave having seen only the tourist version of Morocco.</p>
+        <p class="author-p" data-i18n="author.bio2">He has spent years helping friends and travelers through its cities, medinas, mountains and coastlines. No sponsorships, no filler, no outsider perspective.</p>
+        <p class="author-p author-quote" data-i18n="author.bio3">This is what I'd tell a close friend the night before their flight.</p>
+      </div>
+      <div class="author-foot">
+        <a href="#pricing" class="author-cta" data-i18n="author.cta">READ THE GUIDE →</a>
+        <div class="author-sign" data-i18n="author.name">Soufiane El Ghazzouani - Agadir, Morocco</div>
+      </div>
     </div>
-    <div>
-      <div class="author-badge reveal" data-i18n="author.badge">✍️ About the Author</div>
-      <h2 class="author-name reveal reveal-delay-1" data-i18n="author.name">Soufiane — Agadir, Morocco.</h2>
-      <p class="author-bio reveal reveal-delay-2" data-i18n="author.bio">
-        I'm Soufiane, born and raised in Morocco. I've spent my whole life navigating this country  its cities, its medinas, its mountains, and its coastlines. I wrote this guide because I was tired of watching tourists overpay, get scammed, and leave thinking they'd seen Morocco when they'd only seen the tourist version of it. This is what I'd tell a close friend the night before their flight. 
-        No sponsorships, no filler, no outsider perspective — just the real thing from someone who actually lives here.
-      </p>
+    <div class="author-photo">
+      <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1793998258/Professional_Studio_Portrait_p9dftj.png" alt="Soufiane, Agadir, Morocco">
     </div>
-  </div>
   </div>
 </section>
 
