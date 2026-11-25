@@ -1,0 +1,162 @@
+---
+// Save as src/pages/privacy.astro  ->  https://yourdomain.com/privacy
+const updated = '25 November 2026';
+const email = 'hello@travelreadz.com';
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy | Travel Readz</title>
+  <meta name="description" content="How Travel Readz collects, uses and protects your personal data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/">Travel Readz</a>
+    <a class="btn" href="/">← Back to home</a>
+  </nav>
+
+  <header>
+    <div class="label">Your data</div>
+    <h1>Privacy Policy</h1>
+    <p class="date">Last updated: {updated}</p>
+  </header>
+
+  <main>
+    <section>
+    <h2>1. Who we are</h2>
+    <p>Travel Readz is a Morocco travel brand run by Soufiane, based in Agadir, Morocco. We are responsible for the personal data described here. Contact: <a href={`mailto:${email}`}>{email}</a>.</p>
+    </section>
+    <section>
+    <h2>2. What we collect</h2>
+    <h3>Free trip plan form</h3>
+    <ul>
+      <li>Your trip length, travel month, travel style and interests</li>
+      <li>Your email address</li>
+      <li>Your first name and notes, if you choose to add them</li>
+      <li>The date and time of your consent, and the page you sent the form from</li>
+    </ul>
+    <p>Please don't put sensitive information, such as health details or ID numbers, in the notes box.</p>
+    <h3>When you contact us</h3>
+    <p>If you email or message us on WhatsApp, we receive your contact details and what you write.</p>
+    <h3>When you buy our ebook</h3>
+    <p>Sales are handled by Gumroad. Gumroad processes your payment under its own privacy policy and shares order details, such as your email address, with us. We do not receive your full card number.</p>
+    <h3>When you browse the site</h3>
+    <p>We use Google Analytics to see how the site is used: pages visited, device and browser type, approximate location, and actions such as starting or sending the trip form (including the trip length and travel style chosen). It uses cookies. Our hosting provider also processes technical data, such as your IP address, to deliver and protect the site.</p>
+    </section>
+    <section>
+    <h2>3. Why we use it and our legal basis</h2>
+    <ul>
+      <li><strong>To prepare and email your trip plan:</strong> because you asked us to.</li>
+      <li><strong>To send occasional emails about Morocco travel:</strong> your consent. You can withdraw it at any time.</li>
+      <li><strong>To answer your messages and support buyers:</strong> to handle your request or purchase.</li>
+      <li><strong>To improve the site and keep it secure:</strong> our legitimate interest in running it well.</li>
+    </ul>
+    <p>The email address is required to send you a plan. Without it we cannot send one.</p>
+    </section>
+    <section>
+    <h2>4. Who receives your data</h2>
+    <p>We do not sell your data. These services process it for us or alongside us:</p>
+    <ul>
+      <li><strong>FormSubmit:</strong> forwards the trip form to our email and keeps submissions for about 30 days</li>
+      <li><strong>Our email provider:</strong> receives and stores messages</li>
+      <li><strong>Vercel:</strong> website hosting</li>
+      <li><strong>Google Fonts:</strong> loads the site font and receives technical data such as your IP address</li>
+      <li><strong>Google Analytics:</strong> site statistics</li>
+      <li><strong>Gumroad:</strong> ebook sales</li>
+      <li><strong>WhatsApp:</strong> messages, if you contact us there</li>
+      <li><strong>Image hosting services:</strong> deliver pictures on the site and receive technical data such as your IP address</li>
+    </ul>
+    <p>We may also disclose data if the law requires it.</p>
+    </section>
+    <section>
+    <h2>5. International transfers</h2>
+    <p>We are based in Morocco, and some of the services above process data in other countries, including the United States. Their data protection rules may differ from those where you live. Contact us if you want to know more about a particular service.</p>
+    </section>
+    <section>
+    <h2>6. How long we keep it</h2>
+    <ul>
+      <li><strong>Trip plan requests:</strong> up to 12 months after our last contact with you</li>
+      <li><strong>Email list:</strong> until you unsubscribe or ask us to delete your address</li>
+      <li><strong>Analytics data linked to cookies or users:</strong> up to 14 months</li>
+      <li><strong>Purchase records:</strong> as long as tax and accounting rules require</li>
+    </ul>
+    </section>
+    <section>
+    <h2>7. Your rights</h2>
+    <p>Under Moroccan Law 09-08 you can ask to access or correct your data, and object to its use for legitimate reasons or for marketing.</p>
+    <p>If you are in the European Economic Area or the United Kingdom, you can also ask us to delete your data, restrict its use, or give you a portable copy, and you can object to processing based on legitimate interest.</p>
+    <p>To use any of these rights, email <a href={`mailto:${email}`}>{email}</a>. We aim to reply within one month. To stop marketing emails, reply "unsubscribe" or write to the same address.</p>
+    <p>You can also complain to a data protection authority: in Morocco, the <a href="https://www.cndp.ma" target="_blank" rel="noopener">CNDP</a>; elsewhere, the authority where you live.</p>
+    </section>
+    <section>
+    <h2>8. Cookies</h2>
+    <p>Google Analytics cookies help us count visits and understand usage. You can block or delete cookies in your browser settings, and the site will still work.</p>
+    </section>
+    <section>
+    <h2>9. Children</h2>
+    <p>Our form and products are not intended for children under 16.</p>
+    </section>
+    <section>
+    <h2>10. Changes</h2>
+    <p>If we change this policy, we will post the new version here and update the date above.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-brand">Travel Readz</span>
+    <a href="/">Home</a>
+    <span class="footer-copy">© 2026 Travel Readz</span>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --green-deep: #275039; --green-light: #9CF5BF; --green-pale: #E8F5E9;
+    --dark: #171717; --dark-2: #111111; --sand: #FAF9F6; --white: #ffffff;
+    --neutral-400: #a1a1a1; --neutral-600: #525252;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: var(--sand); color: var(--dark); font-family: 'Poppins', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--green-deep); font-weight: 600; overflow-wrap: anywhere; }
+
+  nav {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 100;
+    width: 92%; max-width: 1200px; display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 14px 10px 22px; border-radius: 999px;
+    background: rgba(255,255,255,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 4px 24px rgba(39,80,57,0.08);
+  }
+  .brand { font-size: 15px; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; text-decoration: none; }
+  .btn {
+    padding: 9px 20px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap;
+    background: var(--green-deep); color: var(--white); box-shadow: 0 4px 16px rgba(39,80,57,0.28); transition: all 0.2s ease;
+  }
+  .btn:hover { transform: scale(1.04); box-shadow: 0 6px 22px rgba(39,80,57,0.38); }
+
+  header { text-align: center; padding: 130px 24px 48px; }
+  .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--green-deep); margin-bottom: 14px; }
+  h1 { margin: 0 0 12px; font-size: clamp(1.9rem, 6vw, 3rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; }
+  .date { margin: 0; font-size: 1rem; color: var(--neutral-600); }
+
+  main { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; display: grid; gap: 20px; }
+  section { background: var(--white); border: 1.5px solid rgba(39,80,57,0.08); border-radius: 24px; padding: 28px; }
+  h2 { margin: 0 0 12px; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; color: var(--green-deep); }
+  h3 { margin: 20px 0 6px; font-size: 15px; font-weight: 800; }
+  p, li { font-size: 14px; line-height: 1.7; color: var(--neutral-600); }
+  p { margin: 10px 0 0; }
+  ul { margin: 8px 0 0; padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--green-deep); }
+  li strong { color: var(--dark); }
+
+  footer { background: var(--dark-2); padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .footer-brand { font-size: 14px; font-weight: 800; color: var(--white); }
+  footer a { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.45); }
+</style>
