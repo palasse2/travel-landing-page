@@ -1719,6 +1719,79 @@
     </div>
   </div>
 </section>
+  
+<style>
+  #destinations .cyl { --w: 260px; --h: 380px; --step: 30deg; --r: 530px; max-width: 1200px; margin: 0 auto; }
+  #destinations .cyl-stage { perspective: 1400px; height: calc(var(--h) + 100px); overflow: hidden; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; outline: none; }
+  #destinations .cyl-stage:active { cursor: grabbing; }
+  #destinations .cyl-ring { position: relative; width: var(--w); height: var(--h); margin: 28px auto 0; transform-style: preserve-3d; transform: translateZ(calc(var(--r) * -1)); }
+  #destinations .cyl-card {
+    position: absolute; inset: 0; overflow: hidden; border-radius: 24px;
+    background-color: #275039; background-size: cover; background-position: center;
+    background-image: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 100%), var(--img), linear-gradient(150deg, var(--g1), var(--g2));
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    transform: rotateY(calc(var(--d) * var(--step))) translateZ(var(--r));
+    opacity: calc(1 - var(--a) * .3);
+    box-shadow: 0 14px 30px rgba(0,0,0,.18);
+    transition: transform .7s cubic-bezier(.22,1,.36,1), opacity .5s ease, box-shadow .5s ease;
+    cursor: pointer;
+  }
+  #destinations .cyl-card.is-active { box-shadow: 0 24px 48px rgba(39,80,57,.34); cursor: default; }
+  #destinations .cyl-card.is-far { opacity: 0; pointer-events: none; }
+  #destinations .cyl-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px; text-align: left; color: #fff; }
+  #destinations .cyl-name { font-size: 1.75rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; margin: 0; }
+  #destinations .cyl-line { margin: 8px 0 0; font-size: 14px; line-height: 1.45; color: rgba(255,255,255,.92); opacity: 0; transform: translateY(6px); transition: opacity .4s ease .15s, transform .4s ease .15s; }
+  #destinations .cyl-card.is-active .cyl-line { opacity: 1; transform: none; }
+  #destinations .cyl-controls { display: flex; justify-content: center; gap: 12px; margin-top: 18px; }
+  #destinations .cyl-btn { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; border: 1.5px solid rgba(39,80,57,.18); background: #fff; color: var(--green-deep, #275039); cursor: pointer; transition: transform .2s, background .2s; }
+  #destinations .cyl-btn:hover { background: var(--green-pale, #E8F5E9); transform: scale(1.06); }
+  #destinations .cyl-btn:focus-visible, #destinations .cyl-stage:focus-visible { outline: 3px solid var(--green-light, #9CF5BF); outline-offset: 3px; }
+  #destinations .cyl-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  @media (max-width: 699px) {
+    #destinations .cyl { --w: 200px; --h: 300px; --step: 40deg; --r: 297px; width: 100vw; max-width: none; margin-left: calc(50% - 50vw); }
+    #destinations .cyl-name { font-size: 1.4rem; }
+    #destinations .cyl-info { padding: 16px; }
+    #destinations .cyl-line { font-size: 12.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) { #destinations .cyl-card, #destinations .cyl-line { transition: none; } }
+</style>
+
+<script>
+(function () {
+  var root = document.getElementById('cylCarousel'); if (!root) return;
+  var cards = [].slice.call(root.querySelectorAll('.cyl-card')), n = cards.length;
+  var i = 0, prev = [], timer, x0 = null, moved = false;
+  function render() {
+    var v = window.innerWidth < 700 ? 1 : 2;
+    cards.forEach(function (c, k) {
+      var d = ((k - i) % n + n) % n; if (d > n / 2) d -= n;
+      var wrap = prev[k] !== undefined && Math.abs(d - prev[k]) > n / 2;
+      if (wrap) c.style.transition = 'none';               // card jumping behind the cylinder: no sweep
+      c.style.setProperty('--d', d); c.style.setProperty('--a', Math.min(Math.abs(d), v + 1));
+      c.dataset.d = d; c.classList.toggle('is-active', d === 0); c.classList.toggle('is-far', Math.abs(d) > v);
+      if (wrap) { c.offsetWidth; c.style.transition = ''; }
+      prev[k] = d;
+    });
+  }
+  function go(s) { i = ((i + s) % n + n) % n; render(); }
+  function stop() { clearInterval(timer); }
+  function play() { stop(); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(function () { go(1); }, 4000); }
+  root.querySelector('.cyl-prev').onclick = function () { go(-1); };
+  root.querySelector('.cyl-next').onclick = function () { go(1); };
+  cards.forEach(function (c) { c.onclick = function () { if (!moved) go(+c.dataset.d); }; });
+  root.addEventListener('pointerdown', function (e) { x0 = e.clientX; moved = false; stop(); });
+  root.addEventListener('pointerup', function (e) {
+    if (x0 !== null && Math.abs(e.clientX - x0) > 40) { moved = true; go(e.clientX < x0 ? 1 : -1); }
+    x0 = null; play();
+  });
+  root.addEventListener('pointercancel', function () { x0 = null; play(); });
+  root.addEventListener('mouseenter', stop); root.addEventListener('mouseleave', play);
+  root.addEventListener('focusin', stop); root.addEventListener('focusout', play);
+  root.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') go(-1); if (e.key === 'ArrowRight') go(1); });
+  window.addEventListener('resize', render);
+  render(); play();
+})();
+</script>
 
 
   
