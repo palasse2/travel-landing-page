@@ -44,6 +44,8 @@
     }
 
     html { scroll-behavior: smooth; }
+    section, footer { width: 100%; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--white);
@@ -76,7 +78,6 @@
     nav.scrolled { background: rgba(255,255,255,0.96); box-shadow: 0 4px 24px rgba(39,80,57,0.14); }
     .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
     .nav-logo-img { height: 38px; width: auto; object-fit: contain; display: block; transition: height 0.45s cubic-bezier(0.4,0,0.6,1); }
-    .nav-logo-text { font-size: 15px; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; }
 
     /* Nav shrink state */
     nav.nav-shrunk { width: auto; max-width: none; padding: 7px 14px; }
@@ -114,8 +115,7 @@
     /* Sneak Peek scroll animations */
     .preview-card {
       transform-origin: center bottom;
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, box-shadow 0.3s;
-    }
+          }
     .preview-card.peek-visible {
       transform: scale(1.04) translateY(-4px);
       box-shadow: 0 20px 50px rgba(0,0,0,0.18);
@@ -173,18 +173,18 @@
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 120px 60px 80px;
+      min-height: 100vh; width: 100%;
+      display: flex; align-items: center;
+      padding: 120px 0 80px;
       background: var(--sand);
       position: relative; overflow: hidden;
-      gap: 60px;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 60px; position: relative;
     }
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding: 120px 24px 80px; text-align: center; }
-      .hero-right-wrap { display: flex; justify-content: center; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
     }
     .hero-bg-glow {
       position: absolute; top: -10%; left: 30%;
@@ -232,7 +232,6 @@
     }
     
     @media (max-width: 900px) { .hero-actions { justify-content: center; } }
-    .btn-hero { padding: 14px 30px; font-size: 15px; }
     .hero-stats {
       display: flex; gap: 28px; flex-wrap: wrap;
       animation: fadeSlideUp 0.7s 0.35s ease both;
@@ -272,9 +271,9 @@
     }
 
     /* ── PROBLEM SECTION ── */
-    .problem-section { padding: 100px 24px; background: var(--white); }
+    .problem-section { padding: 100px 0; background: var(--white); }
     .problem-grid {
-      max-width: 1060px; margin: 0 auto 40px;
+      margin: 0 0 40px;
       display: grid; grid-template-columns: repeat(2,1fr); gap: 20px;
     }
     @media (max-width: 640px) { .problem-grid { grid-template-columns: 1fr; } }
@@ -285,14 +284,9 @@
       transition: transform 0.25s, box-shadow 0.25s;
     }
     .problem-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(39,80,57,0.1); }
-    .problem-num {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--neutral-400); margin-bottom: 12px;
-    }
     .problem-title { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.01em; }
     .problem-desc { font-size: 13.5px; color: var(--neutral-600); line-height: 1.6; }
     .solution-callout {
-      max-width: 1060px; margin: 0 auto;
       background: var(--green-deep); border-radius: 24px;
       padding: 36px 48px; display: flex; align-items: center; gap: 24px;
     }
@@ -300,342 +294,40 @@
     .solution-callout .sol-icon { font-size: 2.2rem; flex-shrink: 0; }
     .solution-callout p { font-size: 1.05rem; color: rgba(255,255,255,0.9); line-height: 1.65; }
     .solution-callout strong { color: var(--green-light); }
-/* ── BOOK SHOWCASE ── */
-.book-section {
-  padding: 100px 24px;
-  background: var(--sand);
-  overflow: hidden;
-}
-
-.book-section-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 56px;
-}
-
-/* Header */
-.book-header {
-  text-align: center;
-  max-width: 640px;
-}
-.book-header h2 {
-  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  margin-bottom: 16px;
-  text-align: center;
-}
-.book-intro {
-  font-size: 1rem;
-  color: var(--neutral-600);
-  line-height: 1.7;
-  text-align: center;
-}
-
-/* Book + stats row */
-.book-showcase-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 48px;
-  width: 100%;
-}
-
-.book-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  min-width: 100px;
-}
-.book-star {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  min-width: 100px;
-}
-.stat-num {
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--green-deep);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--neutral-400);
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.book-mockup {
-  flex-shrink: 0;
-}
-.book-cover-img {
-  width: min(220px, 48vw);
-  border-radius: 16px;
-  padding: 20px;
-  background: white;
-  box-shadow:
-    0 40px 80px rgba(39,80,57,0.28),
-    0 8px 24px rgba(0,0,0,0.10);
-  transform: rotate(-1.5deg);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.book-cover-img:hover {
-  transform: rotate(0deg) scale(1.03);
-  box-shadow:
-    0 52px 96px rgba(39,80,57,0.32),
-    0 12px 32px rgba(0,0,0,0.12);
-}
-
-/* Chapter grid */
-.chapter-grid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  width: 100%;
-}
-
-.chapter-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 16px 18px;
-  background: white;
-  border-radius: 16px;
-  border: 1.5px solid rgba(39,80,57,0.07);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.chapter-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(39,80,57,0.09);
-}
-.chapter-card .chapter-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--green-pale);
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.chapter-card div:last-child {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.chapter-card strong {
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--dark);
-  line-height: 1.2;
-}
-.chapter-card span {
-  font-size: 12px;
-  color: var(--neutral-600);
-  line-height: 1.4;
-}
-
-/* CTA row */
-.book-cta-row {
-  display: flex;
-  justify-content: center;
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-  .book-section-inner { gap: 40px; }
-/* Book + stats row */
-.book-showcase-row {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 24px 0;
-}
-
-.book-mockup {
-  position: relative;
-  z-index: 1;
-}
-
-.book-cover-img {
-  width: min(220px, 48vw);
-  border-radius: 16px;
-  padding: 20px;
-  background: white;
-  box-shadow:
-    0 40px 80px rgba(39,80,57,0.28),
-    0 8px 24px rgba(0,0,0,0.10);
-  transform: rotate(-1.5deg);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.book-cover-img:hover {
-  transform: rotate(0deg) scale(1.03);
-  box-shadow:
-    0 52px 96px rgba(39,80,57,0.32),
-    0 12px 32px rgba(0,0,0,0.12);
-}
-
-.book-stat {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  background: white;
-  border-radius: 16px;
-  padding: 12px 20px;
-  box-shadow: 0 8px 28px rgba(39,80,57,0.15);
-  border: 1px solid rgba(39,80,57,0.08);
-  z-index: 2;
-  min-width: 110px;
-}
-
-/* rating — top right */
-.book-stat:first-child {
-  
-  top: 0px;
-  right: 60px;;
-  transform: rotate(2deg);
-}
-
-/* pages — bottom left */
-.book-stat:last-child {
-  bottom: 0px;
-  right: 150px;
-  transform: rotate(-2deg);
-}
-
-.stat-num {
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: var(--green-deep);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--neutral-400);
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-  .book-stat:first-child {
-    top: -10px;
-    right: calc(50% - 130px);
-  }}
-  .book-showcase-row {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 24px 0;
-}
-
-.book-mockup {
-  position: relative;
-  display: inline-flex;
-  justify-content: center;
-}
-
-.book-stat {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  background: white;
-  border-radius: 16px;
-  padding: 12px 20px;
-  box-shadow: 0 8px 28px rgba(39,80,57,0.15);
-  border: 1px solid rgba(39,80,57,0.08);
-  z-index: 2;
-  min-width: 110px;
-}
-
-.rating-badge {
-  top: 10px;
-  right: -30px;
-  transform: rotate(2deg);
-}
-
-.pages-badge {
-  bottom: 30px;
-  left: -30px;
-  transform: rotate(-2deg);
-}
-
-.stat-num {
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: var(--green-deep);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--neutral-400);
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-}
-
-
-  .chapter-grid { grid-template-columns: 1fr; gap: 10px; }
-
-  .chapter-card { padding: 14px 16px; }
-  .chapter-card strong { font-size: 13px; }
-  .chapter-card span { font-size: 11px; }
-
-    /* ── DESTINATIONS DRAG STRIP ── */
-    .destinations-section { padding: 100px 24px; background: var(--white); }
-    .drag-scroll {
-      overflow-x: auto; scrollbar-width: none; padding: 20px 0 32px; cursor: grab;
-      -webkit-overflow-scrolling: touch;
+/* ── HORIZONTAL STRIPS (Cities + Sneak Peek) ── */
+    .strip {
+      display: flex; gap: 20px; overflow-x: auto; overflow-y: hidden;
+      padding: 20px 4px 32px; scrollbar-width: none;
+      -webkit-overflow-scrolling: touch; cursor: grab;
     }
-    .drag-scroll::-webkit-scrollbar { display: none; }
-    .drag-scroll.dragging { cursor: grabbing; }
-    .drag-track { display: flex; gap: 20px; width: max-content; padding: 0 24px; }
+    .strip::-webkit-scrollbar { display: none; }
+    .strip.dragging { cursor: grabbing; user-select: none; }
+    .strip img { -webkit-user-drag: none; user-select: none; }
+
+    /* ── CITIES ── */
+    .destinations-section { padding: 100px 0; background: var(--white); }
     .dest-card {
-      width: 200px; height: 260px; border-radius: 28px;
-      background: var(--sand); border: 1.5px solid rgba(255,255,255,0.5);
+      flex: 0 0 200px; height: 260px; border-radius: 28px;
+      background: var(--c);
+      background: linear-gradient(160deg, var(--c), color-mix(in srgb, var(--c) 92%, var(--green-deep)));
+      border: 1.5px solid rgba(255,255,255,0.5);
       box-shadow: 0 10px 32px rgba(0,0,0,0.08);
       display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-      padding: 24px 16px; position: relative; overflow: hidden; flex-shrink: 0;
-      transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;    }
-    .dest-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.14); }
-    .dest-emoji {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -62%); font-size: 72px; line-height: 1; transition: transform 0.3s ease;
+      padding: 24px 16px; position: relative; overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .dest-card:hover .dest-emoji { transform: translate(-50%, -68%) scale(1.08); }
+    .dest-card::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.6) 0%, transparent 62%);
+    }
+    .dest-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.14); }
     .dest-name { font-size: 17px; font-weight: 900; color: var(--dark); letter-spacing: -0.02em; position: relative; z-index: 1; }
     .dest-pages { font-size: 11px; font-weight: 600; color: var(--neutral-400); margin-top: 3px; position: relative; z-index: 1; }
 
     /* ── PREVIEW STRIP ── */
-    .preview-section { padding: 80px 24px; background: var(--sand); }
-    .preview-track { display: flex; gap: 16px; width: max-content; padding: 0 24px; }
+    .preview-section { padding: 80px 0; background: var(--sand); }
     .preview-card {
-      width: 380px; height: 300px; border-radius: 20px; overflow: hidden; flex-shrink: 0;
+      flex: 0 0 380px; height: 300px; border-radius: 20px; overflow: hidden;
       box-shadow: 0 8px 28px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
     }
@@ -643,9 +335,8 @@
     .preview-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* ── FEATURES ── */
-    .features-section { padding: 100px 24px; background: var(--white); }
+    .features-section { padding: 100px 0; background: var(--white); }
     .features-grid {
-      max-width: 1100px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
     }
     @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2,1fr); } }
@@ -674,7 +365,7 @@
     .feature-desc { font-size: 13.5px; color: var(--neutral-600); line-height: 1.6; }
 
     /* ── AUTHOR ── */
-    .author-section { padding: 100px 24px; background: var(--sand); }
+    .author-section { padding: 100px 0; background: var(--sand); }
     .author-inner {
       max-width: 860px; margin: 0 auto;
       display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center;
@@ -684,7 +375,7 @@
       width: 130px; height: 130px; border-radius: 50%;
       background: linear-gradient(135deg, var(--green-light), var(--green-deep));
       display: flex; align-items: center; justify-content: center;
-      font-size: 56px; box-shadow: 0 16px 40px rgba(39,80,57,0.28); flex-shrink: 0;
+      font-size: 56px; box-shadow: 0 16px 40px rgba(39,80,57,0.28); flex-shrink: 0; overflow: hidden;
     }
     @media (max-width: 640px) { .author-avatar { margin: 0 auto; } }
     .author-badge {
@@ -696,15 +387,6 @@
     }
     .author-name { font-size: 1.9rem; font-weight: 900; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 12px; }
     .author-bio { font-size: 15px; color: var(--neutral-600); line-height: 1.7; }
-.author-avatar {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(39,80,57,0.28);
-  flex-shrink: 0;
-}
-
 .author-avatar img {
   width: 100%;
   height: 100%;
@@ -714,7 +396,7 @@
 }
     /* ── TESTIMONIALS ── */
     .testimonials-section {
-      padding: 100px 24px; background: var(--green-deep);
+      padding: 100px 0; background: var(--green-deep);
       overflow: hidden; position: relative;
     }
     .testimonials-section::before {
@@ -726,10 +408,9 @@
     .testimonials-section .section-title { color: white; }
     .testimonials-section .section-sub { color: rgba(255,255,255,0.6); }
     .testimonials-grid {
-      max-width: 1060px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
     }
-    @media (max-width: 860px) { .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; } }
+    @media (max-width: 860px) { .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
     .testimonial-card {
       background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
       border-radius: 24px; padding: 28px; backdrop-filter: blur(8px); transition: background 0.25s;
@@ -742,14 +423,14 @@
       width: 36px; height: 36px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 16px; background: rgba(156,245,191,0.15); border: 1px solid rgba(156,245,191,0.25);
+      overflow: hidden; flex-shrink: 0;
     }
     .testimonial-name { font-size: 13px; font-weight: 700; color: white; }
     .testimonial-origin { font-size: 11px; color: rgba(255,255,255,0.45); }
 
 /* ── BONUS SECTION ── */
-.bonus-section { padding: 100px 24px; background: var(--white); }
+.bonus-section { padding: 100px 0; background: var(--white); }
 .bonus-grid {
-  max-width: 1060px; margin: 0 auto;
   display: grid; grid-template-columns: repeat(2,1fr); gap: 24px;
 }
 @media (max-width: 640px) { .bonus-grid { grid-template-columns: 1fr; } }
@@ -861,7 +542,7 @@
 }
 
     /* ── PRICING ── */
-    .pricing-section { padding: 100px 24px; background: var(--sand); }
+    .pricing-section { padding: 100px 0; background: var(--sand); }
     .pricing-grid {
       max-width: 960px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; align-items: start;
@@ -926,7 +607,7 @@
     .payment-img { max-width: 260px; opacity: 0.65; display: block; margin: 24px auto 0; }
 
     /* ── FAQ ── */
-    .faq-section { padding: 100px 24px; background: var(--white); }
+    .faq-section { padding: 100px 0; background: var(--white); }
     .faq-grid {
       max-width: 900px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(2,1fr); gap: 20px;
@@ -949,7 +630,7 @@
       filter: drop-shadow(0 8px 30px rgba(156,245,191,0.25));
     }
     .cta-section {
-      padding: 100px 24px; background: var(--dark-2);
+      padding: 100px 0; background: var(--dark-2);
       text-align: center; position: relative; overflow: hidden;
     }
     .cta-section::before {
@@ -980,38 +661,13 @@
 
     /* ── FOOTER ── */
     .footer-logo-img { height: 32px; width: auto; object-fit: contain; opacity: 0.85; }
-    footer {
-      background: var(--dark-2); border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 40px 24px; display: flex; flex-wrap: wrap;
-      align-items: center; justify-content: space-between; gap: 16px;
-    }
-    .footer-brand { font-size: 14px; font-weight: 800; color: white; letter-spacing: -0.01em; }
+    footer { background: var(--dark-2); border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 0; }
+    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
     .footer-links { display: flex; gap: 20px; list-style: none; }
     .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: rgba(255,255,255,0.8); }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25);
     margin-bottom: 60px; }
-
-    /* Mobile nav fixes */
-    @media (max-width: 640px) {
-      nav { padding: 8px 12px 8px 10px; width: 96%; }
-      .nav-logo-img { height: 30px; }
-      .btn-pill.btn-primary { padding: 8px 14px; font-size: 12px; }
-      .lang-switcher { padding: 3px; }
-      .lang-btn { padding: 4px 7px; font-size: 10px; }
-    }
-
-    /* ── MOBILE STICKY CTA ── */
-    .mobile-sticky-cta {
-      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
-      background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(39,80,57,0.1);
-      padding: 12px 16px 20px; align-items: center; gap: 12px;
-    }
-    @media (max-width: 640px) { .mobile-sticky-cta { display: flex; } }
-    .mobile-sticky-cta .price-tag { font-size: 20px; font-weight: 900; color: var(--green-deep); letter-spacing: -0.03em; flex-shrink: 0; }
-    .mobile-sticky-cta .price-from { font-size: 10px; font-weight: 600; color: var(--neutral-400); text-transform: uppercase; letter-spacing: 0.08em; }
-    .mobile-sticky-cta .btn-pill { flex: 1; justify-content: center; padding: 13px 20px; font-size: 14px; }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeSlideUp {
@@ -1108,14 +764,6 @@
       .chip-insider { display: none; }
     }
 
-.testimonial-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
 .testimonial-avatar img {
   width: 100%;
   height: 100%;
@@ -1126,7 +774,7 @@
 .vip-scarcity {
   font-size: 12px;
   font-weight: 600;
-  color: var(--green-light); color: var(--green-deep);
+  color: var(--green-deep);
   background: rgba(14, 1, 1, 0.06);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px;
@@ -1155,235 +803,15 @@
   object-fit: contain;
   opacity: 1;
 }
-  </style>
-</head>
-<body>
 
-</head>
-<body>
+    /* ── WHAT'S INSIDE (single section, full-width background) ── */
+    #what-inside { position: relative; isolation: isolate; overflow-x: clip; background: var(--sand); }
+    #what-inside::before {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">
-    <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1778849739/Untitled_design_ik5bmt.png" alt="Travel Readz" class="nav-logo-img">
-  </a>
-  <div class="nav-links-wrap">
-    <ul class="nav-links">
-      <li><a href="#what-inside" data-i18n="nav.inside">Inside</a></li>
-      <li><a href="#destinations" data-i18n="nav.destinations">Destinations</a></li>
-      <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
-      <li><a href="#author" data-i18n="nav.author">Author</a></li>
-    </ul>
-  </div>
-  <div class="nav-right">
-    <div class="lang-switcher" id="desktopLangSwitcher">
-      <button class="lang-btn active" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="fr">FR</button>
-      <button class="lang-btn" data-lang="es">ES</button>
-    </div>
- <a href="#pricing" class="btn-pill btn-primary" data-i18n="nav.cta">Get the guide </a>
-
-
-  </div>
-</nav>
-
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-glow"></div>
-
-  <div class="hero-left">
-    <div class="hero-badge">
-      <div class="hero-badge-dot">🇲🇦</div>
-      <span data-i18n="hero.badge">205 Pages · Updated 2026</span>
-    </div>
-
-    
-<h1 class="hero-title">
-  <span data-i18n="hero.title1a">Don't</span>
-  <span class="underline-green" data-i18n="hero.title1b">Get Scammed</span> <br/>
-  <em data-i18n="hero.title2">in Morocco.</em>
-</h1>
-    <p class="hero-sub" data-i18n="hero.sub">
-      The 205-page guide by a Moroccan that shows you every scam, every real price , and exactly what to say - before you land <p/>
-
-        
-    <div class="hero-actions">
-  <a href="#pricing" class="btn-pill btn-primary btn-hero"
-     data-i18n="hero.cta1b"
-     onclick="window.gtag&&gtag('event','click_buy',{button_location:'hero'})">Get My Scam-Proof Guide — $12.99 →</a>
-  <a href="#trip-planner" class="btn-pill btn-ghost btn-hero btn-hero-2"
-     data-i18n="hero.cta2b"
-     onclick="window.gtag&&gtag('event','click_free_plan',{button_location:'hero'})">🗺️ Or get a free trip plan</a>
-  <p class="hero-trust" data-i18n="hero.trust">Instant PDF · 7-day guarantee · 70+ travelers</p>
-    </div>
-
-
-    
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">205</div>
-        <div class="hero-stat-label" data-i18n="hero.stat.pages">Pages</div>
-      </div>
-      <div class="hero-divider"></div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">20+</div>
-        <div class="hero-stat-label" data-i18n="hero.stat.chapters">Chapters</div>
-      </div>
-      <div class="hero-divider"></div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">$12</div>
-        <div class="hero-stat-label" data-i18n="hero.stat.from">Starts at</div>
-      </div>
-      <div class="hero-divider"></div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">3</div>
-        <div class="hero-stat-label" data-i18n="hero.stat.tiers">Tiers</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- THREE.JS BOOK SHOWCASE -->
-  <div class="hero-right-wrap">
-    <div id="book-canvas-wrap">
-      <div class="canvas-glow"></div>
-      <canvas id="book-canvas"></canvas>
-
-      <!-- Floating chips — appear after book enters -->
-      <div class="book-chip chip-pages" id="chipPages">
-        <div class="book-chip-dot">📖</div>
-        <span>205 pages of insider knowledge</span>
-      </div>
-      <div class="book-chip chip-rating" id="chipRating">
-        <div class="book-chip-dot">⭐</div>
-        <span>Helping 70+ travelers</span>
-      </div>
-      <div class="book-chip chip-insider" id="chipInsider">
-        <div class="book-chip-dot">🇲🇦</div>
-        <span>Written by a Moroccan local</span>
-      </div>
-
-      <div class="scroll-hint" id="scrollHint">
-        <span>Scroll</span>
-        <div class="scroll-hint-line"></div>
-      </div>
-    </div>
-  </div>
-</section>
-  <!-- ============================================================
-  TRAVEL READZ — Free Trip Plan form
-  Paste this whole block directly under your hero section.
-  Submissions are emailed to hello@travelreadz.com via FormSubmit.
-  ============================================================ -->
-
-<section id="trip-planner" class="tp" aria-labelledby="tp-title">
-  <div class="tp__card">
-    <p class="tp__eyebrow">Free · Personal · Within 48 hours</p>
-    <h2 id="tp-title">Get your free Morocco trip plan</h2>
-    <p class="tp__sub">
-      Answer 4 quick questions. I'm Soufiane, a Moroccan local.
-      I'll build your plan by hand and email it to you.
-    </p>
-
-    <form id="tp-form" novalidate>
-      <!-- Anti-spam honeypot: real visitors never see or fill this -->
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="tp__honey" aria-hidden="true">
-
-      <div class="tp__progress" aria-hidden="true"><span id="tp-bar"></span></div>
-      <p class="tp__step-label" id="tp-step-label" aria-live="polite">Question 1 of 4</p>
-
-      <!-- Step 1 -->
-      <fieldset class="tp__step" data-step="1">
-        <legend>How long is your trip?</legend>
-        <div class="tp__grid">
-          <label class="tp__opt"><input type="radio" name="trip_length" value="3-4 days"><span>3–4 days</span></label>
-          <label class="tp__opt"><input type="radio" name="trip_length" value="5-7 days"><span>5–7 days</span></label>
-          <label class="tp__opt"><input type="radio" name="trip_length" value="8-10 days"><span>8–10 days</span></label>
-          <label class="tp__opt"><input type="radio" name="trip_length" value="11+ days"><span>11+ days</span></label>
-        </div>
-        <label class="tp__field tp__custom">
-          <span>Something else? Type the number of days</span>
-          <input type="number" name="trip_days_custom" min="1" max="60" step="1" inputmode="numeric" placeholder="e.g. 14">
-        </label>
-      </fieldset>
-
-      <!-- Step 2 -->
-      <fieldset class="tp__step" data-step="2" hidden>
-        <legend>Which month are you travelling?</legend>
-        <div class="tp__grid tp__grid--3" id="tp-months"><!-- the next 12 months are added by the script --></div>
-      </fieldset>
-
-      <!-- Step 3 -->
-      <fieldset class="tp__step" data-step="3" hidden>
-        <legend>What's your travel style?</legend>
-        <div class="tp__grid tp__grid--1">
-          <label class="tp__opt"><input type="radio" name="travel_style" value="Budget"><span>Budget<small>Hostels &amp; simple riads, local food</small></span></label>
-          <label class="tp__opt"><input type="radio" name="travel_style" value="Mid-range"><span>Mid-range<small>Nice riads, a mix of local and comfort</small></span></label>
-          <label class="tp__opt"><input type="radio" name="travel_style" value="Comfort"><span>Comfort<small>Boutique stays, private transfers</small></span></label>
-        </div>
-      </fieldset>
-
-      <!-- Step 4 -->
-      <fieldset class="tp__step" data-step="4" hidden>
-        <legend>What do you want to experience? <small>(pick any)</small></legend>
-        <div class="tp__grid">
-          <label class="tp__opt"><input type="checkbox" name="interests" value="Cities &amp; medinas"><span>Cities &amp; medinas</span></label>
-          <label class="tp__opt"><input type="checkbox" name="interests" value="Sahara desert"><span>Sahara desert</span></label>
-          <label class="tp__opt"><input type="checkbox" name="interests" value="Atlas mountains"><span>Atlas mountains</span></label>
-          <label class="tp__opt"><input type="checkbox" name="interests" value="Beaches &amp; coast"><span>Beaches &amp; coast</span></label>
-          <label class="tp__opt"><input type="checkbox" name="interests" value="Food"><span>Local food</span></label>
-          <label class="tp__opt"><input type="checkbox" name="interests" value="Hidden gems"><span>Hidden gems</span></label>
-        </div>
-      </fieldset>
-
-      <!-- Step 5: contact -->
-      <fieldset class="tp__step" data-step="5" hidden>
-        <legend>Where should I send your plan?</legend>
-
-        <label class="tp__field">
-          <span>First name <small>(optional)</small></span>
-          <input type="text" name="first_name" autocomplete="given-name" maxlength="60">
-        </label>
-
-        <label class="tp__field">
-          <span>Email</span>
-          <input type="email" name="email" autocomplete="email" inputmode="email" required maxlength="120">
-        </label>
-
-        <label class="tp__field">
-          <span>Anything specific? <small>(optional)</small></span>
-          <textarea name="notes" rows="3" maxlength="500" placeholder="Travelling with kids, a must-see city, budget per day..."></textarea>
-        </label>
-
-        <label class="tp__consent">
-          <input type="checkbox" name="consent" value="yes" required>
-          <span>
-            I agree to receive my trip plan and occasional emails about Morocco travel from Travel Readz.
-            I can unsubscribe anytime. See the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.
-          </span>
-        </label>
-      </fieldset>
-
-      <p class="tp__error" id="tp-error" role="alert" hidden></p>
-
-      <div class="tp__nav">
-        <button type="button" class="tp__btn tp__btn--ghost" id="tp-back" hidden>Back</button>
-        <button type="button" class="tp__btn" id="tp-next" hidden>Next</button>
-        <button type="submit" class="tp__btn" id="tp-submit" hidden>Send me my plan</button>
-      </div>
-    </form>
-
-    <div class="tp__success" id="tp-success" hidden tabindex="-1">
-      <h3>You're all set 🇲🇦</h3>
-      <p>
-        Thank you! I'll prepare your plan personally and email it to you
-        within 48 hours. Check your spam folder if you don't see it.
-      </p>
-    </div>
-  </div>
-</section>
-
-<style>
+    /* ── FREE TRIP PLAN FORM ── */
   /* Colours/font come from the site's own :root variables; fallbacks keep it working alone */
   #trip-planner {
     --tp-accent: var(--green-deep, #275039);
@@ -1396,7 +824,7 @@
     --tp-card: var(--sand, #FAF9F6);
     --tp-border: rgba(39, 80, 57, 0.14);
 
-    padding: 80px 24px;
+    padding: 80px 0;
     background: var(--white, #ffffff);
     font-family: 'Poppins', sans-serif;
     color: var(--tp-text);
@@ -1530,10 +958,345 @@
     #trip-planner .tp__card { padding: 44px 48px; }
   }
   @media (max-width: 420px) {
-    #trip-planner { padding: 56px 16px; }
+    #trip-planner { padding: 56px 0; }
     #trip-planner .tp__grid--3 { grid-template-columns: repeat(2, 1fr); }
   }
-</style>
+
+    /* ── PROBLEM extras ── */
+    .problem-section .section-title{ font-weight: 800; text-wrap: balance; }
+    .problem-section .problem-card{ position: relative; padding-top: 60px; }
+    .problem-section .problem-loss{
+      position: absolute; top: 16px; right: 16px; max-width: calc(100% - 32px);
+      display: inline-block; padding: 5px 12px; border-radius: 999px;
+      background: #fdecea; color: #c0392b; border: 1px solid rgba(192,57,43,.22);
+      font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: .01em;
+      white-space: nowrap;
+    }
+    .problem-section .problem-cta{
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      margin-top: 28px; text-align: center;
+    }
+    .problem-section .problem-cta .btn-pill{ max-width: 100%; justify-content: center; text-align: center; }
+    .problem-section .problem-trust{ margin: 0; font-size: 13px; opacity: .7; }
+    @media (max-width: 480px){
+      .problem-section .problem-cta .btn-pill{ width: 100%; max-width: 340px; }
+    }
+  
+
+    /* ── WHAT'S INSIDE contents ── */
+          .wx{
+            --wx-ink: var(--ink, #1c1b19);
+            --wx-muted: var(--muted, #6b6760);
+            --wx-line: rgba(28,27,25,.08);
+            --wx-accent: var(--green, #2f5d46);
+            padding: clamp(56px, 9vw, 112px) 0;
+          }
+      
+          /* Header */
+          .wx__head{ text-align: center; max-width: 720px; margin: 0 auto clamp(36px, 6vw, 64px); }
+          .wx__head h2{ margin: 8px 0 14px; text-wrap: balance; }
+          .wx__sub{ margin: 0; color: var(--wx-muted); font-size: clamp(15px, 2vw, 18px); line-height: 1.5; text-wrap: balance; }
+      
+          /* Screenshots */
+          .wx__shots{
+            display: grid; grid-template-columns: 1fr; gap: 40px;
+            justify-items: center; margin-bottom: clamp(48px, 7vw, 80px);
+          }
+          .wx-shot{ margin: 0; width: 100%; max-width: 340px; }
+          .wx-shot__title{
+            margin: 0 0 14px; text-align: center;
+            font-size: 16px; line-height: 1.35; font-weight: 700; color: var(--wx-ink); text-wrap: balance;
+          }
+          .wx-shot__frame{
+            position: relative; aspect-ratio: 3 / 4; overflow: hidden;
+            border-radius: 14px; background: linear-gradient(160deg, #f4f1ea, #e7e2d6);
+            border: 1px solid var(--wx-line);
+            box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 18px 40px -12px rgba(0,0,0,.28);
+            transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s;
+          }
+          .wx-shot__frame img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+          /* page-spine shading so it reads as a real book page */
+          .wx-shot__frame::after{
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(90deg, rgba(0,0,0,.10) 0, rgba(0,0,0,0) 7%, rgba(255,255,255,.12) 8%, rgba(255,255,255,0) 14%);
+          }
+      
+          @media (min-width: 860px){
+            .wx__shots{ grid-template-columns: repeat(3, 1fr); gap: 36px; align-items: start; }
+            .wx-shot{ max-width: none; }
+            .wx-shot:nth-child(1) .wx-shot__frame{ transform: rotate(-2.2deg); }
+            .wx-shot:nth-child(2) .wx-shot__frame{ transform: translateY(-10px); }
+            .wx-shot:nth-child(3) .wx-shot__frame{ transform: rotate(2.2deg); }
+            .wx-shot:hover .wx-shot__frame{
+              transform: rotate(0) translateY(-6px);
+              box-shadow: 0 2px 4px rgba(0,0,0,.05), 0 28px 56px -14px rgba(0,0,0,.34);
+            }
+          }
+      
+          /* Benefit grid */
+          .wx__grid{
+            list-style: none; margin: 0 0 clamp(40px, 6vw, 64px); padding: 0;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+          }
+          @media (min-width: 860px){ .wx__grid{ grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+      
+          .wx-card{
+            background: #fff; border: 1px solid var(--wx-line); border-radius: 16px;
+            padding: 18px 16px; box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 8px 24px -14px rgba(0,0,0,.18);
+          }
+          @media (min-width: 860px){ .wx-card{ padding: 24px 22px; } }
+          .wx-card__icon{
+            width: 38px; height: 38px; border-radius: 10px; margin-bottom: 12px;
+            display: grid; place-items: center;
+            background: color-mix(in srgb, var(--wx-accent) 10%, transparent); color: var(--wx-accent);
+          }
+          .wx-card__icon svg{ width: 20px; height: 20px; }
+          .wx-card strong{ display: block; font-size: 15px; color: var(--wx-ink); margin-bottom: 4px; }
+          .wx-card span{ display: block; font-size: 13.5px; line-height: 1.45; color: var(--wx-muted); }
+          @media (min-width: 860px){
+            .wx-card strong{ font-size: 16px; }
+            .wx-card span{ font-size: 14.5px; }
+          }
+      
+          /* CTA */
+          .wx__cta{ display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+          .wx__btns{ display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 340px; }
+          .wx__btns .btn-pill{ width: 100%; justify-content: center; text-align: center; }
+          @media (min-width: 700px){
+            .wx__btns{ flex-direction: row; max-width: none; width: auto; gap: 14px; }
+            .wx__btns .btn-pill{ width: auto; }
+          }
+          .wx__trust{ margin: 0; font-size: 13px; color: var(--wx-muted); }
+        
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1778849739/Untitled_design_ik5bmt.png" alt="Travel Readz" class="nav-logo-img">
+  </a>
+  <div class="nav-links-wrap">
+    <ul class="nav-links">
+      <li><a href="#what-inside" data-i18n="nav.inside">Inside</a></li>
+      <li><a href="#destinations" data-i18n="nav.destinations">Destinations</a></li>
+      <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="#author" data-i18n="nav.author">Author</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <div class="lang-switcher" id="desktopLangSwitcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+ <a href="#pricing" class="btn-pill btn-primary" data-i18n="nav.cta">Get the guide </a>
+
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="container hero-inner">
+
+  <div class="hero-left">
+    <div class="hero-badge">
+      <div class="hero-badge-dot">🇲🇦</div>
+      <span data-i18n="hero.badge">205 Pages · Updated 2026</span>
+    </div>
+
+    
+<h1 class="hero-title">
+  <span data-i18n="hero.title1a">Don't</span>
+  <span class="underline-green" data-i18n="hero.title1b">Get Scammed</span> <br/>
+  <em data-i18n="hero.title2">in Morocco.</em>
+</h1>
+    <p class="hero-sub" data-i18n="hero.sub">
+      The 205-page guide by a Moroccan that shows you every scam, every real price , and exactly what to say - before you land </p>
+
+        
+    <div class="hero-actions">
+  <a href="#pricing" class="btn-pill btn-primary btn-hero"
+     data-i18n="hero.cta1b"
+     onclick="window.gtag&&gtag('event','click_buy',{button_location:'hero'})">Get My Scam-Proof Guide — $12.99 →</a>
+  <a href="#trip-planner" class="btn-pill btn-ghost btn-hero btn-hero-2"
+     data-i18n="hero.cta2b"
+     onclick="window.gtag&&gtag('event','click_free_plan',{button_location:'hero'})">🗺️ Or get a free trip plan</a>
+  <p class="hero-trust" data-i18n="hero.trust">Instant PDF · 7-day guarantee · 70+ travelers</p>
+    </div>
+
+
+    
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">205</div>
+        <div class="hero-stat-label" data-i18n="hero.stat.pages">Pages</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">20+</div>
+        <div class="hero-stat-label" data-i18n="hero.stat.chapters">Chapters</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$12</div>
+        <div class="hero-stat-label" data-i18n="hero.stat.from">Starts at</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label" data-i18n="hero.stat.tiers">Tiers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THREE.JS BOOK SHOWCASE -->
+  <div class="hero-right-wrap">
+    <div id="book-canvas-wrap">
+      <div class="canvas-glow"></div>
+      <canvas id="book-canvas"></canvas>
+
+      <!-- Floating chips — appear after book enters -->
+      <div class="book-chip chip-pages" id="chipPages">
+        <div class="book-chip-dot">📖</div>
+        <span>205 pages of insider knowledge</span>
+      </div>
+      <div class="book-chip chip-rating" id="chipRating">
+        <div class="book-chip-dot">⭐</div>
+        <span>Helping 70+ travelers</span>
+      </div>
+      <div class="book-chip chip-insider" id="chipInsider">
+        <div class="book-chip-dot">🇲🇦</div>
+        <span>Written by a Moroccan local</span>
+      </div>
+
+      <div class="scroll-hint" id="scrollHint">
+        <span>Scroll</span>
+        <div class="scroll-hint-line"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+  <!-- ============================================================
+  TRAVEL READZ — Free Trip Plan form
+  Paste this whole block directly under your hero section.
+  Submissions are emailed to hello@travelreadz.com via FormSubmit.
+  ============================================================ -->
+
+<section id="trip-planner" class="tp" aria-labelledby="tp-title">
+  <div class="container">
+  <div class="tp__card">
+    <p class="tp__eyebrow">Free · Personal · Within 48 hours</p>
+    <h2 id="tp-title">Get your free Morocco trip plan</h2>
+    <p class="tp__sub">
+      Answer 4 quick questions. I'm Soufiane, a Moroccan local.
+      I'll build your plan by hand and email it to you.
+    </p>
+
+    <form id="tp-form" novalidate>
+      <!-- Anti-spam honeypot: real visitors never see or fill this -->
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="tp__honey" aria-hidden="true">
+
+      <div class="tp__progress" aria-hidden="true"><span id="tp-bar"></span></div>
+      <p class="tp__step-label" id="tp-step-label" aria-live="polite">Question 1 of 4</p>
+
+      <!-- Step 1 -->
+      <fieldset class="tp__step" data-step="1">
+        <legend>How long is your trip?</legend>
+        <div class="tp__grid">
+          <label class="tp__opt"><input type="radio" name="trip_length" value="3-4 days"><span>3–4 days</span></label>
+          <label class="tp__opt"><input type="radio" name="trip_length" value="5-7 days"><span>5–7 days</span></label>
+          <label class="tp__opt"><input type="radio" name="trip_length" value="8-10 days"><span>8–10 days</span></label>
+          <label class="tp__opt"><input type="radio" name="trip_length" value="11+ days"><span>11+ days</span></label>
+        </div>
+        <label class="tp__field tp__custom">
+          <span>Something else? Type the number of days</span>
+          <input type="number" name="trip_days_custom" min="1" max="60" step="1" inputmode="numeric" placeholder="e.g. 14">
+        </label>
+      </fieldset>
+
+      <!-- Step 2 -->
+      <fieldset class="tp__step" data-step="2" hidden>
+        <legend>Which month are you travelling?</legend>
+        <div class="tp__grid tp__grid--3" id="tp-months"><!-- the next 12 months are added by the script --></div>
+      </fieldset>
+
+      <!-- Step 3 -->
+      <fieldset class="tp__step" data-step="3" hidden>
+        <legend>What's your travel style?</legend>
+        <div class="tp__grid tp__grid--1">
+          <label class="tp__opt"><input type="radio" name="travel_style" value="Budget"><span>Budget<small>Hostels &amp; simple riads, local food</small></span></label>
+          <label class="tp__opt"><input type="radio" name="travel_style" value="Mid-range"><span>Mid-range<small>Nice riads, a mix of local and comfort</small></span></label>
+          <label class="tp__opt"><input type="radio" name="travel_style" value="Comfort"><span>Comfort<small>Boutique stays, private transfers</small></span></label>
+        </div>
+      </fieldset>
+
+      <!-- Step 4 -->
+      <fieldset class="tp__step" data-step="4" hidden>
+        <legend>What do you want to experience? <small>(pick any)</small></legend>
+        <div class="tp__grid">
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Cities &amp; medinas"><span>Cities &amp; medinas</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Sahara desert"><span>Sahara desert</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Atlas mountains"><span>Atlas mountains</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Beaches &amp; coast"><span>Beaches &amp; coast</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Food"><span>Local food</span></label>
+          <label class="tp__opt"><input type="checkbox" name="interests" value="Hidden gems"><span>Hidden gems</span></label>
+        </div>
+      </fieldset>
+
+      <!-- Step 5: contact -->
+      <fieldset class="tp__step" data-step="5" hidden>
+        <legend>Where should I send your plan?</legend>
+
+        <label class="tp__field">
+          <span>First name <small>(optional)</small></span>
+          <input type="text" name="first_name" autocomplete="given-name" maxlength="60">
+        </label>
+
+        <label class="tp__field">
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" inputmode="email" required maxlength="120">
+        </label>
+
+        <label class="tp__field">
+          <span>Anything specific? <small>(optional)</small></span>
+          <textarea name="notes" rows="3" maxlength="500" placeholder="Travelling with kids, a must-see city, budget per day..."></textarea>
+        </label>
+
+        <label class="tp__consent">
+          <input type="checkbox" name="consent" value="yes" required>
+          <span>
+            I agree to receive my trip plan and occasional emails about Morocco travel from Travel Readz.
+            I can unsubscribe anytime. See the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.
+          </span>
+        </label>
+      </fieldset>
+
+      <p class="tp__error" id="tp-error" role="alert" hidden></p>
+
+      <div class="tp__nav">
+        <button type="button" class="tp__btn tp__btn--ghost" id="tp-back" hidden>Back</button>
+        <button type="button" class="tp__btn" id="tp-next" hidden>Next</button>
+        <button type="submit" class="tp__btn" id="tp-submit" hidden>Send me my plan</button>
+      </div>
+    </form>
+
+    <div class="tp__success" id="tp-success" hidden tabindex="-1">
+      <h3>You're all set 🇲🇦</h3>
+      <p>
+        Thank you! I'll prepare your plan personally and email it to you
+        within 48 hours. Check your spam folder if you don't see it.
+      </p>
+    </div>
+  </div>
+  </div>
+</section>
+
 
 <script>
 (function () {
@@ -1775,30 +1538,9 @@
 })();
 </script>
 
-
-
 <!-- PROBLEM -->
 <section class="problem-section">
-  <style>
-    .problem-section .section-title{ font-weight: 800; text-wrap: balance; }
-    .problem-section .problem-card{ position: relative; padding-top: 60px; }
-    .problem-section .problem-loss{
-      position: absolute; top: 16px; right: 16px; max-width: calc(100% - 32px);
-      display: inline-block; padding: 5px 12px; border-radius: 999px;
-      background: #fdecea; color: #c0392b; border: 1px solid rgba(192,57,43,.22);
-      font-size: 13px; font-weight: 800; line-height: 1.2; letter-spacing: .01em;
-      white-space: nowrap;
-    }
-    .problem-section .problem-cta{
-      display: flex; flex-direction: column; align-items: center; gap: 14px;
-      margin-top: 28px; text-align: center;
-    }
-    .problem-section .problem-cta .btn-pill{ max-width: 100%; justify-content: center; text-align: center; }
-    .problem-section .problem-trust{ margin: 0; font-size: 13px; opacity: .7; }
-    @media (max-width: 480px){
-      .problem-section .problem-cta .btn-pill{ width: 100%; max-width: 340px; }
-    }
-  </style>
+  <div class="container">
 
   <p class="section-label reveal" data-i18n="problem.label">The Problem</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="problem.title">Little mistakes that cost you hundreds.</h2>
@@ -1837,156 +1579,12 @@
        onclick="window.gtag&&gtag('event','click_buy',{button_location:'problem'})">Fix All 4 Mistakes — $12.99 →</a>
     <p class="problem-trust" data-i18n="problem.trust">Instant PDF • Works offline • 7-day money-back guarantee</p>
   </div>
+  </div>
 </section>
-<!-- BOOK SHOWCASE / WHAT'S INSIDE -->
- 
-<!-- ============ WHAT'S INSIDE (replace your whole section with this) ============ -->
-<style>
-  #what-inside{position:relative;isolation:isolate;overflow-x:clip}
-  /* faint paper grain */
-  #what-inside::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.05;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-  
-  .wi-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);
-    align-items:start;margin-top:clamp(32px,5vw,64px);text-align:left}
-  
-  /* ---------- LEFT: showcase ---------- */
-  .wi-left{position:sticky;top:110px;align-self:start}
-  .wi-stage{
-    /* TUNE THESE: product width as % of the stage */
-    --w-book:58%; --w-phone:108%; --w-tablet:100%; --star-o:.9;
-    position:relative;width:100%;max-width:580px;margin:0 auto;aspect-ratio:1/1}
-  .wi-stage::before{content:"";position:absolute;inset:8%;z-index:0;pointer-events:none;border-radius:50%;
-    background:radial-gradient(closest-side,rgba(217,197,165,.55),rgba(217,197,165,0));filter:blur(30px)}
-  .wi-layer{position:absolute;inset:0;will-change:transform}
-  .wi-stars{z-index:1}
-  .wi-prods{z-index:2}
-  .wi-star{position:absolute;aspect-ratio:1/1;will-change:transform,opacity;
-    filter:drop-shadow(0 0 28px rgba(200,127,90,.28));opacity:0}
-  .wi-star img{display:block;width:100%;height:100%;object-fit:contain;will-change:transform;-webkit-user-drag:none}
-  .wi-prod{position:absolute;inset:0;margin:auto;height:auto;max-height:100%;display:block;will-change:transform,opacity;
-    filter:drop-shadow(0 28px 34px rgba(40,30,20,.24)) drop-shadow(0 6px 10px rgba(40,30,20,.12));-webkit-user-drag:none}
-  .wi-book{width:var(--w-book)}
-  .wi-phone{width:var(--w-phone);opacity:0}
-  .wi-tablet{width:var(--w-tablet);opacity:0}
-  
-  /* ---------- RIGHT: chapters ---------- */
-  .wi-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(217,197,165,.8)}
-  .wi-item{position:relative;display:flex;align-items:center;gap:18px;padding:18px 14px;
-    border-bottom:1px solid rgba(217,197,165,.8);border-radius:10px;transition:background-color .4s ease}
-  .wi-item::after{content:"";position:absolute;left:14px;bottom:-1px;height:2px;width:56px;background:#C87F5A;
-    transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.45,0,.25,1)}
-  .wi-item:hover{background:rgba(217,197,165,.2)}
-  .wi-item:hover::after{transform:scaleX(1)}
-  .wi-icon{flex:none;width:48px;height:48px;display:grid;place-items:center;font-size:22px;border-radius:50%;
-    background:rgba(217,197,165,.35);transition:transform .45s cubic-bezier(.45,0,.25,1),background-color .45s}
-  .wi-item:hover .wi-icon{transform:translateY(-3px);background:rgba(200,127,90,.2)}
-  .wi-item strong{display:block;font-size:1.05rem;color:#1A3C2E;line-height:1.3}
-  .wi-item span{display:block;margin-top:2px;font-size:.92rem;color:#6b5d4f;line-height:1.4}
-  .wi-cta{margin-top:32px;text-align:left}
-  
-  /* ---------- MOBILE ---------- */
-  @media (max-width:900px){
-    .wi-grid{grid-template-columns:1fr;gap:36px}
-    .wi-left{position:static}
-    .wi-stage{max-width:440px}
-  }
-  @media (max-width:480px){.wi-item{gap:14px;padding:16px 8px}.wi-icon{width:42px;height:42px;font-size:19px}}
-  </style>
-  
-  <section class="book-section" id="what-inside">
-    <div class="book-section-inner">
-  
-      <!-- HEADER (unchanged, centered) -->
-      <section id="what-inside" class="wx">
-        <style>
-          .wx{
-            --wx-ink: var(--ink, #1c1b19);
-            --wx-muted: var(--muted, #6b6760);
-            --wx-line: rgba(28,27,25,.08);
-            --wx-accent: var(--green, #2f5d46);
-            padding: clamp(56px, 9vw, 112px) 20px;
-          }
-          .wx__inner{ max-width: 1120px; margin: 0 auto; }
+<!-- WHAT'S INSIDE -->
+<section id="what-inside" class="wx">
       
-          /* Header */
-          .wx__head{ text-align: center; max-width: 720px; margin: 0 auto clamp(36px, 6vw, 64px); }
-          .wx__head h2{ margin: 8px 0 14px; text-wrap: balance; }
-          .wx__sub{ margin: 0; color: var(--wx-muted); font-size: clamp(15px, 2vw, 18px); line-height: 1.5; text-wrap: balance; }
-      
-          /* Screenshots */
-          .wx__shots{
-            display: grid; grid-template-columns: 1fr; gap: 40px;
-            justify-items: center; margin-bottom: clamp(48px, 7vw, 80px);
-          }
-          .wx-shot{ margin: 0; width: 100%; max-width: 340px; }
-          .wx-shot__title{
-            margin: 0 0 14px; text-align: center;
-            font-size: 16px; line-height: 1.35; font-weight: 700; color: var(--wx-ink); text-wrap: balance;
-          }
-          .wx-shot__frame{
-            position: relative; aspect-ratio: 3 / 4; overflow: hidden;
-            border-radius: 14px; background: linear-gradient(160deg, #f4f1ea, #e7e2d6);
-            border: 1px solid var(--wx-line);
-            box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 18px 40px -12px rgba(0,0,0,.28);
-            transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s;
-          }
-          .wx-shot__frame img{ width: 100%; height: 100%; object-fit: cover; display: block; }
-          /* page-spine shading so it reads as a real book page */
-          .wx-shot__frame::after{
-            content: ""; position: absolute; inset: 0; pointer-events: none;
-            background: linear-gradient(90deg, rgba(0,0,0,.10) 0, rgba(0,0,0,0) 7%, rgba(255,255,255,.12) 8%, rgba(255,255,255,0) 14%);
-          }
-      
-          @media (min-width: 860px){
-            .wx__shots{ grid-template-columns: repeat(3, 1fr); gap: 36px; align-items: start; }
-            .wx-shot{ max-width: none; }
-            .wx-shot:nth-child(1) .wx-shot__frame{ transform: rotate(-2.2deg); }
-            .wx-shot:nth-child(2) .wx-shot__frame{ transform: translateY(-10px); }
-            .wx-shot:nth-child(3) .wx-shot__frame{ transform: rotate(2.2deg); }
-            .wx-shot:hover .wx-shot__frame{
-              transform: rotate(0) translateY(-6px);
-              box-shadow: 0 2px 4px rgba(0,0,0,.05), 0 28px 56px -14px rgba(0,0,0,.34);
-            }
-          }
-      
-          /* Benefit grid */
-          .wx__grid{
-            list-style: none; margin: 0 0 clamp(40px, 6vw, 64px); padding: 0;
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
-          }
-          @media (min-width: 860px){ .wx__grid{ grid-template-columns: repeat(3, 1fr); gap: 20px; } }
-      
-          .wx-card{
-            background: #fff; border: 1px solid var(--wx-line); border-radius: 16px;
-            padding: 18px 16px; box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 8px 24px -14px rgba(0,0,0,.18);
-          }
-          @media (min-width: 860px){ .wx-card{ padding: 24px 22px; } }
-          .wx-card__icon{
-            width: 38px; height: 38px; border-radius: 10px; margin-bottom: 12px;
-            display: grid; place-items: center;
-            background: color-mix(in srgb, var(--wx-accent) 10%, transparent); color: var(--wx-accent);
-          }
-          .wx-card__icon svg{ width: 20px; height: 20px; }
-          .wx-card strong{ display: block; font-size: 15px; color: var(--wx-ink); margin-bottom: 4px; }
-          .wx-card span{ display: block; font-size: 13.5px; line-height: 1.45; color: var(--wx-muted); }
-          @media (min-width: 860px){
-            .wx-card strong{ font-size: 16px; }
-            .wx-card span{ font-size: 14.5px; }
-          }
-      
-          /* CTA */
-          .wx__cta{ display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
-          .wx__btns{ display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 340px; }
-          .wx__btns .btn-pill{ width: 100%; justify-content: center; text-align: center; }
-          @media (min-width: 700px){
-            .wx__btns{ flex-direction: row; max-width: none; width: auto; gap: 14px; }
-            .wx__btns .btn-pill{ width: auto; }
-          }
-          .wx__trust{ margin: 0; font-size: 13px; color: var(--wx-muted); }
-        </style>
-      
-        <div class="wx__inner">
+        <div class="wx__inner container">
       
           <!-- Header -->
           <div class="wx__head reveal">
@@ -2088,32 +1686,32 @@
 
 <!-- DESTINATIONS DRAG STRIP -->
 <section class="destinations-section" id="destinations">
+  <div class="container">
   <p class="section-label reveal" data-i18n="dest.label">8+ Cities Covered</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="dest.title">Every corner of Morocco.</h2>
   <p class="section-sub reveal reveal-delay-2" data-i18n="dest.sub">From the blue streets of Chefchaouen to the golden dunes of Merzouga. Drag to explore.</p>
 
-  <div class="drag-scroll" id="destScroll">
-    <div class="drag-track">
-      <div class="dest-card" style="background:#EFF9F3"><div class="dest-emoji">🕌</div><div class="dest-name">Marrakech</div><div class="dest-pages">12 pages</div></div>
-      <div class="dest-card" style="background:#EFF5FF"><div class="dest-emoji">🔵</div><div class="dest-name">Chefchaouen</div><div class="dest-pages">8 pages</div></div>
-      <div class="dest-card" style="background:#FFF8ED"><div class="dest-emoji">🏖️</div><div class="dest-name">Agadir</div><div class="dest-pages">10 pages</div></div>
-      <div class="dest-card" style="background:#FDF3F3"><div class="dest-emoji">🎻</div><div class="dest-name">Fes</div><div class="dest-pages">11 pages</div></div>
-      <div class="dest-card" style="background:#F0FDFA"><div class="dest-emoji">🌊</div><div class="dest-name">Essaouira</div><div class="dest-pages">7 pages</div></div>
-      <div class="dest-card" style="background:#FEFCE8"><div class="dest-emoji">🏜️</div><div class="dest-name">Sahara</div><div class="dest-pages">9 pages</div></div>
-      <div class="dest-card" style="background:#F5F0FF"><div class="dest-emoji">🏔️</div><div class="dest-name">Atlas</div><div class="dest-pages">8 pages</div></div>
-      <div class="dest-card" style="background:#F0F9FF"><div class="dest-emoji">🌄</div><div class="dest-name">Demnate</div><div class="dest-pages">6 pages</div></div>
-    </div>
+  <div class="strip" id="destScroll">
+      <div class="dest-card" style="--c:#EFF9F3"><div class="dest-name">Marrakech</div><div class="dest-pages">12 pages</div></div>
+      <div class="dest-card" style="--c:#EFF5FF"><div class="dest-name">Chefchaouen</div><div class="dest-pages">8 pages</div></div>
+      <div class="dest-card" style="--c:#FFF8ED"><div class="dest-name">Agadir</div><div class="dest-pages">10 pages</div></div>
+      <div class="dest-card" style="--c:#FDF3F3"><div class="dest-name">Fes</div><div class="dest-pages">11 pages</div></div>
+      <div class="dest-card" style="--c:#F0FDFA"><div class="dest-name">Essaouira</div><div class="dest-pages">7 pages</div></div>
+      <div class="dest-card" style="--c:#FEFCE8"><div class="dest-name">Sahara</div><div class="dest-pages">9 pages</div></div>
+      <div class="dest-card" style="--c:#F5F0FF"><div class="dest-name">Atlas</div><div class="dest-pages">8 pages</div></div>
+      <div class="dest-card" style="--c:#F0F9FF"><div class="dest-name">Demnate</div><div class="dest-pages">6 pages</div></div>
+  </div>
   </div>
 </section>
 
 <!-- PREVIEW STRIP -->
 <section class="preview-section">
+  <div class="container">
   <p class="section-label reveal" data-i18n="preview.label">Sneak Peek</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="preview.title">A look inside the guide.</h2>
   <p class="section-sub reveal reveal-delay-2" data-i18n="preview.sub">205 pages of real, actionable content. No filler.</p>
 
-  <div class="drag-scroll" id="previewScroll">
-    <div class="preview-track">
+  <div class="strip" id="previewScroll">
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_145529_evv3dm.png" alt="Preview 1"></div>
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150327_ujljkv.png" alt="Preview 2"></div>
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1780940088/Picsart_26-06-08_18-33-54-204_o64yoh.jpg" alt="Preview 3"></div>
@@ -2122,12 +1720,13 @@
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150828_ykkwuz.png" alt="Preview 6"></div>
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558826/Screenshot_2026-04-30_150435_cqwlej.png" alt="Preview 5"></div>
       <div class="preview-card"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1777558825/Screenshot_2026-04-30_150659_f3weew.png" alt="Preview 6"></div>
-    </div>
+  </div>
   </div>
 </section>
 
 <!-- FEATURES -->
 <section class="features-section">
+  <div class="container">
   <p class="section-label reveal" data-i18n="feat.label">Why This Guide?</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="feat.title">Written from the inside.</h2>
   <p class="section-sub reveal reveal-delay-2" data-i18n="feat.sub">No copy-pasted Lonely Planet facts. Just real knowledge from someone who grew up here.</p>
@@ -2176,10 +1775,12 @@
       <div class="feature-desc" data-i18n="feat.6.desc">Essential Moroccan Arabic phrases that will open doors locals keep firmly shut for ordinary tourists. Instantly build trust.</div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- AUTHOR -->
 <section class="author-section" id="author">
+  <div class="container">
   <div class="author-inner">
     <div class="author-avatar reveal">
       <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1793998258/Professional_Studio_Portrait_p9dftj.png" alt="Soufiane">
@@ -2193,10 +1794,12 @@
       </p>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section class="testimonials-section">
+  <div class="container">
   <p class="section-label reveal" data-i18n="testi.label">What Readers Say</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="testi.title">Real trips. Real stories.</h2>
   <p class="section-sub reveal reveal-delay-2" data-i18n="testi.sub">From solo backpackers to family travelers — here's what they found inside.</p>
@@ -2227,10 +1830,12 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- BONUS -->
 <section class="bonus-section">
+  <div class="container">
   <p class="section-label reveal" data-i18n="bonus.label">Stack the Value</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="bonus.title">Everything you need. All in one place.</h2>
   <p class="section-sub reveal reveal-delay-2" data-i18n="bonus.sub">Higher tiers come loaded with tools that save you real time and money before and during your trip.</p>
@@ -2270,10 +1875,12 @@
       <div class="bonus-img-wrap"><img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1770568621/Untitled_design_8_b26gii.png" alt="WhatsApp" class="bonus-img"></div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- PRICING -->
 <section class="pricing-section" id="pricing">
+  <div class="container">
   <p class="section-label reveal" data-i18n="price.label">Simple Pricing</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="price.title">Pick your edition.</h2>
   <p class="section-sub reveal reveal-delay-2" data-i18n="price.sub">All editions include the full 205-page guide. Every tier includes instant PDF download and lifetime access.</p>
@@ -2360,12 +1967,13 @@
     <img class="payment-img reveal" src="https://i.ibb.co/x8HbqXPp/payment-Capture-removebg-preview.png" alt="Payment Methods">
     <img class="guarantee-img reveal" src="https://res.cloudinary.com/dzidoxclo/image/upload/v1795622044/7-Day_Money-Back_Guarantee_Badge_woun2d.webp" alt="15-Day Satisfaction Promise">
   </div>
- 
+  </div>
 </section>
 
 
 <!-- FAQ -->
 <section class="faq-section">
+  <div class="container">
   <p class="section-label reveal" data-i18n="faq.label">FAQ</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="faq.title">Still have questions?</h2>
   <p class="section-sub reveal reveal-delay-2" data-i18n="faq.sub">Here are the ones we hear most often.</p>
@@ -2388,23 +1996,27 @@
       <div class="faq-a" data-i18n="faq.4.a">VIP buyers get my personal WhatsApp number inside the guide. Message me before or during your trip — whether you need a real recommendation, want to know if a price is fair, or find yourself in a situation you're not sure how to handle. I reply personally within a few hours during Morocco daytime. This isn't a support ticket. It's a local contact who actually lives here.</div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- FINAL CTA -->
 <section class="cta-section">
+  <div class="container">
   <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1778411394/ChatGPT_Image_May_10__2026__11_51_14_AM-removebg-preview_sq8sz2.png" alt="Travel Readz" class="cta-brand-logo reveal">
   <p class="section-label cta-label reveal" data-i18n="cta.label">Ready?</p>
   <h2 class="cta-title reveal reveal-delay-1" data-i18n="cta.title">Your Morocco trip starts here.</h2>
   <p class="cta-sub reveal reveal-delay-2" data-i18n="cta.sub">Download instantly. Read on any device. Show up knowing things most tourists spend a whole trip figuring out.</p>
   <div class="cta-actions reveal reveal-delay-3">
-    <a href="#pricing" target="pricing" class="btn-pill btn-cta-primary" data-i18n="cta.btn1">Get Unlocking Morocco — from $12.99 →</a>
+    <a href="#pricing" class="btn-pill btn-cta-primary" data-i18n="cta.btn1">Get Unlocking Morocco — from $12.99 →</a>
     <a href="#pricing" class="btn-pill btn-cta-ghost" data-i18n="cta.btn2">Compare editions</a>
   </div>
   <p class="cta-guarantee reveal reveal-delay-4" data-i18n="cta.guarantee">📥 Instant PDF download · Works offline · Lifetime access & free updates</p>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
+  <div class="container footer-inner">
   <img src="https://res.cloudinary.com/dzidoxclo/image/upload/v1778849739/Untitled_design_ik5bmt.png" alt="Travel Readz" class="footer-logo-img">
   <ul class="footer-links">
     <li><a href="#author" data-i18n="footer.about">About</a></li>
@@ -2413,6 +2025,7 @@
     <li><a href="https://travelreadz.gumroad.com/l/ubqlaj?wanted=true" target="_blank" data-i18n="footer.buy">Get the Guide</a></li>
   </ul>
   <div class="footer-copy">© 2026 Travel Readz. All rights reserved.</div>
+  </div>
 </footer>
 
 <script>
@@ -2837,140 +2450,24 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 revealEls.forEach(el => revealObserver.observe(el));
 
-/* ── DRAG SCROLL (both strips) ── */
+/* ── DRAG SCROLL (both strips) — mouse drag; touch uses native swipe ── */
 function makeDraggable(id) {
   const el = document.getElementById(id);
   if (!el) return;
-  let isDown = false, startX, scrollLeft;
-  el.addEventListener('mousedown', e => { isDown = true; el.classList.add('dragging'); startX = e.pageX - el.offsetLeft; scrollLeft = el.scrollLeft; });
-  el.addEventListener('mouseleave', () => { isDown = false; el.classList.remove('dragging'); });
-  el.addEventListener('mouseup', () => { isDown = false; el.classList.remove('dragging'); });
-  el.addEventListener('mousemove', e => {
-    if (!isDown) return; e.preventDefault();
-    el.scrollLeft = scrollLeft - (e.pageX - el.offsetLeft - startX) * 1.5;
+  let down = false, startX = 0, startLeft = 0;
+  el.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    down = true; startX = e.clientX; startLeft = el.scrollLeft;
+    el.classList.add('dragging');
   });
+  window.addEventListener('pointermove', e => {
+    if (down) el.scrollLeft = startLeft - (e.clientX - startX);
+  });
+  window.addEventListener('pointerup', () => { down = false; el.classList.remove('dragging'); });
+  window.addEventListener('pointercancel', () => { down = false; el.classList.remove('dragging'); });
 }
 makeDraggable('destScroll');
 makeDraggable('previewScroll');
-
-/* ── FLOATING EDITORIAL SHOWCASE ── */
-(function() {
-  const EDITIONS = [
-    {
-      front: { src: 'https://res.cloudinary.com/dzidoxclo/image/upload/v1770821065/Untitled_design_16_tf00rx.png', alt: 'English Edition' },
-      mid:   { src: 'https://res.cloudinary.com/dzidoxclo/image/upload/v1770821062/Untitled_design_14_j5lrij.png', alt: 'French Edition' },
-      back:  { src: 'https://res.cloudinary.com/dzidoxclo/image/upload/v1770821056/Untitled_design_15_irckzm.png', alt: 'Spanish Edition' },
-      label: 'English Edition'
-    },
-    {
-      front: { src: 'https://res.cloudinary.com/dzidoxclo/image/upload/v1770821062/Untitled_design_14_j5lrij.png', alt: 'French Edition' },
-      mid:   { src: 'https://res.cloudinary.com/dzidoxclo/image/upload/v1770821056/Untitled_design_15_irckzm.png', alt: 'Spanish Edition' },
-      back:  { src: 'https://res.cloudinary.com/dzidoxclo/image/upload/v1770821065/Untitled_design_16_tf00rx.png', alt: 'English Edition' },
-      label: 'French Edition'
-    },
-    {
-      front: { src: 'https://res.cloudinary.com/dzidoxclo/image/upload/v1770821056/Untitled_design_15_irckzm.png', alt: 'Spanish Edition' },
-      mid:   { src: 'https://res.cloudinary.com/dzidoxclo/image/upload/v1770821065/Untitled_design_16_tf00rx.png', alt: 'English Edition' },
-      back:  { src: 'https://res.cloudinary.com/dzidoxclo/image/upload/v1770821062/Untitled_design_14_j5lrij.png', alt: 'French Edition' },
-      label: 'Spanish Edition'
-    }
-  ];
-
-  const frontEl  = document.getElementById('book-front');
-  const midEl    = document.getElementById('book-mid');
-  const backEl   = document.getElementById('book-back');
-  const editionTag   = document.getElementById('editionTag');
-  const editionLabel = document.getElementById('editionLabel');
-
-  let currentIdx = 0;
-  let isAnimating = false;
-
-  // Utility: clear all state classes from an element
-  function clearStates(el) {
-    el.classList.remove(
-      'state-entering-front', 'state-entering-mid', 'state-entering-back',
-      'state-floating-front', 'state-floating-mid', 'state-floating-back',
-      'state-exiting-front',  'state-exiting-mid',  'state-exiting-back'
-    );
-  }
-
-  // Set images for a given edition
-  function applyEdition(idx) {
-    const ed = EDITIONS[idx];
-    frontEl.querySelector('img').src = ed.front.src;
-    frontEl.querySelector('img').alt = ed.front.alt;
-    midEl.querySelector('img').src   = ed.mid.src;
-    midEl.querySelector('img').alt   = ed.mid.alt;
-    backEl.querySelector('img').src  = ed.back.src;
-    backEl.querySelector('img').alt  = ed.back.alt;
-    editionLabel.textContent = ed.label;
-  }
-
-  // Initial entrance — plays once on load
-  function enterShowcase() {
-    applyEdition(currentIdx);
-
-    [frontEl, midEl, backEl].forEach(clearStates);
-
-    // Stagger the enter animations
-    frontEl.classList.add('state-entering-front');
-    midEl.classList.add('state-entering-mid');
-    backEl.classList.add('state-entering-back');
-
-    // After enter animation completes (~1.3s), switch to floating idle
-    setTimeout(() => {
-      [frontEl, midEl, backEl].forEach(clearStates);
-      frontEl.classList.add('state-floating-front');
-      midEl.classList.add('state-floating-mid');
-      backEl.classList.add('state-floating-back');
-      // Show edition tag
-      editionTag.classList.add('visible');
-    }, 1350);
-  }
-
-  // Cycle to next set of books
-  function cycleShowcase() {
-    if (isAnimating) return;
-    isAnimating = true;
-
-    // 1. Fade edition tag out
-    editionTag.classList.remove('visible');
-
-    // 2. Trigger exit animations
-    [frontEl, midEl, backEl].forEach(clearStates);
-    frontEl.classList.add('state-exiting-front');
-    midEl.classList.add('state-exiting-mid');
-    backEl.classList.add('state-exiting-back');
-
-    // 3. After exit completes (~950ms), swap images and enter again
-    setTimeout(() => {
-      currentIdx = (currentIdx + 1) % EDITIONS.length;
-      applyEdition(currentIdx);
-
-      [frontEl, midEl, backEl].forEach(clearStates);
-      frontEl.classList.add('state-entering-front');
-      midEl.classList.add('state-entering-mid');
-      backEl.classList.add('state-entering-back');
-
-      // 4. After enter, float
-      setTimeout(() => {
-        [frontEl, midEl, backEl].forEach(clearStates);
-        frontEl.classList.add('state-floating-front');
-        midEl.classList.add('state-floating-mid');
-        backEl.classList.add('state-floating-back');
-        editionTag.classList.add('visible');
-        isAnimating = false;
-      }, 1350);
-
-    }, 950);
-  }
-
-  // Kick off
-  enterShowcase();
-
-  // Cycle every 5 seconds (enter ~1.35s + float ~3.65s idle before next cycle)
-  setInterval(cycleShowcase, 5200);
-})();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -3382,9 +2879,6 @@ makeDraggable('previewScroll');
 
 })();
 </script>
-
-<!-- ============ SPIDER BUDDY: paste right before </body> ============ -->
-
 
 </body>
 </html>
