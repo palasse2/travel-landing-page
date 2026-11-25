@@ -237,6 +237,19 @@
       display: flex; gap: 28px; flex-wrap: wrap;
       animation: fadeSlideUp 0.7s 0.35s ease both;
     }
+
+    .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
+.btn-hero { padding: 18px 36px; font-size: 17px; min-height: 58px; }
+.btn-hero-2 { font-size: 15px; padding: 14px 28px; min-height: 48px; }
+.hero-trust { font-size: 12.5px; color: var(--neutral-600); }
+.hero-actions .btn-primary:not(.btn-hero-2) { animation: ctaPulse 2.6s ease-in-out infinite; }
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 16px rgba(39,80,57,.28); }
+  50%      { box-shadow: 0 6px 28px rgba(39,80,57,.5); }
+}
+@media (max-width: 900px) {
+  .hero-actions .btn-pill { width: 100%; max-width: 420px; justify-content: center; }
+}
     @media (max-width: 900px) { .hero-stats { justify-content: center; } }
     .hero-stat { text-align: center; }
     .hero-stat-num { font-size: 1.7rem; font-weight: 900; color: var(--green-deep); letter-spacing: -0.03em; line-height: 1; }
@@ -1194,11 +1207,19 @@
     <p class="hero-sub" data-i18n="hero.sub">
       The 205-page guide by a Moroccan that shows you every scam, every real price , and exactly what to say - before you land <p/>
 
+        
     <div class="hero-actions">
-      <a href="#pricing" class="btn-pill btn-primary btn-hero" data-i18n="hero.cta1">Get Unlocking Morocco →</a>
-      <a href="#what-inside" class="btn-pill btn-ghost btn-hero" data-i18n="hero.cta2">See what's inside</a>
+  <a href="#pricing" class="btn-pill btn-primary btn-hero"
+     data-i18n="hero.cta1b"
+     onclick="window.gtag&&gtag('event','click_buy',{button_location:'hero'})">Get My Scam-Proof Guide — $12.99 →</a>
+  <a href="#trip-planner" class="btn-pill btn-ghost btn-hero btn-hero-2"
+     data-i18n="hero.cta2b"
+     onclick="window.gtag&&gtag('event','click_free_plan',{button_location:'hero'})">🗺️ Or get a free trip plan</a>
+  <p class="hero-trust" data-i18n="hero.trust">Instant PDF · 15-day guarantee · 70+ travelers</p>
     </div>
 
+
+    
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="hero-stat-num">205</div>
