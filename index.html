@@ -1683,27 +1683,45 @@
         </div>
       </section>
 
-
-<!-- DESTINATIONS DRAG STRIP -->
+    
+<!-- CITIES: 3D CYLINDER CAROUSEL -->
 <section class="destinations-section" id="destinations">
-  <div class="container">
-  <p class="section-label reveal" data-i18n="dest.label">8+ Cities Covered</p>
-  <h2 class="section-title reveal reveal-delay-1" data-i18n="dest.title">Every corner of Morocco.</h2>
-  <p class="section-sub reveal reveal-delay-2" data-i18n="dest.sub">From the blue streets of Chefchaouen to the golden dunes of Merzouga. Drag to explore.</p>
+  <p class="section-label reveal" data-i18n="dest.label2">Top Cities Covered</p>
+  <h2 class="section-title reveal reveal-delay-1" id="destTitle" data-i18n="dest.title">Every corner of Morocco.</h2>
+  <p class="section-sub reveal reveal-delay-2" data-i18n="dest.sub2">From the blue streets of Chefchaouen to the golden dunes of Merzouga.</p>
 
-  <div class="strip" id="destScroll">
-      <div class="dest-card" style="--c:#EFF9F3"><div class="dest-name">Marrakech</div><div class="dest-pages">12 pages</div></div>
-      <div class="dest-card" style="--c:#EFF5FF"><div class="dest-name">Chefchaouen</div><div class="dest-pages">8 pages</div></div>
-      <div class="dest-card" style="--c:#FFF8ED"><div class="dest-name">Agadir</div><div class="dest-pages">10 pages</div></div>
-      <div class="dest-card" style="--c:#FDF3F3"><div class="dest-name">Fes</div><div class="dest-pages">11 pages</div></div>
-      <div class="dest-card" style="--c:#F0FDFA"><div class="dest-name">Essaouira</div><div class="dest-pages">7 pages</div></div>
-      <div class="dest-card" style="--c:#FEFCE8"><div class="dest-name">Sahara</div><div class="dest-pages">9 pages</div></div>
-      <div class="dest-card" style="--c:#F5F0FF"><div class="dest-name">Atlas</div><div class="dest-pages">8 pages</div></div>
-      <div class="dest-card" style="--c:#F0F9FF"><div class="dest-name">Demnate</div><div class="dest-pages">6 pages</div></div>
-  </div>
+  <div class="cyl" id="cylCarousel" aria-labelledby="destTitle">
+    <div class="cyl-stage" tabindex="0">
+      <div class="cyl-ring">
+        <article class="cyl-card" style="--img:url('/images/marrakech.jpg');--g1:#275039;--g2:#9c5b2e">
+          <div class="cyl-info"><h3 class="cyl-name">Marrakech</h3><p class="cyl-line" data-i18n="dest.c1.line">How to survive Jemaa El-Fnaa</p></div>
+        </article>
+        <article class="cyl-card" style="--img:url('/images/chefchaouen.jpg');--g1:#1f3f6b;--g2:#4f8fd6">
+          <div class="cyl-info"><h3 class="cyl-name">Chefchaouen</h3><p class="cyl-line" data-i18n="dest.c2.line">Blue streets without the crowd</p></div>
+        </article>
+        <article class="cyl-card" style="--img:url('/images/fes.jpg');--g1:#3a2a1c;--g2:#a87642">
+          <div class="cyl-info"><h3 class="cyl-name">Fes</h3><p class="cyl-line" data-i18n="dest.c3.line">Don't get lost in the medina</p></div>
+        </article>
+        <article class="cyl-card" style="--img:url('/images/merzouga.jpg');--g1:#7a3f12;--g2:#e0a24a">
+          <div class="cyl-info"><h3 class="cyl-name">Merzouga</h3><p class="cyl-line" data-i18n="dest.c4.line">What a desert tour should REALLY cost</p></div>
+        </article>
+        <article class="cyl-card" style="--img:url('/images/essaouira.jpg');--g1:#12495a;--g2:#4fb3c4">
+          <div class="cyl-info"><h3 class="cyl-name">Essaouira</h3><p class="cyl-line" data-i18n="dest.c5.line">Best seafood for 40 MAD</p></div>
+        </article>
+        <article class="cyl-card" style="--img:url('/images/agadir.jpg');--g1:#275039;--g2:#e7c27d">
+          <div class="cyl-info"><h3 class="cyl-name">Agadir</h3><p class="cyl-line" data-i18n="dest.c6.line">Best beach, no tourist trap</p></div>
+        </article>
+      </div>
+    </div>
+    <div class="cyl-controls">
+      <button type="button" class="cyl-btn cyl-prev"><span class="cyl-sr" data-i18n="dest.prev">Previous city</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="cyl-btn cyl-next"><span class="cyl-sr" data-i18n="dest.next">Next city</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
   </div>
 </section>
 
+
+  
 <!-- PREVIEW STRIP -->
 <section class="preview-section">
   <div class="container">
