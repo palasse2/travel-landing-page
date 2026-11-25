@@ -8,6 +8,51 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --green-deep: #275039; --green-light: #9CF5BF; --green-pale: #E8F5E9;
+    --dark: #171717; --dark-2: #111111; --sand: #FAF9F6; --white: #ffffff;
+    --neutral-400: #a1a1a1; --neutral-600: #525252;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: var(--sand); color: var(--dark); font-family: 'Poppins', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--green-deep); font-weight: 600; overflow-wrap: anywhere; }
+
+  nav {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 100;
+    width: 92%; max-width: 1200px; display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 14px 10px 22px; border-radius: 999px;
+    background: rgba(255,255,255,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 4px 24px rgba(39,80,57,0.08);
+  }
+  .brand { font-size: 15px; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; text-decoration: none; }
+  .btn {
+    padding: 9px 20px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap;
+    background: var(--green-deep); color: var(--white); box-shadow: 0 4px 16px rgba(39,80,57,0.28); transition: all 0.2s ease;
+  }
+  .btn:hover { transform: scale(1.04); box-shadow: 0 6px 22px rgba(39,80,57,0.38); }
+
+  header { text-align: center; padding: 130px 24px 48px; }
+  .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--green-deep); margin-bottom: 14px; }
+  h1 { margin: 0 0 12px; font-size: clamp(1.9rem, 6vw, 3rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; }
+  .date { margin: 0; font-size: 1rem; color: var(--neutral-600); }
+
+  main { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; display: grid; gap: 20px; }
+  section { background: var(--white); border: 1.5px solid rgba(39,80,57,0.08); border-radius: 24px; padding: 28px; }
+  h2 { margin: 0 0 12px; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; color: var(--green-deep); }
+  h3 { margin: 20px 0 6px; font-size: 15px; font-weight: 800; }
+  p, li { font-size: 14px; line-height: 1.7; color: var(--neutral-600); }
+  p { margin: 10px 0 0; }
+  ul { margin: 8px 0 0; padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--green-deep); }
+  li strong { color: var(--dark); }
+
+  footer { background: var(--dark-2); padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .footer-brand { font-size: 14px; font-weight: 800; color: var(--white); }
+  footer a { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.45); }
+</style>
 </head>
 <body>
   <nav>
@@ -18,13 +63,13 @@
   <header>
     <div class="label">Your data</div>
     <h1>Privacy Policy</h1>
-    <p class="date">Last updated </p>
+    <p class="date">Last updated: 25 November 2026</p>
   </header>
 
   <main>
     <section>
     <h2>1. Who we are</h2>
-    <p>Travel Readz is a Morocco travel brand run by Soufiane, based in Agadir, Morocco. We are responsible for the personal data described here. Contact: <a href={`mailto:hello@travelreadz.com>{email}</a>.</p>
+    <p>Travel Readz is a Morocco travel brand run by Soufiane, based in Agadir, Morocco. We are responsible for the personal data described here. Contact: <a href="mailto:hello@travelreadz.com">hello@travelreadz.com</a>.</p>
     </section>
     <section>
     <h2>2. What we collect</h2>
@@ -85,7 +130,7 @@
     <h2>7. Your rights</h2>
     <p>Under Moroccan Law 09-08 you can ask to access or correct your data, and object to its use for legitimate reasons or for marketing.</p>
     <p>If you are in the European Economic Area or the United Kingdom, you can also ask us to delete your data, restrict its use, or give you a portable copy, and you can object to processing based on legitimate interest.</p>
-    <p>To use any of these rights, email <a href={`mailto:${email}`}>{email}</a>. We aim to reply within one month. To stop marketing emails, reply "unsubscribe" or write to the same address.</p>
+    <p>To use any of these rights, email <a href="mailto:hello@travelreadz.com">hello@travelreadz.com</a>. We aim to reply within one month. To stop marketing emails, reply "unsubscribe" or write to the same address.</p>
     <p>You can also complain to a data protection authority: in Morocco, the <a href="https://www.cndp.ma" target="_blank" rel="noopener">CNDP</a>; elsewhere, the authority where you live.</p>
     </section>
     <section>
@@ -109,49 +154,3 @@
   </footer>
 </body>
 </html>
-
-<style is:global>
-  :root {
-    --green-deep: #275039; --green-light: #9CF5BF; --green-pale: #E8F5E9;
-    --dark: #171717; --dark-2: #111111; --sand: #FAF9F6; --white: #ffffff;
-    --neutral-400: #a1a1a1; --neutral-600: #525252;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  body { margin: 0; background: var(--sand); color: var(--dark); font-family: 'Poppins', sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: var(--green-deep); font-weight: 600; overflow-wrap: anywhere; }
-
-  nav {
-    position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 100;
-    width: 92%; max-width: 1200px; display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 14px 10px 22px; border-radius: 999px;
-    background: rgba(255,255,255,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 4px 24px rgba(39,80,57,0.08);
-  }
-  .brand { font-size: 15px; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; text-decoration: none; }
-  .btn {
-    padding: 9px 20px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap;
-    background: var(--green-deep); color: var(--white); box-shadow: 0 4px 16px rgba(39,80,57,0.28); transition: all 0.2s ease;
-  }
-  .btn:hover { transform: scale(1.04); box-shadow: 0 6px 22px rgba(39,80,57,0.38); }
-
-  header { text-align: center; padding: 130px 24px 48px; }
-  .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--green-deep); margin-bottom: 14px; }
-  h1 { margin: 0 0 12px; font-size: clamp(1.9rem, 6vw, 3rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; }
-  .date { margin: 0; font-size: 1rem; color: var(--neutral-600); }
-
-  main { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; display: grid; gap: 20px; }
-  section { background: var(--white); border: 1.5px solid rgba(39,80,57,0.08); border-radius: 24px; padding: 28px; }
-  h2 { margin: 0 0 12px; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; color: var(--green-deep); }
-  h3 { margin: 20px 0 6px; font-size: 15px; font-weight: 800; }
-  p, li { font-size: 14px; line-height: 1.7; color: var(--neutral-600); }
-  p { margin: 10px 0 0; }
-  ul { margin: 8px 0 0; padding-left: 20px; }
-  li { margin-bottom: 6px; }
-  li::marker { color: var(--green-deep); }
-  li strong { color: var(--dark); }
-
-  footer { background: var(--dark-2); padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
-  .footer-brand { font-size: 14px; font-weight: 800; color: var(--white); }
-  footer a { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.6); text-decoration: none; }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.45); }
-</style>
